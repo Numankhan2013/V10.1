@@ -97,9 +97,9 @@
   };
   // A change with what it compares to; a tiny base reads "was N" in grey instead of a loud percentage.
   function nkLearningVs(key,current,previous,label){
-    const m=NK_LI_METRICS[key],cur=m.value(current),prev=m.value(previous),lower=String(label||'').toLowerCase();
+    const m=NK_LI_METRICS[key],cur=m.value(current),prev=m.value(previous),lower=/^Previous /.test(String(label||''))?String(label).toLowerCase():String(label||'');
     if(cur===null||cur===undefined)return '<span class="nk-li-vs is-neutral">No answers yet</span>';
-    if(prev===null||prev===undefined)return `<span class="nk-li-vs is-neutral">Nothing ${esc(lower)}</span>`;
+    if(prev===null||prev===undefined)return `<span class="nk-li-vs is-neutral">No data for ${esc(lower)}</span>`;
     if(m.points){const d=cur-prev;return Math.abs(d)<.5?`<span class="nk-li-vs is-neutral">Same as ${esc(lower)}</span>`:`<span class="nk-li-vs ${d>0?'is-up':'is-down'}">${d>0?'+':'−'}${Math.abs(d).toFixed(0)} pts vs ${esc(lower)}</span>`;}
     if(prev<m.small)return `<span class="nk-li-vs is-neutral">was ${esc(m.format(prev))}</span>`;
     const pct=(cur-prev)/prev*100;
@@ -108,7 +108,7 @@
   }
   function nkLearningNiceMax(max,unit=''){
     if(unit==='min'&&max>60){const h=nkLearningNiceMax(max/60);return h*60;}
-    if(max<=2)return 2;const step=Math.pow(10,Math.floor(Math.log10(max))),n=max/step;return (n<=1?1:n<=2?2:n<=5?5:10)*step;
+    if(max<=2)return 2;const step=Math.pow(10,Math.floor(Math.log10(max))),n=max/step;return ([1,1.2,1.5,2,2.5,3,4,5,6,8,10].find(x=>n<=x+1e-9)||10)*step;
   }
   function nkLearningKpis(model){
     const labels=nkLearningPeriodLabels(model);
@@ -139,8 +139,8 @@
     const stack=b=>{const counts=new Map(nkLearningSubjectSplit(b.current.events).map(r=>[r.subject,r.total]));return order.filter(r=>counts.get(r.subject)).map(r=>`<span data-li-subject="${esc(r.subject)}" class="${nkLearningFocusSubject&&nkLearningFocusSubject!==r.subject?'is-dim':''}" style="flex-grow:${counts.get(r.subject)};background:${nkLearningSubjectColor(r.subject)}"></span>`).join('');};
     const tick=v=>m.points?`${Math.round(v)}%`:nkLearningMetric==='time'?(v>=60?`${+(v/60).toFixed(1)}h`:`${Math.round(v)}m`):fmtNum(v);
     const legend=stacked&&order.length?`<div class="nk-li-subject-key" role="group" aria-label="Subjects practised">${order.map(r=>`<button type="button" data-li-subject="${esc(r.subject)}" aria-pressed="${nkLearningFocusSubject===r.subject}" onclick="window.QB.nkLearningFocus(${esc(JSON.stringify(r.subject))})"><i style="background:${nkLearningSubjectColor(r.subject)}"></i>${esc(r.subject)} <b>${fmtNum(r.total)}</b></button>`).join('')}</div>`:'';
-    const say=v=>v===null?'no answers':m.points?nkLearningPct(v):nkLearningMetric==='time'?nkLearningTime(v*60000):`${fmtNum(v)} ${m.unit[v===1?0:1]}`;
-    return `<div class="nk-li-plot"><div class="nk-li-grid-lines" aria-hidden="true">${[1,.5,0].map(f=>`<span style="bottom:${f*100}%"><em>${tick(max*f)}</em></span>`).join('')}</div><div class="nk-li-plotbars" role="group" aria-label="${esc(m.label)} by ${model.range.period==='year'?'month':model.range.period==='month'?'week':'day'}; drag or tap a bar for detail" onpointermove="window.QB.nkLearningScrub(event)">${model.bins.map((b,i)=>{const cur=b.active?plot(b.current):null,prev=plot(b.previous);return `<button type="button" ${!b.active?'disabled':''} class="${nkLearningBin===i?'is-selected':''}" aria-pressed="${nkLearningBin===i}" aria-label="${esc(b.label)}: ${say(cur)}; ${esc(labels.previous.toLowerCase())} ${say(prev)}" onclick="window.QB.nkLearningSelectBin(${i},event.target.closest('[data-li-subject]')?.dataset.liSubject||'')"><span class="nk-li-col"><i class="is-prev" style="height:${pct(prev)}%"></i><i class="is-cur${stacked?' nk-li-stack':''}" style="height:${pct(cur)}%">${stacked&&b.active?stack(b):''}</i></span><small>${esc(b.label)}</small></button>`;}).join('')}</div></div><div class="nk-li-key"><span><i></i>${esc(labels.current)}</span><span><i class="is-previous"></i>${esc(labels.previous)}</span></div>${legend}<div class="nk-li-bin-readout" role="status" aria-atomic="true">${nkLearningBinReadout(model)}</div>`;
+    const say=v=>v===null?(m.points?'no answers':`0 ${m.unit[1]}`):m.points?nkLearningPct(v):nkLearningMetric==='time'?nkLearningTime(v*60000):`${fmtNum(v)} ${m.unit[v===1?0:1]}`;
+    return `<div class="nk-li-plot"><div class="nk-li-grid-lines" aria-hidden="true">${[1,.5,0].map(f=>`<span style="bottom:${f*100}%"><em>${tick(max*f)}</em></span>`).join('')}</div><div class="nk-li-plotbars" role="group" aria-label="${esc(m.label)} by ${model.range.period==='year'?'month':model.range.period==='month'?'week':'day'}; drag or tap a bar for detail" onpointermove="window.QB.nkLearningScrub(event)">${model.bins.map((b,i)=>{const cur=b.active?plot(b.current):null,prev=plot(b.previous);return `<button type="button" ${!b.active?'disabled':''} class="${nkLearningBin===i?'is-selected':''}" aria-pressed="${nkLearningBin===i}" aria-label="${esc(b.label)}: ${b.active?say(cur):'not yet'}; ${esc(/^Previous /.test(labels.previous)?labels.previous.toLowerCase():labels.previous)} ${say(prev)}" onclick="window.QB.nkLearningSelectBin(${i},event.target.closest('[data-li-subject]')?.dataset.liSubject||'')"><span class="nk-li-col"><i class="is-prev" style="height:${pct(prev)}%"></i><i class="is-cur${stacked?' nk-li-stack':''}" style="height:${pct(cur)}%">${stacked&&b.active?stack(b):''}</i></span><small>${esc(b.label)}</small></button>`;}).join('')}</div></div><div class="nk-li-key"><span><i></i>${esc(labels.current)}</span><span><i class="is-previous"></i>${esc(labels.previous)}</span></div>${legend}<div class="nk-li-bin-readout" role="status" aria-atomic="true">${nkLearningBinReadout(model)}</div>`;
   }
   function nkLearningBinReadout(model){
     const m=NK_LI_METRICS[nkLearningMetric],b=model.bins[nkLearningBin],labels=nkLearningPeriodLabels(model),fmt=v=>v===null||v===undefined?'—':m.format(v);
@@ -177,7 +177,7 @@
   }
   function nkLearningFsrs(model){
     const f=model.forecast,max=Math.max(1,...f.counts);
-    return `<div class="nk-li-memory"><div class="nk-li-memory-now"><small>Due now</small><b>${fmtNum(f.due)}</b><span>${fmtNum(model.current.reviews)} reviewed · ${nkLearningPct(model.current.reviewAccuracy)} recalled · ${fmtNum(f.total)} cards</span></div><div class="nk-li-forecast" role="img" aria-label="Next 7 days: ${esc(f.counts.map((n,i)=>`${nkLearningDate(+f.days[i])}: ${n} due`).join('; '))}">${f.counts.map((n,i)=>`<span><b>${n}</b><i style="height:${n?Math.max(3,n/max*56):0}px"></i><small>${i===0?'Today':esc(f.days[i].toLocaleDateString(undefined,{weekday:'short'}))}</small></span>`).join('')}</div></div><div class="nk-li-actions">${f.due?`<button type="button" class="nk-li-go" onclick="window.QB.nav('review-dues')">Review by subject ${navIcon('chevron',16)}</button>`:''}<button class="nk-li-link" onclick="window.QB.nav('fsrs-insights')">FSRS insights ${navIcon('chevron',16)}</button></div>`;
+    return `<div class="nk-li-memory"><div class="nk-li-memory-now"><small>Due now</small><b>${fmtNum(f.due)}</b><span>${fmtNum(model.current.reviews)} reviewed · ${nkLearningPct(model.current.reviewAccuracy)} recalled · ${fmtNum(f.total)} cards</span></div><div class="nk-li-forecast" role="img" aria-label="Next 7 days: ${esc(f.counts.map((n,i)=>`${nkLearningDate(+f.days[i])}: ${n} due`).join('; '))}">${f.counts.map((n,i)=>`<span><b>${n}</b><i style="height:${n?Math.max(3,n/max*56):0}px"></i><small>${i===0?'Today':esc(f.days[i].toLocaleDateString(undefined,{weekday:'short'}))}</small></span>`).join('')}</div></div><div class="nk-li-actions">${f.due?`<button type="button" class="nk-li-go" onclick="window.QB.nkReviewDuesOpen('analytics')">Review by subject ${navIcon('chevron',16)}</button>`:''}<button class="nk-li-link" onclick="window.QB.nav('fsrs-insights')">FSRS insights ${navIcon('chevron',16)}</button></div>`;
   }
   // Activity shade: relative to the busiest day, one green hue from pale to deep, no glow.
   function nkLearningHeatStyle(count,peak){

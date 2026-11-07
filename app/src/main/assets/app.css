@@ -7685,3 +7685,5 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules b { font: 600 24px/2
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules small { font: 400 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules .nk-li-share { bottom: 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button { box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid { grid-template-columns: minmax(0,1fr); }
+@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }

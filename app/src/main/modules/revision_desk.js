@@ -97,7 +97,7 @@
   function nkRevisionCard(kind,title,copy,count,actionLabel,disabled=false,detail=''){
     const icon={wrong:'refresh',bookmarks:'bookmark',unseen:'search',due:'clock'}[kind]||'book';
     const tone={wrong:'is-red',bookmarks:'is-violet',unseen:'is-blue',due:'is-green'}[kind]||'is-indigo';
-    const browse=kind==='due'&&count?'<button type="button" class="nk-revision-view-all" aria-label="Due reviews by subject and topic" onclick="window.QB.nav(\'review-dues\')">By subject</button>':!disabled&&['wrong','bookmarks'].includes(kind)?'<button type="button" class="nk-revision-view-all" aria-label="View all '+esc(title.toLowerCase())+'" onclick="window.QB.nav(\'revision-browse\',\''+kind+'\')">View all</button>':'';
+    const browse=kind==='due'&&count?'<button type="button" class="nk-revision-view-all" aria-label="Due reviews by subject and topic" onclick="window.QB.nkReviewDuesOpen(\'quick-revision\')">By subject</button>':!disabled&&['wrong','bookmarks'].includes(kind)?'<button type="button" class="nk-revision-view-all" aria-label="View all '+esc(title.toLowerCase())+'" onclick="window.QB.nav(\'revision-browse\',\''+kind+'\')">View all</button>':'';
     return '<article class="nk-revision-card '+tone+(count?'':' is-empty')+'"><div class="nk-revision-card-head"><span class="nk-revision-icon">'+navIcon(icon,20)+'</span><span class="nk-revision-card-copy"><strong>'+esc(title)+'</strong><small>'+esc(copy)+'</small></span><b>'+fmtNum(count)+'</b></div>'+(detail?'<p class="nk-revision-detail">'+esc(detail)+'</p>':'')+'<div class="nk-revision-actions"><button type="button" '+(disabled?'disabled':'')+' onclick="window.QB.nkStartRevisionQueue(\''+kind+'\')">'+esc(disabled?(kind==='due'&&count?'Daily limit reached':'Nothing to review'):actionLabel)+' '+(disabled?'':navIcon('chevron',16))+'</button>'+browse+'</div></article>';
   }
 
@@ -200,8 +200,17 @@
     return x&&x.due?'<button type="button" class="nk-rd-go" aria-label="Review '+esc(fmtNum(x.due)+' due in '+label)+'" onclick="window.QB.nkReviewDuesStart('+arg+')">Review</button>':'<span class="nk-rd-go is-done" aria-label="Nothing due in '+esc(label)+'">'+navIcon('check',16)+'</span>';
   }
   const nkReviewDuesLegend='<p class="nk-rd-legend"><span><i class="is-due"></i>Due</span><span><i class="is-learn"></i>Learning</span><span><i class="is-mature"></i>Mature</span></p>';
-  function nkReviewDuesLimitNote(){
-    const q=typeof nkFsrsQueue==='function'?nkFsrsQueue({}):null;if(!q)return '';
+  let nkReviewDuesFrom='quick-revision';
+  function nkReviewDuesOpen(from){nkReviewDuesFrom=from==='analytics'?'analytics':'quick-revision';navigate('review-dues');}
+  function nkReviewDuesScope(scope){return {subject:String(scope?.subject||''),bank:String(scope?.bank||''),topic:String(scope?.topic??'')};}
+  // A Review-all button says what today's daily limit actually lets you start.
+  function nkReviewDuesAllButton(scope,due,suffix='',cls='nk-v3-primary nk-rd-all'){
+    const q=typeof nkFsrsQueue==='function'?nkFsrsQueue(nkReviewDuesScope(scope)):{cards:[]},n=q.cards.length;
+    const label=!due?'Nothing due':!n?'Daily limit reached':n<due?'Review '+fmtNum(n)+' of '+fmtNum(due)+' today'+suffix:'Review all '+fmtNum(due)+' due'+suffix;
+    return '<button type="button" class="'+cls+'"'+(n?'':' disabled')+' onclick="window.QB.nkReviewDuesStart('+esc(JSON.stringify(nkReviewDuesScope(scope)))+')">'+label+(cls.includes('nk-rd-all')?' '+navIcon('chevron',17):'')+'</button>';
+  }
+  function nkReviewDuesLimitNote(scope={}){
+    const q=typeof nkFsrsQueue==='function'?nkFsrsQueue(nkReviewDuesScope(scope)):null;if(!q)return '';
     return q.rolledOver?'<p class="nk-rd-note">Daily review limit: '+fmtNum(q.cards.length)+' of '+fmtNum(q.due.length)+' due can be reviewed today. The rest roll to tomorrow. <button type="button" onclick="window.QB.nav(\'fsrs-settings\')">Change limit</button></p>':'';
   }
   function nkReviewDuesPage(id){
@@ -211,8 +220,9 @@
     if(!subject){
       const subjects=[...new Set([...stats.keys()].filter(k=>k&&!k.includes('\u001f')))].sort((a,b)=>(stats.get(b).due-stats.get(a).due)||a.localeCompare(b));
       const rows=subjects.map(name=>{const x=stats.get(name);return '<li class="nk-rd-row"><button type="button" class="nk-rd-open" onclick="window.QB.nav(\'review-dues\','+esc(JSON.stringify(name))+')"><span class="nk-rd-icon">'+(typeof nkAppSubjectIcon==='function'?nkAppSubjectIcon(name,20):navIcon('book',20))+'</span><span class="nk-rd-name"><strong>'+esc(name)+'</strong>'+nkReviewDuesCounts(x,name)+'</span>'+navIcon('chevron',16)+'</button>'+nkReviewDuesGo({subject:name},x,name)+'</li>';}).join('');
-      return shell('<main class="nk-app-v114 nk-review-dues"><button class="nk-back-link" onclick="window.QB.nav(\'quick-revision\')">'+navIcon('back',17)+' Revision</button><header class="nk-v3-page-hero"><div class="nk-kicker">Spaced repetition</div><h1>Due reviews</h1><p>'+(all?fmtNum(all.due)+' due · '+fmtNum(all.mature)+' of '+fmtNum(all.pool)+' cards mature':'Answer questions to build your review schedule.')+'</p></header>'
-        +'<button type="button" class="nk-v3-primary nk-rd-all"'+(all&&all.due?'':' disabled')+' onclick="window.QB.nkReviewDuesStart({})">'+(all&&all.due?'Review all '+fmtNum(all.due)+' due':'Nothing due')+' '+navIcon('chevron',17)+'</button>'+nkReviewDuesLimitNote()
+      const from=nkReviewDuesFrom==='analytics'?['analytics','Insights']:['quick-revision','Revision'];
+      return shell('<main class="nk-app-v114 nk-review-dues"><button class="nk-back-link" onclick="window.QB.nav(\''+from[0]+'\')">'+navIcon('back',17)+' '+from[1]+'</button><header class="nk-v3-page-hero"><div class="nk-kicker">Spaced repetition</div><h1>Due reviews</h1><p>'+(all?fmtNum(all.due)+' due · '+fmtNum(all.mature)+' of '+fmtNum(all.pool)+' cards mature':'Answer questions to build your review schedule.')+'</p></header>'
+        +nkReviewDuesAllButton({},all?all.due:0)+nkReviewDuesLimitNote({})
         +(subjects.length?nkReviewDuesLegend+'<ul class="nk-rd-list">'+rows+'</ul>':nkAppEmpty('clock','No reviews yet','Questions you answer are scheduled here by subject and topic.'))+'</main>','quick-revision');
     }
     const x=stats.get(subject),banks=[...new Set([...stats.keys()].filter(k=>k.startsWith(subject+'\u001f')&&k.split('\u001f').length===2).map(k=>k.split('\u001f')[1]))].sort((a,b)=>(stats.get(subject+'\u001f'+b).due-stats.get(subject+'\u001f'+a).due)||a.localeCompare(b));
@@ -221,10 +231,10 @@
       (record?.topics||[]).forEach((t,i)=>{order.set(String(t.id),i);titles.set(String(t.id),t.title||t.name||String(t.id));});
       const topics=[...stats.keys()].filter(k=>k.startsWith(subject+'\u001f'+bank+'\u001f')).map(k=>k.split('\u001f')[2]).sort((a,b)=>(order.has(a)?order.get(a):1e9)-(order.has(b)?order.get(b):1e9)||a.localeCompare(b));
       const rows=topics.map(topic=>{const tx=stats.get(subject+'\u001f'+bank+'\u001f'+topic),title=titles.get(topic)||(topic?'Topic '+topic:'Other questions');return '<li class="nk-rd-row is-topic'+(tx.due?'':' is-clear')+'"><span class="nk-rd-name"><strong>'+esc(title)+'</strong>'+nkReviewDuesCounts(tx,title)+'</span>'+(topic?nkReviewDuesGo({subject,bank,topic},tx,title):'')+'</li>';}).join('');
-      return '<details class="nk-rd-bank"'+(bx.due||banks.length===1?' open':'')+'><summary><span class="nk-rd-name"><strong>'+esc(bank||'Question bank')+'</strong>'+nkReviewDuesCounts(bx,bank)+'</span>'+navIcon('chevron',16)+'</summary><div class="nk-rd-bank-go">'+(bx.due?'<button type="button" class="nk-rd-go is-wide" onclick="window.QB.nkReviewDuesStart('+esc(JSON.stringify({subject,bank}))+')">Review all '+fmtNum(bx.due)+' due in '+esc(bank)+'</button>':'')+'</div><ul class="nk-rd-list">'+rows+'</ul></details>';
+      return '<details class="nk-rd-bank"'+(bx.due||banks.length===1?' open':'')+'><summary><span class="nk-rd-name"><strong>'+esc(bank||'Question bank')+'</strong>'+nkReviewDuesCounts(bx,bank)+'</span>'+navIcon('chevron',16)+'</summary><div class="nk-rd-bank-go">'+(bx.due?nkReviewDuesAllButton({subject,bank},bx.due,' in '+esc(bank),'nk-rd-go is-wide'):'')+'</div><ul class="nk-rd-list">'+rows+'</ul></details>';
     }).join('');
     return shell('<main class="nk-app-v114 nk-review-dues"><button class="nk-back-link" onclick="window.QB.nav(\'review-dues\')">'+navIcon('back',17)+' Due reviews</button><header class="nk-v3-page-hero"><div class="nk-kicker">Due reviews</div><h1>'+esc(subject)+'</h1><p>'+fmtNum(x.due)+' due · '+fmtNum(x.learning)+' learning · '+fmtNum(x.mature)+' of '+fmtNum(x.pool)+' mature</p></header>'
-      +'<button type="button" class="nk-v3-primary nk-rd-all"'+(x.due?'':' disabled')+' onclick="window.QB.nkReviewDuesStart('+esc(JSON.stringify({subject}))+')">'+(x.due?'Review all '+fmtNum(x.due)+' due':'Nothing due')+' '+navIcon('chevron',17)+'</button>'+nkReviewDuesLimitNote()+nkReviewDuesLegend+sections+'</main>','quick-revision');
+      +nkReviewDuesAllButton({subject},x.due)+nkReviewDuesLimitNote({subject})+nkReviewDuesLegend+sections+'</main>','quick-revision');
   }
   // Starts the due queue for one subject, bank or topic. It is the same pausable review session as Review due.
   function nkReviewDuesStart(scope){
