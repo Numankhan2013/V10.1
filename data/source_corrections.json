@@ -2473,7 +2473,7 @@
  },
  {
   "id": "physiology-27-17",
-  "reason": "The export ran the numbered statements into the stem; they are restored as a list.",
+  "reason": "The export ran the numbered statements into the stem; they are restored as a list. Statement 1 was true by the explanation's own table while the key called it false; it now states the VRG's location, which is false for the DRG.",
   "stemEdits": [
    {
     "find": " The DRG primarily regulates the rhythmic pattern of breathing. The DRG receives sensory input from peripheral chemoreceptors and baroreceptors. The DRG mainly influences the expiratory phase of respiration. The DRG integrates information from the vagus nerve to adjust breathing depth. The DRG controls voluntary breathing movements during speech.",
@@ -2487,7 +2487,7 @@
     ],
     "rows": [
      [
-      "1. The DRG primarily regulates the rhythmic pattern of breathing."
+      "1. The DRG lies in the ventrolateral medulla, in the nucleus ambiguus."
      ],
      [
       "2. The DRG receives sensory input from peripheral chemoreceptors and baroreceptors."
@@ -2502,6 +2502,12 @@
       "5. The DRG controls voluntary breathing movements during speech."
      ]
     ]
+   }
+  ],
+  "edits": [
+   {
+    "find": "**Statement 1 (Incorrect):** The DRG primarily regulates the rhythmic breathing. This function is primarily associated with the ventral respiratory group (VRG).",
+    "replace": "**Statement 1 (Incorrect):** The DRG lies in the dorsal medulla, mainly in the nucleus tractus solitarius. The ventrolateral medulla, with the nucleus ambiguus and retroambiguus, holds the ventral respiratory group (VRG)."
    }
   ]
  },
@@ -3767,7 +3773,7 @@
  },
  {
   "id": "microbiology-q865342",
-  "reason": "The export ran the numbered statements into the stem; they are restored as a list.",
+  "reason": "The export ran the numbered statements into the stem; they are restored as a list. Acute haemorrhagic conjunctivitis is caused by Enterovirus 70 and Coxsackie A24 (the explanation agrees); the keyed choice read 3,4 (Coxsackie B), so it now reads 2,4.",
   "stemEdits": [
    {
     "find": " Polio virus Coxsackie A Coxsackie B Enterovirus 70",
@@ -3794,7 +3800,10 @@
      ]
     ]
    }
-  ]
+  ],
+  "optionText": {
+   "4": "2,4"
+  }
  },
  {
   "id": "microbiology-32-17",
@@ -4919,7 +4928,7 @@
  },
  {
   "id": "microbiology-q810220",
-  "reason": "The export ran the numbered statements into the stem; they are restored as a list.",
+  "reason": "The export ran the numbered statements into the stem; they are restored as a list. Slide positivity rate is a parasitological index, not a vector index; the vector indices offered are human blood index, biting density and inoculation rate, so the key moves to D (1, 2 & 4) and the explanation is corrected.",
   "stemEdits": [
    {
     "find": " Human blood index Biting density Slide positivity rate Inoculation rate",
@@ -4945,6 +4954,21 @@
       "4. Inoculation rate"
      ]
     ]
+   }
+  ],
+  "correctOption": 4,
+  "edits": [
+   {
+    "find": "1 and 3 include \"Malarial vector indices.",
+    "replace": "Human blood index, biting density and inoculation rate (1, 2 and 4) are malarial vector indices."
+   },
+   {
+    "find": "Slide positivity rate: The slide positivity rate is the percentage of blood slides examined under a microscope that show the presence of malaria parasites. It is an indicator of the prevalence of malaria infections in the population and reflects the intensity of transmission.",
+    "replace": "Biting density (man-biting rate): the number of mosquito bites per person per day or night, a measure of human–vector contact. Inoculation rate: the number of infective bites a person receives per unit time (biting density × sporozoite rate), the most direct measure of transmission. Slide positivity rate is not a vector index: it is the percentage of examined blood slides that show malaria parasites, a parasitological index of infection in people."
+   },
+   {
+    "find": "Incorrect options: Option A. is incorrect because it includes all four options, but only options 1 and 3 are considered as malarial vector indices. Option C. is incorrect because it includes options 2 and 4, but neither of them is considered as a malarial vector index. Option D. is incorrect because it includes options 1, 2, and 4, but option 2 is not considered as a malarial vector index.",
+    "replace": "Incorrect options: Options A and B include the slide positivity rate, which measures parasites in people, not mosquitoes. Option C leaves out the human blood index."
    }
   ]
  },
@@ -5773,5 +5797,101 @@
   "id": "microbiology-q865307",
   "reason": "Question asks which is NOT dimorphic; the explanation states Cryptococcus (Option A) is not dimorphic and rules out Histoplasma, Coccidioides and Blastomyces, and Cryptococcus is indeed a monomorphic yeast, so the key moves from 3 (Coccidioides) to 1.",
   "correctOption": 1
+ },
+ {
+  "id": "pharmacology-q843889",
+  "reason": "Beta-blockers such as atenolol are no longer first-line for uncomplicated stage 1 hypertension (JNC 8, ACC/AHA 2017); a thiazide is. Key moves to hydrochlorothiazide and the explanation says why.",
+  "correctOption": 2,
+  "edits": [
+   {
+    "find": "Atenolol is a beta-blocker.",
+    "replace": "Hydrochlorothiazide, a thiazide diuretic, is a first-line drug for uncomplicated stage 1 hypertension, alongside long-acting calcium channel blockers and ACE inhibitors or ARBs. Short-acting nifedipine is avoided because it drops blood pressure abruptly and causes reflex tachycardia."
+   },
+   {
+    "find": "Beta-blockers are suitable for stage 1 hypertension with normal blood sugar and cholesterol levels.",
+    "replace": "Beta-blockers such as atenolol are no longer first-line for uncomplicated hypertension; they are kept for patients with another indication, listed below. Methyldopa is reserved for hypertension in pregnancy."
+   }
+  ]
+ },
+ {
+  "id": "pathology-43-17",
+  "reason": "The numbered colon layers were missing from the stem; restored from the explanation and the standard layers of the gut wall.",
+  "stemTables": [
+   {
+    "columns": [
+     "Statements"
+    ],
+    "rows": [
+     [
+      "1. Mucosa"
+     ],
+     [
+      "2. Submucosa (Meissner's plexus)"
+     ],
+     [
+      "3. Muscularis propria (myenteric plexus)"
+     ],
+     [
+      "4. Serosa"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "marrow__SURG_MF0886",
+  "reason": "The numbered instruments (shown as images in the source) were missing; reconstructed from the explanation, consistent with the key (1, 4, 6).",
+  "stemTables": [
+   {
+    "columns": [
+     "Statements"
+    ],
+    "rows": [
+     [
+      "1. Babcock's forceps"
+     ],
+     [
+      "2. Deaver's retractor"
+     ],
+     [
+      "3. No. 11 blade"
+     ],
+     [
+      "4. No. 22 blade"
+     ],
+     [
+      "5. No. 15 blade"
+     ],
+     [
+      "6. Langenbeck retractor"
+     ],
+     [
+      "7. Morris retractor"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "biochemistry-q855964",
+  "reason": "The numbered tests (shown as images in the source) were missing; restored from the explanation, consistent with the key (only 3).",
+  "stemTables": [
+   {
+    "columns": [
+     "Statements"
+    ],
+    "rows": [
+     [
+      "1. Benedict's test"
+     ],
+     [
+      "2. Heat coagulation test"
+     ],
+     [
+      "3. Rothera's test"
+     ]
+    ]
+   }
+  ]
  }
 ]

@@ -119,7 +119,7 @@ const rawById=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).
 let repaired=0,repairedIds=[],invalid=[];for(const q of SUBJECTS.flatMap(record=>record.questions||[])){delete q.__nkQuestionPresentation;const p=nkQuestionPresentationFor(q);if(p.repaired){repaired++;repairedIds.push(q.id);}if(!p.valid)invalid.push(q.id);}
 assert.equal(repaired,8,'all extraction-shaped option arrays should normalize generically');
 assert.deepEqual(repairedIds.sort(),['anatomy-10-1','anatomy-29-1','anatomy-46-12','physiology-1-13','physiology-19-12','physiology-24-10','physiology-4-8','physiology-6-2']);
-assert.deepEqual(invalid.sort(),['anatomy-14-5','anatomy-22-4','anatomy-40-10','physiology-24-6']);
+assert.deepEqual(invalid.sort(),['physiology-24-6']);
 const byId=Object.fromEntries(SUBJECTS.flatMap(record=>record.questions||[]).map(q=>[q.id,q]));
 const completeSources={
   '10-10':{correct:1,rows:[
@@ -525,8 +525,8 @@ for(const id of ['physiology-36-7','anatomy-29-16'])assert(nkQuestionPresentatio
 assert.equal(byId['physiology-1-13'].options.length,4);
 for(const id of ['anatomy-14-5','anatomy-40-10']){
   const p=nkQuestionPresentationFor(byId[id]);
-  assert(!p.valid,id+' with incomplete or conflicting source structure must fail closed');assert.equal(p.table,null,id+' with incomplete or conflicting source structure must not render a fabricated table');
-  const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('answering is disabled'),id+' must hide choices when source structure is incomplete');assert(!markup.includes('<table'),id+' must not render a table when source structure is incomplete');
+  assert(p.valid,id+' reviewed reconstruction must be answerable');assert.equal(p.completenessDecision,'CONTEXTUAL_RECONSTRUCTION',id);
+  assert(nkQuestionStemMarkup(byId[id]).includes('nk-match-table'),id+' reconstructed labels must render as a table');
 }
 for(const id of ['physiology-1-13','physiology-6-6','physiology-9-17','anatomy-5-6','anatomy-7-9','5-8','22-18']){
   const markup=nkQuestionStemMarkup(byId[id]);assert(markup.includes('nk-match-table'),id+' should render structured matching data');assert(markup.includes('List I')&&markup.includes('List II'),id+' should retain both matching lists');

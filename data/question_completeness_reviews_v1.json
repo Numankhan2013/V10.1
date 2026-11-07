@@ -8,8 +8,8 @@
   },
   "reviewedCount": 254,
   "reviewOutcomeCounts": {
-    "CONTEXTUAL_RECONSTRUCTION": 74,
-    "SOURCE_OMISSION": 33,
+    "CONTEXTUAL_RECONSTRUCTION": 106,
+    "SOURCE_OMISSION": 1,
     "COMPLETE/FALSE_POSITIVE": 53,
     "VISUAL_OWNED_COMPLETE": 79,
     "EXACT_SOURCE_REPAIR": 15
@@ -113,7 +113,7 @@
       "id": "marrow__ANAT_CH15_Q014",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "6468cc5294ce29ed342ab7d68123bd8d1643f152943241e37254dea99f9dcaf3",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -122,16 +122,46 @@
           265
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Sinusoids are present in\n\n1. Liver\n2. Kidney\n3. Spleen\n4. Bone marrow\n5. Adrenal medulla",
+        "table": {
+          "prompt": "Sinusoids are present in",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Liver"
+              },
+              {
+                "label": "2",
+                "value": "Kidney"
+              },
+              {
+                "label": "3",
+                "value": "Spleen"
+              },
+              {
+                "label": "4",
+                "value": "Bone marrow"
+              },
+              {
+                "label": "5",
+                "value": "Adrenal medulla"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH35_Q003",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "a3be11fb2f49aaccc2cde58b5ec8245db56fb2c5ccd3311080a9d9ec7cb71481",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -140,16 +170,46 @@
           619
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which ligament transmits the weight of the upper limb to the axial skeleton?\n\n1. Coracoclavicular\n2. Coracoacromial\n3. Costoclavicular\n4. Acromioclavicular\n5. Sternoclavicular",
+        "table": {
+          "prompt": "Which ligament transmits the weight of the upper limb to the axial skeleton?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Coracoclavicular"
+              },
+              {
+                "label": "2",
+                "value": "Coracoacromial"
+              },
+              {
+                "label": "3",
+                "value": "Costoclavicular"
+              },
+              {
+                "label": "4",
+                "value": "Acromioclavicular"
+              },
+              {
+                "label": "5",
+                "value": "Sternoclavicular"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH48_Q005",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "774564e5fa9cf9a121baa9ad0397e479c023dc49162c1716df45c2a3856a6a0f",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -158,16 +218,46 @@
           880
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following statements regarding the root of the mesentery is false?\n\n1. It is about 25 cm long\n2. It runs from the duodenojejunal flexure, on the left of L2, to the right sacroiliac joint\n3. It does not cross the midline\n4. It crosses the right ureter and the right psoas major\n5. It carries the inferior mesenteric vessels",
+        "table": {
+          "prompt": "Which of the following statements regarding the root of the mesentery is false?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "It is about 25 cm long"
+              },
+              {
+                "label": "2",
+                "value": "It runs from the duodenojejunal flexure, on the left of L2, to the right sacroiliac joint"
+              },
+              {
+                "label": "3",
+                "value": "It does not cross the midline"
+              },
+              {
+                "label": "4",
+                "value": "It crosses the right ureter and the right psoas major"
+              },
+              {
+                "label": "5",
+                "value": "It carries the inferior mesenteric vessels"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH52_Q009",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "ea54f3b495d0ed84f2841b8ef09e5fc39bb2f0cfa209306d3525a9d9b60c8f52",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -176,16 +266,46 @@
           975
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following statements is false about the prostate?\n\n1. Prostatic ducts open into the prostatic utricle\n2. The urethral crest is on the anterior wall of the prostatic urethra\n3. The follicles are lined by simple or pseudostratified columnar epithelium\n4. Corpora amylacea are seen in the follicles\n5. Prostatic secretion is alkaline",
+        "table": {
+          "prompt": "Which of the following statements is false about the prostate?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Prostatic ducts open into the prostatic utricle"
+              },
+              {
+                "label": "2",
+                "value": "The urethral crest is on the anterior wall of the prostatic urethra"
+              },
+              {
+                "label": "3",
+                "value": "The follicles are lined by simple or pseudostratified columnar epithelium"
+              },
+              {
+                "label": "4",
+                "value": "Corpora amylacea are seen in the follicles"
+              },
+              {
+                "label": "5",
+                "value": "Prostatic secretion is alkaline"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH62_Q010",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "d0c0380077c98b57ccac7918903ded227dafc33b58a6de36556173733debd251",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -194,16 +314,46 @@
           1189
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following vessels belong to the circulatory system referred to as the drainage system of coarse type?\n\n1. Superior vena cava\n2. Thoracic duct\n3. Portal vein\n4. Right lymphatic duct\n5. Azygos vein",
+        "table": {
+          "prompt": "Which of the following vessels belong to the circulatory system referred to as the drainage system of coarse type?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Superior vena cava"
+              },
+              {
+                "label": "2",
+                "value": "Thoracic duct"
+              },
+              {
+                "label": "3",
+                "value": "Portal vein"
+              },
+              {
+                "label": "4",
+                "value": "Right lymphatic duct"
+              },
+              {
+                "label": "5",
+                "value": "Azygos vein"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH13_Q020",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "5591a1a4825280bdd79c329509b684e68c1ac52bfd81207c54e11130059c6b64",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -212,16 +362,42 @@
           201
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Ketosis is common in type 1 DM due to:\n\n1. Increased glucose uptake by skeletal muscle via GLUT4\n2. Increased mobilisation of free fatty acids from adipose tissue\n3. Decreased availability of mitochondrial oxaloacetate\n4. Increased β-hydroxybutyrate dehydrogenase activity",
+        "table": {
+          "prompt": "Ketosis is common in type 1 DM due to:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Increased glucose uptake by skeletal muscle via GLUT4"
+              },
+              {
+                "label": "2",
+                "value": "Increased mobilisation of free fatty acids from adipose tissue"
+              },
+              {
+                "label": "3",
+                "value": "Decreased availability of mitochondrial oxaloacetate"
+              },
+              {
+                "label": "4",
+                "value": "Increased β-hydroxybutyrate dehydrogenase activity"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH14_Q018",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "c70d3b22e51f5da2e1deef8ade2db23d63087f5e87439658f2bcee6ebcbe089a",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -230,9 +406,39 @@
           215
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following are unstable intermediate products of the cyclooxygenase pathway?\n\n1. PGG2\n2. PGH2\n3. PGE2\n4. PGI2\n5. Thromboxane A2",
+        "table": {
+          "prompt": "Which of the following are unstable intermediate products of the cyclooxygenase pathway?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "PGG2"
+              },
+              {
+                "label": "2",
+                "value": "PGH2"
+              },
+              {
+                "label": "3",
+                "value": "PGE2"
+              },
+              {
+                "label": "4",
+                "value": "PGI2"
+              },
+              {
+                "label": "5",
+                "value": "Thromboxane A2"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -258,7 +464,7 @@
       "id": "marrow__BIOCHEM_CH22_Q006",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "d0d6e3b4960a381b3f85eccb678c691c0b6a72a98b1f9a9ab2e3dbced41478a3",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -267,16 +473,42 @@
           347
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following are vitamin-B12 dependent enzymes?\n\n1. Methylmalonyl-CoA mutase\n2. Thymidylate synthase\n3. Propionyl-CoA carboxylase\n4. Methionine synthase",
+        "table": {
+          "prompt": "Which of the following are vitamin-B12 dependent enzymes?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Methylmalonyl-CoA mutase"
+              },
+              {
+                "label": "2",
+                "value": "Thymidylate synthase"
+              },
+              {
+                "label": "3",
+                "value": "Propionyl-CoA carboxylase"
+              },
+              {
+                "label": "4",
+                "value": "Methionine synthase"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__PHYS_CH15_Q016",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "08e07f42250aad5bedef32359f8e73737fc6e5740913a9e56cf1e43245cae8d1",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -285,9 +517,35 @@
           294
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "The efferent fibres of the basal ganglia include which of the following?\n\n1. Globus pallidus interna\n2. Striatum\n3. Subthalamic nucleus\n4. Substantia nigra pars reticulata",
+        "table": {
+          "prompt": "The efferent fibres of the basal ganglia include which of the following?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Globus pallidus interna"
+              },
+              {
+                "label": "2",
+                "value": "Striatum"
+              },
+              {
+                "label": "3",
+                "value": "Subthalamic nucleus"
+              },
+              {
+                "label": "4",
+                "value": "Substantia nigra pars reticulata"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -405,7 +663,7 @@
       "id": "marrow__PHYS_CH07_Q034",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "fa140124332e84c794e967adf491791f967caa4bfddef0ce77ce8006788773e8",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -415,9 +673,57 @@
           135
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which statements are correct regarding mechanisms of depolarization, repolarization and hyperpolarization in a skeletal-muscle action potential?\n\n1. Depolarisation is due to opening of voltage-gated Na+ channels and Na+ influx\n2. Depolarisation is due to opening of voltage-gated Ca2+ channels\n3. Repolarisation is due to closure of Na+ channels and K+ efflux through voltage-gated K+ channels\n4. Hyperpolarisation is caused by Cl− influx\n5. Hyperpolarisation results from slow closure of voltage-gated K+ channels",
+        "table": {
+          "prompt": "Which statements are correct regarding mechanisms of depolarization, repolarization and hyperpolarization in a skeletal-muscle action potential?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Depolarisation is due to opening of voltage-gated Na+ channels and Na+ influx"
+              },
+              {
+                "label": "2",
+                "value": "Depolarisation is due to opening of voltage-gated Ca2+ channels"
+              },
+              {
+                "label": "3",
+                "value": "Repolarisation is due to closure of Na+ channels and K+ efflux through voltage-gated K+ channels"
+              },
+              {
+                "label": "4",
+                "value": "Hyperpolarisation is caused by Cl− influx"
+              },
+              {
+                "label": "5",
+                "value": "Hyperpolarisation results from slow closure of voltage-gated K+ channels"
+              }
+            ]
+          ]
+        },
+        "options": [
+          {
+            "letter": "A",
+            "text": "2 and 4 are correct"
+          },
+          {
+            "letter": "B",
+            "text": "1, 3 and 5 are correct"
+          },
+          {
+            "letter": "C",
+            "text": "1, 4 and 5 are correct"
+          },
+          {
+            "letter": "D",
+            "text": "2, 4 and 5 are correct"
+          }
+        ]
       }
     },
     {
@@ -1193,7 +1499,7 @@
       "id": "marrow__ANAT_CH28_Q023",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "d01d57024936915d50b48a9f272345aeed903d21f75d0763b6d284de4ba3426f",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -1203,16 +1509,69 @@
           481
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Match the following muscles of facial expression with their actions.\n\nMuscles:\n1. Orbicularis oculi\n2. Risorius\n3. Mentalis\n4. Corrugator supercilii\n5. Zygomaticus major\n\nActions:\nA. Smiling and laughing\nB. Frowning\nC. Closing the eyelids\nD. Wrinkling the chin\nE. Retracting the angle of the mouth (grinning)",
+        "table": {
+          "prompt": "Match the following muscles of facial expression with their actions.",
+          "headers": [
+            "Muscles",
+            "Actions"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Orbicularis oculi"
+              },
+              {
+                "label": "2",
+                "value": "Risorius"
+              },
+              {
+                "label": "3",
+                "value": "Mentalis"
+              },
+              {
+                "label": "4",
+                "value": "Corrugator supercilii"
+              },
+              {
+                "label": "5",
+                "value": "Zygomaticus major"
+              }
+            ],
+            [
+              {
+                "label": "A",
+                "value": "Smiling and laughing"
+              },
+              {
+                "label": "B",
+                "value": "Frowning"
+              },
+              {
+                "label": "C",
+                "value": "Closing the eyelids"
+              },
+              {
+                "label": "D",
+                "value": "Wrinkling the chin"
+              },
+              {
+                "label": "E",
+                "value": "Retracting the angle of the mouth (grinning)"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH45_Q009",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "82706d525fb194f966521d621fea1b51094a45f89e566c6e21bd9a9ff1db9f56",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -1222,16 +1581,46 @@
           818
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "What is the location of the sinoatrial node?\n\n1. Upper part of the crista terminalis\n2. Lower interatrial septum near the opening of the coronary sinus\n3. Junction of the SVC opening with the right atrium\n4. Junction of the sinus-venosus-derived and primitive-atrium parts of the right atrium\n5. Left atrium near the pulmonary veins",
+        "table": {
+          "prompt": "What is the location of the sinoatrial node?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Upper part of the crista terminalis"
+              },
+              {
+                "label": "2",
+                "value": "Lower interatrial septum near the opening of the coronary sinus"
+              },
+              {
+                "label": "3",
+                "value": "Junction of the SVC opening with the right atrium"
+              },
+              {
+                "label": "4",
+                "value": "Junction of the sinus-venosus-derived and primitive-atrium parts of the right atrium"
+              },
+              {
+                "label": "5",
+                "value": "Left atrium near the pulmonary veins"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH48_Q007",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "d49d6f2b38471205577c72b75634bbc38674ef000fddee10fcd151c1bb057bc0",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -1241,16 +1630,61 @@
           882
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Identify the wrongly matched pair.\n\nPeritoneal fold:\n1. Transverse mesocolon\n2. Mesentery of the small intestine\n3. Lesser omentum\n4. Sigmoid mesocolon\n\nContents:\na. Middle colic vessels\nb. Superior mesenteric vessels\nc. Left and right gastric vessels\nd. Ileocolic vessels",
+        "table": {
+          "prompt": "Identify the wrongly matched pair.",
+          "headers": [
+            "Peritoneal fold",
+            "Contents"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Transverse mesocolon"
+              },
+              {
+                "label": "2",
+                "value": "Mesentery of the small intestine"
+              },
+              {
+                "label": "3",
+                "value": "Lesser omentum"
+              },
+              {
+                "label": "4",
+                "value": "Sigmoid mesocolon"
+              }
+            ],
+            [
+              {
+                "label": "a",
+                "value": "Middle colic vessels"
+              },
+              {
+                "label": "b",
+                "value": "Superior mesenteric vessels"
+              },
+              {
+                "label": "c",
+                "value": "Left and right gastric vessels"
+              },
+              {
+                "label": "d",
+                "value": "Ileocolic vessels"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH55_Q018",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "9a711afe0ccc75bd2c276e9d4f7fff73cb8f66a7f47d2cb1d3c1f15d9587d34b",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -1260,9 +1694,39 @@
           1047
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Chopart's ligament is related to which of the following joints?\n\n1. Calcaneocuboid\n2. Talocalcaneal (subtalar)\n3. Calcaneonavicular\n4. Ankle\n5. Cuneonavicular",
+        "table": {
+          "prompt": "Chopart's ligament is related to which of the following joints?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Calcaneocuboid"
+              },
+              {
+                "label": "2",
+                "value": "Talocalcaneal (subtalar)"
+              },
+              {
+                "label": "3",
+                "value": "Calcaneonavicular"
+              },
+              {
+                "label": "4",
+                "value": "Ankle"
+              },
+              {
+                "label": "5",
+                "value": "Cuneonavicular"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -1315,7 +1779,7 @@
       "id": "marrow__BIOCHEM_CH14_Q012",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "ca735d56f11a85c62ed63284ec6fee4548f022c8dc8199abc3cde52c8a9ebff1",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -1325,16 +1789,46 @@
           214
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "The elongation of long chain fatty acids takes place in which if the following hepatocyte organelles?\n\n1. Endoplasmic reticulum\n2. Golgi apparatus\n3. Mitochondria\n4. Lysosomes\n5. Nucleus",
+        "table": {
+          "prompt": "The elongation of long chain fatty acids takes place in which if the following hepatocyte organelles?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Endoplasmic reticulum"
+              },
+              {
+                "label": "2",
+                "value": "Golgi apparatus"
+              },
+              {
+                "label": "3",
+                "value": "Mitochondria"
+              },
+              {
+                "label": "4",
+                "value": "Lysosomes"
+              },
+              {
+                "label": "5",
+                "value": "Nucleus"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH15_Q003",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "2d82ee96442e12112e814a846217936a082b4514fab1844a97eca14a6b7de497",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -1344,16 +1838,46 @@
           230
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following organs can catabolize the glycerol component of triacylglycerol?\n\n1. Liver\n2. Kidney\n3. Intestine\n4. White adipose tissue\n5. Brown adipose tissue",
+        "table": {
+          "prompt": "Which of the following organs can catabolize the glycerol component of triacylglycerol?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Liver"
+              },
+              {
+                "label": "2",
+                "value": "Kidney"
+              },
+              {
+                "label": "3",
+                "value": "Intestine"
+              },
+              {
+                "label": "4",
+                "value": "White adipose tissue"
+              },
+              {
+                "label": "5",
+                "value": "Brown adipose tissue"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH17_Q012",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "d1e89f3e1646ac2d3e9d0a73ae40cc7f62507d2531437466a915bde81f3197f0",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -1363,16 +1887,69 @@
           266
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "A middle-aged female patient presented with intermittent abdominal pain, nausea, vomiting, constipation and bilateral lower limb numbness for 3 days. On examination, she is thin and pale. Her vitals and lab findings are given below. Which of the following is the most likely diagnosis?\n\nBP 156/98 mmHg; pulse 112/min\nSerum sodium 126 mEq/L\nUrine porphobilinogen and δ-aminolevulinic acid: markedly raised\nUrine turns dark on standing in light\nFaecal porphyrins: normal; no skin lesions or photosensitivity",
+        "table": {
+          "prompt": "A middle-aged female patient presented with intermittent abdominal pain, nausea, vomiting, constipation and bilateral lower limb numbness for 3 days. On examination, she is thin and pale. Her vitals and lab findings are given below. Which of the following is the most likely diagnosis?",
+          "headers": [
+            "Finding",
+            "Result"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Blood pressure / pulse"
+              },
+              {
+                "label": "2",
+                "value": "Serum sodium"
+              },
+              {
+                "label": "3",
+                "value": "Urine PBG and ALA"
+              },
+              {
+                "label": "4",
+                "value": "Urine on standing"
+              },
+              {
+                "label": "5",
+                "value": "Faecal porphyrins / skin"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "156/98 mmHg; 112/min"
+              },
+              {
+                "label": "2",
+                "value": "126 mEq/L"
+              },
+              {
+                "label": "3",
+                "value": "Markedly raised"
+              },
+              {
+                "label": "4",
+                "value": "Turns dark in light"
+              },
+              {
+                "label": "5",
+                "value": "Normal; no photosensitivity"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH27_Q012",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "94db814f880050b6d0e485156fe59837413a3fbf07caa686651ef646655403c8",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -1382,16 +1959,42 @@
           423
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "DNA methylation is not involved in?\n\n1. Gene silencing\n2. RNA splicing\n3. Chromatin remodelling\n4. Base excision repair",
+        "table": {
+          "prompt": "DNA methylation is not involved in?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Gene silencing"
+              },
+              {
+                "label": "2",
+                "value": "RNA splicing"
+              },
+              {
+                "label": "3",
+                "value": "Chromatin remodelling"
+              },
+              {
+                "label": "4",
+                "value": "Base excision repair"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__PHYSIO_CH23_Q017",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "920d7494631f596be731bbce466b880583274773b9451d0bbdf93da82420e8c6",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -1401,9 +2004,35 @@
           423
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following increases in COPD?\n\n1. Functional residual capacity\n2. Total lung capacity\n3. FEV1/FVC ratio\n4. FEV1",
+        "table": {
+          "prompt": "Which of the following increases in COPD?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Functional residual capacity"
+              },
+              {
+                "label": "2",
+                "value": "Total lung capacity"
+              },
+              {
+                "label": "3",
+                "value": "FEV1/FVC ratio"
+              },
+              {
+                "label": "4",
+                "value": "FEV1"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -1460,7 +2089,7 @@
       "id": "marrow__PHYS_CH06_Q010",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "58b0b90a69b7d0b8bf512585deed6e98e9d7b2c91d130a5d45e3a198f966cd39",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -1470,16 +2099,61 @@
           97
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following is correctly matched?\n\nPhase of the action potential:\n1. After-hyperpolarisation\n2. Depolarisation\n3. Repolarisation\n4. Overshoot\n\nCause:\na. Slow return of voltage-gated K+ channels to the closed state\nb. Opening of voltage-gated K+ channels\nc. Opening of voltage-gated Na+ channels\nd. Cl− influx",
+        "table": {
+          "prompt": "Which of the following is correctly matched?",
+          "headers": [
+            "Phase of the action potential",
+            "Cause"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "After-hyperpolarisation"
+              },
+              {
+                "label": "2",
+                "value": "Depolarisation"
+              },
+              {
+                "label": "3",
+                "value": "Repolarisation"
+              },
+              {
+                "label": "4",
+                "value": "Overshoot"
+              }
+            ],
+            [
+              {
+                "label": "a",
+                "value": "Slow return of voltage-gated K+ channels to the closed state"
+              },
+              {
+                "label": "b",
+                "value": "Opening of voltage-gated K+ channels"
+              },
+              {
+                "label": "c",
+                "value": "Opening of voltage-gated Na+ channels"
+              },
+              {
+                "label": "d",
+                "value": "Cl− influx"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__PHYS_CH07_Q035",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "b1fd29029aee4a86c82fbcb253cd9cbff6548d3a29f1ffebea380fbce2f58840",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -1489,9 +2163,53 @@
           136
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following statements is true about skeletal-muscle contraction?\n\n1. Ca2+ binds calmodulin to initiate contraction\n2. ACh binds muscarinic receptors at the end plate\n3. Ca2+ is released from the sarcoplasmic reticulum\n4. The end-plate potential is an all-or-none action potential",
+        "table": {
+          "prompt": "Which of the following statements is true about skeletal-muscle contraction?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Ca2+ binds calmodulin to initiate contraction"
+              },
+              {
+                "label": "2",
+                "value": "ACh binds muscarinic receptors at the end plate"
+              },
+              {
+                "label": "3",
+                "value": "Ca2+ is released from the sarcoplasmic reticulum"
+              },
+              {
+                "label": "4",
+                "value": "The end-plate potential is an all-or-none action potential"
+              }
+            ]
+          ]
+        },
+        "options": [
+          {
+            "letter": "A",
+            "text": "2, 3 and 4"
+          },
+          {
+            "letter": "B",
+            "text": "3 only"
+          },
+          {
+            "letter": "C",
+            "text": "1, 2 and 4"
+          },
+          {
+            "letter": "D",
+            "text": "1, 3 and 4"
+          }
+        ]
       }
     },
     {
@@ -1659,7 +2377,7 @@
       "id": "anatomy-22-4",
       "bank": "PrepLadder",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "40fba0af5fa590ec0fdd5d92346153dffc8c604f731d7c0858549de7f773bc9e",
       "source": {
         "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
@@ -1669,9 +2387,27 @@
           889
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following is not part of the hamstring group of muscles?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Long head of biceps femoris"
+          },
+          {
+            "letter": "B",
+            "text": "Short head of biceps femoris"
+          },
+          {
+            "letter": "C",
+            "text": "Semitendinosus"
+          },
+          {
+            "letter": "D",
+            "text": "Semimembranosus"
+          }
+        ]
       }
     },
     {
@@ -1731,7 +2467,7 @@
       "id": "anatomy-40-10",
       "bank": "PrepLadder",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "ca7c49f5ce983f56418e6f8d1fe2da17113073d8019bb4fff2bafffed2c12374",
       "source": {
         "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
@@ -1741,9 +2477,54 @@
           1594
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Match the branches of the uterine artery (1–4) with their names.\n\nBranches:\n1. Runs circumferentially in the outer myometrium\n2. Passes inward through the inner myometrium towards the endometrium\n3. Supplies the basal endometrium and is not shed at menstruation\n4. Coiled branch to the functional endometrium, shed at menstruation\n\nNames:\na. Basal artery\nb. Spiral artery\nc. Arcuate artery\nd. Radial artery",
+        "table": {
+          "prompt": "Match the branches of the uterine artery (1–4) with their names.",
+          "headers": [
+            "Branches",
+            "Names"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Runs circumferentially in the outer myometrium"
+              },
+              {
+                "label": "2",
+                "value": "Passes inward through the inner myometrium towards the endometrium"
+              },
+              {
+                "label": "3",
+                "value": "Supplies the basal endometrium and is not shed at menstruation"
+              },
+              {
+                "label": "4",
+                "value": "Coiled branch to the functional endometrium, shed at menstruation"
+              }
+            ],
+            [
+              {
+                "label": "a",
+                "value": "Basal artery"
+              },
+              {
+                "label": "b",
+                "value": "Spiral artery"
+              },
+              {
+                "label": "c",
+                "value": "Arcuate artery"
+              },
+              {
+                "label": "d",
+                "value": "Radial artery"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -2390,7 +3171,7 @@
       "id": "marrow__ANAT_CH13_Q013",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "8d573e718e214f222a0eefe711a7a65112952c851b645c049181e6f65c2ee5fa",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -2399,16 +3180,46 @@
           235
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following cells are included under the APUD cell system?\n\n1. Chromaffin cells of the adrenal medulla\n2. Parafollicular C cells of the thyroid\n3. Type II alveolar cells\n4. Enterochromaffin cells\n5. Glomus cells of the carotid body",
+        "table": {
+          "prompt": "Which of the following cells are included under the APUD cell system?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Chromaffin cells of the adrenal medulla"
+              },
+              {
+                "label": "2",
+                "value": "Parafollicular C cells of the thyroid"
+              },
+              {
+                "label": "3",
+                "value": "Type II alveolar cells"
+              },
+              {
+                "label": "4",
+                "value": "Enterochromaffin cells"
+              },
+              {
+                "label": "5",
+                "value": "Glomus cells of the carotid body"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH31_Q005",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "8faffd973a79a2bf9a4e6caed2b36fd9c4ea9d9bb059724fd2029b960e3d8c66",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -2417,16 +3228,61 @@
           557
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Match the following with the structures they supply.\n\nGanglia:\nA. Otic ganglion\nB. Pterygopalatine ganglion\nC. Submandibular ganglion\nD. Ciliary ganglion\n\nStructures supplied:\n1. Sublingual gland\n2. Sphincter pupillae\n3. Parotid gland\n4. Lacrimal gland",
+        "table": {
+          "prompt": "Match the following with the structures they supply.",
+          "headers": [
+            "Ganglia",
+            "Structures supplied"
+          ],
+          "groups": [
+            [
+              {
+                "label": "A",
+                "value": "Otic ganglion"
+              },
+              {
+                "label": "B",
+                "value": "Pterygopalatine ganglion"
+              },
+              {
+                "label": "C",
+                "value": "Submandibular ganglion"
+              },
+              {
+                "label": "D",
+                "value": "Ciliary ganglion"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "Sublingual gland"
+              },
+              {
+                "label": "2",
+                "value": "Sphincter pupillae"
+              },
+              {
+                "label": "3",
+                "value": "Parotid gland"
+              },
+              {
+                "label": "4",
+                "value": "Lacrimal gland"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__ANAT_CH48_Q002",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "a4b0840c852651be1010b1e844e9a7413715e3d5d24741504846a5fde3df370d",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -2435,9 +3291,39 @@
           878
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following structures is not present in the plane marked as 1 in the image?\n\n1. Origin of the coeliac trunk\n2. Pylorus\n3. Lower end of the spinal cord in a newborn\n4. Hilum of the left kidney\n5. Fundus of the gallbladder",
+        "table": {
+          "prompt": "Which of the following structures is not present in the plane marked as 1 in the image?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Origin of the coeliac trunk"
+              },
+              {
+                "label": "2",
+                "value": "Pylorus"
+              },
+              {
+                "label": "3",
+                "value": "Lower end of the spinal cord in a newborn"
+              },
+              {
+                "label": "4",
+                "value": "Hilum of the left kidney"
+              },
+              {
+                "label": "5",
+                "value": "Fundus of the gallbladder"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -2489,7 +3375,7 @@
       "id": "marrow__ANAT_CH62_Q006",
       "bank": "Marrow",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "2c8c374ed7dfd5c5707d640e6a19eb166e042958629688ce174ffe4cc42fb4fc",
       "source": {
         "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
@@ -2498,16 +3384,46 @@
           1188
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following are end arteries?\n\n1. Central artery of the retina\n2. Labyrinthine artery\n3. Segmental renal arteries\n4. Vasa recta of the small intestine\n5. Posterior cerebral artery",
+        "table": {
+          "prompt": "Which of the following are end arteries?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Central artery of the retina"
+              },
+              {
+                "label": "2",
+                "value": "Labyrinthine artery"
+              },
+              {
+                "label": "3",
+                "value": "Segmental renal arteries"
+              },
+              {
+                "label": "4",
+                "value": "Vasa recta of the small intestine"
+              },
+              {
+                "label": "5",
+                "value": "Posterior cerebral artery"
+              }
+            ]
+          ]
+        }
       }
     },
     {
       "id": "marrow__BIOCHEM_CH12_Q007",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "c1a2c037661a35b14a113271ebf3c428d69687f6c47997e310deeeba447b48c8",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -2516,9 +3432,35 @@
           187
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following are essential fatty acids?\n\n1. Linoleic acid\n2. Arachidonic acid\n3. α-Linolenic acid\n4. γ-Linolenic acid",
+        "table": {
+          "prompt": "Which of the following are essential fatty acids?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Linoleic acid"
+              },
+              {
+                "label": "2",
+                "value": "Arachidonic acid"
+              },
+              {
+                "label": "3",
+                "value": "α-Linolenic acid"
+              },
+              {
+                "label": "4",
+                "value": "γ-Linolenic acid"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -2581,7 +3523,7 @@
       "id": "marrow__BIOCHEM_CH16_Q014",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "67148a5c3f5b73b2406a530690cbd3d00bb91cac57e9025c439074eb85223b74",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -2590,9 +3532,39 @@
           250
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Which of the following contains apolipoprotein A?\n\n1. HDL\n2. Chylomicron\n3. VLDL\n4. IDL\n5. LDL",
+        "table": {
+          "prompt": "Which of the following contains apolipoprotein A?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "HDL"
+              },
+              {
+                "label": "2",
+                "value": "Chylomicron"
+              },
+              {
+                "label": "3",
+                "value": "VLDL"
+              },
+              {
+                "label": "4",
+                "value": "IDL"
+              },
+              {
+                "label": "5",
+                "value": "LDL"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -2636,7 +3608,7 @@
       "id": "marrow__BIOCHEM_CH28_Q009",
       "bank": "Marrow",
       "subject": "Biochemistry",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "14ca6de0ddcc345bebf1b6794096e43a4318572d1f066552915786afff8b49b5",
       "source": {
         "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
@@ -2645,9 +3617,31 @@
           433
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "What is the correct sequence of events in Southern blotting?\n\n1. Transfer of denatured DNA from the gel to a nylon membrane\n2. Hybridisation with a labelled probe and detection\n3. Separation of DNA fragments by agarose gel electrophoresis",
+        "table": {
+          "prompt": "What is the correct sequence of events in Southern blotting?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Transfer of denatured DNA from the gel to a nylon membrane"
+              },
+              {
+                "label": "2",
+                "value": "Hybridisation with a labelled probe and detection"
+              },
+              {
+                "label": "3",
+                "value": "Separation of DNA fragments by agarose gel electrophoresis"
+              }
+            ]
+          ]
+        }
       }
     },
     {
@@ -2744,7 +3738,7 @@
       "id": "marrow__PHYS_CH09_Q001",
       "bank": "Marrow",
       "subject": "Physiology",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "cb74b5dff0c6653b6b3237b611066bf46d0cac199e0c431cf1c5538de1a0574e",
       "source": {
         "file": "data/marrow/source_pdfs/physiologyed8.pdf",
@@ -2753,9 +3747,53 @@
           173
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "A synapse is a junction between ______.\n\n1. Two neurons\n2. A neuron and a skeletal muscle fibre\n3. A neuron and a gland cell\n4. A neuron and a smooth muscle cell",
+        "table": {
+          "prompt": "A synapse is a junction between ______.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Two neurons"
+              },
+              {
+                "label": "2",
+                "value": "A neuron and a skeletal muscle fibre"
+              },
+              {
+                "label": "3",
+                "value": "A neuron and a gland cell"
+              },
+              {
+                "label": "4",
+                "value": "A neuron and a smooth muscle cell"
+              }
+            ]
+          ]
+        },
+        "options": [
+          {
+            "letter": "A",
+            "text": "1 and 2"
+          },
+          {
+            "letter": "B",
+            "text": "1, 2, 3"
+          },
+          {
+            "letter": "C",
+            "text": "All 1, 2, 3, 4"
+          },
+          {
+            "letter": "D",
+            "text": "1, 2, 4"
+          }
+        ]
       }
     },
     {
@@ -3031,7 +4069,7 @@
       "id": "anatomy-14-5",
       "bank": "PrepLadder",
       "subject": "Anatomy",
-      "decision": "SOURCE_OMISSION",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
       "canonicalSourceFingerprint": "b33de8935938c89513276983d9edd9f035c05dd9725191dc36af48b783624df7",
       "source": {
         "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
@@ -3040,9 +4078,54 @@
           528
         ]
       },
-      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "evidenceFile": "docs/question-completeness/reconstruction-2026-11.json",
       "display": {
-        "blocked": true
+        "question": "Match the parts of the nasal septum (1–4) with their names.\n\nParts:\n1. Bone forming the posterosuperior part of the septum\n2. Bone forming the posteroinferior part of the septum\n3. Cartilage forming the anterior part of the septum\n4. Cartilage forming the lower mobile part (columella)\n\nNames:\na. Vomer\nb. Septal cartilage\nc. Medial crus of the major alar cartilage\nd. Perpendicular plate of the ethmoid",
+        "table": {
+          "prompt": "Match the parts of the nasal septum (1–4) with their names.",
+          "headers": [
+            "Parts",
+            "Names"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Bone forming the posterosuperior part of the septum"
+              },
+              {
+                "label": "2",
+                "value": "Bone forming the posteroinferior part of the septum"
+              },
+              {
+                "label": "3",
+                "value": "Cartilage forming the anterior part of the septum"
+              },
+              {
+                "label": "4",
+                "value": "Cartilage forming the lower mobile part (columella)"
+              }
+            ],
+            [
+              {
+                "label": "a",
+                "value": "Vomer"
+              },
+              {
+                "label": "b",
+                "value": "Septal cartilage"
+              },
+              {
+                "label": "c",
+                "value": "Medial crus of the major alar cartilage"
+              },
+              {
+                "label": "d",
+                "value": "Perpendicular plate of the ethmoid"
+              }
+            ]
+          ]
+        }
       }
     },
     {
