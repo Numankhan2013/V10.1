@@ -6847,7 +6847,7 @@ html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: nkSbIn 
 .nk-sched-date { position: relative; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding-right: 12px; border-right: 1px dashed var(--nkg-border-strong, #d4d4d4); text-align: center; }
 .nk-sched-date::before, .nk-sched-date::after { content: ""; position: absolute; right: -7px; width: 12px; height: 12px; border-radius: 50%; background: var(--nkg-bg-subtle, #fafafa); border: 1px solid var(--nkg-border, #e5e5e5); }
 .nk-sched-in { white-space: nowrap; }
-@media (max-width: 479px) { .nk-cbt-main-actions .nk-sched-open { flex: 0 0 48px; min-width: 48px; padding: 0; font-size: 0; } .nk-cbt-main-actions .nk-sched-open svg { width: 19px; height: 19px; } }
+@media (max-width: 479px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions .nk-sched-open { flex: 0 0 48px !important; width: 48px !important; min-width: 48px !important; padding: 0 !important; font-size: 0 !important; gap: 0 !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions .nk-sched-open svg { width: 19px; height: 19px; } }
 .nk-sched-date::before { top: -20px; } .nk-sched-date::after { bottom: -20px; }
 .nk-sched-date small { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; color: var(--nkg-fg-3, #737373); }
 .nk-sched-date b { font-size: 26px; line-height: 1; font-weight: 650; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
