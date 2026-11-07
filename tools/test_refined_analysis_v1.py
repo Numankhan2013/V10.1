@@ -34,8 +34,8 @@ const mixed=run('nkAnalysisRow(row)');assert.match(mixed,/is-correct.*width:50%/
 assert.match(mixed,/>1<\/b> Correct/);assert.match(mixed,/>1<\/b> Unattempted/);
 ctx.t={questionIds:['a','b','c','d','e','e'],questionTimes:{a:1000,b:3000,c:5000,d:15000}};
 const short=run('nkAnalysisTimeData(t)');assert.deepEqual(Array.from(short.counts),[4,4,4,4,4]);assert.equal(short.missing,1);
-assert.match(run('nkAnalysisTimeChart(t)'),/All 4 recorded questions took under 30 seconds/);
-assert.match(run('nkAnalysisTimeChart(t)'),/Timing saved for 4 of 5 questions/);
+assert.match(run('nkAnalysisTimeChart(t)'),/<b>4<\/b> of 4 within/);
+assert.match(run('nkAnalysisTimeChart(t)'),/1 question has no saved time/);
 ctx.t={questionIds:['x','y','z'],questionTimes:{x:NaN,y:-1,z:'1000'}};assert.equal(run('nkAnalysisTimeData(t)').recorded,0);
 const mock=run("nkMockStore('Mock <01>', ['a','b'])");ctx.mockId=mock.id;
 run('nkMockStart(mockId)');assert.deepEqual(Array.from(launched.ids),['a','b']);assert.equal(launched.mode,'exam');assert.equal(launched.title,'Mock <01>');

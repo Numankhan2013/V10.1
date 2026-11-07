@@ -87,12 +87,11 @@ def main():
                 expect(page.get_by_role('heading',name='Subject breakdown')).to_be_visible()
                 assert page.locator('.nk-na-row').count()==3
                 page.get_by_role('button',name='Topic-wise',exact=True).click()
-                page.get_by_role('button',name='Within time',exact=True).click()
-                assert page.locator('.nk-na-time-bars>div>b').all_text_contents()==['4','8','12','16','20']
-                assert 'Running total' in page.locator('.nk-na-time-explanation').inner_text()
-                page.get_by_role('button',name='Time ranges',exact=True).click()
-                assert page.locator('.nk-na-time-bars>div>b').all_text_contents()==['4']*5
-                assert 'Timing saved for 20 of 20' in page.locator('.nk-na-time-coverage').inner_text()
+                # Time: one bar per question in order, against the per-question line; no mode tabs.
+                assert page.locator('.nk-pace-bars > button').count()==20
+                assert page.get_by_role('button',name='Within time',exact=True).count()==0
+                assert 'of 20 within' in page.locator('.nk-pace-facts').inner_text()
+                assert 'Median' in page.locator('.nk-pace-facts').inner_text()
                 page.evaluate("window.QB.nav('result','analysis-low')")
                 assert '67%' in page.locator('.nk-na-accuracy').inner_text()
                 assert '10%' in page.locator('.nk-na-summary .nk-na-ring').inner_text()
