@@ -163,4 +163,16 @@
       return out;
     };
   }
+  // A new day starts a new plan. When the app stays open across midnight (or comes back the next morning),
+  // redraw Home so it does not keep showing yesterday's plan; never while the user is typing.
+  let nkTodayShownDay=nkTodayStart();
+  function nkTodayRollover(){
+    const day=nkTodayStart();if(day===nkTodayShownDay)return;nkTodayShownDay=day;
+    const typing=document.activeElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if(route?.page==='dashboard'&&!typing&&typeof render==='function')render();
+  }
+  if(typeof document!=='undefined'&&document.addEventListener){
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nkTodayRollover();});
+    setInterval(nkTodayRollover,60000);
+  }
   /* NK_TODAY_PLAN_V1_END */

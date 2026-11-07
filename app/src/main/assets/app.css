@@ -6778,7 +6778,7 @@ html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: nkSbIn 
 .nk-today-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .nk-today-head h2 { margin: 0; font-size: 20px; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: var(--nkg-fg, #0a0a0a); }
 .nk-today-head p { margin: 4px 0 0; font-size: 13px; color: var(--nkg-fg-2, #525252); font-variant-numeric: tabular-nums; }
-.nk-today-link { display: inline-flex; align-items: center; gap: 2px; min-height: 32px; padding: 0 4px 0 8px; border: 0; border-radius: 8px; background: transparent; color: var(--nkg-fg-2, #525252); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
+.nk-today-link { display: inline-flex; align-items: center; gap: 2px; min-height: 40px; padding: 0 4px 0 8px; border: 0; border-radius: 8px; background: transparent; color: var(--nkg-fg-2, #525252); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
 .nk-today-link:hover { color: var(--nkg-fg, #0a0a0a); background: var(--nkg-hover, #f5f5f5); }
 .nk-today-meter { height: 4px; margin: 14px 0 6px; border-radius: 99px; background: var(--nkg-surface-2, #ededed); overflow: hidden; }
 .nk-today-meter i { display: block; height: 100%; width: var(--nk-today-fill, 0%); border-radius: inherit; background: var(--nkg-fg, #0a0a0a); animation: nk-today-fill .9s cubic-bezier(.16,1,.3,1) both; }
@@ -7142,6 +7142,8 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 .nk-rd-bank>summary>svg{flex:none;color:var(--nkg-sec);transform:rotate(90deg);transition:transform var(--nkg-dur-fast) var(--nkg-ease)}
 .nk-rd-bank:not([open])>summary>svg{transform:none}
 .nk-rd-bank-go:empty{display:none}
+/* Back links are the main way out of sub-pages: give them a full-height tap target. */
+html[data-nk-ui="geist"] .nk-app-v114 .nk-back-link{min-height:40px}
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{
@@ -7540,7 +7542,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mi-card > header h2 { margin: 0
 .nk-mi-is-mid { background: var(--nkg-fg-3, #666); }
 .nk-mi-is-good { background: color-mix(in srgb, var(--nkg-green, #0a7d35) 55%, var(--nkg-surface-2, #f5f5f5)); }
 .nk-mi-is-best { background: var(--nkg-green, #0a7d35); }
-.nk-mi-forecast { display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); align-items: end; gap: 2px; height: 96px; border-bottom: 1px solid var(--nkg-border, #e5e5e5); }
+.nk-mi-forecast { touch-action: pan-y; display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); align-items: end; gap: 2px; height: 96px; border-bottom: 1px solid var(--nkg-border, #e5e5e5); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mi-forecast button { display: flex; align-items: flex-end; min-width: 0; min-height: 0; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 3px 3px 0 0; background: transparent; cursor: pointer; }
 .nk-mi-forecast i { display: block; width: 100%; border-radius: 3px 3px 0 0; background: color-mix(in srgb, var(--nkg-fg, #171717) 34%, var(--nkg-surface, #fff)); transition: background-color 140ms ease; }
 .nk-mi-forecast button:first-child i { background: color-mix(in srgb, var(--nkg-fg, #171717) 70%, var(--nkg-surface, #fff)); }

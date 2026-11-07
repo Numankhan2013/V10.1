@@ -133,7 +133,7 @@
   }
   function nkMemoryForecast(d){
     const max=Math.max(1,...d.forecast),date=i=>esc(new Date(d.today+i*NK_MEMORY_DAY).toLocaleDateString(undefined,{day:'numeric',month:'short'}));
-    return nkMemoryCard('Next 30 days','Tap a day',`<div class="nk-mi-forecast" role="group" aria-label="Reviews scheduled over the next 30 days">${d.forecast.map((n,i)=>`<button type="button" aria-pressed="${nkMemoryForecastDay===i}" class="${nkMemoryForecastDay===i?'is-selected':''}" aria-label="${esc(nkMemoryForecastLabel(d,i))}: ${n} reviews" onclick="window.QB.nkMemorySelectDay(${i})"><i style="height:${n?Math.max(3,n/max*88):0}px"></i></button>`).join('')}</div><div class="nk-mi-forecast-axis" aria-hidden="true"><span style="grid-column:1/span 7">Today</span><span style="grid-column:8/span 7">${date(7)}</span><span style="grid-column:15/span 7">${date(14)}</span><span class="is-end" style="grid-column:23/31">${date(29)}</span></div><p class="nk-mi-readout" role="status">${nkMemoryForecastReadout(d)}</p>`);
+    return nkMemoryCard('Next 30 days','Tap a day',`<div class="nk-mi-forecast" role="group" aria-label="Reviews scheduled over the next 30 days" onpointermove="window.QB.nkMemoryScrub(event)">${d.forecast.map((n,i)=>`<button type="button" aria-pressed="${nkMemoryForecastDay===i}" class="${nkMemoryForecastDay===i?'is-selected':''}" aria-label="${esc(nkMemoryForecastLabel(d,i))}: ${n} reviews" onclick="window.QB.nkMemorySelectDay(${i})"><i style="height:${n?Math.max(3,n/max*88):0}px"></i></button>`).join('')}</div><div class="nk-mi-forecast-axis" aria-hidden="true"><span style="grid-column:1/span 7">Today</span><span style="grid-column:8/span 7">${date(7)}</span><span style="grid-column:15/span 7">${date(14)}</span><span class="is-end" style="grid-column:23/31">${date(29)}</span></div><p class="nk-mi-readout" role="status">${nkMemoryForecastReadout(d)}</p>`);
   }
   function nkMemoryHardest(d){
     if(!d.hardest.length)return '';
@@ -152,6 +152,13 @@
   }
   function nkMemorySetGroup(group){const g=String(group||'');if(g&&!nkMemoryGroups().includes(g))return;nkMemoryGroup=g;nkMemoryForecastDay=-1;render();}
   function nkMemorySelectDay(i){const n=Number(i);if(!Number.isInteger(n)||n<0||n>29)return;nkMemoryForecastDay=nkMemoryForecastDay===n?-1:n;const d=nkMemoryData(nkMemoryGroup);document.querySelectorAll('.nk-mi-forecast button').forEach((b,j)=>{b.classList.toggle('is-selected',j===nkMemoryForecastDay);b.setAttribute('aria-pressed',String(j===nkMemoryForecastDay));});const out=document.querySelector('.nk-mi-readout');if(out)out.innerHTML=nkMemoryForecastReadout(d);}
+  // Thirty bars are narrow on a phone: dragging across the chart picks the day under the finger.
+  function nkMemoryScrub(event){
+    if(!event||(event.pointerType==='mouse'&&!event.buttons))return;
+    const box=event.currentTarget?.getBoundingClientRect?.();if(!box||!box.width)return;
+    const i=Math.max(0,Math.min(29,Math.floor((event.clientX-box.left)/box.width*30)));
+    if(i!==nkMemoryForecastDay)nkMemorySelectDay(i);
+  }
   function nkMemoryReview(){return nkFocusRevise(nkMemoryGroup,'due','');}
   function nkMemoryStart(ids,title){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting Practice.','bad');return false;}
