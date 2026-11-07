@@ -48,7 +48,8 @@ def load_wave(manifest_path=None, *, require_complete=True):
     assert hashlib.sha256(gate_path.read_bytes()).hexdigest() == manifest['completenessLedgerSha256'], 'Source omission/answer guards changed'
     gates = {e['id']: e for e in json.loads(gate_path.read_text())['entries']}
     for qid in manifest.get('withheldSourceLimitedIds', []):
-        assert gates[qid]['display'].get('blocked'), 'Source-limited question is not gated: ' + qid
+        # Withheld from refinement: either still gated, or shown as a reviewed reconstruction of the missing statements.
+        assert gates[qid]['display'].get('blocked') or gates[qid]['decision'] == 'CONTEXTUAL_RECONSTRUCTION', 'Source-limited question is not gated: ' + qid
     wave = {}
     for spec in manifest['batches']:
         record = json.loads((DATA / spec['file']).read_text())
