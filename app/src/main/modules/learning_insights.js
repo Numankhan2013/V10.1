@@ -106,12 +106,15 @@
     if(Math.abs(pct)<.5)return `<span class="nk-li-vs is-neutral">Same as ${esc(lower)}</span>`;
     return `<span class="nk-li-vs ${pct>0?'is-up':'is-quiet'}">${pct>0?'+':'−'}${Math.abs(pct)>999?'999+':Math.round(Math.abs(pct))}% vs ${esc(lower)}</span>`;
   }
-  function nkLearningNiceMax(max){if(max<=0)return 1;const step=Math.pow(10,Math.floor(Math.log10(max))),n=max/step;return (n<=1?1:n<=2?2:n<=5?5:10)*step;}
+  function nkLearningNiceMax(max,unit=''){
+    if(unit==='min'&&max>60){const h=nkLearningNiceMax(max/60);return h*60;}
+    if(max<=2)return 2;const step=Math.pow(10,Math.floor(Math.log10(max))),n=max/step;return (n<=1?1:n<=2?2:n<=5?5:10)*step;
+  }
   function nkLearningKpis(model){
     const labels=nkLearningPeriodLabels(model);
     return `<div class="nk-li-kpis" role="group" aria-label="Choose what the chart shows">${Object.entries(NK_LI_METRICS).map(([key,m])=>{const v=m.value(model.current);return `<button type="button" class="nk-li-kpi" data-metric="${m.label}" aria-pressed="${nkLearningMetric===key}" onclick="window.QB.nkLearningSetMetric('${key}')"><small>${m.label}</small><b>${v===null?'—':m.format(v)}</b>${nkLearningVs(key,model.current,model.previous,labels.previous)}</button>`;}).join('')}</div>`;
   }
-  function nkLearningSetMetric(key){if(!NK_LI_METRICS[key]||key===nkLearningMetric)return;nkLearningMetric=key;nkLearningBin=-1;nkLearningFocusSubject='';nkLearningRefresh();}
+  function nkLearningSetMetric(key){if(!NK_LI_METRICS[key]||key===nkLearningMetric)return;const keep=document.activeElement?.classList?.contains('nk-li-kpi');nkLearningMetric=key;nkLearningBin=-1;nkLearningFocusSubject='';nkLearningRefresh();if(keep)document.querySelector(`.nk-li-kpi[data-metric="${NK_LI_METRICS[key].label}"]`)?.focus({preventScroll:true});}
   // Dragging across the chart picks the bar under the finger, so narrow bars stay easy to read on a phone.
   function nkLearningScrub(event){
     if(!event||(event.pointerType==='mouse'&&!event.buttons))return;
@@ -129,7 +132,7 @@
   function nkLearningBarChart(model){
     const m=NK_LI_METRICS[nkLearningMetric],labels=nkLearningPeriodLabels(model),stacked=nkLearningMetric==='attempts';
     const plot=b=>{const v=m.plot(b);return v===null||v===undefined?null:v;};
-    const max=m.points?100:nkLearningNiceMax(Math.max(0,...model.bins.flatMap(b=>[plot(b.current)||0,plot(b.previous)||0])));
+    const max=m.points?100:nkLearningNiceMax(Math.max(0,...model.bins.flatMap(b=>[plot(b.current)||0,plot(b.previous)||0])),nkLearningMetric==='time'?'min':'');
     const pct=v=>v?Math.max(1.5,Math.min(100,v/max*100)).toFixed(1):'0';
     const order=nkLearningSubjectSplit(model.current.events);
     if(nkLearningFocusSubject&&!order.some(r=>r.subject===nkLearningFocusSubject))nkLearningFocusSubject='';
@@ -210,7 +213,7 @@
     const m=NK_LI_METRICS[nkLearningMetric],labels=nkLearningPeriodLabels(model),v=m.value(model.current);
     // The selected tile above already states the total and its change; the chart only names what it plots.
     void v;const main=`<section class="nk-li-main" aria-labelledby="nk-li-main-title"><header><small id="nk-li-main-title">${esc(m.label)} · ${esc(labels.current)}</small></header>${nkLearningBarChart(model)}</section>`;
-    return `<section class="nk-li-overview">${nkLearningKpis(model)}${main}</section>${nkFocusSection(model)}<div class="nk-li-grid">${nkLearningCard('Topics',nkLearningTopics(model))}${nkLearningCard('Subjects',nkLearningSubjects(model))}${nkLearningCard('Memory',nkLearningFsrs(model))}${nkLearningCard('Study modules',nkLearningModules(model))}</div>${nkLearningYearActivity(model)}`;
+    return `<section class="nk-li-overview">${nkLearningKpis(model)}${main}</section>${nkFocusSection(model)}<div class="nk-li-grid">${nkLearningCard('Topics',nkLearningTopics(model),'is-topics')}${nkLearningCard('Subjects',nkLearningSubjects(model))}${nkLearningCard('Memory',nkLearningFsrs(model))}${nkLearningCard('Study modules',nkLearningModules(model))}</div>${nkLearningYearActivity(model)}`;
   }
   function analytics(){
     const model=nkLearningModel(),r=model.range,subjects=[...new Set([...model.data.questions.values()].filter(q=>!nkLearningBank||q.bank===nkLearningBank).map(q=>q.subject))],banks=[...new Set([...model.data.questions.values()].filter(q=>!nkLearningSubject||q.subject===nkLearningSubject).map(q=>q.bank))],recent=model.data.tests.filter(t=>Number(t.createdAt)>=r.start&&Number(t.createdAt)<r.cut&&(t.questionIds||[]).some(id=>nkLearningMatches(model.data.questions.get(String(id))||{}))).slice(-5).reverse();
@@ -265,7 +268,7 @@
   function nkLearningRefreshSoon(){
     if(typeof requestAnimationFrame!=='function'){nkLearningRefresh();return;}
     if(nkLearningRefreshQueued)return;nkLearningRefreshQueued=true;
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkLearningRefreshQueued=false;nkLearningRefresh();}));
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkLearningRefreshQueued=false;if(document.querySelector('.nk-learning-insights'))nkLearningRefresh();}));
   }
   function nkLearningSetPeriod(value){if(!['week','month','year'].includes(value))return;nkLearningPeriod=value;nkLearningOffset=0;nkLearningBin=-1;nkLearningRefreshSoon();}
   function nkLearningMove(n){if(![-1,0,1].includes(n))return;nkLearningOffset=n===0?0:Math.min(0,nkLearningOffset+n);nkLearningBin=-1;nkLearningRefresh();}
@@ -282,7 +285,7 @@
   function nkLearningPaintFocus(){document.querySelectorAll('.nk-li-stack span').forEach(n=>n.classList.toggle('is-dim',Boolean(nkLearningFocusSubject)&&n.dataset.liSubject!==nkLearningFocusSubject));document.querySelectorAll('.nk-li-subject-key button').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.liSubject===nkLearningFocusSubject)));}
   // The key toggles one subject: other bands fade and the readout shows that subject's period.
   function nkLearningFocus(subject){nkLearningFocusSubject=nkLearningFocusSubject===subject?'':String(subject||'');nkLearningBin=-1;document.querySelectorAll('.nk-li-plotbars button').forEach(button=>{button.classList.remove('is-selected');button.setAttribute('aria-pressed','false');});nkLearningPaintFocus();const node=document.querySelector('.nk-li-bin-readout');if(node)node.innerHTML=nkLearningBinReadout(nkLearningModel());}
-  function nkLearningSetTopics(value){if(!['needs','top'].includes(value))return;nkLearningTopicMode=value;const node=document.querySelector('.nk-li-topic')?.closest('.nk-li-card')||[...document.querySelectorAll('.nk-li-card')].find(n=>n.querySelector('h2')?.textContent==='Topic performance');if(node&&typeof nkPolishReplaceSurface==='function')nkPolishReplaceSurface(node,nkLearningCard('Topic performance',nkLearningTopics(nkLearningModel())));else if(node)node.outerHTML=nkLearningCard('Topic performance',nkLearningTopics(nkLearningModel()));}
+  function nkLearningSetTopics(value){if(!['needs','top'].includes(value))return;nkLearningTopicMode=value;const node=document.querySelector('.nk-li-card.is-topics');if(node&&typeof nkPolishReplaceSurface==='function')nkPolishReplaceSurface(node,nkLearningCard('Topics',nkLearningTopics(nkLearningModel()),'is-topics'));else if(node)node.outerHTML=nkLearningCard('Topics',nkLearningTopics(nkLearningModel()),'is-topics');if(typeof requestAnimationFrame==='function')requestAnimationFrame(()=>document.querySelector(`.nk-li-card.is-topics .nk-li-tabs [onclick*="'${value}'"]`)?.focus({preventScroll:true}));}
   function nkLearningOpenTopic(encoded){let key;try{key=JSON.parse(decodeURIComponent(encoded));}catch{return;}if(!Array.isArray(key)||key.length!==3)return;if(!nkModuleBankRecords().some(r=>r.subject===key[0]&&nkModuleBankName(r)===key[1]&&nkModuleTopics(r).some(t=>String(t.id)===String(key[2]))))return;nkOpenSubjectChapter(...key);}
   function nkLearningSetHeatYear(value){const year=Number(value);if(value!=='rolling'&&(!Number.isInteger(year)||year<2000||year>new Date().getFullYear()))return;nkLearningHeatYear=String(value);const node=document.querySelector('.nk-li-year-activity');if(node&&typeof nkPolishReplaceSurface==='function')nkPolishReplaceSurface(node,nkLearningYearActivity(nkLearningModel()));else if(node)node.outerHTML=nkLearningYearActivity(nkLearningModel());nkLearningAlignHeatmap();}
   function nkLearningYearDetail(at){const date=nkLearningDay(at),end=nkLearningShift(date,1),rows=nkLearningCollect().events.filter(a=>nkLearningMatches(a.q)&&a.at>=+date&&a.at<+end),node=document.getElementById('nk-li-year-detail');if(node)node.textContent=`${date.toLocaleDateString(undefined,{dateStyle:'medium'})}: ${fmtNum(rows.length)} answers · ${rows.filter(a=>a.correct).length} correct · ${rows.filter(a=>!a.correct).length} incorrect.`;document.querySelectorAll('.nk-li-year-grid button').forEach(button=>{const selected=button.getAttribute('onclick')===`window.QB.nkLearningYearDetail(${+date})`;button.classList.toggle('is-selected',selected);button.setAttribute('aria-pressed',String(selected));button.tabIndex=selected?0:-1;});}

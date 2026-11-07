@@ -7105,13 +7105,13 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 /* Due reviews by subject / bank / topic (revision_desk.js) */
 .nk-review-dues{display:grid;gap:16px}
 .nk-review-dues .nk-rd-all{width:100%;min-height:48px}
-.nk-rd-note{margin:0;font-size:13px;color:var(--nkg-sec);line-height:1.45}
+.nk-rd-note{margin:0;font-size:13px;color:var(--nkg-fg-3);line-height:1.45}
 .nk-rd-note button{border:0;background:none;padding:0;color:var(--nkg-fg);font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-.nk-rd-legend{display:flex;gap:16px;margin:4px 0 -4px;font-size:12px;color:var(--nkg-sec)}
+.nk-rd-legend{display:flex;gap:16px;margin:4px 0 -4px;font-size:12px;color:var(--nkg-fg-3)}
 .nk-rd-legend span{display:inline-flex;align-items:center;gap:6px}
 .nk-rd-legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
 .nk-rd-legend i.is-due{background:var(--nkg-green)}
-.nk-rd-bar i.is-young{background:var(--nkg-border-strong)}
+.nk-rd-bar i.is-young{background:color-mix(in srgb, var(--nkg-fg-3) 50%, transparent)}
 .nk-rd-legend i.is-learn,.nk-rd-bar i.is-learn{background:var(--nkg-red)}
 .nk-rd-legend i.is-mature,.nk-rd-bar i.is-mature{background:var(--nkg-blue)}
 .nk-rd-list{list-style:none;margin:0;padding:0;border:1px solid var(--nkg-border);border-radius:var(--nkg-r-lg);background:var(--nkg-surface);overflow:hidden}
@@ -7119,12 +7119,12 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 .nk-rd-row+.nk-rd-row{border-top:1px solid var(--nkg-border)}
 .nk-rd-row.is-topic{padding:10px 12px 10px 14px}
 .nk-rd-open{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:12px 4px 12px 14px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
-.nk-rd-open>svg{flex:none;color:var(--nkg-sec)}
+.nk-rd-open>svg{flex:none;color:var(--nkg-fg-3)}
 .nk-rd-icon{flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--nkg-bg-subtle);color:var(--nkg-fg)}
 .nk-rd-name{flex:1;min-width:0;display:grid;gap:5px}
 .nk-rd-name strong{font-size:15px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
 .nk-rd-row.is-topic .nk-rd-name strong{font-size:14px;font-weight:500}
-.nk-rd-row.is-clear .nk-rd-name strong{color:var(--nkg-sec)}
+.nk-rd-row.is-clear .nk-rd-name strong{color:var(--nkg-fg-3)}
 .nk-rd-counts{display:flex;gap:12px;font-size:13px;font-variant-numeric:tabular-nums;line-height:1}
 .nk-rd-counts b{font-weight:600}
 .nk-rd-counts b.is-due{color:var(--nkg-green)}
@@ -7134,12 +7134,12 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 .nk-rd-bar i{display:block;height:100%}
 .nk-rd-go{flex:none;min-width:72px;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--nkg-border-strong);background:var(--nkg-surface);color:var(--nkg-fg);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .nk-rd-go:active{transform:scale(.97)}
-.nk-rd-go.is-done{display:inline-grid;place-items:center;min-width:36px;border-color:transparent;background:none;color:var(--nkg-sec);cursor:default}
+.nk-rd-go.is-done{display:inline-grid;place-items:center;min-width:36px;border-color:transparent;background:none;color:var(--nkg-fg-3);cursor:default}
 .nk-rd-go.is-wide{width:100%;min-height:40px;border-radius:var(--nkg-r-md)}
 .nk-rd-bank{display:grid;gap:10px}
 .nk-rd-bank>summary{list-style:none;display:flex;align-items:center;gap:12px;padding:6px 2px;cursor:pointer}
 .nk-rd-bank>summary::-webkit-details-marker{display:none}
-.nk-rd-bank>summary>svg{flex:none;color:var(--nkg-sec);transform:rotate(90deg);transition:transform var(--nkg-dur-fast) var(--nkg-ease)}
+.nk-rd-bank>summary>svg{flex:none;color:var(--nkg-fg-3);transform:rotate(90deg);transition:transform var(--nkg-dur-fast) var(--nkg-ease)}
 .nk-rd-bank:not([open])>summary>svg{transform:none}
 .nk-rd-bank-go:empty{display:none}
 /* Back links are the main way out of sub-pages: give them a full-height tap target. */
@@ -7644,7 +7644,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button.is-selecte
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button:focus-visible { outline: 2px solid var(--nkg-focus, var(--nkg-fg)); outline-offset: -2px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 2px; height: 100%; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i { display: block; width: 38%; max-width: 18px; border-radius: 4px 4px 1px 1px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.is-prev { width: 18%; max-width: 8px; background: var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.is-prev { width: 18%; max-width: 8px; background: color-mix(in srgb, var(--nkg-fg-3) 55%, transparent); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.is-cur { background: var(--nkg-fg); transition: height 300ms cubic-bezier(.22,1,.36,1); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.nk-li-stack { display: flex; flex-direction: column-reverse; overflow: hidden; background: transparent; gap: 1px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.nk-li-stack > span { flex-basis: 0; min-height: 0; transition: opacity 150ms; }
@@ -7653,7 +7653,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button > small { 
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button.is-selected > small { color: var(--nkg-fg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key { display: flex; gap: 16px; margin: 12px 0 0; font: 500 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key i { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 2px; background: var(--nkg-fg); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key i.is-previous { background: var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key i.is-previous { background: color-mix(in srgb, var(--nkg-fg-3) 55%, transparent); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout { margin: 12px 0 0; padding: 12px 0 0; border-top: 1px solid var(--nkg-border); min-height: 56px; display: grid; gap: 4px; font: 400 13px/20px var(--nkg-font-sans); color: var(--nkg-fg-2); background: none; box-shadow: none; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout > strong { font: 600 14px/20px var(--nkg-font-sans); color: var(--nkg-fg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout > small { font: 400 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }

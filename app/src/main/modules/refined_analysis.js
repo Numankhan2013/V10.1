@@ -210,7 +210,13 @@
     const attempts=(state.tests||[]).filter(t=>t.kind!=='practice'&&nkCbtSameQuestions(t,m)).sort((a,b)=>Number(b.createdAt)-Number(a.createdAt));
     return {total:ids.length,missing,subjects:sort(subjects),banks:sort(banks),topics:[...topics.values()].sort((a,b)=>b.count-a.count||a.title.localeCompare(b.title)),attempts};
   }
-  function nkMockScore(t){return t&&t.total?Math.round(Number(t.correct||0)/Number(t.total)*100):0;}
+  // The same score as the result ring: with negative marking, marks earned out of the maximum.
+  function nkMockScore(t){
+    if(!t||!t.total)return 0;
+    const marks=t.marking&&typeof nkExamIsPlain==='function'&&!nkExamIsPlain(t.marking)&&typeof nkExamMarks==='function'?nkExamMarks(t):null;
+    if(marks&&Number(marks.max)>0)return Math.max(0,Math.round(Number(marks.score)/Number(marks.max)*100));
+    return Math.round(Number(t.correct||0)/Number(t.total)*100);
+  }
   function nkMockDay(ts){const d=new Date(Number(ts||0));return Number.isNaN(d.getTime())?'':d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:d.getFullYear()===new Date().getFullYear()?undefined:'numeric'});}
   function nkMockGraphic(subject,size){return typeof nkSubjectGraphic==='function'?nkSubjectGraphic(subject,size):navIcon('test',size);}
   let nkMockOpener=null;
