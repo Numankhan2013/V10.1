@@ -124,15 +124,12 @@
   if(typeof submitPractice==='function'){
     const nkTodayOriginalSubmit=submitPractice;
     submitPractice=function(){
-      const s=state.activeSession,qid=s?.mode==='practice'?String(s.questionIds?.[s.index]??''):'';
-      const wasNew=qid&&!nkTodayAttempts(qid).length;
+      // Compare the day's new-question count before and after, so any first answer that crosses the goal counts.
+      let before=null;try{before=nkTodayCounts().fresh;}catch(_error){}
       const out=nkTodayOriginalSubmit.apply(this,arguments);
       try{
-        const day=nkTodayStart();
-        if(wasNew&&nkTodayGoalToastDay!==day&&nkTodayAttempts(qid).length){
-          const goal=nkTodayGoal(),fresh=nkTodayCounts().fresh;
-          if(fresh===goal){nkTodayGoalToastDay=day;showToast(`Daily goal reached · ${fmtNum(fresh)} new questions today`);}
-        }
+        const day=nkTodayStart(),goal=nkTodayGoal(),fresh=nkTodayCounts().fresh;
+        if(before!=null&&before<goal&&fresh>=goal&&nkTodayGoalToastDay!==day){nkTodayGoalToastDay=day;showToast(`Daily goal reached · ${fmtNum(fresh)} new questions today`);}
       }catch(_error){}
       return out;
     };

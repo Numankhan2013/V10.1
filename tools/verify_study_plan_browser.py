@@ -182,7 +182,11 @@ def main():
                 page.evaluate("window.QB.nkLearnSetGoal(4)")
                 page.evaluate("window.QB.nkTodayGo('unseen',true)")
                 page.wait_for_function("window.QB.getState().activeSession?.title==='Quick Revision · Unseen'")
-                page.evaluate(answer)
+                # Answer until a fourth new question lands today (a queue can lead with one seen elsewhere).
+                for _ in range(6):
+                    page.evaluate(answer)
+                    if page.get_by_text('Daily goal reached').count():
+                        break
                 expect(page.get_by_text('Daily goal reached').first).to_be_attached()
                 page.evaluate("window.QB.nav('dashboard')")
                 expect(page.locator('.nk-today-step.is-new')).to_contain_text('goal of 4 met')
