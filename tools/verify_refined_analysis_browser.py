@@ -67,9 +67,9 @@ def main():
                 page.screenshot(path=str(output/f'analysis-refined-top-{width}.png'))
                 totals=page.evaluate("[...document.querySelectorAll('.nk-na-row header b')].map(n=>n.innerText)")
                 assert totals
-                # Geist keeps colour for meaning only: outcomes use its green/red/amber tokens.
+                # Geist keeps colour for meaning only: right and wrong are green and red; not attempted is neutral.
                 token=lambda name: page.evaluate("n=>{const d=document.createElement('i');d.style.color='var('+n+')';document.body.appendChild(d);const c=getComputedStyle(d).color;d.remove();return c}",name)
-                outcome_colors={'is-correct':token('--nkg-green'),'is-incorrect':token('--nkg-red'),'is-omitted':token('--nkg-amber')}
+                outcome_colors={'is-correct':token('--nkg-green'),'is-incorrect':token('--nkg-red'),'is-omitted':token('--nkg-border-strong')}
                 assert len(set(outcome_colors.values()))==3,outcome_colors
                 for tone,color in outcome_colors.items():
                     for segment in page.locator(f'.nk-na-row-bar .{tone}').all():
@@ -107,7 +107,7 @@ def main():
                 def choose_period(period):
                     # Geist replaces the native period <select> with a segmented control.
                     page.locator('.nk-li-period-nav .nkg-seg').get_by_role('button',name=period.capitalize(),exact=True).click()
-                    page.wait_for_function("p=>document.querySelector('#nk-li-period')?.value===p&&document.querySelector('.nk-li-outcomes h3')?.textContent==='This '+p",arg=period)
+                    page.wait_for_function("p=>document.querySelector('#nk-li-period')?.value===p&&(document.querySelector('#nk-li-main-title')?.textContent||'').endsWith('This '+p)",arg=period)
                     assert page.locator('.nk-li-period-nav .nkg-seg [aria-pressed="true"]').inner_text()==period.capitalize()
                 for period in ['week','month','year']:
                     choose_period(period)
@@ -115,7 +115,7 @@ def main():
                     for key in page.locator('.nk-li-key').all_text_contents():
                         assert f'This {period}' in key and f'Previous {period}' in key
                     for button in page.locator('.nk-li-plotbars button').all():
-                        pair=button.locator('.nk-li-col');bars=[x for x in pair.locator('i').all() if x.bounding_box()['height']>0]
+                        pair=button.locator('.nk-li-col');bars=pair.locator('i').all()
                         if not bars:continue
                         left=min(x.bounding_box()['x'] for x in bars);right=max(x.bounding_box()['x']+x.bounding_box()['width'] for x in bars)
                         label=button.locator('small').bounding_box()
@@ -125,7 +125,7 @@ def main():
                 page.locator('.nk-li-overview').screenshot(path=str(output/f'overview-refined-{width}.png'))
                 page.get_by_label('Previous week',exact=True).click()
                 assert 'This week' not in page.locator('#nk-li-main-title').inner_text()
-                assert page.locator('.nk-li-outcomes h3').all_text_contents()==list(page.evaluate('window.__nkAnalysisTest.labels()').values())
+                assert page.locator('#nk-li-main-title').inner_text().endswith(page.evaluate('window.__nkAnalysisTest.labels()')['current'])
                 page.evaluate("window.QB.nav('result','analysis-fixture')")
                 page.get_by_label('Rename test',exact=True).click();page.get_by_label('Test name',exact=True).fill('Biochemistry mock 01')
                 page.get_by_role('button',name='Save name',exact=True).click()
