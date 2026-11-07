@@ -178,6 +178,11 @@ def main():
                 page.evaluate("window.QB.nav('dashboard')")
                 expect(page.locator('.nk-today-step.is-new')).to_contain_text('3 of 50 today')
                 expect(page.locator('.nk-today .nk-home-focus-card')).to_contain_text('In progress')
+                # Today's own mistakes wait in Revision; they never reopen today's plan.
+                wrong_today = page.evaluate("(()=>{const st=window.QB.getState(),t0=new Date().setHours(0,0,0,0);return Object.values(st.attempts||{}).filter(l=>l.length&&l.every(a=>a.at>=t0)&&l.at(-1).correct===false).length})()")
+                if wrong_today:
+                    expect(page.locator('.nk-today-later')).to_contain_text('wait in Revision')
+                    assert 'Fix mistakes' not in (page.locator('.nk-today-step.is-next').inner_text() if page.locator('.nk-today-step.is-next').count() else '')
                 # Crossing the goal says so once.
                 page.evaluate("window.QB.nkLearnSetGoal(4)")
                 page.evaluate("window.QB.nkTodayGo('unseen',true)")
@@ -185,9 +190,12 @@ def main():
                 # Answer until a fourth new question lands today (a queue can lead with one seen elsewhere).
                 for _ in range(6):
                     page.evaluate(answer)
-                    if page.get_by_text('Daily goal reached').count():
+                    try:
+                        page.get_by_text('Daily goal reached').first.wait_for(state='attached', timeout=1500)
                         break
-                expect(page.get_by_text('Daily goal reached').first).to_be_attached()
+                    except Exception:
+                        pass
+                expect(page.get_by_text('Daily goal reached').first).to_be_attached(timeout=5000)
                 page.evaluate("window.QB.nav('dashboard')")
                 expect(page.locator('.nk-today-step.is-new')).to_contain_text('goal of 4 met')
                 expect(page.locator('.nk-today-learn')).to_contain_text('More')

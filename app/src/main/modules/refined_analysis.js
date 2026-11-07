@@ -40,11 +40,30 @@
     let total=0;const counts=nkAnalysisTimeMode==='cumulative'?bins.map(n=>total+=n):bins;
     return {counts,bins,missing,recorded:bins.reduce((a,b)=>a+b,0)};
   }
+  // Time on every question, in the order sat: bar height is the time, colour is the outcome, the line is the
+  // per-question limit (or one minute in practice). One chart answers both "how long" and "within time".
   function nkAnalysisTimeChart(t){
-    const {counts,bins,missing,recorded}=nkAnalysisTimeData(t),within=nkAnalysisTimeMode==='cumulative',max=Math.max(1,...counts),labels=within?['< 30s','< 1m','< 2m','≤ 3m','Any time']:['< 30s','30–60s','1–2m','2–3m','> 3m'];
-    const explanation=within?'Running total: each bar includes every recorded question below its time limit. The same question can appear in several bars.':'Each recorded question appears in one time range.';
-    const repeated=within&&recorded&&bins[0]===recorded?`<p class="nk-na-note nk-na-time-readout">All ${recorded} recorded questions took under 30 seconds, so every running total is ${recorded}.</p>`:'';
-    return `<section class="nk-na-card nk-na-time"><header><h2>Time per question</h2><div class="nk-na-tabs" role="group" aria-label="Time analysis view">${[['bins','Time ranges'],['cumulative','Within time']].map(([mode,label])=>`<button aria-pressed="${nkAnalysisTimeMode===mode}" onclick="window.QB.nkAnalysisSetTime('${mode}',${esc(JSON.stringify(String(t.id)))})">${label}</button>`).join('')}</div></header><p class="nk-na-note nk-na-time-explanation">${explanation}</p>${recorded?`<div class="nk-na-time-bars" role="img" aria-label="${within?'Questions within each time limit':'Question time distribution'}: ${counts.map((n,i)=>`${labels[i]}: ${n}`).join('; ')}">${counts.map((n,i)=>`<div><b>${n}</b><span><i style="height:${n/max*105}px"></i></span><small>${esc(labels[i])}</small></div>`).join('')}</div>${repeated}<p class="nk-na-note nk-na-time-coverage">Timing saved for ${recorded} of ${recorded+missing} questions.${missing?` ${missing} without saved timing are excluded.`:''} Recorded time includes revisits.</p>`:'<p class="nk-na-note">Question timing was not recorded.</p>'}</section>`;
+    const ids=[...new Set(t.questionIds||[])],limit=Number(t.secondsPerQuestion)||60;
+    const rows=ids.map((id,i)=>{const ms=t.questionTimes?.[id],sel=t.answers?.[id],q=(typeof nkBankQuestionById==='function'?nkBankQuestionById(id):BY_ID?.[id]),right=sel&&q&&Number(q.correctOption)===Number(sel);
+      return {id,i,s:typeof ms==='number'&&Number.isFinite(ms)&&ms>=0?ms/1000:null,tone:sel?(right?'correct':'incorrect'):t.expired?.[id]?'timeup':'omitted'};});
+    const timed=rows.filter(r=>r.s!=null);
+    if(!timed.length)return `<section class="nk-na-card nk-na-time nk-pace"><header><h2>Time per question</h2></header><p class="nk-na-note">Question timing was not recorded.</p></section>`;
+    const fmt=s=>s<60?`${Math.round(s)} s`:`${Math.floor(s/60)}m ${String(Math.round(s%60)).padStart(2,'0')}s`;
+    const sorted=timed.map(r=>r.s).sort((a,b)=>a-b),median=sorted[Math.floor((sorted.length-1)/2)];
+    const within=timed.filter(r=>r.s<=limit).length,over=timed.length-within;
+    const rushed=timed.filter(r=>r.tone==='incorrect'&&r.s<Math.min(15,limit/3)).length;
+    const top=Math.max(limit*1.5,Math.min(limit*3,sorted[sorted.length-1])),h=s=>Math.max(3,Math.min(1,s/top)*100);
+    const label={correct:'Correct',incorrect:'Wrong',timeup:'Time up',omitted:'Not answered'};
+    const bars=rows.map(r=>r.s==null?`<i class="is-none" aria-hidden="true"></i>`:`<button type="button" class="is-${r.tone}${r.s>top?' is-clipped':''}" style="--h:${h(r.s).toFixed(1)}%;--k:${Math.min(r.i,80)}" aria-label="Question ${r.i+1}: ${fmt(r.s)}, ${label[r.tone]}" title="Q${r.i+1} · ${fmt(r.s)} · ${label[r.tone]}" onclick="window.QB.nkResultReviewAt(${esc(JSON.stringify(String(t.id)))},${esc(JSON.stringify(String(r.id)))})"></button>`).join('');
+    const tones=['correct','incorrect','timeup','omitted'].filter(k=>timed.some(r=>r.tone===k));
+    const facts=[`<span><b>${fmtNum(within)}</b> of ${fmtNum(timed.length)} within ${fmt(limit)}</span>`,`<span>Median <b>${fmt(median)}</b></span>`,rushed?`<span><b>${fmtNum(rushed)}</b> wrong in under ${fmt(Math.min(15,limit/3))}</span>`:over?`<span><b>${fmtNum(over)}</b> over the line</span>`:''].filter(Boolean).join('');
+    const missing=rows.length-timed.length;
+    return `<section class="nk-na-card nk-na-time nk-pace"><header><h2>Time per question</h2></header>
+      <p class="nk-pace-facts">${facts}</p>
+      <div class="nk-pace-chart" style="--line:${(limit/top*100).toFixed(1)}%"><div class="nk-pace-bars${rows.length>40?' is-dense':''}" role="group" aria-label="Time on each question, in order. The line marks ${fmt(limit)}.">${bars}</div><em class="nk-pace-line" aria-hidden="true"><span>${fmt(limit)}</span></em></div>
+      <div class="nk-pace-axis" aria-hidden="true"><span>Q1</span><span>Q${rows.length}</span></div>
+      <ul class="nk-pace-key">${tones.map(k=>`<li><i class="is-${k}"></i>${label[k]}</li>`).join('')}</ul>
+      ${missing?`<p class="nk-na-note">${fmtNum(missing)} question${missing===1?' has':'s have'} no saved time.</p>`:''}</section>`;
   }
   function nkAnalysisSetTab(tab,id){if(!['topic','subject'].includes(tab))return;nkAnalysisTab=tab;const t=nkAnalysisTest(id),node=document.querySelector('.nk-na-card.nk-cbt-analysis');if(t&&node){if(typeof nkPolishReplaceSurface==='function')nkPolishReplaceSurface(node,nkAnalysisBreakdown(t));else node.outerHTML=nkAnalysisBreakdown(t);}}
   function nkAnalysisSetTime(mode,id){if(!['bins','cumulative'].includes(mode))return;nkAnalysisTimeMode=mode;const t=nkAnalysisTest(id),node=document.querySelector('.nk-na-time');if(t&&node){if(typeof nkPolishReplaceSurface==='function')nkPolishReplaceSurface(node,nkAnalysisTimeChart(t));else node.outerHTML=nkAnalysisTimeChart(t);}}
@@ -67,7 +86,7 @@
   // One cell per question, in order: the whole sitting at a glance. A tap opens that question's solution.
   function nkResultStrip(t){
     const ids=t.questionIds||[];if(!ids.length)return '';
-    const cells=ids.map((id,i)=>{const sel=t.answers?.[id],q=nkBankQuestionById(id),right=q&&Number(q.correctOption)===Number(sel);const tone=sel?(right?'correct':'incorrect'):t.expired?.[id]?'timeup':'omitted';const label=sel?(right?'Correct':'Incorrect'):tone==='timeup'?'Time up':'Omitted';
+    const cells=ids.map((id,i)=>{const sel=t.answers?.[id],q=(typeof nkBankQuestionById==='function'?nkBankQuestionById(id):BY_ID?.[id]),right=q&&Number(q.correctOption)===Number(sel);const tone=sel?(right?'correct':'incorrect'):t.expired?.[id]?'timeup':'omitted';const label=sel?(right?'Correct':'Incorrect'):tone==='timeup'?'Time up':'Omitted';
       return `<button type="button" class="is-${tone}" style="--i:${Math.min(i,60)}" aria-label="Question ${i+1}: ${label}" onclick="window.QB.nkResultReviewAt(${esc(JSON.stringify(String(t.id)))},${esc(JSON.stringify(String(id)))})"></button>`;}).join('');
     return `<section class="nk-na-card nk-rs-strip-card"><header><h2>Question by question</h2><small>Tap one to see its solution</small></header><div class="nk-rs-strip${ids.length>60?' is-dense':''}">${cells}</div></section>`;
   }
@@ -79,6 +98,8 @@
   }
   // Practice sessions: only the topics where an answer went wrong, worst first.
   function nkResultPracticeTopics(t){
+    // One topic means the summary above already says it all.
+    if(nkCbtResultAnalysis(t).rows.length<2)return '';
     const rows=nkCbtResultAnalysis(t).rows.filter(r=>r.incorrect>0).sort((a,b)=>b.incorrect-a.incorrect||(b.incorrect/b.total)-(a.incorrect/a.total)||a.title.localeCompare(b.title));
     if(!rows.length)return '';
     const visible=rows.slice(0,4),hidden=rows.slice(4);

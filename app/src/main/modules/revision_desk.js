@@ -149,20 +149,21 @@
     }
   }
 
-  function nkStartRevisionQueue(kind,limit=0){
+  // only: an optional filter, so Today's plan can launch just the items it planned.
+  function nkStartRevisionQueue(kind,limit=0,only=null){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting revision.','bad');return false;}
     const previous=state.activeSession?.id;
     const data=nkRevisionDeskData();
     if(kind==='due'){
-      if(!data.dueCards.length){showToast('No reviews are due across your question banks.');return;}
-      const rows=data.dueCards;
+      const rows=typeof only==='function'?data.dueCards.filter(only):data.dueCards;
+      if(!rows.length){showToast('No reviews are due across your question banks.');return;}
       BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};
       startSession(rows.map(q=>String(q.id)),'practice','Quick Revision · Due Review','fsrs');
       if(typeof nkRevisionTagSession==='function')nkRevisionTagSession(kind,previous,rows.map(q=>String(q.id)));
       if(data.rolledOver)showToast(fmtNum(data.rolledOver)+' due reviews roll forward under your daily limit.');
       return;
     }
-    const rows=kind==='wrong'?data.wrong:kind==='bookmarks'?data.bookmarked:kind==='unseen'?data.unseen:[];
+    const all=kind==='wrong'?data.wrong:kind==='bookmarks'?data.bookmarked:kind==='unseen'?data.unseen:[],rows=typeof only==='function'?all.filter(only):all;
     if(!rows.length){showToast('No questions are available in this revision group.');return;}
     const pool=rows.slice();
     for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}

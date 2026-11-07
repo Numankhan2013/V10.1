@@ -30,20 +30,36 @@
     });
     return {reviewed,mistakes,fresh,answered};
   }
+  // The plan is fixed when the day starts: reviews already in your deck and mistakes already open. Whatever
+  // today's answers create (new mistakes, learning steps, an Again coming back in ten minutes) waits in
+  // Revision and joins tomorrow's plan, so studying more never undoes a finished day. FSRS is untouched.
+  function nkTodayCarried(){
+    const t0=nkTodayStart(),cache=new Map();
+    const info=qid=>{qid=String(qid);if(cache.has(qid))return cache.get(qid);
+      const list=nkTodayAttempts(qid),before=list.filter(a=>Number(a.at)<t0),today=list.filter(a=>Number(a.at)>=t0);
+      const v={known:before.length>0,openAtStart:nkTodayOpenMistake(before),reviewedToday:today.some(a=>a.source==='fsrs-review'),touchedToday:today.length>0};
+      cache.set(qid,v);return v;};
+    return {
+      due:q=>{const v=info(q.id);return v.known&&!v.reviewedToday;},
+      wrong:q=>{const v=info(q.id);return v.openAtStart&&!v.touchedToday;}
+    };
+  }
   function nkTodayPlanData(){
-    const desk=nkRevisionDeskData({}),{reviewed,mistakes,fresh,answered}=nkTodayCounts(),goal=nkTodayGoal();
-    const dueLeft=desk.dueCards.length,missed=desk.wrong.length,unseen=desk.unseen.length;
+    const desk=nkRevisionDeskData({}),{reviewed,mistakes,fresh,answered}=nkTodayCounts(),goal=nkTodayGoal(),carried=nkTodayCarried();
+    const dueCards=desk.dueCards.filter(carried.due),open=desk.wrong.filter(carried.wrong);
+    const dueLeft=dueCards.length,missed=open.length,unseen=desk.unseen.length;
+    const later={due:desk.dueCards.length-dueLeft,wrong:desk.wrong.length-missed};
     const mistakesLeft=Math.min(missed,Math.max(0,NK_TODAY_MISTAKES-mistakes)),newLeft=Math.min(unseen,Math.max(0,goal-fresh));
     const steps=[
       {kind:'due',title:'Review',done:reviewed,left:dueLeft,total:reviewed+dueLeft,icon:'clock',
-        empty:desk.due.length?'Daily review limit reached':'Nothing due',note:n=>`${fmtNum(n)} due`},
+        empty:desk.due.length&&!later.due?'Daily review limit reached':'Nothing due',note:n=>`${fmtNum(n)} due`},
       {kind:'wrong',title:'Fix mistakes',done:mistakes,left:mistakesLeft,total:mistakes+mistakesLeft,icon:'refresh',
         empty:missed?'Today’s 20 are done':'No open mistakes',note:n=>`${fmtNum(n)} of ${fmtNum(missed)} open`},
       {kind:'unseen',title:'New questions',done:fresh,left:newLeft,total:Math.max(fresh,Math.min(goal,fresh+unseen)),icon:'book',goal,
         empty:unseen?'Goal met':'Every question seen',note:()=>`${fmtNum(fresh)} of ${fmtNum(goal)} today`}
     ];
     const next=steps.find(s=>s.left>0)||null,total=steps.reduce((n,s)=>n+s.total,0),done=steps.reduce((n,s)=>n+Math.min(s.done,s.total),0);
-    return {steps,next,total,done,left:total-done,due:desk.due.length,missed,unseen,answered,fresh,goal};
+    return {steps,next,total,done,left:total-done,due:desk.due.length,missed,unseen,answered,fresh,goal,later};
   }
   function nkTodayMarker(step,status){
     if(status==='done')return `<span class="nk-today-marker is-done" aria-hidden="true">${navIcon('check',14)}</span>`;
@@ -78,15 +94,17 @@
       <header class="nk-today-head"><div><h2 id="nk-today-title">Today’s plan</h2><p>${lead}</p></div><button type="button" class="nk-today-link" onclick="window.QB.nkOpenRevisionHub()">Revision ${navIcon('chevron',15)}</button></header>
       <div class="nk-today-meter" role="progressbar" aria-label="Today’s plan" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${fill}"><i style="--nk-today-fill:${fill}%"></i></div>
       <ol class="nk-today-steps">${plan.steps.map((step,i)=>nkTodayStepMarkup(step,i,plan,Boolean(band))).join('')}</ol>
+      ${plan.later.due||plan.later.wrong?`<p class="nk-today-later">From today’s answers: ${[plan.later.wrong?`${fmtNum(plan.later.wrong)} mistake${plan.later.wrong===1?'':'s'}`:'',plan.later.due?`${fmtNum(plan.later.due)} review${plan.later.due===1?'':'s'}`:''].filter(Boolean).join(' and ')} wait in Revision. They join tomorrow’s plan.</p>`:''}
       </div>
     </section>`;
   }
   function nkTodayGo(kind,extra=false){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test first.','bad');return false;}
-    if(kind==='due')return nkStartRevisionQueue('due');
+    const carried=nkTodayCarried();
+    if(kind==='due')return nkStartRevisionQueue('due',0,carried.due);
     const step=nkTodayPlanData().steps.find(s=>s.kind===kind),limit=extra?NK_TODAY_NEW:step?.left;
     if(!limit){showToast(kind==='wrong'?'Today’s mistakes are done.':'Today’s new questions are done.');return false;}
-    return nkStartRevisionQueue(kind,limit);
+    return nkStartRevisionQueue(kind,limit,kind==='wrong'?carried.wrong:null);
   }
   nkHomeRevisionSummary=nkHomeTodayPlan;
 
@@ -116,21 +134,27 @@
     const n=Math.round(Number(value));
     if(!Number.isFinite(n)||n<1){showToast('Set a goal of at least 1 question.','bad');return false;}
     state.studyGoals={...(state.studyGoals||{}),newPerDay:Math.min(2000,n)};saveState();
+    try{nkTodayGoalBelow=nkTodayCounts().fresh<Math.min(2000,n);}catch(_error){}
     if(route?.page==='dashboard'&&typeof render==='function'){render();const panel=document.getElementById('nk-today-goal');if(panel){panel.hidden=false;document.querySelector('.nk-today-goal-edit')?.setAttribute('aria-expanded','true');}}
     return true;
   }
-  // A quiet word when today's goal is reached, wherever the new question was answered.
-  let nkTodayGoalToastDay=0;
+  // A quiet word when today's goal is reached, wherever the new question was answered. Answers can be
+  // recorded a moment after submit, so the check runs again once they land; it fires once a day, and only
+  // after the count was seen below the goal.
+  let nkTodayGoalToastDay=0,nkTodayGoalBelow=null;
+  function nkTodayGoalCheck(){
+    try{
+      const day=nkTodayStart(),goal=nkTodayGoal(),fresh=nkTodayCounts().fresh;
+      if(nkTodayGoalBelow===true&&fresh>=goal&&nkTodayGoalToastDay!==day){nkTodayGoalToastDay=day;showToast(`Daily goal reached · ${fmtNum(fresh)} new questions today`);}
+      nkTodayGoalBelow=fresh<goal;
+    }catch(_error){}
+  }
   if(typeof submitPractice==='function'){
     const nkTodayOriginalSubmit=submitPractice;
     submitPractice=function(){
-      // Compare the day's new-question count before and after, so any first answer that crosses the goal counts.
-      let before=null;try{before=nkTodayCounts().fresh;}catch(_error){}
+      if(nkTodayGoalBelow===null)nkTodayGoalCheck();
       const out=nkTodayOriginalSubmit.apply(this,arguments);
-      try{
-        const day=nkTodayStart(),goal=nkTodayGoal(),fresh=nkTodayCounts().fresh;
-        if(before!=null&&before<goal&&fresh>=goal&&nkTodayGoalToastDay!==day){nkTodayGoalToastDay=day;showToast(`Daily goal reached · ${fmtNum(fresh)} new questions today`);}
-      }catch(_error){}
+      nkTodayGoalCheck();setTimeout(nkTodayGoalCheck,0);setTimeout(nkTodayGoalCheck,250);
       return out;
     };
   }
