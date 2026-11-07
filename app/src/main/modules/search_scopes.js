@@ -62,12 +62,10 @@
     for(const word of words){const i=lower.indexOf(word);if(i>=0&&(at<0||i<at))at=i;}
     const start=Math.max(0,at<0?0:at-70),end=Math.min(raw.length,start+220);
     let text=(start?'…':'')+raw.slice(start,end).replace(/^\S*\s/,start?'':'$&')+(end<raw.length?'…':'');
-    let html=esc(text);
-    words.filter(w=>w.length>1).sort((a,b)=>b.length-a.length).forEach(word=>{
-      const pattern=new RegExp('('+esc(word).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
-      html=html.replace(pattern,'<mark>$1</mark>');
-    });
-    return html;
+    // Mark matches on the raw text, then escape each piece, so a query like "amp" never splits an entity.
+    const hits=words.filter(w=>w.length>1).sort((a,b)=>b.length-a.length).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+    if(!hits.length)return esc(text);
+    return text.split(new RegExp('('+hits.join('|')+')','gi')).map((part,i)=>i%2?'<mark>'+esc(part)+'</mark>':esc(part)).join('');
   }
   const nkSearchOriginalMatches=nkQuestionSearchMatches;
   nkQuestionSearchMatches=function(){

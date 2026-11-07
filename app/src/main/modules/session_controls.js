@@ -2,7 +2,7 @@
   // Keyboard and swipe controls for Practice and timed tests.
   // Keys: A–E or 1–5 answer, → / Enter next, ← previous, M mark for review (tests), ? shows the keys.
   // Swipe: left for next, right for previous, on the question itself.
-  function nkControlsLive(){return (route?.page==='practice'||route?.page==='exam')&&['practice','exam'].includes(state.activeSession?.mode);}
+  function nkControlsLive(){return (route?.page==='practice'||route?.page==='exam')&&['practice','exam'].includes(state.activeSession?.mode)||route?.page==='review-test'&&state.activeSession?.mode==='review';}
   function nkControlsBlocked(target){
     if(document.querySelector('#nk-session-review,.qb-nav-backdrop,.nk-modal-backdrop,.nk-qs-backdrop,.nk-fs-viewer,[aria-modal="true"]'))return true;
     const el=target instanceof Element?target:null;

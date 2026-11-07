@@ -5,7 +5,7 @@
   function nkQuestionSearchFold(value){
     const text=String(value||'');
     // Accent folding is the costly step; plain ASCII text has nothing to fold.
-    return (/^[\x00-\x7f]*$/.test(text)?text:text.normalize('NFKD').replace(/[\u0300-\u036f]/g,'')).toLowerCase().replace(/\s+/g,' ').trim();
+    return (/^[\x00-\x7f]*$/.test(text)?text:text.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[\u2018\u2019\u02bc\u2032]/g,"'").replace(/[\u201c\u201d\u2033]/g,'"').replace(/[\u2010-\u2015\u2212]/g,'-')).toLowerCase().replace(/\s+/g,' ').trim();
   }
   function nkQuestionSearchEntry(q){
     const id=String(q.id),topic=String(q.chapter||q.topic||'');

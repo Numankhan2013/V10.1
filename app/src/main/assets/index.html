@@ -1951,7 +1951,7 @@ function dashboard(){
         stage='route'; route={page:'review-test',id:String(t.id)};
         stage='render'; render();
         stage='history';
-        try{history.replaceState(null,'',`#review-test/${encodeURIComponent(String(t.id))}`);}catch(_){location.hash=`#review-test/${encodeURIComponent(String(t.id))}`;}
+        try{if(location.hash.startsWith('#result/'))history.pushState(null,'',`#review-test/${encodeURIComponent(String(t.id))}`);else history.replaceState(null,'',`#review-test/${encodeURIComponent(String(t.id))}`);}catch(_){location.hash=`#review-test/${encodeURIComponent(String(t.id))}`;}
         return true;
       }catch(e){
         console.error('Review Solutions failed at '+stage,e);
@@ -2195,6 +2195,8 @@ function dashboard(){
   function sessionReviewGo(i){const s=state.activeSession;if(!s||i<0||i>=s.questionIds.length||nkStrictLocked(s,s.questionIds[i]))return;if(s.mode==='exam'&&s.timerMode==='per-question'){if(!nkStrictBeforeNavigation())return;}s.index=i;s.questionEnteredAt=Date.now();saveState();closeSessionReview();render();if(s.mode==='exam'&&s.timerMode==='per-question')nkStrictResetClock();}
   function sessionReviewFirstUnanswered(){const s=state.activeSession;if(!s)return;const i=s.questionIds.findIndex(id=>!s.answers[id]&&!nkStrictLocked(s,id));if(i>=0)sessionReviewGo(i);}
   function sessionReviewSubmit(){const s=state.activeSession;if(!s)return;closeSessionReview();if(s.mode==='exam')submitExam(false);else if(s.studyModuleId&&s.questionIds.some(id=>!s.submitted?.[id]))exitStudyModule();else endSession();}
+  // Browser Back from Review Solutions returns to the result: drop the read-only review session on the way.
+  window.addEventListener('hashchange',()=>{if(state.activeSession?.mode==='review'&&parseHash().page!=='review-test'){closeQuestionNavigator();state.activeSession=null;saveState();}});
   function endReview(){
     const s=state.activeSession;
     if(!s || s.mode!=='review') return;

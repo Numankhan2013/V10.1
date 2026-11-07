@@ -189,6 +189,10 @@
     if(!s||!['practice','exam'].includes(s.mode)||route.page!==s.mode)return;
     if(parseHash().page===route.page)return;
     const current='#'+route.page+(route.id?'/'+encodeURIComponent(route.id):'');
+    // Back closes an open sheet or viewer first, as on a phone; it only asks to leave from the question itself.
+    const viewer=document.querySelector('#nk-source-viewer .nk-sv-close'),note=document.querySelector('.nk-note-page [data-act="close"]');
+    const overlay=viewer?()=>viewer.click():note?()=>note.click():document.getElementById('nk-session-review')&&typeof closeSessionReview==='function'?()=>closeSessionReview():document.getElementById('qb-question-navigator')&&typeof closeQuestionNavigator==='function'?()=>closeQuestionNavigator():null;
+    if(overlay){history.pushState(null,'',current);overlay();return;}
     const detail=s.mode==='exam'?'Your timed test will keep running if you exit now.':'Your practice progress will be saved if you exit now.';
     if(!window.confirm('Do you want to exit?\n\n'+detail))history.pushState(null,'',current);
   },true);
