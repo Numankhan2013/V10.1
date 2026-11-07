@@ -75,7 +75,7 @@ def main():
                     ('topics','.nk-topic-copy strong,.nk-topic-copy small'),
                     ('fsrs','.nk-fsrs-subject-card small,.nk-v3-primary'),
                     ('tests','.nk-v3-page-hero h1,.nk-tests-build,.nk-tests-quick-row button'),
-                    ('analytics','.nk-li-period-note,.nk-li-stats article>small,.nk-li-topic small'),
+                    ('analytics','.nk-li-period-note,.nk-li-kpi>small,.nk-li-topic small'),
                     ('more','.nk-page-head h1')]:
                     page.evaluate('(r)=>QB.nav(r)',route)
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),(route,width)

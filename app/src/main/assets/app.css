@@ -7613,3 +7613,75 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-actions
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-action :is(.nkg-action-icon) { background: var(--nkg-bg-subtle) !important; color: var(--nkg-fg-2) !important; }
 /* No looping decoration: the drifting dot-grid spotlight on the continue card goes. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center .nk-home-focus-card::before { display: none !important; animation: none !important; }
+/* Insights v2 (dashboard pattern): selectable measures drive one chart; ranked lists; quiet chrome. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-overview { margin: 16px 0; border: 1px solid var(--nkg-border); border-radius: 16px; background: var(--nkg-surface); overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpis { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 4px; padding: 6px; border-bottom: 1px solid var(--nkg-border); }
+@media (min-width: 720px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpis { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi { display: grid; gap: 4px; justify-items: start; min-height: 0; padding: 12px; border: 0; border-radius: 12px; background: transparent; color: var(--nkg-fg); font: inherit; text-align: left; cursor: pointer; transition: background-color 150ms cubic-bezier(.22,1,.36,1), box-shadow 150ms cubic-bezier(.22,1,.36,1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi:hover { background: var(--nkg-bg-subtle); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi[aria-pressed="true"] { background: var(--nkg-bg-subtle); box-shadow: inset 0 0 0 1px var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi:focus-visible { outline: 2px solid var(--nkg-focus, var(--nkg-fg)); outline-offset: -2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi > small { font: 500 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi[aria-pressed="true"] > small { color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi > b { font: 600 24px/28px var(--nkg-font-sans); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-kpi[aria-pressed="true"] > b { color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-vs { font: 500 12px/16px var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-vs.is-up, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank em.is-up { color: var(--nkg-green); font-style: normal; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-vs.is-down, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank em.is-down { color: var(--nkg-red); font-style: normal; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main { padding: 16px 16px 12px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main > header { display: grid; gap: 2px; margin: 0 0 16px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main > header small { font: 500 13px/18px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main > header strong { font: 600 32px/36px var(--nkg-font-sans); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plot { position: relative; height: 168px; padding: 0 32px 0 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid-lines { position: absolute; inset: 0 0 24px 0; pointer-events: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid-lines span { position: absolute; left: 0; right: 0; height: 0; border-top: 1px dashed var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid-lines span:last-child { border-top-style: solid; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid-lines em { position: absolute; right: 0; top: -8px; font: 500 11px/16px var(--nkg-font-mono); font-style: normal; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars { position: relative; display: flex; align-items: stretch; gap: 4px; height: 100%; touch-action: pan-y; margin-right: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button { flex: 1 1 0; min-width: 0; min-height: 0; display: grid; grid-template-rows: 1fr 24px; padding: 0; border: 0; border-radius: 8px; background: transparent; cursor: pointer; transition: background-color 120ms cubic-bezier(.22,1,.36,1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button:disabled { cursor: default; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button.is-selected { background: color-mix(in srgb, var(--nkg-fg) 6%, transparent); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button:focus-visible { outline: 2px solid var(--nkg-focus, var(--nkg-fg)); outline-offset: -2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 2px; height: 100%; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i { display: block; width: 38%; max-width: 18px; border-radius: 4px 4px 1px 1px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.is-prev { width: 18%; max-width: 8px; background: var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.is-cur { background: var(--nkg-fg); transition: height 300ms cubic-bezier(.22,1,.36,1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.nk-li-stack { display: flex; flex-direction: column-reverse; overflow: hidden; background: transparent; gap: 1px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.nk-li-stack > span { flex-basis: 0; min-height: 0; transition: opacity 150ms; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i.nk-li-stack > span.is-dim { opacity: .18; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button > small { align-self: end; font: 500 11px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); white-space: nowrap; overflow: hidden; text-overflow: clip; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-plotbars > button.is-selected > small { color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key { display: flex; gap: 16px; margin: 12px 0 0; font: 500 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key i { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 2px; background: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-key i.is-previous { background: var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout { margin: 12px 0 0; padding: 12px 0 0; border-top: 1px solid var(--nkg-border); min-height: 56px; display: grid; gap: 4px; font: 400 13px/20px var(--nkg-font-sans); color: var(--nkg-fg-2); background: none; box-shadow: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout > strong { font: 600 14px/20px var(--nkg-font-sans); color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-bin-readout > small { font: 400 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-chips { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-chips li { display: grid; gap: 2px; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-chips small { font: 500 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-chips b { font: 600 14px/20px var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank { margin: 12px 0 0; padding: 0; list-style: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank > li + li { border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank :is(.nk-li-topic, .nk-li-rank-row) { position: relative; display: grid !important; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 0 12px !important; border: 0 !important; background: none !important; text-align: left; font: inherit; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank :is(.nk-li-topic, .nk-li-rank-row) > span { display: grid; gap: 2px; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank strong { font: 500 14px/20px var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank small { font: 400 12px/16px var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank b { font: 600 15px/20px var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-rank b.is-low { color: var(--nkg-red); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-share { position: absolute; left: 0; right: 0; bottom: 4px; height: 3px; border-radius: 2px; background: linear-gradient(to right, color-mix(in srgb, var(--tone, var(--nkg-fg-2)) 80%, transparent) var(--share, 0%), var(--nkg-border) var(--share, 0%)); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-memory { display: grid; gap: 16px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-memory-now { display: grid; gap: 2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-memory-now small { font: 500 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-memory-now b { font: 600 32px/36px var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-memory-now span { font: 400 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 16px 0 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-go { display: inline-flex; align-items: center; gap: 4px; min-height: 40px; padding: 0 16px; border: 0; border-radius: 10px; background: var(--nkg-inverse-bg); color: var(--nkg-inverse-fg); font: 500 14px/1 var(--nkg-font-sans); cursor: pointer; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-go:active { transform: scale(.98); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-actions .nk-li-link { margin: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules { position: relative; display: flex; gap: 32px; padding: 0 0 16px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules span { display: grid; gap: 2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules b { font: 600 24px/28px var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules small { font: 400 12px/16px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules .nk-li-share { bottom: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button { box-shadow: none !important; }

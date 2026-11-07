@@ -86,7 +86,7 @@ def main():
                 page.goto(origin + '/#analytics', wait_until='domcontentloaded')
                 page.wait_for_function('window.__nkLearningTest && window.QB')
                 expect(page.get_by_role('heading', name='Insights', exact=True)).to_be_visible()
-                assert page.locator('.nk-li-stats article').count() == 5
+                assert page.locator('.nk-li-kpi').count() == 4
                 assert page.locator('[data-metric="Accuracy"]>b').inner_text() == '—'
                 assert page.get_by_role('heading', name='Your study map').count() == 0
                 assert page.get_by_role('heading', name='Topics to revisit').count() == 0
@@ -99,12 +99,12 @@ def main():
                 assert page.locator('[data-metric="Questions practised"]>b').inner_text().replace(',', '') == str(model['current']['attempts'])
                 assert model['current']['reviews'] < model['current']['attempts']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
-                assert page.locator('.nk-li-card').count() == 8
+                assert page.locator('.nk-li-card').count() == 4
                 expect(page.get_by_role('heading', name='Subject focus', exact=True)).to_be_visible()
                 assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').bounding_box()['y']
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
-                assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-stats').bounding_box()['y']
+                assert page.locator('.nk-li-overview').bounding_box()['y'] < page.locator('.nk-li-year-activity').bounding_box()['y']
                 geist_choose(page, 'Activity year', str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365
                 geist_choose(page, 'Activity year', 'rolling')
@@ -118,16 +118,22 @@ def main():
                 assert page.locator('.nk-li-year-grid .is-today').get_attribute('style') != original_style, 'A new high day must rescale earlier days'
                 assert '30+' not in page.locator('.nk-li-year-key').inner_text()
 
-                page.locator('.nk-li-bars button:not(:disabled)').first.click()
+                page.locator('.nk-li-plotbars button:not(:disabled)').first.click()
                 assert 'Previous week:' in page.locator('.nk-li-bin-readout').inner_text()
                 page.locator('.nk-li-year-grid button:not(:disabled)').last.click()
                 assert 'correct' in page.locator('#nk-li-year-detail').inner_text()
+                # The measure tiles drive the main chart.
+                page.locator('.nk-li-kpi[data-metric="Accuracy"]').click()
+                page.wait_for_function("document.querySelector('.nk-li-kpi[data-metric=\"Accuracy\"]').getAttribute('aria-pressed')==='true'")
+                assert page.locator('#nk-li-main-title').inner_text().startswith('Accuracy')
+                page.locator('.nk-li-kpi[data-metric="Questions practised"]').click()
+                page.wait_for_function("document.querySelector('#nk-li-main-title').textContent.startsWith('Questions practised')")
                 page.get_by_role('button', name='Top performing', exact=True).click()
                 assert page.get_by_role('button', name='Top performing', exact=True).get_attribute('aria-pressed') == 'true'
                 for period, bars in [('month', 5), ('year', 12), ('week', 7)]:
                     geist_choose(page, 'Time period', period)
                     model = page.evaluate('window.__nkLearningTest.model()')
-                    assert page.locator('.nk-li-bars button').count() == len(model['bins'])
+                    assert page.locator('.nk-li-plotbars button').count() == len(model['bins'])
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                     assert 'NaN' not in page.locator('#nk-li-content').inner_text()
                     page.get_by_role('button', name=f'Previous {period}', exact=True).click()
