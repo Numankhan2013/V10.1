@@ -7726,3 +7726,4 @@ html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-today-marker.is-done, .option.correct, .option.wrong, .nk-na-summary .nk-na-ring, .nk-li-col > i, .nk-li-donut) { animation: none !important; }
 }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-subhead { margin: 20px 0 10px; padding-top: 16px; border-top: 1px solid var(--nkg-border); font: 500 13px/18px var(--nkg-font-sans); color: var(--nkg-fg-3); }

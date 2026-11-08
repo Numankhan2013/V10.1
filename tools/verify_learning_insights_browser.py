@@ -105,7 +105,8 @@ def main():
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-overview').bounding_box()['y']
-                assert page.locator('.nk-li-main .nk-li-donut').count() == 2 and page.locator('.nk-li-plotbars').count() == 0
+                assert page.locator('.nk-li-main .nk-li-donut').count() == 2 and page.locator('.nk-li-main .nk-li-plotbars').count() == 1, 'Questions: comparison donuts plus the by-day bars'
+                assert page.locator('.nk-li-main .nk-li-plotbars .nk-li-stack span').count() > 0, 'Question bars split into subject colours'
                 heat_js = '''theme => { document.documentElement.setAttribute('data-nk-theme', theme); const cells = [...document.querySelectorAll('.nk-li-year-grid button:not(.is-ghost):not(.is-future)')].map(e => ({e, n: +(e.getAttribute('aria-label').match(/: (\\d+) answers/) || [0, 0])[1]})); const lum = e => { const m = getComputedStyle(e).backgroundColor.match(/[\\d.]+/g).map(Number); return m.length >= 3 && m[0] <= 1 && m[1] <= 1 && m[2] <= 1 ? m[0] : m[0] / 255; }; const empty = cells.find(c => !c.n), peak = cells.reduce((a, c) => c.n > a.n ? c : a); return {empty: lum(empty.e), peak: lum(peak.e), n: peak.n}; }'''
                 theme_before = page.evaluate("document.documentElement.getAttribute('data-nk-theme')")
                 light, dark = page.evaluate(heat_js, 'light'), page.evaluate(heat_js, 'dark')
@@ -125,10 +126,10 @@ def main():
                 assert page.locator('.nk-li-year-grid .is-today').get_attribute('style') != original_style, 'A new high day must rescale earlier days'
                 assert '30+' not in page.locator('.nk-li-year-key').inner_text()
 
-                # Each measure tile picks its chart: questions = donuts, study time = trend line, accuracy/reviews = bars.
+                # Each measure tile picks its charts: questions = donuts + bars, study time = running-total line + bars, accuracy/reviews = bars.
                 page.locator('.nk-li-kpi[data-metric="Study time"]').click()
                 page.wait_for_function("document.querySelector('#nk-li-main-title').textContent.startsWith('Study time')")
-                assert page.locator('.nk-li-main :is(svg.nk-li-trend, .nkg-trend)').count() >= 1 and page.locator('.nk-li-main .nk-li-donut').count() == 0
+                assert page.locator('.nk-li-main :is(svg.nk-li-trend, .nkg-trend)').count() >= 1 and page.locator('.nk-li-main .nk-li-donut').count() == 0 and page.locator('.nk-li-main .nk-li-plotbars').count() == 1
                 page.locator('.nk-li-kpi[data-metric="Accuracy"]').click()
                 page.wait_for_function("document.querySelector('.nk-li-kpi[data-metric=\"Accuracy\"]').getAttribute('aria-pressed')==='true'")
                 assert page.locator('#nk-li-main-title').inner_text().startswith('Accuracy')
