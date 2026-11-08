@@ -49,7 +49,9 @@
       </div>
     </details>`;
   }
+  function nkExamNote(x=nkExamSettings()){return `${fmtNum(x.seconds)} second${x.seconds===1?'':'s'} per question${nkExamIsPlain(x)?'':` · ${esc(nkMarkingLabel(x))} marking`}. Answers appear after submission.`;}
   function nkExamRefresh(){
+    const note=document.getElementById('nk-exam-note');if(note)note.innerHTML=nkExamNote();
     const box=document.querySelector('.nk-exam-settings');
     // Blur the edited field first: replacing the box while it holds focus fires blur mid-replace and throws.
     if(box){const open=box.open,focused=box.contains(document.activeElement)?document.activeElement:null,key=focused?.id||'';
@@ -75,7 +77,7 @@
     nkCbtQuestionsMarkup=function(){
       const x=nkExamSettings();
       return nkExamOriginalQuestions.apply(this,arguments)
-        .replace('One minute per question. Answers and explanations appear after submission.',`${fmtNum(x.seconds)} seconds per question${nkExamIsPlain(x)?'':` · ${esc(nkMarkingLabel(x))} marking`}. Answers appear after submission.`)
+        .replace('One minute per question. Answers and explanations appear after submission.',`<span id="nk-exam-note">${nkExamNote(x)}</span>`)
         +nkExamSettingsMarkup();
     };
   }
