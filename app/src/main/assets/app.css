@@ -7700,22 +7700,17 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today.is-complete { border-colo
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today.is-complete .nk-today-title { color: var(--nkg-green); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-bar { height: 5px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-bar i { transition: width 500ms cubic-bezier(.16,1,.3,1); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-go:active { transform: scale(.97); }
 /* Practice answers: a press you can feel, a clear chosen letter, and right/wrong framed in their colour. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .option { transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .option:not(:disabled):active { transform: scale(.985) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.selected:not(.correct):not(.wrong) { box-shadow: 0 0 0 3px var(--nkg-bg-subtle) !important; border-color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.selected:not(.correct):not(.wrong) .option-letter { background-color: var(--nkg-fg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-fg) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .option.correct { border-color: var(--nkg-green) !important; animation: nkp-settle 180ms ease-out; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .option.correct { border-color: var(--nkg-green) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.correct .option-letter { background-color: var(--nkg-green) !important; color: #fff !important; border-color: var(--nkg-green) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .option.wrong { border-color: var(--nkg-red) !important; animation: nkp-settle 180ms ease-out; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .option.wrong { border-color: var(--nkg-red) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.wrong .option-letter { background-color: var(--nkg-red) !important; color: #fff !important; border-color: var(--nkg-red) !important; }
 /* Revision hub: View all / By subject read as real secondary buttons beside the main action; empty groups step back. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button.nk-revision-view-all { background: var(--nkg-bg-subtle) !important; border: 1px solid var(--nkg-border) !important; color: var(--nkg-fg) !important; padding: 0 16px !important; font-weight: 500; }
 @media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button.nk-revision-view-all:hover { background: var(--nkg-hover) !important; border-color: var(--nkg-border-strong) !important; } }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card { transition: transform 120ms ease, border-color 120ms ease; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty { opacity: .78; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button:not(:disabled):active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-go:active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-all:not(:disabled):active { transform: scale(.97); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-go { min-height: 40px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-open:active { background: var(--nkg-bg-subtle); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-bar { height: 5px; border-radius: 99px; }
@@ -7724,15 +7719,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-summary .nk-na-ring { animat
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-summary .nk-na-ring b { font-size: 26px !important; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-row-bar { border-radius: 99px !important; overflow: hidden; gap: 2px; }
 /* Lists and buttons press like objects. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-test-row, .nk-na-followup button, .nk-tests-quick-row > button, .nk-li-topic) { transition: transform 140ms ease, background-color 140ms ease; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-test-row, .nk-na-followup button, .nk-tests-quick-row > button:not(:disabled)):active { transform: scale(.985); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-build:active { transform: scale(.97); }
 /* Insights: bars rise, donuts arrive, the chosen tab reads clearly. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-col > i { transform-origin: bottom; animation: nkp-rise 300ms cubic-bezier(.22,1,.36,1) both; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-donut { animation: nkp-in 300ms cubic-bezier(.22,1,.36,1) both; }
 html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria-pressed="true"] { box-shadow: var(--nkg-shadow-sm), 0 0 0 1px var(--nkg-border-strong) !important; font-weight: 600 !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-tabs button:active { transform: scale(.97); }
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-today-marker.is-done, .option.correct, .option.wrong, .nk-na-summary .nk-na-ring, .nk-li-col > i, .nk-li-donut) { animation: none !important; }
-  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.option, .nk-revision-card, .nk-test-row, .nk-li-topic):active { transform: none !important; }
 }
