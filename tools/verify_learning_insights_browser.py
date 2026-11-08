@@ -101,7 +101,7 @@ def main():
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
                 assert page.locator('.nk-li-card').count() == 6
                 expect(page.get_by_role('heading', name='Subject focus', exact=True)).to_be_visible()
-                assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').bounding_box()['y']
+                assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').last.bounding_box()['y']
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-overview').bounding_box()['y']
