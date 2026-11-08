@@ -56,7 +56,7 @@ def main():
                         assert heat_y<360,(width,heat_y,'heatmap starts too low')
                         assert heat_y-(note['y']+note['height'])<=32,(width,heat_y,note,'nothing may sit between the period controls and the heatmap')
                         assert page.locator('.nk-li-year-grid button').count()>=365
-                        assert page.locator('.nk-li-card').count()==6
+                        assert page.locator('.nk-li-card').count()==4
                         assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0
                     if route=='fsrs-settings':
                         assert page.locator('.nk-fsrs-field input').count()==3

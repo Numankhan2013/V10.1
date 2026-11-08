@@ -223,10 +223,12 @@
   function nkLearningContent(model){
     const m=NK_LI_METRICS[nkLearningMetric],labels=nkLearningPeriodLabels(model),v=m.value(model.current);
     // The selected tile above already states the total and its change; the chart only names what it plots.
-    void v;const main=`<section class="nk-li-main" aria-labelledby="nk-li-main-title"><header><small id="nk-li-main-title">${esc(m.label)} · ${esc(labels.current)}</small></header>${nkLearningBarChart(model)}</section>`;
-    // Order the learner asked for: the year heatmap first, then the measures and their chart, then the
-    // question-performance donuts and the study-time line, then focus and the breakdowns.
-    return `${nkLearningYearActivity(model)}<section class="nk-li-overview">${nkLearningKpis(model)}${main}</section><div class="nk-li-grid">${nkLearningCard('Question performance',`<div class="nk-li-donut-pair">${nkLearningDonut(model.current,labels.current)}${nkLearningDonut(model.previous,labels.previous)}</div>`,'nk-li-wide')}${nkLearningCard('Study time trend',nkLearningTrend(model),'nk-li-wide')}</div>${nkFocusSection(model)}<div class="nk-li-grid">${nkLearningCard('Topics',nkLearningTopics(model),'is-topics')}${nkLearningCard('Subjects',nkLearningSubjects(model))}${nkLearningCard('Memory',nkLearningFsrs(model))}${nkLearningCard('Study modules',nkLearningModules(model))}</div>`;
+    // Each measure gets the chart that suits it: questions as this-vs-previous donuts, study time as the
+    // trend line, accuracy and reviews as bars. One chart at a time, so nothing on the page repeats.
+    void v;const chart=nkLearningMetric==='attempts'?`<div class="nk-li-donut-pair">${nkLearningDonut(model.current,labels.current)}${nkLearningDonut(model.previous,labels.previous)}</div>`:nkLearningMetric==='time'?nkLearningTrend(model):nkLearningBarChart(model);
+    const main=`<section class="nk-li-main" aria-labelledby="nk-li-main-title"><header><small id="nk-li-main-title">${esc(m.label)} · ${esc(labels.current)}</small></header>${chart}</section>`;
+    // Order the learner asked for: the year heatmap first, then the measures and their chart, then focus and the breakdowns.
+    return `${nkLearningYearActivity(model)}<section class="nk-li-overview">${nkLearningKpis(model)}${main}</section>${nkFocusSection(model)}<div class="nk-li-grid">${nkLearningCard('Topics',nkLearningTopics(model),'is-topics')}${nkLearningCard('Subjects',nkLearningSubjects(model))}${nkLearningCard('Memory',nkLearningFsrs(model))}${nkLearningCard('Study modules',nkLearningModules(model))}</div>`;
   }
   function analytics(){
     const model=nkLearningModel(),r=model.range,subjects=[...new Set([...model.data.questions.values()].filter(q=>!nkLearningBank||q.bank===nkLearningBank).map(q=>q.subject))],banks=[...new Set([...model.data.questions.values()].filter(q=>!nkLearningSubject||q.subject===nkLearningSubject).map(q=>q.bank))],recent=model.data.tests.filter(t=>Number(t.createdAt)>=r.start&&Number(t.createdAt)<r.cut&&(t.questionIds||[]).some(id=>nkLearningMatches(model.data.questions.get(String(id))||{}))).slice(-5).reverse();
@@ -280,8 +282,16 @@
   let nkLearningRefreshQueued=false;
   function nkLearningRefreshSoon(){
     if(typeof requestAnimationFrame!=='function'){nkLearningRefresh();return;}
+    // Keyboard focus was on the period control: hand it back to the chosen period once the report re-renders.
+    const fromPeriod=Boolean(document.activeElement?.closest?.('.nk-li-period-nav,[aria-label="Time period"]'));
     if(nkLearningRefreshQueued)return;nkLearningRefreshQueued=true;
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkLearningRefreshQueued=false;if(document.querySelector('.nk-learning-insights'))nkLearningRefresh();}));
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      nkLearningRefreshQueued=false;if(!document.querySelector('.nk-learning-insights'))return;
+      nkLearningRefresh();
+      if(!fromPeriod)return;
+      const refocus=()=>{const target=document.querySelector(`[role="group"][aria-label="Time period"] [data-value="${nkLearningPeriod}"]`);if(target&&document.activeElement!==target)target.focus({preventScroll:true});return Boolean(target);};
+      if(!refocus())requestAnimationFrame(refocus);
+    }));
   }
   function nkLearningSetPeriod(value){if(!['week','month','year'].includes(value))return;nkLearningPeriod=value;nkLearningOffset=0;nkLearningBin=-1;nkLearningRefreshSoon();}
   function nkLearningMove(n){if(![-1,0,1].includes(n))return;nkLearningOffset=n===0?0:Math.min(0,nkLearningOffset+n);nkLearningBin=-1;nkLearningRefresh();}
