@@ -7710,9 +7710,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .option.correct { border-color: var
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.correct .option-letter { background-color: var(--nkg-green) !important; color: #fff !important; border-color: var(--nkg-green) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.wrong { border-color: var(--nkg-red) !important; animation: nkp-settle 180ms ease-out; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .option.wrong .option-letter { background-color: var(--nkg-red) !important; color: #fff !important; border-color: var(--nkg-red) !important; }
-/* Revision hub: Due review leads with a filled button; empty groups step back; cards press. */
+/* Revision hub: View all / By subject read as real secondary buttons beside the main action; empty groups step back. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button.nk-revision-view-all { background: var(--nkg-bg-subtle) !important; border: 1px solid var(--nkg-border) !important; color: var(--nkg-fg) !important; padding: 0 16px !important; font-weight: 500; }
+@media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button.nk-revision-view-all:hover { background: var(--nkg-hover) !important; border-color: var(--nkg-border-strong) !important; } }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card { transition: transform 120ms ease, border-color 120ms ease; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-green:not(.is-empty) .nk-revision-actions > button:first-child:not(:disabled) { background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty { opacity: .78; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-actions > button:not(:disabled):active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-go:active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-all:not(:disabled):active { transform: scale(.97); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-go { min-height: 40px; }
@@ -7721,9 +7722,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rd-bar { height: 5px; border-ra
 /* Result: the score ring arrives, the number reads first, the counts carry a coloured cap. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-summary .nk-na-ring { animation: nkp-in 300ms cubic-bezier(.22,1,.36,1) both; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-summary .nk-na-ring b { font-size: 26px !important; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-outcome-counts > div { border-top: 2px solid var(--nkg-border) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-outcome-counts > div.is-correct { border-top-color: var(--nkg-green) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-outcome-counts > div.is-incorrect { border-top-color: var(--nkg-red) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-row-bar { border-radius: 99px !important; overflow: hidden; gap: 2px; }
 /* Lists and buttons press like objects. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-test-row, .nk-na-followup button, .nk-tests-quick-row > button, .nk-li-topic) { transition: transform 140ms ease, background-color 140ms ease; }
