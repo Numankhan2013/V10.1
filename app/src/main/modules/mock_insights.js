@@ -221,7 +221,7 @@
   function nkMockInsightsOpen(){
     nkMi={metric:'score',pinned:null};navigate('analytics');
     // The route renders on hashchange and then resets scroll, so wait for the section before scrolling to it.
-    let tries=0;const go=()=>{const el=route?.page==='analytics'&&document.querySelector('.nk-mock-in');
+    let tries=0;const started=location.hash;const go=()=>{if(tries>2&&location.hash!==started&&location.hash!=='#analytics')return;const el=route?.page==='analytics'&&document.querySelector('.nk-mock-in');
       if(el){el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;}
       if(++tries<40)setTimeout(go,50);};
     setTimeout(go,60);
