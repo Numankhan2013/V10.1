@@ -106,6 +106,12 @@ def main():
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-overview').bounding_box()['y']
                 assert page.locator('.nk-li-main .nk-li-donut').count() == 2 and page.locator('.nk-li-plotbars').count() == 0
+                heat_js = '''theme => { document.documentElement.setAttribute('data-nk-theme', theme); const cells = [...document.querySelectorAll('.nk-li-year-grid button:not(.is-ghost):not(.is-future)')].map(e => ({e, n: +(e.getAttribute('aria-label').match(/: (\\d+) answers/) || [0, 0])[1]})); const lum = e => { const m = getComputedStyle(e).backgroundColor.match(/[\\d.]+/g).map(Number); return m.length >= 3 && m[0] <= 1 && m[1] <= 1 && m[2] <= 1 ? m[0] : m[0] / 255; }; const empty = cells.find(c => !c.n), peak = cells.reduce((a, c) => c.n > a.n ? c : a); return {empty: lum(empty.e), peak: lum(peak.e), n: peak.n}; }'''
+                theme_before = page.evaluate("document.documentElement.getAttribute('data-nk-theme')")
+                light, dark = page.evaluate(heat_js, 'light'), page.evaluate(heat_js, 'dark')
+                assert light['n'] > 0 and light['empty'] > light['peak'] + .4, f'Light heatmap: busiest day must be darker than an empty day {light}'
+                assert dark['empty'] < dark['peak'] - .4, f'Dark heatmap: empty days must stay dark and busy days light {dark}'
+                page.evaluate("t => t ? document.documentElement.setAttribute('data-nk-theme', t) : document.documentElement.removeAttribute('data-nk-theme')", theme_before)
                 geist_choose(page, 'Activity year', str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365
                 geist_choose(page, 'Activity year', 'rolling')

@@ -192,7 +192,8 @@
   }
   // Activity shade: relative to the busiest day, one green hue from pale to deep, no glow.
   function nkLearningHeatStyle(count,peak){
-    if(!count||!peak)return '--heat-fill:var(--nkg-bg-subtle,#f1f1f1);--heat-border:var(--nkg-border,#e5e5e5);--heat-glow:none';
+    // A fixed pale fill, never a theme token: the dark theme maps fill lightness inversely, so a dark token would read as the busiest day.
+    if(!count||!peak)return '--heat-fill:hsl(0 0% 95%);--heat-border:hsl(0 0% 89%);--heat-glow:none';
     const ratio=Math.min(1,Math.max(0,count/peak)),light=86-50*ratio,saturation=38+22*ratio;
     return `--heat-fill:hsl(146 ${saturation.toFixed(2)}% ${light.toFixed(2)}%);--heat-border:hsl(146 ${saturation.toFixed(2)}% ${Math.max(30,light-6).toFixed(2)}%);--heat-glow:none`;
   }
