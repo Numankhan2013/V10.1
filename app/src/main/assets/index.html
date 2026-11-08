@@ -2188,7 +2188,7 @@ function dashboard(){
     box.className='nk-session-review-backdrop';
     box.innerHTML=`<section class="nk-session-review-card" role="dialog" aria-modal="true" aria-label="${heading}">
       <div class="nk-session-review-head"><div><div class="mode-pill">${s.mode==='exam'?'Exam':'Practice'} · Session Review</div><h2>${heading}</h2><p>${sub}</p></div><button type="button" class="icon-btn nk-session-review-close" aria-label="Close" onclick="window.QB.__sessionReviewClose()">×</button></div>
-      <div class="nk-session-review-summary"><strong>${statusText}</strong><span>${total} questions</span></div>
+      <div class="nk-session-review-summary"><strong>${statusText}</strong><span>${total} question${total===1?'':'s'}</span></div>
       <div class="nk-session-review-grid">${cells}</div>
       <div class="nk-session-review-legend"><span><i class="nk-review-dot answered"></i>Answered</span><span><i class="nk-review-dot unanswered"></i>Unanswered</span><span><i class="nk-review-dot active"></i>Current</span>${timeUp?'<span><i class="nk-review-dot expired"></i>Time up</span>':''}</div>
       <div class="nk-session-review-actions${unanswered?'':' two'}">${backBtn}${unansweredBtn}${moduleFinish}<button type="button" class="primary-btn" onclick="window.QB.__sessionReviewSubmit()">${actionLabel}</button></div>

@@ -295,6 +295,8 @@ def main():
                 assert page.locator('#nk-session-review').is_visible()
                 fail_storage(page, False)
                 # Two taps in one frame: the first closes the review at once, the second must not submit again.
+                # The sheet redraws a frame after the failed save, so wait for its Submit button to be back first.
+                page.wait_for_function("[...document.querySelectorAll('#nk-session-review button')].some(n=>n.textContent.trim()==='Submit Test')")
                 page.evaluate("(()=>{const b=[...document.querySelectorAll('#nk-session-review button')].find(n=>n.textContent.trim()==='Submit Test');b.click();b.click();})()")
                 page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`exam_${id}`).length', cbt['id']) == 1

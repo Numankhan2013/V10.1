@@ -59,6 +59,17 @@ def main():
                 assert saved['position']['index']==1 and saved['answers']==paused_before['answers'] and saved['submitted']==paused_before['submitted']
                 assert not page.evaluate('(ids)=>ids.slice(1).some(id=>QB.getState().fsrsReviewEligible?.[id]?.reason==="skipped")',session['questionIds'])
                 page.reload();page.get_by_role('button',name='Resume mistakes',exact=True).wait_for();page.screenshot(path=str(out/f'revision-paused-{width}.png'))
+                # Starting the same kind of review asks first; every button sits inside the dialog; Cancel keeps the paused one.
+                page.get_by_role('button',name='Practice mistakes',exact=True).first.click()
+                ask=page.locator('#nk-revision-paused-ask [role="dialog"]');ask.wait_for()
+                box=ask.bounding_box()
+                for name in ['Resume it','Start the new one','Cancel']:
+                    btn=ask.get_by_role('button',name=name,exact=True);b2=btn.bounding_box()
+                    assert b2 and b2['x']>=box['x']-1 and b2['x']+b2['width']<=box['x']+box['width']+1 and b2['y']>=box['y']-1 and b2['y']+b2['height']<=box['y']+box['height']+1, f'{name} must sit inside the paused-review dialog at {width}'
+                page.screenshot(path=str(out/f'revision-paused-ask-{width}.png'))
+                ask.get_by_role('button',name='Cancel',exact=True).click()
+                assert page.locator('#nk-revision-paused-ask').count()==0 and page.evaluate('location.hash')!='#practice'
+                assert page.evaluate('QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===%r)?.lifecycle'%session['id'])=='paused'
                 page.get_by_role('button',name='Resume mistakes',exact=True).click();page.wait_for_selector('.option')
                 resumed=page.evaluate('QB.getState().activeSession');assert resumed['id']==session['id'] and resumed['questionIds']==session['questionIds'] and resumed['index']==1
                 assert resumed['answers']==saved['answers'] and resumed['submitted']==saved['submitted'] and resumed['questionTimes']==saved['questionTimes']

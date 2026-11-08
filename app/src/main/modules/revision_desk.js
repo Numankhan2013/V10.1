@@ -161,7 +161,7 @@
     nkRevisionPendingStart=pending;document.getElementById('nk-revision-paused-ask')?.remove();
     const ids=cp.sessionQuestionIds||[],done=ids.filter(id=>cp.submitted?.[id]).length,scope=cp.context?.revisionScope||{};
     const where=[scope.subject||'All subjects',scope.bank].filter(Boolean).join(' · ');
-    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-revision-paused-ask" onclick="if(event.target===this)window.QB.nkRevisionResolvePaused(\'cancel\')" onkeydown="if(event.key===\'Escape\'){event.stopPropagation();window.QB.nkRevisionResolvePaused(\'cancel\')}"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-revision-paused-title"><h2 id="nk-revision-paused-title">You have a paused review</h2><p>'+esc(where)+' · '+fmtNum(done)+' of '+fmtNum(ids.length)+' answered. Resume it, or start the new one; the paused review stays saved in Revision.</p><div class="modal-actions"><button type="button" class="primary-btn" data-session-id="'+esc(String(cp.sessionId))+'" onclick="window.QB.nkRevisionResolvePaused(\'resume\',this.getAttribute(\'data-session-id\'))">Resume it</button><button type="button" class="ghost-btn" onclick="window.QB.nkRevisionResolvePaused(\'new\')">Start the new one</button><button type="button" class="ghost-btn nk-modal-close" onclick="window.QB.nkRevisionResolvePaused(\'cancel\')">Cancel</button></div></section></div>');
+    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-revision-paused-ask" onclick="if(event.target===this)window.QB.nkRevisionResolvePaused(\'cancel\')" onkeydown="if(event.key===\'Escape\'){event.stopPropagation();window.QB.nkRevisionResolvePaused(\'cancel\')}"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-revision-paused-title"><h2 id="nk-revision-paused-title">You have a paused review</h2><p>'+esc(where)+' · '+fmtNum(done)+' of '+fmtNum(ids.length)+' answered. Resume it, or start the new one; the paused review stays saved in Revision.</p><div class="modal-actions"><button type="button" class="primary-btn" data-session-id="'+esc(String(cp.sessionId))+'" onclick="window.QB.nkRevisionResolvePaused(\'resume\',this.getAttribute(\'data-session-id\'))">Resume it</button><button type="button" class="ghost-btn" onclick="window.QB.nkRevisionResolvePaused(\'new\')">Start the new one</button><button type="button" class="ghost-btn" onclick="window.QB.nkRevisionResolvePaused(\'cancel\')">Cancel</button></div></section></div>');
     document.querySelector('#nk-revision-paused-ask .primary-btn')?.focus({preventScroll:true});
     return false;
   }
@@ -176,7 +176,7 @@
   }
   function nkStartRevisionQueue(kind,limit=0,only=null,confirmed=false){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting revision.','bad');return false;}
-    if(!confirmed){const paused=nkRevisionPausedFor(kind==='bookmarks'?'bookmarks':kind);if(paused.length&&['wrong','bookmarks','due'].includes(kind))return nkRevisionAskPaused(paused[0],{kind,limit,only,scope:{...nkRevisionScope}});}
+    if(!confirmed){const paused=nkRevisionPausedFor(kind==='bookmarks'?'bookmarks':kind);if(paused.length&&['wrong','bookmarks','due'].includes(kind)){const same=paused.find(cp=>{const sc=cp.context?.revisionScope||{};return ['subject','bank','topic'].every(k=>String(sc[k]??'')===String(nkRevisionScope?.[k]??''));});return nkRevisionAskPaused(same||paused[0],{kind,limit,only,scope:{...nkRevisionScope}});}}
     const previous=state.activeSession?.id;
     const data=nkRevisionDeskData();
     if(kind==='due'){
@@ -222,6 +222,9 @@
   }
   function nkReviewDuesGo(scope,x,label){
     const arg=esc(JSON.stringify(scope));
+    // Only when today's limit is spent (cards roll over) can a scope have due cards but none startable.
+    const capped=x&&x.due&&typeof nkFsrsQueue==='function'&&nkFsrsQueue({}).rolledOver>0&&!nkFsrsQueue(nkReviewDuesScope(scope)).cards.length;
+    if(capped)return '<button type="button" class="nk-rd-go" disabled aria-label="Daily limit reached for '+esc(label)+'">Review</button>';
     return x&&x.due?'<button type="button" class="nk-rd-go" aria-label="Review '+esc(fmtNum(x.due)+' due in '+label)+'" onclick="window.QB.nkReviewDuesStart('+arg+')">Review</button>':'<span class="nk-rd-go is-done" aria-label="Nothing due in '+esc(label)+'">'+navIcon('check',16)+'</span>';
   }
   const nkReviewDuesLegend='<p class="nk-rd-legend"><span><i class="is-due"></i>Due</span><span><i class="is-learn"></i>Learning</span><span><i class="is-mature"></i>Mature</span></p>';

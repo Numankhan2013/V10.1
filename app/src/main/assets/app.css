@@ -2996,7 +2996,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-canvas { min-width: 0 !
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-months { grid-template-columns: repeat(var(--weeks), var(--c)) !important; gap: var(--g) !important; height: 22px !important; font: 500 10.5px/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid { grid-template-columns: repeat(var(--weeks), var(--c)) !important; grid-template-rows: repeat(7, var(--c)) !important; gap: var(--g) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button { border-radius: 3px !important; border-width: 0 !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nkg-fg) 5%, transparent) !important; transition: transform 120ms var(--nkg-ease), box-shadow 120ms var(--nkg-ease) !important; }
-html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-grid button { box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-grid button:not(.is-today):not(.is-selected):not(.is-future) { box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-future { background: transparent !important; box-shadow: inset 0 0 0 1px var(--nkg-border) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-today { box-shadow: 0 0 0 1.5px var(--nkg-surface), 0 0 0 3px var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-selected { transform: none !important; box-shadow: 0 0 0 1.5px var(--nkg-surface), 0 0 0 3px var(--nkg-focus) !important; z-index: 2; }
@@ -7726,3 +7726,10 @@ html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-today-marker.is-done, .option.correct, .option.wrong, .nk-na-summary .nk-na-ring, .nk-li-col > i, .nk-li-donut) { animation: none !important; }
 }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-subhead { margin: 20px 0 10px; padding-top: 16px; border-top: 1px solid var(--nkg-border); font: 500 13px/18px var(--nkg-font-sans); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-skipped { color: #1a1206 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app :is(.nk-notes-search, .nk-revision-search, .nk-question-search-box, .nk-na-mock-search) input:is([type="search"], [type="text"], :not([type])) { border: 0 !important; border-radius: 0 !important; height: auto !important; min-height: 44px !important; box-shadow: none !important; background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nk-v3-subject-copy { grid-template-columns: minmax(0, 1fr) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nkg-subj-head { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root):has(.modal-backdrop) .nk-fsrs-settings-save { z-index: 1 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-pwa { padding: 10px 12px !important; }
