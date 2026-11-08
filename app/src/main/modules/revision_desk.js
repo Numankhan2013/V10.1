@@ -150,8 +150,32 @@
   }
 
   // only: an optional filter, so Today's plan can launch just the items it planned.
-  function nkStartRevisionQueue(kind,limit=0,only=null){
+  // A paused review of the same kind is never replaced silently: ask to resume it or start the new one.
+  let nkRevisionPendingStart=null;
+  function nkRevisionPausedFor(kind){
+    if(typeof nkPracticeCheckpoints!=='function')return [];
+    return nkPracticeCheckpoints(false).filter(cp=>String(cp.context?.revisionQueueKind||'')===String(kind)&&['paused','suspended'].includes(String(cp.lifecycle)));
+  }
+  function nkRevisionAskPaused(cp,pending){
+    if(typeof document==='undefined'||!document.body)return false;
+    nkRevisionPendingStart=pending;document.getElementById('nk-revision-paused-ask')?.remove();
+    const ids=cp.sessionQuestionIds||[],done=ids.filter(id=>cp.submitted?.[id]).length,scope=cp.context?.revisionScope||{};
+    const where=[scope.subject||'All subjects',scope.bank].filter(Boolean).join(' · ');
+    document.body.insertAdjacentHTML('beforeend','<div class="modal-backdrop" id="nk-revision-paused-ask"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-revision-paused-title"><h2 id="nk-revision-paused-title">You have a paused review</h2><p>'+esc(where)+' · '+fmtNum(done)+' of '+fmtNum(ids.length)+' answered. Resume it, or start the new one; the paused review stays saved in Revision.</p><div class="modal-actions"><button type="button" class="ghost-btn" onclick="window.QB.nkRevisionResolvePaused(\'cancel\')">Cancel</button><button type="button" class="ghost-btn" onclick="window.QB.nkRevisionResolvePaused(\'new\')">Start the new one</button><button type="button" class="primary-btn" data-session-id="'+esc(String(cp.sessionId))+'" onclick="window.QB.nkRevisionResolvePaused(\'resume\',this.getAttribute(\'data-session-id\'))">Resume it</button></div></section></div>');
+    document.querySelector('#nk-revision-paused-ask .primary-btn')?.focus({preventScroll:true});
+    return false;
+  }
+  function nkRevisionResolvePaused(choice,sessionId){
+    document.getElementById('nk-revision-paused-ask')?.remove();
+    const pending=nkRevisionPendingStart;nkRevisionPendingStart=null;
+    if(choice==='resume'&&sessionId&&typeof nkResumePracticeById==='function')return nkResumePracticeById(sessionId);
+    if(choice!=='new'||!pending)return false;
+    const prev=nkRevisionScope;nkRevisionScope=pending.scope;
+    try{return nkStartRevisionQueue(pending.kind,pending.limit,pending.only,true);}finally{nkRevisionScope=prev;}
+  }
+  function nkStartRevisionQueue(kind,limit=0,only=null,confirmed=false){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting revision.','bad');return false;}
+    if(!confirmed){const paused=nkRevisionPausedFor(kind==='bookmarks'?'bookmarks':kind);if(paused.length&&['wrong','bookmarks','due'].includes(kind))return nkRevisionAskPaused(paused[0],{kind,limit,only,scope:{...nkRevisionScope}});}
     const previous=state.activeSession?.id;
     const data=nkRevisionDeskData();
     if(kind==='due'){
