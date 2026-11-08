@@ -7687,3 +7687,4 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-modules .nk-li-share { botto
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button { box-shadow: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid { grid-template-columns: minmax(0,1fr); }
 @media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-grid > .nk-li-card.nk-li-wide { grid-column: 1 / -1; }

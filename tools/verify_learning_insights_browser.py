@@ -99,12 +99,13 @@ def main():
                 assert page.locator('[data-metric="Questions practised"]>b').inner_text().replace(',', '') == str(model['current']['attempts'])
                 assert model['current']['reviews'] < model['current']['attempts']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
-                assert page.locator('.nk-li-card').count() == 4
+                assert page.locator('.nk-li-card').count() == 6
                 expect(page.get_by_role('heading', name='Subject focus', exact=True)).to_be_visible()
                 assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').bounding_box()['y']
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
-                assert page.locator('.nk-li-overview').bounding_box()['y'] < page.locator('.nk-li-year-activity').bounding_box()['y']
+                assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-overview').bounding_box()['y']
+                assert page.locator('.nk-li-donut').count() == 2 and page.locator('svg.nk-li-trend, .nkg-trend').count() >= 1
                 geist_choose(page, 'Activity year', str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365
                 geist_choose(page, 'Activity year', 'rolling')
