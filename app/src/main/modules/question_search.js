@@ -133,7 +133,8 @@
     if(!entry){showToast('This question is unavailable.','bad');return false;}
     if(state.activeSession?.mode==='exam'){showToast('Resume or abandon your timed test before starting Practice.','bad');return false;}
     if(nkQuestionSearchReferenceOnly(entry.q))return nkUworldReference(entry.q.id);
-    if(typeof openBank==='function'&&entry.q.subject&&entry.q.bank)openBank(entry.q.subject,entry.q.bank);
+    // Set the bank context without visiting Topics, so Back from the question returns to the search results.
+    if(typeof applySubject==='function'&&entry.q.subject&&entry.q.bank&&(typeof nkBankRecord!=='function'||nkBankRecord(entry.q.subject,entry.q.bank)))applySubject(entry.q.subject,entry.q.bank);
     return nkQuestionSearchStart([entry],`Question ${entry.q.questionNumber||id}`);
   }
   function nkQuestionSearchPracticeMatches(){

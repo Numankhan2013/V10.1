@@ -48,7 +48,7 @@ let opened=null,started=null,saved=0,toasts=[],referenceRead=null;const BY_ID={}
 const context={state,BY_ID,Math,Date,window:{},document:{querySelector:()=>null},
  nkAllStudyQuestions:()=>questions,nkFsrsActiveAttempts:id=>state.attempts[id]||[],qAttempts:id=>state.attempts[id]||[],
  fmtNum:n=>String(n),esc:value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
- navIcon:()=>'',shell:value=>value,showToast:message=>toasts.push(message),openBank:(subject,bank)=>opened=[subject,bank],
+ navIcon:()=>'',shell:value=>value,showToast:message=>toasts.push(message),openBank:()=>{throw new Error('search must not navigate to Topics')},applySubject:(subject,bank)=>opened=[subject,bank],nkBankRecord:()=>true,
  startSession:(ids,mode,title,kind)=>{started={ids,mode,title,kind};state.activeSession={id:'new-session',mode,questionIds:ids,originRoute:'topics'};return true;},
  saveState:()=>{saved++;return true;}};
 context.nkUworldEligible=q=>!q.blocked;
