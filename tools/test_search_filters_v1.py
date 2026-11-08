@@ -135,6 +135,7 @@ def main() -> None:
     pieces = [
         extract_function(REVISION.read_text(encoding="utf-8"), "nkRevisionBrowsePage"),
         extract_function(REVISION.read_text(encoding="utf-8"), "nkFilterRevisionBrowse"),
+        extract_function(NOTES.read_text(encoding="utf-8"), "nkNoteFold"),
         extract_function(NOTES.read_text(encoding="utf-8"), "nkFilterNotes"),
         extract_function(COVERAGE.read_text(encoding="utf-8"), "nkCoverageSelected"),
         extract_function(COVERAGE.read_text(encoding="utf-8"), "nkCoverageListMarkup"),

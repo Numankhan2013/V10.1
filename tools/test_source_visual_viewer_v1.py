@@ -51,7 +51,7 @@ function fakeElement(tag){
     querySelectorAll(){return[];}};
   return el;
 }
-global.window=global;
+global.window=global;global.addEventListener=global.addEventListener||(()=>{});global.removeEventListener=global.removeEventListener||(()=>{});
 global.location={hostname:'localhost'};
 global.SOURCE_VISUALS={};
 global.document={
