@@ -99,13 +99,13 @@ def main():
                 assert page.locator('[data-metric="Questions practised"]>b').inner_text().replace(',', '') == str(model['current']['attempts'])
                 assert model['current']['reviews'] < model['current']['attempts']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
-                assert page.locator('.nk-li-card').count() == 6
+                assert page.locator('.nk-li-card').count() == 4
                 expect(page.get_by_role('heading', name='Subject focus', exact=True)).to_be_visible()
                 assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').last.bounding_box()['y']
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-overview').bounding_box()['y']
-                assert page.locator('.nk-li-donut').count() == 2 and page.locator('svg.nk-li-trend, .nkg-trend').count() >= 1
+                assert page.locator('.nk-li-main .nk-li-donut').count() == 2 and page.locator('.nk-li-plotbars').count() == 0
                 geist_choose(page, 'Activity year', str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365
                 geist_choose(page, 'Activity year', 'rolling')
@@ -119,16 +119,17 @@ def main():
                 assert page.locator('.nk-li-year-grid .is-today').get_attribute('style') != original_style, 'A new high day must rescale earlier days'
                 assert '30+' not in page.locator('.nk-li-year-key').inner_text()
 
+                # Each measure tile picks its chart: questions = donuts, study time = trend line, accuracy/reviews = bars.
+                page.locator('.nk-li-kpi[data-metric="Study time"]').click()
+                page.wait_for_function("document.querySelector('#nk-li-main-title').textContent.startsWith('Study time')")
+                assert page.locator('.nk-li-main :is(svg.nk-li-trend, .nkg-trend)').count() >= 1 and page.locator('.nk-li-main .nk-li-donut').count() == 0
+                page.locator('.nk-li-kpi[data-metric="Accuracy"]').click()
+                page.wait_for_function("document.querySelector('.nk-li-kpi[data-metric=\"Accuracy\"]').getAttribute('aria-pressed')==='true'")
+                assert page.locator('#nk-li-main-title').inner_text().startswith('Accuracy')
                 page.locator('.nk-li-plotbars button:not(:disabled)').first.click()
                 assert 'Previous week:' in page.locator('.nk-li-bin-readout').inner_text()
                 page.locator('.nk-li-year-grid button:not(:disabled)').last.click()
                 assert 'correct' in page.locator('#nk-li-year-detail').inner_text()
-                # The measure tiles drive the main chart.
-                page.locator('.nk-li-kpi[data-metric="Accuracy"]').click()
-                page.wait_for_function("document.querySelector('.nk-li-kpi[data-metric=\"Accuracy\"]').getAttribute('aria-pressed')==='true'")
-                assert page.locator('#nk-li-main-title').inner_text().startswith('Accuracy')
-                page.locator('.nk-li-kpi[data-metric="Questions practised"]').click()
-                page.wait_for_function("document.querySelector('#nk-li-main-title').textContent.startsWith('Questions practised')")
                 page.get_by_role('button', name='Top performing', exact=True).click()
                 assert page.get_by_role('button', name='Top performing', exact=True).get_attribute('aria-pressed') == 'true'
                 for period, bars in [('month', 5), ('year', 12), ('week', 7)]:

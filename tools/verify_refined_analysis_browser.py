@@ -112,6 +112,8 @@ def main():
                 for period in ['week','month','year']:
                     choose_period(period)
                     assert page.locator('#nk-li-main-title').inner_text().endswith(f'This {period}')
+                    a,b=page.locator('.nk-li-main .nk-li-donut').all()
+                    assert abs(a.bounding_box()['y']-b.bounding_box()['y'])<1,'Donuts must align, including an empty prior period'
                     for key in page.locator('.nk-li-key').all_text_contents():
                         assert f'This {period}' in key and f'Previous {period}' in key
                     for button in page.locator('.nk-li-plotbars button').all():
