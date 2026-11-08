@@ -143,6 +143,7 @@
       </section></div>`);
     document.getElementById('nk-sched-at')?.focus({preventScroll:true});
   }
+  if(typeof window!=='undefined'&&window.addEventListener)window.addEventListener('hashchange',()=>{if(document.getElementById('nk-sched-sheet')){document.getElementById('nk-sched-sheet').remove();nkSchedSource=null;}});
   function nkSchedClose(){document.getElementById('nk-sched-sheet')?.remove();document.querySelector('.nk-sched-open')?.focus?.({preventScroll:true});}
   function nkSchedPick(at){
     const input=document.getElementById('nk-sched-at');if(!input)return;
@@ -155,6 +156,7 @@
   function nkSchedConfirm(){
     const input=document.getElementById('nk-sched-at'),at=new Date(input?.value||'').getTime();
     if(!Number.isFinite(at)||at<=Date.now()+60000){showToast('Pick a time in the future.','bad');return;}
+    if(!nkSchedSource&&!nkCbtDraft){nkSchedClose();showToast('Build the test again to schedule it.','bad');return;}
     const ids=nkSchedSource?nkSchedSource.questionIds.map(String):typeof nkMockPick==='function'?nkMockPick():[];if(!ids.length){showToast('No questions in this selection can be scheduled.','bad');return;}
     const x=nkExamSettings(),name=(nkSchedSource?nkSchedSource.name:((nkCbtDraft?.name||'').trim()||nkCbtTitle())).slice(0,80);
     const mock={id:`sm_${Date.now()}_${Math.random().toString(16).slice(2,8)}`,name,questionIds:ids,at,createdAt:Date.now(),marking:{correct:x.correct,wrong:x.wrong,blank:x.blank},seconds:x.seconds};

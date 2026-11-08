@@ -378,7 +378,7 @@
       var r = m.subjects[k], acc = r.answered ? Math.round(r.correct / r.answered * 100) : 0;
       var key = k.toLowerCase().replace(/[^a-z]/g, '');
       return '<div class="nkg-subj-row"><span class="nkg-dot is-' + key + '" aria-hidden="true"></span><span class="nkg-row-copy"><strong>' + esc(k) + '</strong><small>' +
-        fmt(r.unique) + ' unique · ' + fmt(r.answered) + ' answers</small></span><span class="nkg-subj-acc"><span class="nkg-bar" aria-hidden="true"><i style="width:' + acc + '%"></i></span><b class="nkg-num">' + acc + '%</b></span></div>';
+        fmt(r.unique) + ' unique · ' + fmt(r.answered) + (r.answered === 1 ? ' answer' : ' answers') + '</small></span><span class="nkg-subj-acc"><span class="nkg-bar" aria-hidden="true"><i style="width:' + acc + '%"></i></span><b class="nkg-num">' + acc + '%</b></span></div>';
     }).join('');
     var lastSync = meta && meta.lastSyncAt ? new Date(meta.lastSyncAt) : null;
     var syncLine = !auth ? 'Not signed in. Progress is saved on this device only.' :
@@ -413,7 +413,7 @@
       '<section aria-labelledby="nkg-short-title"><h2 class="nkg-group-title" id="nkg-short-title">Shortcuts</h2><div class="nkg-list">' +
       short('bookmarks', 'bookmark-simple', 'Bookmarks', fmt(m.bookmarks) + ' saved') +
       short('wrong', 'x-circle', 'Mistakes') +
-      short('notes', 'note-pencil', 'My notes', fmt(m.notes) + ' notes') +
+      short('notes', 'note-pencil', 'My notes', fmt(m.notes) + (m.notes === 1 ? ' note' : ' notes')) +
       short('fsrs-settings', 'gear', 'Revision settings') +
       '</div></section>' +
       '</div>';

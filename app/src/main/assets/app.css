@@ -7728,3 +7728,8 @@ html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria
 }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-main .nk-li-subhead { margin: 20px 0 10px; padding-top: 16px; border-top: 1px solid var(--nkg-border); font: 500 13px/18px var(--nkg-font-sans); color: var(--nkg-fg-3); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-skipped { color: #1a1206 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-notes-search, .nk-revision-search, .nk-question-search-box, .nk-na-mock-search) input { border: 0 !important; box-shadow: none !important; background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nk-v3-subject-copy { grid-template-columns: minmax(0, 1fr) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nkg-subj-head { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root):has(.modal-backdrop) .nk-fsrs-settings-save { z-index: 1 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-pwa { padding: 10px 12px !important; }
