@@ -2996,7 +2996,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-canvas { min-width: 0 !
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-months { grid-template-columns: repeat(var(--weeks), var(--c)) !important; gap: var(--g) !important; height: 22px !important; font: 500 10.5px/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid { grid-template-columns: repeat(var(--weeks), var(--c)) !important; grid-template-rows: repeat(7, var(--c)) !important; gap: var(--g) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button { border-radius: 3px !important; border-width: 0 !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nkg-fg) 5%, transparent) !important; transition: transform 120ms var(--nkg-ease), box-shadow 120ms var(--nkg-ease) !important; }
-html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-grid button { box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-grid button:not(.is-today):not(.is-selected):not(.is-future) { box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-future { background: transparent !important; box-shadow: inset 0 0 0 1px var(--nkg-border) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-today { box-shadow: 0 0 0 1.5px var(--nkg-surface), 0 0 0 3px var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-selected { transform: none !important; box-shadow: 0 0 0 1.5px var(--nkg-surface), 0 0 0 3px var(--nkg-focus) !important; z-index: 2; }
