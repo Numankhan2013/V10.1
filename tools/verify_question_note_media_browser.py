@@ -119,8 +119,20 @@ def live_menu(page):
 
 
 def block_menu(page, sheet, index: int, item: str) -> None:
-    sheet.locator(f'.nk-nb[data-i="{index}"] .nk-nb-dots').click()
-    live_menu(page).get_by_role("menuitem", name=item, exact=True).click()
+    # The block menu opens with a short morph; a tap that lands mid-morph can miss,
+    # so reopen and retry until the item takes the click.
+    last = None
+    for _ in range(3):
+        target = live_menu(page).get_by_role("menuitem", name=item, exact=True)
+        if not target.is_visible():
+            sheet.locator(f'.nk-nb[data-i="{index}"] .nk-nb-dots').click()
+        try:
+            live_menu(page).get_by_role("menuitem", name=item, exact=True).click(timeout=4000)
+            return
+        except Exception as error:
+            last = error
+            page.wait_for_timeout(300)
+    raise last
 
 
 def save_text(sheet) -> None:
