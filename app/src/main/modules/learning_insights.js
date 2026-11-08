@@ -280,8 +280,16 @@
   let nkLearningRefreshQueued=false;
   function nkLearningRefreshSoon(){
     if(typeof requestAnimationFrame!=='function'){nkLearningRefresh();return;}
+    // Keyboard focus was on the period control: hand it back to the chosen period once the report re-renders.
+    const fromPeriod=Boolean(document.activeElement?.closest?.('.nk-li-period-nav,[aria-label="Time period"]'));
     if(nkLearningRefreshQueued)return;nkLearningRefreshQueued=true;
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkLearningRefreshQueued=false;if(document.querySelector('.nk-learning-insights'))nkLearningRefresh();}));
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      nkLearningRefreshQueued=false;if(!document.querySelector('.nk-learning-insights'))return;
+      nkLearningRefresh();
+      if(!fromPeriod)return;
+      const refocus=()=>{const target=document.querySelector(`[role="group"][aria-label="Time period"] [data-value="${nkLearningPeriod}"]`);if(target&&document.activeElement!==target)target.focus({preventScroll:true});return Boolean(target);};
+      if(!refocus())requestAnimationFrame(refocus);
+    }));
   }
   function nkLearningSetPeriod(value){if(!['week','month','year'].includes(value))return;nkLearningPeriod=value;nkLearningOffset=0;nkLearningBin=-1;nkLearningRefreshSoon();}
   function nkLearningMove(n){if(![-1,0,1].includes(n))return;nkLearningOffset=n===0?0:Math.min(0,nkLearningOffset+n);nkLearningBin=-1;nkLearningRefresh();}
