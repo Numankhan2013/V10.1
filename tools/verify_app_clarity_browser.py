@@ -50,14 +50,13 @@ def main():
                         assert 'Scheduled reviews for this focus' not in page.locator('.nk-revision-forecast').inner_text()
                         page.get_by_role('button',name='Hide focus',exact=True).click()
                     if route=='analytics':
-                        # Insights v2 leads with the overview (measures + main chart) right after the period
-                        # controls and inside the first phone screen; the year heatmap follows the breakdowns.
-                        lead_y=page.locator('.nk-li-overview').bounding_box()['y']
+                        # The year heatmap leads right after the period controls, inside the first phone screen.
+                        heat_y=page.locator('.nk-li-year-activity').bounding_box()['y']
                         note=page.locator('.nk-li-period-note').bounding_box()
-                        assert lead_y<360,(width,lead_y,'overview starts too low')
-                        assert lead_y-(note['y']+note['height'])<=32,(width,lead_y,note,'nothing may sit between the period controls and the overview')
+                        assert heat_y<360,(width,heat_y,'heatmap starts too low')
+                        assert heat_y-(note['y']+note['height'])<=32,(width,heat_y,note,'nothing may sit between the period controls and the heatmap')
                         assert page.locator('.nk-li-year-grid button').count()>=365
-                        assert page.locator('.nk-li-card').count()==4
+                        assert page.locator('.nk-li-card').count()==6
                         assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0
                     if route=='fsrs-settings':
                         assert page.locator('.nk-fsrs-field input').count()==3
