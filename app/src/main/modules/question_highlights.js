@@ -247,7 +247,8 @@
     // Touch: the native Copy/Select-all menu sits above a selection, so go below it.
     const footer=document.querySelector('.nk-session-footer, .fixed-actions'),fr=footer?.getBoundingClientRect(),bottomLimit=fr&&fr.height>0&&fr.top>vh/2?Math.min(vh,fr.top):vh;
     const below=rect.bottom+gap,above=rect.top-gap-h;
-    let top=nkHlCoarse()?(below+h<=bottomLimit-4?below:above):(above>=8?above:below);
+    // Keep clear of the sticky session header (~56px) when going above.
+    let top=nkHlCoarse()?(below+h<=bottomLimit-4?below:above):(above>=64?above:below);
     top=Math.max(8,Math.min(top,bottomLimit-h-4));
     const left=Math.max(8,Math.min(rect.left+rect.width/2-w/2,vw-w-8));
     bar.style.transform=`translate3d(${Math.round(left)}px,${Math.round(top)}px,0)`;
