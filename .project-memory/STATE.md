@@ -2,6 +2,8 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Explanation highlights — `feature/explanation-highlights` (off `main` `ad8b9f84`) — 2026-11-12 (preview only; owner approval before merge/promote)
+- Select text in a question's Key takeaway/explanation (every bank) → five-colour toolbar; tap a highlight to recolour/remove/"Clear all" (two taps). `modules/question_highlights.js` wraps `nkStudySupport` (after the UWorld override), tags `data-nk-hl-qid`, decorates after each render; CSS `nk-question-highlights-v1` (Android shell `user-select:none` lifted only in those zones). State `state.questionHighlights[qid].items[hid]` (zone-text offsets + quote/prefix/suffix re-anchor; removals are tombstones); sync kind `highlights` (`users/{uid}/highlights/{device}--{qid}`), merged per item, newest `updatedAt` wins, ties → removal; existing owner-only rule covers it. Tests `test_question_highlights_v1.py`, `verify_question_highlights_browser.py`. Not device-verified.
 ## PrepLadder QBank (web export) — `feature/prepladder-qbank-html` (on top of the Marrow branch) — 2026-10-28 (preview only)
 
 - Owner's Elite + QBank + PYQ HTML merged by `tools/prepladder_qbank_import.py` / `prepladder_qbank_bank.py` (rules, counts, gaps: `docs/PREPLADDER_QBANK_HTML.md`): 13 new Third/Final Prof PrepLadder banks (15,159 Q, lessons in the official app index `data/Prepladder/qbank/indexes.json`) + 2,114 new Q merged into the six existing PDF banks (`merged_record`); 26 blank-option Q held. Home groups: Final Prof Part 1 / Part 2 Major / Minor. Tests `test_prepladder_qbank_bank.py`, `verify_prepladder_qbank_browser.py`.
