@@ -229,7 +229,10 @@
   }
   function nkNoteReferencedAssets(){
     const out=new Map();
-    Object.values(state.questionNotes||{}).forEach(note=>{if(note&&!note.deleted)nkNoteBlocks(note).forEach(block=>{if(block.type==='image')out.set(block.asset.id,block.asset);});});
+    Object.values(state.questionNotes||{}).forEach(note=>{if(note&&!note.deleted)nkNoteBlocks(note).forEach(block=>{
+      if(block.type==='image')out.set(block.asset.id,block.asset);
+      else if(typeof nkNoteAudioBlock==='function'&&nkNoteAudioBlock(block))out.set(block.assetId,{id:block.assetId,kind:'audio',mime:block.mime,bytes:block.bytes,durationMs:block.durationMs});
+    });});
     return out;
   }
   async function nkNoteCollectDrafts(){
@@ -259,7 +262,8 @@
     const full=await nkNoteIdbGet('full',meta.id);if(!full?.data)return;
     const encoded=await nkNoteBase64(full.data),count=Math.max(1,Math.ceil(encoded.length/NK_NOTE_CHUNK_CHARS));
     for(let index=0;index<count;index++){
-      const payload=JSON.stringify({v:1,assetId:meta.id,index,count,mime:full.mime,bytes:full.data.byteLength,w:meta.w,h:meta.h,data:encoded.slice(index*NK_NOTE_CHUNK_CHARS,(index+1)*NK_NOTE_CHUNK_CHARS)});
+      const shape=meta.kind==='audio'?{kind:'audio',durationMs:meta.durationMs}:{w:meta.w,h:meta.h};
+      const payload=JSON.stringify({v:1,assetId:meta.id,index,count,mime:full.mime,bytes:full.data.byteLength,...shape,data:encoded.slice(index*NK_NOTE_CHUNK_CHARS,(index+1)*NK_NOTE_CHUNK_CHARS)});
       const envelope={kind:'noteAssets',entityId:`${meta.id}~${index}`,ownerDevice:nkSyncMeta.deviceId,updatedAt:Date.now(),deleted:false,payload,schemaVersion:1};
       await nkFetchJson(nkNoteChunkUrl(uid,meta.id,index),{method:'PATCH',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(nkFirestoreDocument(envelope))});
     }
@@ -284,6 +288,13 @@
     const first=await read(0);if(!first||first.assetId!==asset.id)return false;
     const parts=[first.data];
     for(let index=1;index<Number(first.count||1);index++){const part=await read(index);if(!part)return false;parts.push(part.data);}
+    if(asset.kind==='audio'||first.kind==='audio'){
+      // Voice clips are stored exactly as recorded: no decoding, previews or thumbnails.
+      const mime=nkNoteAudioMime(first.mime||asset.mime),data=await nkNoteFromBase64(parts.join(''),mime);
+      if(Number(first.bytes)&&data.byteLength!==Number(first.bytes))return false;
+      await nkNoteAssetSave({id:asset.id,kind:'audio',mime,bytes:data.byteLength,durationMs:Number(first.durationMs||asset.durationMs||0),createdAt:Date.now(),draft:false,uploadedTo:uid,deleted:false},{full:{mime,data}});
+      return true;
+    }
     const mime=NK_NOTE_MIME.includes(first.mime)?first.mime:'image/jpeg',data=await nkNoteFromBase64(parts.join(''),mime);
     if(Number(first.bytes)&&data.byteLength!==Number(first.bytes))return false;
     const decoded=await nkNoteDecode(new Blob([data],{type:mime}));
@@ -324,6 +335,117 @@
     if(more)nkNoteAssetsSyncSoon(800);
   }
 
+  /* ---------- voice clips ---------- */
+  // Speech at 24 kbps mono Opus is about 180 KB a minute; three minutes fit one Firestore chunk.
+  const NK_NOTE_VOICE_MAX_MS=180000,NK_NOTE_VOICE_BITRATE=24000;
+  const NK_NOTE_VOICE_TYPES=['audio/webm;codecs=opus','audio/mp4;codecs=mp4a.40.2','audio/mp4','audio/webm','audio/ogg;codecs=opus','audio/aac'];
+  function nkNoteVoiceCanRecord(){return typeof navigator!=='undefined'&&Boolean(navigator.mediaDevices?.getUserMedia)&&typeof MediaRecorder==='function';}
+  function nkNoteVoiceRecorderType(){
+    if(typeof MediaRecorder!=='function'||typeof MediaRecorder.isTypeSupported!=='function')return '';
+    return NK_NOTE_VOICE_TYPES.find(type=>{try{return MediaRecorder.isTypeSupported(type);}catch(_){return false;}})||'';
+  }
+  function nkNoteVoiceError(error){
+    const name=String(error?.name||'');
+    if(typeof window!=='undefined'&&window.isSecureContext===false)return 'Voice recording needs the secure (https) app. You can still import an audio file.';
+    if(name==='NotAllowedError'||name==='SecurityError'||name==='PermissionDeniedError')return 'Microphone access is blocked. Allow the microphone for this site in your browser settings, or import an audio file instead.';
+    if(name==='NotFoundError'||name==='OverconstrainedError'||name==='DevicesNotFoundError')return 'No microphone was found on this device. You can import an audio file instead.';
+    if(name==='NotReadableError'||name==='AbortError')return 'The microphone is busy in another app. Close it and try again, or import an audio file.';
+    return String(error?.message||'Recording is not available here. You can import an audio file instead.');
+  }
+  // Starts recording; resolves to {stop, cancel}. stop() resolves to a saved voice block or null.
+  async function nkNoteVoiceStart({onTick,onAutoStop}={}){
+    if(!nkNoteVoiceCanRecord())throw Object.assign(new Error('This browser cannot record audio. You can import an audio file instead.'),{name:'NotSupportedError'});
+    const stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+    const type=nkNoteVoiceRecorderType(),options={audioBitsPerSecond:NK_NOTE_VOICE_BITRATE};if(type)options.mimeType=type;
+    let recorder;
+    try{recorder=new MediaRecorder(stream,options);}catch(_){recorder=new MediaRecorder(stream);}
+    const chunks=[];let startedAt=0,elapsed=0,ticker=null,limit=null,finished=null,cancelled=false;
+    const release=()=>{clearInterval(ticker);clearTimeout(limit);stream.getTracks().forEach(track=>track.stop());};
+    const done=new Promise(resolve=>{finished=resolve;});
+    recorder.addEventListener('dataavailable',event=>{if(event.data&&event.data.size)chunks.push(event.data);});
+    recorder.addEventListener('stop',()=>{elapsed=startedAt?Date.now()-startedAt:elapsed;release();finished();});
+    recorder.addEventListener('error',()=>{release();finished();});
+    recorder.start(1000);startedAt=Date.now();
+    ticker=setInterval(()=>onTick?.(Math.min(NK_NOTE_VOICE_MAX_MS,Date.now()-startedAt)),250);
+    limit=setTimeout(()=>{if(recorder.state!=='inactive'){recorder.stop();onAutoStop?.();}},NK_NOTE_VOICE_MAX_MS);
+    async function stop(){
+      if(recorder.state!=='inactive')recorder.stop();
+      await done;
+      if(cancelled)return null;
+      const mime=nkNoteAudioMime(recorder.mimeType||type||chunks[0]?.type||'audio/webm'),blob=new Blob(chunks,{type:mime});
+      if(!blob.size)throw new Error('Nothing was recorded. Check the microphone and try again.');
+      return nkNoteStoreVoice(blob,mime,Math.min(NK_NOTE_VOICE_MAX_MS,elapsed),'');
+    }
+    function cancel(){cancelled=true;if(recorder.state!=='inactive')recorder.stop();else release();}
+    return {stop,cancel,mime:type};
+  }
+  async function nkNoteStoreVoice(blob,mime,durationMs,caption){
+    if(blob.size>NK_NOTE_MAX_BYTES)throw new Error('This recording is larger than 3.5 MB. Record a shorter clip.');
+    const id=nkNoteNewAssetId(),data=await blob.arrayBuffer();
+    const meta={id,kind:'audio',mime,bytes:data.byteLength,durationMs:Math.round(durationMs||0),createdAt:Date.now(),draft:true,uploadedTo:'',deleted:false};
+    await nkNoteAssetSave(meta,{full:{mime,data}});
+    return {type:'audio',assetId:id,durationMs:meta.durationMs,mime,caption:String(caption||'').slice(0,120),bytes:meta.bytes};
+  }
+  // Recorded WebM often reports an endless duration until it is played; the stored value covers that.
+  function nkNoteProbeDuration(blob){
+    return new Promise(resolve=>{
+      if(typeof Audio!=='function'){resolve(0);return;}
+      const audio=new Audio(),url=URL.createObjectURL(blob);let settled=false;
+      const finish=value=>{if(settled)return;settled=true;URL.revokeObjectURL(url);audio.removeAttribute('src');resolve(Number.isFinite(value)&&value>0?Math.round(value*1000):0);};
+      audio.preload='metadata';audio.addEventListener('loadedmetadata',()=>finish(audio.duration));audio.addEventListener('error',()=>finish(0));
+      setTimeout(()=>finish(0),4000);audio.src=url;
+    });
+  }
+  function nkNoteIsAudioFile(file){return Boolean(file)&&(/^audio\//.test(file.type||'')||/\.(m4a|mp3|aac|wav|ogg|oga|opus|webm|weba|caf|amr|3gp)$/i.test(file.name||''));}
+  async function nkNoteImportAudio(file){
+    if(!nkNoteIsAudioFile(file))throw new Error('Choose an audio file (M4A, MP3, WAV, OGG or WebM).');
+    if(file.size>NK_NOTE_MAX_BYTES)throw new Error('This audio file is larger than 3.5 MB. Trim it or record a shorter clip.');
+    if(!file.size)throw new Error('This audio file is empty.');
+    const ext=(String(file.name||'').match(/\.([a-z0-9]+)$/i)||[])[1]||'';
+    const guess={m4a:'audio/mp4',mp3:'audio/mpeg',aac:'audio/aac',wav:'audio/wav',ogg:'audio/ogg',oga:'audio/ogg',opus:'audio/ogg',webm:'audio/webm',weba:'audio/webm',caf:'audio/x-caf',amr:'audio/amr','3gp':'audio/3gpp'}[ext.toLowerCase()];
+    const mime=nkNoteAudioMime(/^audio\//.test(file.type||'')?file.type:guess||'audio/mpeg');
+    const durationMs=await nkNoteProbeDuration(file);
+    return nkNoteStoreVoice(file,mime,durationMs,String(file.name||'').replace(/\.[a-z0-9]+$/i,'').slice(0,80));
+  }
+  function nkNoteClock(ms){const total=Math.max(0,Math.round(Number(ms||0)/1000));return `${Math.floor(total/60)}:${String(total%60).padStart(2,'0')}`;}
+  const NK_NOTE_VOICE_ICON={
+    play:'<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>',
+    pause:'<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>',
+    mic:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>'
+  };
+  function nkNoteVoicePlayer(block){
+    const total=Number(block.durationMs||0),label=block.caption||'Voice clip';
+    return `<div class="nk-nv-player" data-nk-voice="${esc(block.assetId)}" data-duration="${total}"><button type="button" class="nk-nv-play" aria-label="Play ${esc(label)}" disabled>${NK_NOTE_VOICE_ICON.play}</button><input type="range" class="nk-nv-scrub" min="0" max="${Math.max(1,total)}" step="100" value="0" aria-label="Position in ${esc(label)}" disabled><span class="nk-nv-time" aria-hidden="true">${total?`0:00 / ${nkNoteClock(total)}`:'0:00'}</span><audio preload="metadata" data-nk-note-audio="${esc(block.assetId)}" data-mime="${esc(block.mime||'')}"></audio><span class="nk-nv-missing">${typeof nkAuth!=='undefined'&&nkAuth?'Voice clip will play after it syncs to this device.':'Voice clip is not on this device. Sign in to sync it.'}</span></div>`;
+  }
+  function nkNoteVoiceWire(player,url){
+    const audio=player.querySelector('audio'),play=player.querySelector('.nk-nv-play'),scrub=player.querySelector('.nk-nv-scrub'),time=player.querySelector('.nk-nv-time');
+    if(!audio||player.dataset.wired)return;player.dataset.wired='1';
+    let total=Number(player.dataset.duration||0),seeking=false;
+    const length=()=>Number.isFinite(audio.duration)&&audio.duration>0?audio.duration*1000:total;
+    const paint=()=>{const at=audio.currentTime*1000,end=length();if(!seeking)scrub.value=String(Math.round(at));scrub.max=String(Math.max(1,Math.round(end)));time.textContent=end?`${nkNoteClock(at)} / ${nkNoteClock(end)}`:nkNoteClock(at);scrub.style.setProperty('--nv-at',`${end?Math.min(100,at/end*100):0}%`);};
+    const state=playing=>{player.classList.toggle('is-playing',playing);play.innerHTML=playing?NK_NOTE_VOICE_ICON.pause:NK_NOTE_VOICE_ICON.play;play.setAttribute('aria-label',`${playing?'Pause':'Play'} ${play.getAttribute('aria-label').replace(/^(Play|Pause) /,'')}`);};
+    audio.addEventListener('loadedmetadata',paint);audio.addEventListener('durationchange',paint);audio.addEventListener('timeupdate',paint);
+    audio.addEventListener('play',()=>{document.querySelectorAll('audio[data-nk-note-audio]').forEach(other=>{if(other!==audio&&!other.paused)other.pause();});state(true);});
+    audio.addEventListener('pause',()=>state(false));
+    audio.addEventListener('ended',()=>{state(false);audio.currentTime=0;paint();});
+    play.addEventListener('click',event=>{event.stopPropagation();if(audio.paused)audio.play().catch(()=>{player.classList.add('is-error');});else audio.pause();});
+    scrub.addEventListener('pointerdown',event=>event.stopPropagation());
+    scrub.addEventListener('input',()=>{seeking=true;const at=Number(scrub.value)||0,end=length();time.textContent=end?`${nkNoteClock(at)} / ${nkNoteClock(end)}`:nkNoteClock(at);scrub.style.setProperty('--nv-at',`${end?Math.min(100,at/end*100):0}%`);});
+    scrub.addEventListener('change',()=>{seeking=false;try{audio.currentTime=(Number(scrub.value)||0)/1000;}catch(_){}paint();});
+    audio.src=url;play.disabled=false;scrub.disabled=false;player.classList.add('is-ready');paint();
+  }
+  function nkNoteVoiceHydrate(root){
+    if(!root?.querySelectorAll)return;
+    root.querySelectorAll('.nk-nv-player:not(.is-ready)').forEach(player=>{
+      if(player.dataset.pending)return;player.dataset.pending='1';
+      nkNoteAssetUrl(player.dataset.nkVoice,'full').then(url=>{
+        delete player.dataset.pending;
+        if(url){player.classList.remove('is-missing');nkNoteVoiceWire(player,url);}
+        else{player.classList.add('is-missing');nkNoteAssetsSyncSoon(300);}
+      }).catch(()=>{delete player.dataset.pending;player.classList.add('is-missing');});
+    });
+  }
+
   /* ---------- display ---------- */
   function nkNoteMediaFrame(block,variant,index){
     const a=block.asset,label=block.label||(block.source==='pdf'?'PDF page':'Image');
@@ -331,6 +453,7 @@
   }
   function nkNoteHydrate(root){
     if(!root?.querySelectorAll)return;
+    nkNoteVoiceHydrate(root);
     root.querySelectorAll('img[data-nk-note-asset]:not([src])').forEach(img=>{
       if(img.dataset.nkNotePending)return;img.dataset.nkNotePending='1';
       nkNoteAssetUrl(img.dataset.nkNoteAsset,img.dataset.nkNoteVariant||'preview').then(url=>{
@@ -349,6 +472,7 @@
   if(typeof document!=='undefined'&&document.addEventListener)document.addEventListener('nk-note-asset-ready',event=>{
     const id=String(event.detail?.id||'');
     document.querySelectorAll('img[data-nk-note-asset]').forEach(img=>{if(img.dataset.nkNoteAsset===id&&!img.getAttribute('src'))nkNoteHydrate(img.parentElement);});
+    document.querySelectorAll('.nk-nv-player:not(.is-ready)').forEach(player=>{if(player.dataset.nkVoice===id)nkNoteVoiceHydrate(player.parentElement);});
   });
 
   // Full-screen viewer with pinch, drag, double-tap and button zoom (the app viewport disables browser zoom).

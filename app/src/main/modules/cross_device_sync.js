@@ -14,6 +14,8 @@
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudResetting=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
   let nkAuthView='signin',nkPendingCreateEmail='',nkSignInEmail='';
+  // Voice clips in notes travel as their own kind (question_notes.js); older versions never read it.
+  NK_SYNC_KINDS.push('noteVoice');
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -211,7 +213,8 @@
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.fsrsRatingRevisions||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.isRatingRevision&&attempt.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.bookmarks||{}).forEach(([qid,value])=>{current.bookmarks.add(String(qid));nkQueueEnvelope(nkEnvelope('bookmarks',qid,{qid:String(qid),active:true},Number(value?.updatedAt||value?.addedAt||0)));});
-    Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));
+    if(typeof nkNoteVoiceEnvelopes==='function')nkNoteVoiceEnvelopes(key=>Boolean(nkSyncMeta.localHashes[key])).forEach(([qid,payload,at])=>nkQueueEnvelope(nkEnvelope('noteVoice',qid,payload,at)));
+    Object.entries(typeof nkNoteSyncNotes==='function'?nkNoteSyncNotes(state.questionNotes):state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));
       // Ordered text/image parts travel separately so older app versions keep reading plain `notes`.
       if(Array.isArray(note.blocks))nkQueueEnvelope(nkEnvelope('noteBlocks',qid,{blocks:note.blocks,deleted:Boolean(note.deleted)},Number(note.blocksAt||note.updatedAt||0)));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
@@ -454,10 +457,11 @@
     }
     else if(winner.kind==='noteBlocks'&&payload&&Array.isArray(payload.blocks)){
       state.questionNotes=state.questionNotes||{};
-      const blocks=typeof nkNoteSanitizeBlocks==='function'?nkNoteSanitizeBlocks(payload.blocks):[],prior=state.questionNotes[id];
+      const prior=state.questionNotes[id],incoming=typeof nkNoteSanitizeBlocks==='function'?nkNoteSanitizeBlocks(payload.blocks):[],blocks=typeof nkNoteKeepVoice==='function'?nkNoteKeepVoice(prior,incoming):incoming;
       const text=blocks.filter(block=>block.type==='text').map(block=>block.text).join('\n\n').slice(0,2000);
       state.questionNotes[id]=prior?{...prior,blocks,blocksAt:Number(winner.updatedAt)}:{text,updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted),blocks,blocksAt:Number(winner.updatedAt)};
     }
+    else if(winner.kind==='noteVoice'&&payload&&typeof nkNoteApplyVoice==='function'){state.questionNotes=state.questionNotes||{};nkNoteApplyVoice(id,payload,Number(winner.updatedAt));}
     else if(winner.kind==='tests'&&payload&&typeof payload==='object'){const test=typeof nkSafeTest==='function'?nkSafeTest(payload):payload;const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(test);else state.tests[index]=test;state.tests=state.tests.slice(-100);}
     else if(winner.kind==='savedMocks'){
       const list=Array.isArray(state.savedMocks)?state.savedMocks:[],index=list.findIndex(x=>String(x.id)===id);

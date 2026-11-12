@@ -1521,8 +1521,8 @@
      (open 350ms overshoot, 40ms stagger; close 250ms; + turns 45deg; 700ms dip on close).
      The app keeps owning the menu: we only mirror its hidden attribute to data-open. */
   function phos(name) { var d = window.NKQ_ICONS && window.NKQ_ICONS[name]; return d ? '<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">' + d + '</svg>' : ''; }
-  var MENU_IC = { 'add-text': 'text-t', 'add-image': 'image', 'add-pdf': 'file-pdf' };
-  var GOO_FAN = { 1: [[0, -64]], 2: [[-38, -54], [38, -54]], 3: [[-54, -34], [0, -64], [54, -34]] };
+  var MENU_IC = { 'add-text': 'text-t', 'add-image': 'image', 'add-pdf': 'file-pdf', 'add-voice': 'microphone' };
+  var GOO_FAN = { 1: [[0, -64]], 2: [[-38, -54], [38, -54]], 3: [[-54, -34], [0, -64], [54, -34]], 4: [[-70, -20], [-28, -64], [28, -64], [70, -20]] };
   var gooId = 0;
   function gooFilter(id, x, y, w, h) {
     return '<filter id="' + id + '" filterUnits="userSpaceOnUse" x="' + (x == null ? -85 : x) + '" y="' + (y == null ? -85 : y) + '" width="' + (w || 370) + '" height="' + (h || 310) + '" color-interpolation-filters="sRGB">' +
@@ -1579,7 +1579,7 @@
   /* ---- Block menu: the same goo, as a row. The "..." button splits sideways into
      icon buttons (nearest first). The app creates and removes this menu itself, so a
      dismiss without a choice replays the merge on a short-lived ghost. */
-  var ROW_IC = { edit: 'pencil-simple', view: 'arrows-out-simple', up: 'arrow-up', down: 'arrow-down', 'delete': 'trash' };
+  var ROW_IC = { edit: 'pencil-simple', rename: 'pencil-simple', view: 'arrows-out-simple', up: 'arrow-up', down: 'arrow-down', 'delete': 'trash' };
   var ROW_GAP = 60, rowBlock = null, rowActed = false;
   function gooRow(sheet, menu) {
     if (menu.__nkgGoo || !rowBlock || !rowBlock.isConnected) return;
