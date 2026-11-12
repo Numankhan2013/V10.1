@@ -44,6 +44,10 @@ def test_install() -> None:
         "Rename caption",
         "nk-notes-item-voice",
         "NK_SYNC_KINDS.push('noteVoice')",
+        "data-act=\"${paused?'voice-resume':'voice-pause'}\"",
+        "act==='voice-pause'",
+        "act==='voice-resume'",
+        "return {stop,cancel,pause,resume,canPause,mime:type};",
     ):
         assert marker in page, marker
     assert "microphone=(self)" in POLICY.read_text(encoding="utf-8"), "the PWA must allow its own origin to use the microphone"
@@ -120,6 +124,64 @@ console.log('QUESTION_NOTE_VOICE_BEHAVIOR_OK');
     run_node(script)
 
 
+def test_pause_resume() -> None:
+    """Pause holds the same MediaRecorder; Resume continues one clip; paused time is not counted or capped."""
+    media = MEDIA.read_text(encoding="utf-8")
+    start = media.index("/* ---------- voice clips ---------- */")
+    end = media.index("function nkNoteClock(")
+    script = r'''
+const assert=require('node:assert/strict');
+let now=1000;const timers=[];
+const RealDate=Date;
+global.Date=class extends RealDate{static now(){return now;}};
+global.setInterval=fn=>{timers.push(fn);return timers.length;};global.clearInterval=()=>{};
+global.setTimeout=fn=>0;global.clearTimeout=()=>{};
+const tick=ms=>{now+=ms;timers.forEach(fn=>fn());};
+const tracks=[{stopped:false,stop(){this.stopped=true;}}];
+Object.defineProperty(globalThis,'navigator',{value:{mediaDevices:{getUserMedia:async()=>({getTracks:()=>tracks})}},configurable:true,writable:true});
+global.window={isSecureContext:true};
+const made=[];
+global.MediaRecorder=class{
+  constructor(){this.state='inactive';this.mimeType='audio/webm';this.l={};made.push(this);}
+  static isTypeSupported(t){return t==='audio/webm;codecs=opus';}
+  addEventListener(n,f){(this.l[n]=this.l[n]||[]).push(f);}
+  emit(n,e){(this.l[n]||[]).forEach(f=>f(e||{}));}
+  start(){this.state='recording';}
+  pause(){assert.equal(this.state,'recording');this.state='paused';}
+  resume(){assert.equal(this.state,'paused');this.state='recording';}
+  stop(){this.emit('dataavailable',{data:{size:10,type:'audio/webm'}});this.state='inactive';this.emit('stop');}
+};
+global.Blob=class{constructor(parts,o){this.size=parts.reduce((a,p)=>a+p.size,0);this.type=o.type;}};
+VOICE
+function nkNoteAudioMime(v){return String(v).split(';')[0];}
+async function nkNoteStoreVoice(blob,mime,durationMs){return {type:'audio',mime,durationMs,bytes:blob.size};}
+(async()=>{
+  const ticks=[];let autos=0;
+  const ctrl=await nkNoteVoiceStart({onTick:ms=>ticks.push(ms),onAutoStop:()=>autos++});
+  assert.equal(ctrl.canPause,true);
+  tick(5000);assert.equal(ticks.at(-1),5000);
+  assert.equal(ctrl.pause(),true);assert.equal(made[0].state,'paused');
+  assert.equal(ctrl.pause(),false,'pausing twice does nothing');
+  tick(60000);assert.equal(ticks.at(-1),5000,'the clock holds while paused');
+  tick(200000);assert.equal(autos,0,'paused time never reaches the 3-minute cap');
+  assert.equal(ctrl.resume(),true);assert.equal(made.length,1,'resume continues the same recorder');
+  tick(3000);assert.equal(ticks.at(-1),8000);
+  ctrl.pause();tick(10000);
+  const clip=await ctrl.stop();
+  assert.equal(clip.durationMs,8000,'a clip stopped while paused saves the recorded time only');
+  assert.ok(tracks[0].stopped,'the microphone is released');
+  // The cap still applies to recorded time across pauses.
+  made.length=0;timers.length=0;now=0;autos=0;
+  const c2=await nkNoteVoiceStart({onAutoStop:()=>autos++});
+  tick(100000);c2.pause();tick(50000);c2.resume();tick(80000);
+  assert.equal(autos,1,'recorded time reaching 3:00 stops the clip');assert.equal(made[0].state,'inactive');
+  assert.equal((await c2.stop()).durationMs,180000);
+  console.log('QUESTION_NOTE_VOICE_PAUSE_OK');
+})().catch(e=>{console.error(e);process.exit(1);});
+'''
+    run_node(script.replace("VOICE", media[start:end], 1))
+
+
 def test_sync_round_trip() -> None:
     """Two new devices and an older one through nkApplyCloudEnvelope and nkCaptureCloudChanges."""
     harness = r'''
@@ -168,6 +230,7 @@ console.log('QUESTION_NOTE_VOICE_SYNC_OK');
 def main() -> None:
     test_install()
     test_behavior()
+    test_pause_resume()
     test_sync_round_trip()
     print("QUESTION_NOTE_VOICE_OK")
 

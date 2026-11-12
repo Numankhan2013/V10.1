@@ -82,8 +82,13 @@ notes list, removal, and two-device sync against an in-memory Firestore),
 
 **+ Add block → Voice** (after Text, Image and PDF pages) opens an inline recorder
 under the blocks: **Record**, **Import audio**, and ✕. While recording it shows a
-pulsing dot, `0:12 / 3:00`, **Discard** and **Stop and save**; a clip stops and
-saves itself at 3 minutes. Closing the note, Escape or leaving the question while
+pulsing dot, `0:12 / 3:00`, **Discard**, **Pause** and **Stop and save**.
+**Pause** holds the same `MediaRecorder` (`recorder.pause()`): the dot turns amber
+and still, the label reads *Paused*, the clock holds, and **Resume** continues the
+same clip. Paused time is not counted in the duration or toward the cap; **Stop and
+save** works from either state. A clip stops and saves itself at 3 minutes of
+recorded time. Browsers without `MediaRecorder.pause` show no Pause button.
+Closing the note, Escape or leaving the question while
 recording keeps the clip (as closing keeps typed text). **Import audio**
 (`accept="audio/*"`; M4A, MP3, WAV, OGG, WebM…) adds an existing file, also by drag
 and drop, up to 3.5 MB.

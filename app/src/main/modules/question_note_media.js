@@ -352,32 +352,48 @@
     if(name==='NotReadableError'||name==='AbortError')return 'The microphone is busy in another app. Close it and try again, or import an audio file.';
     return String(error?.message||'Recording is not available here. You can import an audio file instead.');
   }
-  // Starts recording; resolves to {stop, cancel}. stop() resolves to a saved voice block or null.
+  // Starts recording; resolves to {stop, cancel, pause, resume}. stop() resolves to a saved voice block or null.
+  // Pause holds the same MediaRecorder, so Resume continues the same clip; paused time is not counted.
   async function nkNoteVoiceStart({onTick,onAutoStop}={}){
     if(!nkNoteVoiceCanRecord())throw Object.assign(new Error('This browser cannot record audio. You can import an audio file instead.'),{name:'NotSupportedError'});
     const stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
     const type=nkNoteVoiceRecorderType(),options={audioBitsPerSecond:NK_NOTE_VOICE_BITRATE};if(type)options.mimeType=type;
     let recorder;
     try{recorder=new MediaRecorder(stream,options);}catch(_){recorder=new MediaRecorder(stream);}
-    const chunks=[];let startedAt=0,elapsed=0,ticker=null,limit=null,finished=null,cancelled=false;
-    const release=()=>{clearInterval(ticker);clearTimeout(limit);stream.getTracks().forEach(track=>track.stop());};
+    const chunks=[];let runStart=null,banked=0,ticker=null,finished=null,cancelled=false,autoStopped=false;
+    const elapsed=()=>Math.min(NK_NOTE_VOICE_MAX_MS,banked+(runStart==null?0:Date.now()-runStart));
+    const release=()=>{clearInterval(ticker);stream.getTracks().forEach(track=>track.stop());};
     const done=new Promise(resolve=>{finished=resolve;});
     recorder.addEventListener('dataavailable',event=>{if(event.data&&event.data.size)chunks.push(event.data);});
-    recorder.addEventListener('stop',()=>{elapsed=startedAt?Date.now()-startedAt:elapsed;release();finished();});
+    recorder.addEventListener('stop',()=>{banked=elapsed();runStart=null;release();finished();});
     recorder.addEventListener('error',()=>{release();finished();});
-    recorder.start(1000);startedAt=Date.now();
-    ticker=setInterval(()=>onTick?.(Math.min(NK_NOTE_VOICE_MAX_MS,Date.now()-startedAt)),250);
-    limit=setTimeout(()=>{if(recorder.state!=='inactive'){recorder.stop();onAutoStop?.();}},NK_NOTE_VOICE_MAX_MS);
+    recorder.start(1000);runStart=Date.now();
+    // One ticker drives the clock and the 3-minute cap, so the cap counts recorded time only.
+    ticker=setInterval(()=>{
+      const ms=elapsed();onTick?.(ms);
+      if(ms>=NK_NOTE_VOICE_MAX_MS&&!autoStopped&&recorder.state!=='inactive'){autoStopped=true;if(recorder.state==='paused')try{recorder.resume();}catch(_){}recorder.stop();onAutoStop?.();}
+    },250);
+    const canPause=typeof recorder.pause==='function'&&typeof recorder.resume==='function';
+    function pause(){
+      if(!canPause||recorder.state!=='recording')return false;
+      try{recorder.pause();}catch(_){return false;}
+      banked=elapsed();runStart=null;onTick?.(banked);return true;
+    }
+    function resume(){
+      if(!canPause||recorder.state!=='paused')return false;
+      try{recorder.resume();}catch(_){return false;}
+      runStart=Date.now();return true;
+    }
     async function stop(){
       if(recorder.state!=='inactive')recorder.stop();
       await done;
       if(cancelled)return null;
       const mime=nkNoteAudioMime(recorder.mimeType||type||chunks[0]?.type||'audio/webm'),blob=new Blob(chunks,{type:mime});
       if(!blob.size)throw new Error('Nothing was recorded. Check the microphone and try again.');
-      return nkNoteStoreVoice(blob,mime,Math.min(NK_NOTE_VOICE_MAX_MS,elapsed),'');
+      return nkNoteStoreVoice(blob,mime,Math.min(NK_NOTE_VOICE_MAX_MS,banked),'');
     }
     function cancel(){cancelled=true;if(recorder.state!=='inactive')recorder.stop();else release();}
-    return {stop,cancel,mime:type};
+    return {stop,cancel,pause,resume,canPause,mime:type};
   }
   async function nkNoteStoreVoice(blob,mime,durationMs,caption){
     if(blob.size>NK_NOTE_MAX_BYTES)throw new Error('This recording is larger than 3.5 MB. Record a shorter clip.');

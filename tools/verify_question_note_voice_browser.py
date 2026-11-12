@@ -77,13 +77,23 @@ def add_voice(page, sheet) -> None:
     add_from_menu(sheet, "Voice")
 
 
-def record_clip(page, sheet, seconds: float) -> None:
+def record_clip(page, sheet, seconds: float, pause: bool = False) -> None:
     add_voice(page, sheet)
     recorder = sheet.locator(".nk-nb.is-recorder")
     recorder.wait_for(state="visible")
     recorder.get_by_role("button", name="Record", exact=True).click()
     sheet.locator(".nk-nr-stop:not([disabled])").wait_for(state="visible", timeout=10000)
     page.wait_for_function("() => /^0:0[1-9]/.test(document.querySelector('.nk-nr-time')?.textContent||'')", timeout=10000)
+    if pause:
+        # Pause holds the clock; Resume continues the same clip.
+        sheet.get_by_role("button", name="Pause", exact=True).click()
+        sheet.locator(".nk-nb.is-recorder.is-paused").wait_for(state="visible", timeout=5000)
+        held = sheet.locator(".nk-nr-time").inner_text()
+        page.wait_for_timeout(2200)
+        assert sheet.locator(".nk-nr-time").inner_text() == held, "the clock holds while paused"
+        assert [b.inner_text() for b in sheet.locator(".nk-nr-actions button").all()] == ["Discard", "Resume", "Stop and save"]
+        sheet.get_by_role("button", name="Resume", exact=True).click()
+        sheet.locator(".nk-nb.is-recorder.is-recording").wait_for(state="visible", timeout=5000)
     page.wait_for_timeout(int(seconds * 1000))
     sheet.get_by_role("button", name="Stop and save").click()
     sheet.locator(".nk-nb.is-recorder").wait_for(state="detached", timeout=15000)
@@ -112,11 +122,12 @@ def local_flow(browser, origin: str, wav: Path, output: Path, width: int, height
     assert menu.get_by_role("menuitem", name="Voice", exact=True).count() == 1, "the add menu offers Voice"
     assert page.evaluate("() => [...document.querySelectorAll('.nk-np-add-menu [data-act]')].map(b => b.dataset.act)") == ["add-text", "add-image", "add-pdf", "add-voice"], "Voice sits after PDF pages"
 
-    record_clip(page, sheet, 1.6)
+    record_clip(page, sheet, 1.6, pause=True)
     page.wait_for_function("document.querySelectorAll('.nk-nb.is-audio').length===1", timeout=15000)
     blocks = note_blocks(page)
     assert [b["type"] for b in blocks] == ["audio"], blocks
     clip = blocks[0]
+    assert clip["durationMs"] < 6000, "paused time is not counted: %s" % clip
     assert clip["durationMs"] >= 1500 and clip["mime"].startswith("audio/") and clip["bytes"] > 0, clip
     metas = {m["id"]: m for m in idb_metas(page)}
     meta = metas[clip["assetId"]]

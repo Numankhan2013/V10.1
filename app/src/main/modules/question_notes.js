@@ -227,7 +227,11 @@
     function recorderHtml(){
       if(!voice)return '';
       const canRecord=nkNoteVoiceCanRecord(),limit=nkNoteClock(NK_NOTE_VOICE_MAX_MS);
-      if(voice.phase==='recording'||voice.phase==='starting')return `<article class="nk-nb is-recorder is-recording" aria-label="Recording voice clip"><div class="nk-nr-row"><span class="nk-nr-dot" aria-hidden="true"></span><span class="nk-nr-label">${voice.phase==='starting'?'Starting microphone…':'Recording'}</span><span class="nk-nr-time" role="timer" aria-live="off">${nkNoteClock(voice.ms)} / ${limit}</span></div><div class="nk-nr-actions"><button type="button" class="nk-nr-cancel" data-act="voice-cancel">Discard</button><button type="button" class="nk-nr-stop" data-act="voice-stop"${voice.phase==='starting'?' disabled':''}>Stop and save</button></div></article>`;
+      if(voice.phase==='recording'||voice.phase==='starting'||voice.phase==='paused'){
+        const paused=voice.phase==='paused',starting=voice.phase==='starting';
+        const toggle=voice.ctrl?.canPause===false?'':`<button type="button" class="nk-nr-pause" data-act="${paused?'voice-resume':'voice-pause'}"${starting?' disabled':''}>${paused?'Resume':'Pause'}</button>`;
+        return `<article class="nk-nb is-recorder ${paused?'is-paused':'is-recording'}" aria-label="${paused?'Recording paused':'Recording voice clip'}"><div class="nk-nr-row"><span class="nk-nr-dot" aria-hidden="true"></span><span class="nk-nr-label">${starting?'Starting microphone…':paused?'Paused':'Recording'}</span><span class="nk-nr-time" role="timer" aria-live="off">${nkNoteClock(voice.ms)} / ${limit}</span></div><div class="nk-nr-actions"><button type="button" class="nk-nr-cancel" data-act="voice-cancel">Discard</button>${toggle}<button type="button" class="nk-nr-stop" data-act="voice-stop"${starting?' disabled':''}>Stop and save</button></div></article>`;
+      }
       if(voice.phase==='saving')return '<article class="nk-nb is-recorder is-saving" aria-busy="true"><div class="nk-nr-row"><span class="nk-nr-label">Saving voice clip…</span></div><span class="nk-skel nk-skel-line"></span></article>';
       return `<article class="nk-nb is-recorder" aria-label="Add a voice clip"><div class="nk-nr-row"><span class="nk-nb-badge is-voice" aria-hidden="true">${NK_NOTE_ICON.mic}</span><span class="nk-nr-label">Voice clip</span><small class="nk-nr-hint">Up to ${limit} per clip</small><button type="button" class="nk-nr-close" data-act="voice-close" aria-label="Close recorder">✕</button></div>${voice.message?`<p class="nk-nr-message" role="alert">${esc(voice.message)}</p>`:''}<div class="nk-nr-actions"><button type="button" class="nk-nr-import" data-act="voice-import">Import audio</button><button type="button" class="nk-nr-record" data-act="voice-record"${canRecord?'':' disabled'}><span class="nk-nr-rec" aria-hidden="true"></span>Record</button></div></article>`;
     }
@@ -358,8 +362,16 @@
         if(sheet.isConnected)render('.nk-nr-import');
       }
     }
+    function pauseRecording(){
+      const session=voice;if(!session||session.phase!=='recording'||!session.ctrl?.pause)return;
+      if(session.ctrl.pause()){session.phase='paused';if(sheet.isConnected)render('.nk-nr-pause');}
+    }
+    function resumeRecording(){
+      const session=voice;if(!session||session.phase!=='paused'||!session.ctrl?.resume)return;
+      if(session.ctrl.resume()){session.phase='recording';if(sheet.isConnected)render('.nk-nr-pause');}
+    }
     async function stopRecording(auto){
-      const session=voice;if(!session||session.phase!=='recording'||!session.ctrl)return;
+      const session=voice;if(!session||(session.phase!=='recording'&&session.phase!=='paused')||!session.ctrl)return;
       session.phase='saving';if(sheet.isConnected)render();
       try{
         const clip=await session.ctrl.stop();
@@ -373,7 +385,7 @@
     }
     function closeRecorder(){
       const session=voice;voice=null;
-      if(session?.phase==='recording'||session?.phase==='starting')session.ctrl?.cancel();
+      if(session?.phase==='recording'||session?.phase==='paused'||session?.phase==='starting')session.ctrl?.cancel();
     }
     function toggleAdd(force){
       const list=sheet.querySelector('.nk-np-add-menu'),button=sheet.querySelector('.nk-np-add-btn');if(!list)return;
@@ -383,8 +395,8 @@
     function close(){
       if(!sheet.isConnected)return;
       if(editing&&editing.text.trim())saveEdit();else cancelEdit();
-      // Leaving while recording keeps the clip, as leaving keeps typed text.
-      if(voice?.phase==='recording')stopRecording(false);else if(voice?.phase!=='saving')closeRecorder();
+      // Leaving while recording (or paused) keeps the clip, as leaving keeps typed text.
+      if(voice?.phase==='recording'||voice?.phase==='paused')stopRecording(false);else if(voice?.phase!=='saving')closeRecorder();
       closeMenu();clearTimeout(longPress?.timer);
       document.removeEventListener('keydown',onKey);document.removeEventListener('pointerdown',onOutside,true);
       sheet.remove();root.style.overflow=previousOverflow;nkNoteSheetState=null;
@@ -395,7 +407,7 @@
       if(event.key!=='Escape')return;
       if(menu){closeMenu();return;}
       const list=sheet.querySelector('.nk-np-add-menu');if(list&&!list.hidden){toggleAdd(false);return;}
-      if(voice){if(voice.phase==='recording')stopRecording(false);else if(voice.phase==='idle'){closeRecorder();render();}return;}
+      if(voice){if(voice.phase==='recording'||voice.phase==='paused')stopRecording(false);else if(voice.phase==='idle'){closeRecorder();render();}return;}
       // Escape keeps typed text, as closing the sheet does.
       if(editing){if(!editing.text.trim()){cancelEdit();render();}else if(saveEdit())render();return;}
       close();
@@ -421,6 +433,8 @@
       else if(act==='add-voice'){toggleAdd(false);openRecorder();}
       else if(act==='voice-record')startRecording();
       else if(act==='voice-stop')stopRecording(false);
+      else if(act==='voice-pause')pauseRecording();
+      else if(act==='voice-resume')resumeRecording();
       else if(act==='voice-cancel'||act==='voice-close'){closeRecorder();render();}
       else if(act==='voice-import')sheet.querySelector('.nk-note-file-audio')?.click();
     });
