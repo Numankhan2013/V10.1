@@ -260,6 +260,7 @@
     bar.querySelector('[data-nk-hl-act="remove"]').hidden=mode!=='edit';
     bar.querySelector('.nk-hl-sep').hidden=mode!=='edit';
     bar.querySelectorAll('[data-nk-hl-pick]').forEach(b=>{const on=b.dataset.nkHlPick===activeColor;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    if(!rect){nkHlHide();return;}
     const fresh=bar.hidden;nkHlPlace(rect);
     if(fresh){bar.classList.remove('is-in');void bar.offsetWidth;bar.classList.add('is-in');}
   }
@@ -296,6 +297,22 @@
       if(nkHlBar&&!nkHlBar.hidden&&nkHlBar.dataset.mode==='create'&&Date.now()-nkHlPressed>600)nkHlHide();
     },nkHlCoarse()?220:60);
   }
+  function nkHlEditRect(){
+    const mark=nkHlEditing?.mark;if(!mark||!mark.isConnected)return null;
+    const rects=[...document.querySelectorAll('mark.nk-hl.is-editing')].map(m=>m.getBoundingClientRect()),own=mark.getBoundingClientRect();
+    return {top:Math.min(...rects.map(r=>r.top)),bottom:Math.max(...rects.map(r=>r.bottom)),left:own.left,width:own.width};
+  }
+  // The toolbar is fixed, so on scroll it follows its text, and closes once that text leaves the screen.
+  function nkHlFollow(){
+    if(!nkHlBar||nkHlBar.hidden)return;
+    if(nkHlBar.dataset.mode==='edit'){
+      const rect=nkHlEditRect();
+      if(!rect||rect.bottom<0||rect.top>window.innerHeight){nkHlHide();return;}
+      nkHlPlace(rect);return;
+    }
+    const sel=window.getSelection?.();
+    if(sel&&sel.rangeCount&&!sel.isCollapsed){const rect=sel.getRangeAt(0).getBoundingClientRect();if(rect.bottom<0||rect.top>window.innerHeight)return;nkHlPlace(rect);}
+  }
   function nkHlOnClick(event){
     if(nkHlBar&&nkHlBar.contains(event.target))return;
     const mark=event.target.closest?.('mark.nk-hl');
@@ -304,10 +321,8 @@
       const root=mark.closest('[data-nk-hl-qid]');if(!root)return;
       const hid=mark.dataset.nkHl,qid=root.dataset.nkHlQid;
       document.querySelectorAll('mark.nk-hl.is-editing').forEach(m=>m.classList.remove('is-editing'));
-      const parts=[...root.querySelectorAll('mark.nk-hl')].filter(m=>m.dataset.nkHl===hid);
-      parts.forEach(m=>m.classList.add('is-editing'));
-      const rects=parts.map(m=>m.getBoundingClientRect()),rect={top:Math.min(...rects.map(r=>r.top)),bottom:Math.max(...rects.map(r=>r.bottom)),left:mark.getBoundingClientRect().left,width:mark.getBoundingClientRect().width};
-      nkHlPending=null;nkHlEditing={qid,hid};nkHlShow('edit',rect,mark.dataset.nkHlColor);
+      root.querySelectorAll('mark.nk-hl').forEach(m=>{if(m.dataset.nkHl===hid)m.classList.add('is-editing');});
+      nkHlPending=null;nkHlEditing={qid,hid,mark};nkHlShow('edit',nkHlEditRect(),mark.dataset.nkHlColor);
       return;
     }
     if(nkHlBar&&!nkHlBar.hidden&&nkHlBar.dataset.mode==='edit')nkHlHide();
@@ -326,8 +341,9 @@
     document.addEventListener('pointerup',event=>{if(event.pointerType==='mouse'&&nkHlPointerDown){nkHlPointerDown=false;nkHlOnSelection();}},true);
     document.addEventListener('click',nkHlOnClick);
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nkHlBar&&!nkHlBar.hidden)nkHlHide();});
-    // Fixed toolbar follows nothing on scroll; close it rather than let it drift off its text.
-    document.addEventListener('scroll',()=>{if(nkHlBar&&!nkHlBar.hidden&&nkHlBar.dataset.mode==='edit')nkHlHide();else if(nkHlPending)nkHlOnSelection();},{capture:true,passive:true});
+    let follow=0;
+    document.addEventListener('scroll',()=>{if(!follow)follow=requestAnimationFrame(()=>{follow=0;nkHlFollow();});},{capture:true,passive:true});
+    window.addEventListener('resize',()=>nkHlFollow());
     window.addEventListener('hashchange',nkHlHide);
     nkHlScheduleDecorate();
   }
