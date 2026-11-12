@@ -285,6 +285,8 @@ jobs:
         run: python3 tools/test_question_context_bar_v1.py
       - name: Test question-linked personal notes
         run: python3 tools/test_question_notes_v1.py
+      - name: Test explanation highlights anchoring and sync
+        run: python3 tools/test_question_highlights_v1.py
       - name: Test all-bank Quick Revision desk
         run: python3 tools/test_revision_desk_v1.py
       - name: Test actionable Insights focus
