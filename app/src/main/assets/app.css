@@ -7859,3 +7859,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nk-
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nkg-subj-head { min-width: 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root):has(.modal-backdrop) .nk-fsrs-settings-save { z-index: 1 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-pwa { padding: 10px 12px !important; }
+/* ── nk-not-studied-v1: "not studied yet" flag in sessions, topic grid and topic list ── */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-toggle.is-on { color: var(--nkg-amber) !important; background-color: var(--nkg-amber-bg) !important; border-color: var(--nkg-amber-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-toggle.is-on .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-ns, html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-session-review-q, .qb-nav-q).is-ns { position: relative; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-corner { position: absolute; top: 2px; right: 2px; display: grid; place-items: center; width: 15px; height: 15px; border-radius: 5px; background: var(--nkg-amber-bg); color: var(--nkg-amber); box-shadow: 0 0 0 1px var(--nkg-amber-border); pointer-events: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-corner .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-ns::before { background: var(--nkg-amber-bg); box-shadow: inset 0 0 0 1.5px var(--nkg-amber); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-review-dot, .qb-legend-dot).is-ns { background: var(--nkg-amber-bg) !important; box-shadow: inset 0 0 0 1.5px var(--nkg-amber) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-badge { display: inline-flex; align-items: center; gap: 3px; margin-left: 8px; padding: 1px 6px 1px 4px; border-radius: 999px; background: var(--nkg-amber-bg); color: var(--nkg-amber); box-shadow: inset 0 0 0 1px var(--nkg-amber-border); font: 600 11px/16px var(--nkg-font-sans); font-variant-numeric: tabular-nums; vertical-align: 1px; white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-badge .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-option.nk-topic-ns > .nk-ns-icon { color: var(--nkg-amber); }

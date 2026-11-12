@@ -289,6 +289,8 @@ jobs:
         run: python3 tools/test_question_notes_v1.py
       - name: Test explanation highlights anchoring and sync
         run: python3 tools/test_question_highlights_v1.py
+      - name: Test not-studied flags (FSRS/stats exclusion, topic grid, sync)
+        run: python3 tools/test_not_studied_flags_v1.py
       - name: Test all-bank Quick Revision desk
         run: python3 tools/test_revision_desk_v1.py
       - name: Test actionable Insights focus
@@ -477,6 +479,7 @@ jobs:
           tools/verify_pwa_update_browser.py
           tools/verify_recall_dock_browser.py
           tools/verify_question_highlights_browser.py
+          tools/verify_not_studied_browser.py
           tools/verify_marrow_bank_browser_v2.py
           tools/verify_phys_final_images_browser.py
           tools/verify_marrow_anatomy_ch06_q002_browser.py

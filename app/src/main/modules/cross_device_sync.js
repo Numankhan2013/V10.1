@@ -16,6 +16,8 @@
   let nkAuthView='signin',nkPendingCreateEmail='',nkSignInEmail='';
   // Voice clips in notes travel as their own kind (question_notes.js); older versions never read it.
   NK_SYNC_KINDS.push('noteVoice');
+  // "Not studied yet" flags (not_studied_flags.js): one document per question per device, newest edit wins.
+  NK_SYNC_KINDS.push('notStudied');
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -219,6 +221,8 @@
       if(Array.isArray(note.blocks))nkQueueEnvelope(nkEnvelope('noteBlocks',qid,{blocks:note.blocks,deleted:Boolean(note.deleted)},Number(note.blocksAt||note.updatedAt||0)));});
     // One document per question per device; removed highlights stay as tombstones so the merge can honour them.
     Object.entries(state.questionHighlights||{}).forEach(([qid,entry])=>{const items=Object.values(entry?.items||{}).filter(item=>item&&item.id).sort((a,b)=>String(a.id).localeCompare(String(b.id)));if(items.length)nkQueueEnvelope(nkEnvelope('highlights',qid,{items},Math.max(0,...items.map(item=>Number(item.updatedAt)||0))));});
+    // Not-studied flags travel per question; a cleared flag is a tombstone so the merge can honour it.
+    if(typeof nkNsClean==='function')Object.entries(state.notStudied||{}).forEach(([qid,entry])=>{const item=nkNsClean(entry);if(item)nkQueueEnvelope(nkEnvelope('notStudied',qid,item,item.updatedAt));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
     (state.savedMocks||[]).forEach(mock=>{if(!mock?.id)return;current.savedMocks.add(String(mock.id));nkQueueEnvelope(nkEnvelope('savedMocks',mock.id,mock,nkEntityTimestamp(mock)));});
@@ -442,7 +446,7 @@
   }
   function nkApplyCloudEnvelope(remote){
     // Highlights merge item by item across every device's copy (question_highlights.js), like attempts.
-    const winner=['attempts','practiceSessions','highlights'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
+    const winner=['attempts','practiceSessions','highlights','notStudied'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
     if(NK_SYNC_UNSAFE.test(String(id??''))||!nkSyncIdsSafe(payload)){console.warn('Skipped unsafe synced record',winner.kind);return false;}
     if(winner.kind==='attempts'&&payload?.attempt?.id){
@@ -492,6 +496,7 @@
       const prior=state.questionHighlights[id];
       state.questionHighlights[id]={items:nkHlMergeItems(prior?.items,payload.items)};
     }
+    else if(winner.kind==='notStudied'&&payload&&typeof nkNsMergeEntry==='function')nkNsMergeEntry(id,payload);
     else if(winner.kind==='sessions'){
       const legacy=nkCheckpointFromLegacyCloudSession(payload,winner.updatedAt);
       if(legacy)nkMergePracticeCheckpoint(legacy);

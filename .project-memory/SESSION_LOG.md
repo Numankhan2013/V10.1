@@ -2926,3 +2926,9 @@ Moved from STATE.md at the pause:
 
 ## 2026-11-12 — Voice Pause/Resume; voice + highlights merged together
 - Owner asked for a Pause option in the voice recorder that continues the same clip, then both features merged into `main` without breaking anything. Added Pause/Resume on `feature/note-voice` (`f762ac2c`), merged `feature/explanation-highlights` and `feature/note-voice` on `integration/notes-voice-highlights` off `main`; only `STATE.md`/`SESSION_LOG.md` conflicted (kept both). Code overlaps (`app.css`, `cross_device_sync.js`, both workflows) merged cleanly: sync kinds `highlights` and `noteVoice` both registered. Merge to `main` after Engineering Gate + full build pass on the PR. Production promotion not done.
+
+## 2026-11-12 — "Not studied yet" flag (`feature/not-studied-flag`, Hark)
+
+- Owner asked for a per-question "haven't studied this yet" flag in every practice/test, kept out of FSRS and all stats, synced, shown on Topics and the topic grid with a Practice flagged action, and clearing once answered later. Built as `modules/not_studied_flags.js` (wraps record/skip/submit/navigate/header/grids/topics/chapter), sync kind `notStudied` in `cross_device_sync.js`, CSS section `nk-not-studied-v1`. Doc `docs/NOT_STUDIED_FLAGS.md`.
+- Fixed STATE drift: the highlights Undo pill described there was never merged (`hotfix/highlight-undo` abandoned).
+- Verified locally: new `test_not_studied_flags_v1.py`, `verify_not_studied_browser.py` (390/1280, light/dark), plus fsrs, fsrs audit, cross-device sync, continue-practice resume, CBT result analysis, exam review flags, notes, highlights, voice, interaction integrity/polish, build pipeline, source parity, product contract (source stage), inline-script `node --check`. CI and merge recorded in the PR.
