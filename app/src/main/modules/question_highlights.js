@@ -104,6 +104,22 @@
     if(!item||item.deleted)return false;
     entry.items[hid]=nkHlCleanItem({id:item.id,deleted:true,createdAt:item.createdAt,updatedAt:nkHlStamp(entry)});return true;
   }
+  // Undo: remember each touched highlight as it was, then write that state back as a newer edit (so sync carries it).
+  function nkHlSnapshot(qid,ids){
+    const entry=nkHlEntry(qid),snap={};
+    ids.forEach(id=>{const item=entry.items[id];snap[id]=item&&!item.deleted?{...item}:null;});
+    return snap;
+  }
+  function nkHlRestore(qid,snap){
+    const entry=nkHlEntry(qid);let changed=0;
+    Object.entries(snap||{}).forEach(([id,prev])=>{
+      const now=entry.items[id];
+      if(!prev){if(now&&!now.deleted&&nkHlRemove(qid,id))changed++;return;}
+      const back=nkHlCleanItem({...prev,deleted:false,updatedAt:nkHlStamp(entry)});
+      if(back){entry.items[id]=back;changed++;}
+    });
+    return changed;
+  }
   function nkHlClear(qid){
     const entry=nkHlEntry(qid);let changed=0;
     nkHlActive(entry.items).forEach(item=>{if(nkHlRemove(qid,item.id))changed++;});
@@ -210,6 +226,26 @@
     bar.addEventListener('click',nkHlBarClick);
     document.body.appendChild(bar);nkHlBar=bar;return bar;
   }
+  let nkHlUndoEl=null,nkHlUndoTimer=0,nkHlUndoSnap=null;
+  function nkHlOfferUndo(qid,snap,message){
+    clearTimeout(nkHlUndoTimer);
+    if(!nkHlUndoEl||!nkHlUndoEl.isConnected){
+      const el=document.createElement('div');
+      el.className='nk-hl-undo';el.setAttribute('role','status');el.setAttribute('aria-live','polite');el.hidden=true;
+      el.innerHTML='<span class="nk-hl-undo-msg"></span><button type="button" class="nk-hl-undo-btn" data-nk-hl-undo>Undo</button>';
+      el.addEventListener('pointerdown',()=>{nkHlPressed=Date.now();});
+      el.querySelector('[data-nk-hl-undo]').addEventListener('click',()=>{
+        const pending=nkHlUndoSnap;nkHlHideUndo();if(!pending)return;
+        if(nkHlRestore(pending.qid,pending.snap)){nkHlFeedback();nkHlSave();}
+      });
+      document.body.appendChild(el);nkHlUndoEl=el;
+    }
+    nkHlUndoSnap={qid,snap};
+    nkHlUndoEl.querySelector('.nk-hl-undo-msg').textContent=message;
+    nkHlUndoEl.hidden=false;nkHlUndoEl.classList.remove('is-in');void nkHlUndoEl.offsetWidth;nkHlUndoEl.classList.add('is-in');
+    nkHlUndoTimer=setTimeout(nkHlHideUndo,6000);
+  }
+  function nkHlHideUndo(){clearTimeout(nkHlUndoTimer);nkHlUndoSnap=null;if(nkHlUndoEl){nkHlUndoEl.hidden=true;nkHlUndoEl.classList.remove('is-in');}}
   function nkHlFeedback(){try{if(typeof nkPlayFeedback==='function')nkPlayFeedback('choice');}catch(_){}}
   function nkHlSave(){
     // saveState persists locally and queues the cloud upload; no render, so the reading position stays put.
@@ -220,24 +256,34 @@
     const pick=event.target.closest('[data-nk-hl-pick]'),act=event.target.closest('[data-nk-hl-act]');
     if(pick){
       const color=pick.dataset.nkHlPick;
-      if(nkHlEditing){nkHlRecolor(nkHlEditing.qid,nkHlEditing.hid,color);nkHlFeedback();nkHlSave();nkHlHide();return;}
+      if(nkHlEditing){
+        const {qid,hid}=nkHlEditing,snap=nkHlSnapshot(qid,[hid]);
+        if(nkHlRecolor(qid,hid,color)){nkHlFeedback();nkHlSave();nkHlOfferUndo(qid,snap,'Colour changed');}
+        nkHlHide();return;
+      }
       if(nkHlPending){
-        const added=nkHlAdd(nkHlPending.qid,nkHlPending.zone,nkHlPending.range,color);
+        const qid=nkHlPending.qid,added=nkHlAdd(qid,nkHlPending.zone,nkHlPending.range,color);
         try{window.getSelection()?.removeAllRanges();}catch(_){}
         nkHlPending=null;
-        if(added){nkHlFeedback();nkHlSave();}
+        if(added){nkHlFeedback();nkHlSave();nkHlOfferUndo(qid,{[added.id]:null},'Highlighted');}
         else if(typeof showToast==='function')showToast('This question has reached its highlight limit.','bad');
         nkHlHide();
       }
       return;
     }
     if(act&&nkHlEditing){
-      if(act.dataset.nkHlAct==='remove'){nkHlRemove(nkHlEditing.qid,nkHlEditing.hid);nkHlFeedback();nkHlSave();nkHlHide();return;}
+      const {qid,hid}=nkHlEditing;
+      if(act.dataset.nkHlAct==='remove'){
+        const snap=nkHlSnapshot(qid,[hid]);
+        if(nkHlRemove(qid,hid)){nkHlFeedback();nkHlSave();nkHlOfferUndo(qid,snap,'Highlight removed');}
+        nkHlHide();return;
+      }
       if(act.dataset.nkHlAct==='clear'){
         // Two taps: the first arms it, so one stray tap never wipes a question's highlights.
         if(Date.now()-nkHlClearArmed>3000){nkHlClearArmed=Date.now();act.textContent='Tap to confirm';act.classList.add('is-armed');return;}
-        const n=nkHlClear(nkHlEditing.qid);nkHlFeedback();nkHlSave();nkHlHide();
-        if(n&&typeof showToast==='function')showToast(n===1?'Highlight removed.':`${n} highlights removed.`);
+        const snap=nkHlSnapshot(qid,nkHlActive(nkHlEntry(qid).items).map(item=>item.id));
+        const n=nkHlClear(qid);nkHlFeedback();nkHlSave();nkHlHide();
+        if(n)nkHlOfferUndo(qid,snap,n===1?'Highlight removed':`${n} highlights removed`);
       }
     }
   }

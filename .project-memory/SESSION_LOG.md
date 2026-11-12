@@ -2926,3 +2926,4 @@ Moved from STATE.md at the pause:
 
 ## 2026-11-12 — Voice Pause/Resume; voice + highlights merged together
 - Owner asked for a Pause option in the voice recorder that continues the same clip, then both features merged into `main` without breaking anything. Added Pause/Resume on `feature/note-voice` (`f762ac2c`), merged `feature/explanation-highlights` and `feature/note-voice` on `integration/notes-voice-highlights` off `main`; only `STATE.md`/`SESSION_LOG.md` conflicted (kept both). Code overlaps (`app.css`, `cross_device_sync.js`, both workflows) merged cleanly: sync kinds `highlights` and `noteVoice` both registered. Merge to `main` after Engineering Gate + full build pass on the PR. Production promotion not done.
+- Later 2026-11-12: owner asked for a way to undo a wrong highlight before promotion; added the Undo pill (`hotfix/highlight-undo`), node + browser checks, then promoted main in one run.

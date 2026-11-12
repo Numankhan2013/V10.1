@@ -138,6 +138,15 @@ def main():
                 pg.locator('mark.nk-hl[data-nk-hl-color="pink"]').first.click()
                 pg.click('[data-nk-hl-act="remove"]')
                 assert not any("upper trunk" in m and m.startswith("pink") for m in marks(pg)) and len(marks(pg)) == 2, marks(pg)
+                # 6b. Undo brings the removed highlight back; remove it again.
+                undo = pg.locator(".nk-hl-undo")
+                undo.wait_for(state="visible")
+                assert "removed" in undo.inner_text(), undo.inner_text()
+                pg.click("[data-nk-hl-undo]")
+                assert undo.is_hidden() and any(m.startswith("pink:the upper trunk") for m in marks(pg)), marks(pg)
+                pg.locator('mark.nk-hl[data-nk-hl-color="pink"]').first.click()
+                pg.click('[data-nk-hl-act="remove"]')
+                assert len(marks(pg)) == 2, marks(pg)
                 # 7. Clear all needs a confirming second tap.
                 pg.locator("mark.nk-hl").first.click()
                 pg.click('[data-nk-hl-act="clear"]')

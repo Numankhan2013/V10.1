@@ -73,7 +73,25 @@ const tomb=state.questionHighlights.q1.items[a.id];
 assert(tomb.deleted&&!tomb.quote&&tomb.updatedAt>before,'removal leaves a newer tombstone without text');
 assert(nkHlActive(state.questionHighlights.q1.items).length===1,'removed highlight is inactive');
 nkHlAdd('q1','explanation',nkHlDescribe(text,40,45),'pink');
+const live=nkHlActive(state.questionHighlights.q1.items).map(i=>i.id);
+const clearSnap=nkHlSnapshot('q1',live);
 assert(nkHlClear('q1')===2&&nkHlActive(state.questionHighlights.q1.items).length===0,'clear all removes every active highlight');
+
+// Undo: a clear, a removal, a recolour and a new highlight each go back, always as a newer edit.
+assert(nkHlRestore('q1',clearSnap)===2&&nkHlActive(state.questionHighlights.q1.items).length===2,'undo clear-all brings both back');
+const u1=nkHlActive(state.questionHighlights.q1.items)[0],stampBefore=u1.updatedAt;
+let snap=nkHlSnapshot('q1',[u1.id]);nkHlRemove('q1',u1.id);
+assert(nkHlRestore('q1',snap)===1,'undo remove');
+const back=state.questionHighlights.q1.items[u1.id];
+assert(!back.deleted&&back.quote===u1.quote&&back.color===u1.color&&back.updatedAt>stampBefore,'restored highlight keeps its text and colour and is newer than its tombstone');
+snap=nkHlSnapshot('q1',[u1.id]);nkHlRecolor('q1',u1.id,u1.color==='purple'?'green':'purple');
+nkHlRestore('q1',snap);assert(state.questionHighlights.q1.items[u1.id].color===u1.color,'undo recolour');
+const fresh=nkHlAdd('q1','explanation',nkHlDescribe(text,0,7),'blue');
+assert(nkHlRestore('q1',{[fresh.id]:null})===1&&state.questionHighlights.q1.items[fresh.id].deleted,'undo a new highlight removes it (tombstone)');
+assert(nkHlRestore('q1',{[fresh.id]:null})===0,'undo twice is a no-op');
+const merged=nkHlMergeItems({[u1.id]:{...u1,deleted:true,quote:'',updatedAt:stampBefore+1}},[state.questionHighlights.q1.items[u1.id]]);
+assert(!merged[u1.id].deleted,'an undone removal wins over the older tombstone on another device');
+nkHlClear('q1');
 
 // Merge: newest edit per highlight wins, tombstones are not resurrected, bad input is dropped.
 const base={id:'hl_a',zone:'explanation',color:'yellow',start:0,end:7,quote:'Insulin',prefix:'',suffix:' acts',createdAt:10,updatedAt:10};
