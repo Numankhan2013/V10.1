@@ -245,7 +245,7 @@
     const bar=nkHlEnsureBar();bar.hidden=false;
     const vw=document.documentElement.clientWidth||window.innerWidth,vh=window.innerHeight,w=bar.offsetWidth,h=bar.offsetHeight,gap=10;
     // Touch: the native Copy/Select-all menu sits above a selection, so go below it.
-    const footer=document.querySelector('.nk-session-footer, .fixed-actions'),bottomLimit=footer?Math.min(vh,footer.getBoundingClientRect().top):vh;
+    const footer=document.querySelector('.nk-session-footer, .fixed-actions'),fr=footer?.getBoundingClientRect(),bottomLimit=fr&&fr.height>0&&fr.top>vh/2?Math.min(vh,fr.top):vh;
     const below=rect.bottom+gap,above=rect.top-gap-h;
     let top=nkHlCoarse()?(below+h<=bottomLimit-4?below:above):(above>=8?above:below);
     top=Math.max(8,Math.min(top,bottomLimit-h-4));
