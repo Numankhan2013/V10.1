@@ -5940,6 +5940,60 @@ html[data-nk-ui="geist"] .nk-nb.is-editing textarea:focus{outline-color:var(--nk
 .nk-note-viewer-nav.is-prev{left:8px}
 .nk-note-viewer-nav.is-next{right:8px}
 
+/* ── nk-note-voice-v1 ── */
+/* Voice clips in My notes: a compact player block, the inline recorder, and the notes-list count. */
+.nk-nb-badge.is-voice{width:32px;height:32px;place-items:center;padding:0;border-radius:10px;background:#e5484d;color:#fff}
+.nk-nv-player{position:relative;display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 14px 8px 8px;border:1px solid #e1e5ef;border-radius:14px;background:#f8faff;color:#17204b;-webkit-user-select:none;user-select:none}
+.nk-nv-player audio{display:none}
+.nk-nv-play{flex:none;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:#17204b;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .1s}
+.nk-nv-play:active{transform:scale(.94)}
+.nk-nv-play:disabled{opacity:.35;cursor:default}
+.nk-nv-scrub{--nv-at:0%;flex:1;color:inherit;min-width:0;height:44px;margin:0;background:transparent;cursor:pointer;-webkit-appearance:none;appearance:none;touch-action:none}
+.nk-nv-scrub:disabled{cursor:default}
+.nk-nv-scrub::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,currentColor var(--nv-at),rgba(23,32,75,.18) var(--nv-at))}
+.nk-nv-scrub::-moz-range-track{height:4px;border-radius:2px;background:rgba(23,32,75,.18)}
+.nk-nv-scrub::-moz-range-progress{height:4px;border-radius:2px;background:currentColor}
+.nk-nv-scrub::-webkit-slider-thumb{width:16px;height:16px;margin-top:-6px;border:0;border-radius:50%;background:currentColor;-webkit-appearance:none;appearance:none}
+.nk-nv-scrub::-moz-range-thumb{width:16px;height:16px;border:0;border-radius:50%;background:currentColor}
+.nk-nv-scrub:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px;border-radius:6px}
+.nk-nv-time{flex:none;min-width:84px;text-align:right;font-size:13px;font-variant-numeric:tabular-nums;color:#4c5675}
+.nk-nv-missing{display:none;flex:1;font-size:12.5px;line-height:1.4;color:#66708d}
+.nk-nv-player.is-missing .nk-nv-missing{display:block}
+.nk-nv-player.is-missing :is(.nk-nv-scrub,.nk-nv-time){display:none}
+.nk-nv-player.is-error .nk-nv-time{color:#c03a4c}
+.nk-nb.is-recorder{display:grid;gap:12px;-webkit-user-select:none;user-select:none}
+.nk-nr-row{display:flex;align-items:center;gap:10px;min-height:40px}
+.nk-nr-label{flex:1;min-width:0;font-size:16px;font-weight:700}
+.nk-nr-hint{color:#66708d;font-size:12px}
+.nk-nr-close{flex:none;width:40px;height:40px;margin-right:-8px;border:0;border-radius:10px;background:transparent;color:inherit;font-size:16px;cursor:pointer}
+.nk-nr-message{margin:0;padding:10px 12px;border-radius:10px;background:#fff4f2;color:#9b2c2c;font-size:13.5px;line-height:1.45}
+.nk-nr-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+.nk-nr-actions button{min-height:44px;padding:0 16px;border:1px solid #dce3ef;border-radius:22px;background:transparent;color:inherit;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.nk-nr-actions button:disabled{opacity:.4;cursor:default}
+.nk-nr-actions .nk-nr-record,.nk-nr-actions .nk-nr-stop{display:inline-flex;align-items:center;gap:8px;border-color:transparent;background:#e5484d;color:#fff}
+.nk-nr-rec{width:12px;height:12px;border-radius:50%;background:currentColor}
+.nk-nr-dot{flex:none;width:12px;height:12px;border-radius:50%;background:#e5484d;animation:nk-nr-pulse 1.2s ease-in-out infinite}
+.nk-nr-time{flex:none;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+@keyframes nk-nr-pulse{50%{opacity:.25;transform:scale(.8)}}
+.nk-nb.is-recorder.is-paused .nk-nr-dot{background:#f5a524;animation:none}
+.nk-nr-actions .nk-nr-pause{min-width:96px}
+.nk-notes-item-voice{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 10px;border-radius:999px;background:#f1f3f9;color:#3c4766;font-size:12px;font-weight:700}
+.nk-notes-item-voice span{display:grid}
+@media (max-width:380px){.nk-nv-time{min-width:0}.nk-nr-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.nk-nr-dot{animation:none}}
+html[data-nk-ui="geist"] .nk-nv-player{border-color:var(--nkg-border);background:var(--nkg-surface-2,#f4f4f5);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nv-play{background:var(--nkg-inverse-bg,#111);color:var(--nkg-inverse-fg,#fff)}
+html[data-nk-ui="geist"] .nk-nv-scrub::-webkit-slider-runnable-track{background:linear-gradient(to right,var(--nkg-fg) var(--nv-at),var(--nkg-border) var(--nv-at))}
+html[data-nk-ui="geist"] .nk-nv-scrub::-moz-range-track{background:var(--nkg-border)}
+html[data-nk-ui="geist"] :is(.nk-nv-time,.nk-nv-missing,.nk-nr-hint){color:var(--nkg-fg-3)}
+html[data-nk-ui="geist"] :is(.nk-nr-label,.nk-nr-close,.nk-nr-time){color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nr-actions button{border-color:var(--nkg-border);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nr-actions :is(.nk-nr-record,.nk-nr-stop){border-color:transparent;background:var(--nkg-red,#e5484d);color:#fff}
+html[data-nk-ui="geist"] .nk-nr-message{border:1px solid var(--nkg-red-border,#f5c2c4);background:var(--nkg-red-bg,#fdeeee);color:var(--nkg-red,#c9252c)}
+html[data-nk-ui="geist"] :is(.nk-nb-badge.is-voice,.nk-nr-dot){background:var(--nkg-red,#e5484d)}
+html[data-nk-ui="geist"] .nk-nb.is-recorder.is-paused .nk-nr-dot{background:var(--nkg-amber,#f5a524)}
+html[data-nk-ui="geist"] .nk-notes-item-voice{background:var(--nkg-surface-2,#f4f4f5);color:var(--nkg-fg-2)}
+
 /* ── nk-revision-desk-v1 ── */
 .nk-revision-desk{padding-bottom:24px}
 .nk-revision-scope{display:flex;align-items:center;gap:7px;margin:0 0 14px;}
@@ -7144,6 +7198,78 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 .nk-rd-bank-go:empty{display:none}
 /* Back links are the main way out of sub-pages: give them a full-height tap target. */
 html[data-nk-ui="geist"] .nk-app-v114 .nk-back-link{min-height:40px}
+/* ── nk-question-highlights-v1: learner highlights in explanations ── */
+/* Soft tints that keep the text colour, so black-on-white and white-on-black both read. */
+:root {
+  --nk-hl-yellow: rgba(250, 204, 21, .34);  --nk-hl-yellow-dot: #eab308;
+  --nk-hl-green:  rgba(34, 197, 94, .24);   --nk-hl-green-dot:  #22c55e;
+  --nk-hl-blue:   rgba(59, 130, 246, .22);  --nk-hl-blue-dot:   #3b82f6;
+  --nk-hl-pink:   rgba(244, 63, 94, .2);    --nk-hl-pink-dot:   #f43f5e;
+  --nk-hl-purple: rgba(168, 85, 247, .22);  --nk-hl-purple-dot: #a855f7;
+}
+html[data-nk-theme="dark"] {
+  --nk-hl-yellow: rgba(250, 204, 21, .32);  --nk-hl-yellow-dot: #facc15;
+  --nk-hl-green:  rgba(74, 222, 128, .24);  --nk-hl-green-dot:  #4ade80;
+  --nk-hl-blue:   rgba(96, 165, 250, .32);  --nk-hl-blue-dot:   #60a5fa;
+  --nk-hl-pink:   rgba(251, 113, 133, .27); --nk-hl-pink-dot:   #fb7185;
+  --nk-hl-purple: rgba(192, 132, 252, .28); --nk-hl-purple-dot: #c084fc;
+}
+mark.nk-hl {
+  color: inherit; background: var(--nk-hl-yellow); border-radius: 0; padding: .04em 0;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  cursor: pointer; transition: background-color 160ms cubic-bezier(.23, 1, .32, 1), box-shadow 160ms cubic-bezier(.23, 1, .32, 1);
+}
+mark.nk-hl.is-first { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+mark.nk-hl.is-last { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+mark.nk-hl[data-nk-hl-color="green"] { background: var(--nk-hl-green); }
+mark.nk-hl[data-nk-hl-color="blue"] { background: var(--nk-hl-blue); }
+mark.nk-hl[data-nk-hl-color="pink"] { background: var(--nk-hl-pink); }
+mark.nk-hl[data-nk-hl-color="purple"] { background: var(--nk-hl-purple); }
+mark.nk-hl.is-editing { box-shadow: 0 0 0 1.5px color-mix(in srgb, currentColor 38%, transparent); }
+/* The Android shell turns text selection off app-wide; explanations opt back in. */
+html.nk-android-shell :is(.nk-source-section, .nk-key-takeaway p) { -webkit-user-select: text; user-select: text; }
+html.nk-android-shell .nk-source-section > header { -webkit-user-select: none; user-select: none; }
+
+.nk-hl-bar {
+  position: fixed; left: 0; top: 0; z-index: 9000; display: flex; align-items: center; gap: 2px;
+  padding: 4px; border-radius: 999px; background: var(--nkg-surface, #fff); color: var(--nkg-fg, #171717);
+  border: 1px solid var(--nkg-border, #e5e5e5);
+  box-shadow: var(--nkg-shadow-lg, 0 8px 24px rgba(0,0,0,.14));
+  font: 500 13px/1 var(--nkg-font-sans, system-ui, sans-serif);
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation;
+  will-change: transform;
+}
+.nk-hl-bar[hidden] { display: none; }
+.nk-hl-bar.is-in { animation: nk-hl-bar-in 180ms cubic-bezier(.23, 1, .32, 1); }
+@keyframes nk-hl-bar-in { from { opacity: 0; scale: .96; } to { opacity: 1; scale: 1; } }
+@media (prefers-reduced-motion: reduce) { .nk-hl-bar.is-in { animation: none; } mark.nk-hl { transition: none; } }
+.nk-hl-bar button {
+  appearance: none; border: 0; margin: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;
+  display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0; border-radius: 999px;
+  -webkit-tap-highlight-color: transparent; transition: background-color 120ms ease;
+}
+.nk-hl-bar button[hidden] { display: none; }
+.nk-hl-bar button:hover { background: var(--nkg-hover, #f2f2f2); }
+.nk-hl-bar button:active { background: var(--nkg-active, #ededed); }
+.nk-hl-bar button:focus-visible { outline: 2px solid var(--nkg-focus, #0062cc); outline-offset: 1px; }
+.nk-hl-swatch i {
+  display: grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; color: #fff;
+  background: var(--nk-hl-yellow-dot); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+}
+.nk-hl-swatch i[data-nk-hl-color="green"] { background: var(--nk-hl-green-dot); }
+.nk-hl-swatch i[data-nk-hl-color="blue"] { background: var(--nk-hl-blue-dot); }
+.nk-hl-swatch i[data-nk-hl-color="pink"] { background: var(--nk-hl-pink-dot); }
+.nk-hl-swatch i[data-nk-hl-color="purple"] { background: var(--nk-hl-purple-dot); }
+.nk-hl-swatch i svg { opacity: 0; transform: scale(.6); transition: opacity 120ms ease, transform 160ms cubic-bezier(.23, 1, .32, 1); }
+.nk-hl-swatch.is-active i { box-shadow: 0 0 0 2px var(--nkg-surface, #fff), 0 0 0 3.5px currentColor; }
+.nk-hl-swatch.is-active i svg { opacity: 1; transform: none; }
+html[data-nk-theme="dark"] .nk-hl-swatch i { color: #0a0a0a; }
+.nk-hl-sep { width: 1px; height: 18px; margin: 0 4px; background: var(--nkg-border, #e5e5e5); }
+.nk-hl-sep[hidden] { display: none; }
+.nk-hl-act { color: var(--nkg-fg-2, #4d4d4d) !important; }
+.nk-hl-clear { padding: 0 10px !important; font-size: 12.5px; white-space: nowrap; }
+.nk-hl-clear.is-armed { color: var(--nkg-red, #c9252c) !important; background: var(--nkg-red-bg, #fdeeee) !important; }
+@media (pointer: coarse) { .nk-hl-bar button { min-width: 38px; height: 38px; } .nk-hl-swatch i { width: 22px; height: 22px; } }
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

@@ -283,8 +283,12 @@ jobs:
         run: python3 tools/test_marrow_physio_explanation_rollout.py
       - name: Verify question context bar removal
         run: python3 tools/test_question_context_bar_v1.py
+      - name: Test voice clips in question notes
+        run: python3 tools/test_question_note_voice_v1.py
       - name: Test question-linked personal notes
         run: python3 tools/test_question_notes_v1.py
+      - name: Test explanation highlights anchoring and sync
+        run: python3 tools/test_question_highlights_v1.py
       - name: Test all-bank Quick Revision desk
         run: python3 tools/test_revision_desk_v1.py
       - name: Test actionable Insights focus
@@ -472,6 +476,7 @@ jobs:
           python3 tools/run_browser_suite.py
           tools/verify_pwa_update_browser.py
           tools/verify_recall_dock_browser.py
+          tools/verify_question_highlights_browser.py
           tools/verify_marrow_bank_browser_v2.py
           tools/verify_phys_final_images_browser.py
           tools/verify_marrow_anatomy_ch06_q002_browser.py
@@ -508,6 +513,7 @@ jobs:
           tools/verify_question_notes_browser.py
           tools/verify_progress_store_browser.py
           tools/verify_question_note_media_browser.py
+          tools/verify_question_note_voice_browser.py
           tools/verify_source_viewer_browser.py
           tools/verify_preproduction_browser.py
           tools/verify_revision_desk_browser.py
