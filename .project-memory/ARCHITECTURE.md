@@ -168,7 +168,10 @@ closed. Raw question bundles and audit metadata remain unchanged.
   summary). Image bytes live only in IndexedDB `qbank_note_media_v1`
   (`app/src/main/modules/question_note_media.js`) and sync as chunked
   `users/{uid}/noteAssets/{assetId}~{n}` documents uploaded/downloaded once,
-  outside `NK_SYNC_KINDS`; parts sync as the `noteBlocks` kind. Android gets
+  outside `NK_SYNC_KINDS`; parts sync as the `noteBlocks` kind. Voice clips
+  (`{type:'audio',assetId,…}` blocks, bytes in the same store and chunks) sync
+  their order in a separate `noteVoice` kind so older versions, which drop
+  unknown block types, cannot erase them (preview branch `feature/note-voice`). Android gets
   a native `<input type=file>` chooser from `tools/apply_android_file_picker_v1.py`.
   Revision keeps its optional subject/bank/topic focus in page memory;
   `app/src/main/modules/revision_desk.js` filters question pools and passes the same

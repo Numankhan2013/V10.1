@@ -30,7 +30,8 @@ HEADERS = {
     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
     'Cross-Origin-Opener-Policy': 'same-origin',
     'Cross-Origin-Resource-Policy': 'same-origin',
-    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()',
+    # Voice clips in My notes record from this origin only (getUserMedia); everything else stays off.
+    'Permissions-Policy': 'camera=(), microphone=(self), geolocation=(), payment=(), usb=(), browsing-topics=()',
 }
 
 
