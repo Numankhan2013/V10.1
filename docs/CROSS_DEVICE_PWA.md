@@ -202,3 +202,9 @@ along with the APK build. The status summary is intentionally short; expanded
 error details retain the complete backend message. Do not share authentication
 tokens or local study payloads. A generic HTTP 403 alone does not establish which
 backend condition needs repair, and owner-scoped rules must remain protected.
+
+## Not-studied flags (2026-11-12)
+
+Kind `notStudied`: one document per question per device, payload
+`{on, at?, updatedAt}`; merged per question, newest `updatedAt` wins, tie →
+cleared. See `docs/NOT_STUDIED_FLAGS.md`.

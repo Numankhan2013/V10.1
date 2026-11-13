@@ -556,3 +556,13 @@ whose explanation changed from the old QBank) are held back from learners until
 their batch is restructured, not shipped with unstructured text or with no
 explanation. Exact counts must be measured when this is implemented. The
 owner decided this; do not ship unstructured Anatomy text without asking.
+
+## 2026-11-12 — "Not studied" flags: exclusion by refusal, lifecycle by session start
+
+Flagged questions are kept out of learning data at the write points (attempt
+recording, skip marking, the just-saved result) instead of filtering every
+reader, so Insights, coverage, CBT analysis and FSRS need no changes and cannot
+drift. A flag clears on answering only when it predates the session; a flag set
+during the session keeps that answer out (Practice withdraws already-recorded
+attempts with FSRS undo events, which already sync). Results are sanitized once
+at creation (`notStudiedIds` marker) and never rewritten later.

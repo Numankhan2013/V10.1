@@ -7270,6 +7270,31 @@ html[data-nk-theme="dark"] .nk-hl-swatch i { color: #0a0a0a; }
 .nk-hl-clear { padding: 0 10px !important; font-size: 12.5px; white-space: nowrap; }
 .nk-hl-clear.is-armed { color: var(--nkg-red, #c9252c) !important; background: var(--nkg-red-bg, #fdeeee) !important; }
 @media (pointer: coarse) { .nk-hl-bar button { min-width: 38px; height: 38px; } .nk-hl-swatch i { width: 22px; height: 22px; } }
+/* ── nk-not-studied-v1: "not studied yet" flag in sessions, topic grid and topic list ── */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-toggle.is-on { color: var(--nkg-amber) !important; background-color: var(--nkg-amber-bg) !important; border-color: var(--nkg-amber-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-toggle.is-on .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-ns, html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-session-review-q, .qb-nav-q).is-ns { position: relative; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-corner { position: absolute; top: 2px; right: 2px; display: grid; place-items: center; width: 15px; height: 15px; border-radius: 5px; background: var(--nkg-amber-bg); color: var(--nkg-amber); box-shadow: 0 0 0 1px var(--nkg-amber-border); pointer-events: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-corner .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-ns::before { background: var(--nkg-amber-bg); box-shadow: inset 0 0 0 1.5px var(--nkg-amber); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-review-dot, .qb-legend-dot).is-ns { background: var(--nkg-amber-bg) !important; box-shadow: inset 0 0 0 1.5px var(--nkg-amber) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-badge { display: inline-flex; align-items: center; gap: 3px; margin-left: 8px; padding: 1px 6px 1px 4px; border-radius: 999px; background: var(--nkg-amber-bg); color: var(--nkg-amber); box-shadow: inset 0 0 0 1px var(--nkg-amber-border); font: 600 11px/16px var(--nkg-font-sans); font-variant-numeric: tabular-nums; vertical-align: 1px; white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-badge .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-option.nk-topic-ns > .nk-ns-icon { color: var(--nkg-amber); }
+/* Flagged cells in session sheets, navigators and result grids: neutral cell + corner flag, never the skipped/omitted look. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-session-review-q, .qb-nav-q).is-ns { background: var(--nkg-bg-subtle, #f5f5f5) !important; border-color: var(--nkg-border, #e5e5e5) !important; color: var(--nkg-fg-2, #404040) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-session-review-q, .qb-nav-q).is-ns.active { border-color: var(--nkg-fg, #0a0a0a) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-session-review-q, .qb-nav-q).is-ns::after { content: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-ns-legend { display: inline-flex; align-items: center; gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-review-dot, .qb-legend-dot).is-ns { display: inline-grid !important; place-items: center; width: 15px !important; height: 15px !important; border: 0 !important; border-radius: 5px !important; background: var(--nkg-amber-bg) !important; color: var(--nkg-amber) !important; box-shadow: 0 0 0 1px var(--nkg-amber-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-review-dot, .qb-legend-dot).is-ns .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-ns { position: relative; display: grid !important; place-items: center; background: var(--nkg-bg-subtle, #f5f5f5) !important; box-shadow: inset 0 0 0 1px var(--nkg-border, #e5e5e5); color: var(--nkg-amber, #d97706); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-ns .nk-ns-icon { width: 70%; height: 70%; max-width: 12px; max-height: 12px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-ns .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-ns-note { display: flex; align-items: center; gap: 6px; margin: 12px 0 0; color: var(--nkg-fg-3, #737373); font: 400 12px/1.4 var(--nkg-font-sans, inherit); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-ns-note .nk-ns-icon { flex: none; color: var(--nkg-amber, #d97706); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-ns-note .nk-ns-flag, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-status.is-ns .nk-ns-flag { fill: currentColor; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-status.is-ns { display: inline-flex; align-items: center; gap: 3px; color: var(--nkg-amber, #d97706) !important; }
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

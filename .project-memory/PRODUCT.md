@@ -75,6 +75,13 @@ Prefer building over narrating.
   their timer keeps running after exit.
 - **Browser/PWA Back during a question:** show the same warning in the web
   preview. Stay keeps the live question; Exit follows browser history.
+- **Not studied yet flag (2026-11-12):** Practice and timed tests carry a
+  header flag beside the bookmark. Flagged questions never enter FSRS, attempts,
+  skip marks, saved results or any statistic; unflagged skips are unchanged.
+  Answering clears a flag set before that session; a flag set during the
+  session keeps the answer out. Topics show a flag badge with the count; the
+  topic grid marks flagged cells and offers Practice flagged (N). Flags sync per
+  question. Details: `docs/NOT_STUDIED_FLAGS.md`.
 - **Timed-test recovery after Exit:** Home, Tests, and the CBT builder show the
   same saved active test with answered and marked counts. Resume returns to
   that session while its timer continues; expiry uses the established
