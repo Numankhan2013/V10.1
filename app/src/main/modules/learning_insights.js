@@ -272,7 +272,8 @@
     let n=0,last=0;for(const list of Object.values(state.attempts||{})){if(!Array.isArray(list))continue;n+=list.length;const e=list[list.length-1],at=Number(e?.reviewedAt||e?.at||0);if(at>last)last=at;}
     const tests=state.tests||[],t=tests[tests.length-1],s=state.activeSession;
     const names=tests.reduce((h,x)=>h+String(x?.title||'').length*31+String(x?.id||'').length,0);
-    const key=[n,last,tests.length,t?.id,t?.createdAt,names,Object.keys(state.fsrsReviewEligible||{}).length,s?.id,Object.keys(s?.answers||{}).length,nkAllStudyQuestions().length].join('|');
+    const flags=Object.values(state.notStudied||{}).reduce((h,x)=>h+Number(x?.updatedAt||0)%1000003,0);
+    const key=[n,last,tests.length,t?.id,t?.createdAt,t?.updatedAt,names,Object.keys(state.fsrsReviewEligible||{}).length,s?.id,Object.keys(s?.answers||{}).length,nkAllStudyQuestions().length,flags].join('|');
     if(nkLearningCollectMemo.key!==key)nkLearningCollectMemo={key,data:nkLearningCollectRaw()};
     return nkLearningCollectMemo.data;
   };
