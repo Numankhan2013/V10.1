@@ -1975,5 +1975,7 @@
   watchToasts();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchToasts);
 
-  window.NKFeel = { render: render, haptic: haptic, toast: toastShow };
+  /* Outcome haptics for app code that confirms a decision outside a render
+     (e.g. Abandon session): the same native bridge / vibration / iOS switch path. */
+  window.NKFeel = { render: render, haptic: haptic, haptics: function (kind) { Haptics.play(kind); }, toast: toastShow };
 })();

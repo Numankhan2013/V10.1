@@ -84,6 +84,24 @@ async function main(){
     await device.shell(`input tap ${Math.round((Number(bounds[1])+Number(bounds[3]))/2)} ${Math.round((Number(bounds[2])+Number(bounds[4]))/2)}`);
     await new Promise(resolve=>setTimeout(resolve,250));
   }
+  // A native AlertDialog opened by the page (not by system Back): find it by title, tap a button.
+  async function tapNativeDialog(title,button,capture){
+    let xml='';
+    for(let attempt=0;attempt<12;attempt++){
+      await device.shell('uiautomator dump /sdcard/nk-native-dialog.xml');
+      xml=String(await device.shell('cat /sdcard/nk-native-dialog.xml'));
+      if(xml.includes(`text="${title}"`))break;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+    assert(xml.includes(`text="${title}"`),`native dialog "${title}" did not open`);
+    if(capture)await device.screenshot({path:capture});
+    const nodes=[...xml.matchAll(/<node\b[^>]*>/g)].map(match=>match[0]);
+    const node=nodes.find(tag=>tag.match(/\btext="([^"]*)"/)?.[1]?.toLowerCase()===button.toLowerCase());
+    assert(node,`native dialog is missing ${button}`);
+    const bounds=node.match(/bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/);
+    await device.shell(`input tap ${Math.round((Number(bounds[1])+Number(bounds[3]))/2)} ${Math.round((Number(bounds[2])+Number(bounds[4]))/2)}`);
+    await new Promise(resolve=>setTimeout(resolve,250));
+  }
   const report=[];
   try{
     for(const [label,size,density] of [['phone','1080x2400',440],['tablet','1600x2560',320]]){
@@ -122,12 +140,13 @@ async function main(){
       assert.equal(await page.evaluate(id=>window.QB.getState().attempts[id]?.length,original.questionIds[0]),1);
       // This invokes MainActivity.onBackPressed, including its native dialog.
       const backBefore=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle}));
+      // System Back on a live session asks to abandon it (NATIVE_BACK_ABANDON_V1); Cancel keeps it.
       await device.shell('input keyevent KEYCODE_BACK');
-      await tapNativeExitDialog('Stay','Your practice progress will be saved if you exit now.',`${output}/${label}-practice-exit-confirmation.png`);
-      assert.equal(await page.evaluate(()=>location.hash),backBefore.hash,'Stay must keep the question open');
-      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),original.id,'Stay must retain the session');
-      await device.shell('input keyevent KEYCODE_BACK');
-      await tapNativeExitDialog('Exit','Your practice progress will be saved if you exit now.');
+      await tapNativeDialog('Abandon this session?','Cancel',`${output}/${label}-practice-back-abandon.png`);
+      assert.equal(await page.evaluate(()=>location.hash),backBefore.hash,'Cancel must keep the question open');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),original.id,'Cancel must retain the session');
+      // Leave without abandoning the way the old Exit did (WebView history back).
+      await page.evaluate(()=>history.back());
       await waitForDashboard(page);
       const backAfter=await page.evaluate(()=>({url:location.href,hash:location.hash,historyLength:history.length,lifecycle:window.QB.getState().activeSession?.lifecycle,sessionId:window.QB.getState().activeSession?.id,index:window.QB.getState().activeSession?.index}));
       assert.notEqual(backAfter.hash,backBefore.hash);
@@ -195,10 +214,9 @@ async function main(){
       const resumedB=await page.evaluate(()=>window.QB.getState().activeSession);
       assert.deepEqual(resumedB.questionIds,paused.B.sessionQuestionIds);assert.equal(resumedB.index,2);
       assert.deepEqual(resumedB.answers,paused.B.answers);assert.deepEqual(resumedB.submitted,paused.B.submitted);
-      await device.shell('input keyevent KEYCODE_BACK');
-      await tapNativeExitDialog('Exit','Your practice progress will be saved if you exit now.');
+      await page.evaluate(()=>history.back());
       await waitForDashboard(page);
-      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),paused.B.sessionId,'hardware Back must retain resumed B');
+      assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),paused.B.sessionId,'leaving must retain resumed B');
       await page.locator('button.nk-home-focus-action').click();
       await page.locator(`#nk-practice-sessions .nk-saved-practice-row[data-session-id="${paused.B.sessionId}"]`).getByRole('button',{name:'Resume',exact:true}).click();
       await waitForHash(page,'#practice');
@@ -258,11 +276,10 @@ async function main(){
       await waitForHash(page,'#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
       await device.shell('input keyevent KEYCODE_BACK');
-      await tapNativeExitDialog('Stay','Your timed test will keep running if you exit now.',`${output}/${label}-test-exit-confirmation.png`);
-      assert.equal(await page.evaluate(()=>location.hash),'#exam','Stay must keep the timed test open');
+      await tapNativeDialog('Abandon this test?','Cancel',`${output}/${label}-test-back-abandon.png`);
+      assert.equal(await page.evaluate(()=>location.hash),'#exam','Cancel must keep the timed test open');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId);
-      await device.shell('input keyevent KEYCODE_BACK');
-      await tapNativeExitDialog('Exit','Your timed test will keep running if you exit now.');
+      await page.evaluate(()=>history.back());
       await page.waitForFunction(()=>location.hash!=='#exam');
       assert.equal(await page.evaluate(()=>window.QB.getState().activeSession?.id),examId,'Exit must retain the timed test');
       await page.locator('.nk-timed-resume.is-builder').waitFor({state:'visible',timeout:10000}).catch(async error=>{
@@ -338,12 +355,13 @@ async function main(){
       assert.equal(await page.locator('#qb-question-navigator').getByRole('button',{name:'Abandon test'}).count(),1);
       assert.equal(await page.locator('.nk-v114-session.is-exam').getByRole('button',{name:'Abandon test'}).count(),0);
       await device.screenshot({path:`${output}/${label}-timed-grid-abandon.png`});
-      await page.evaluate(()=>{window.confirm=()=>true;});
+      // The shell answers Abandon with a native dialog (QBankShell.confirmAction); tap its Abandon button.
       await page.locator('#qb-question-navigator').getByRole('button',{name:'Abandon test'}).click();
+      await tapNativeDialog('Abandon this test?','Abandon',`${output}/${label}-abandon-native-dialog.png`);
       await page.waitForFunction(()=>window.QB.getState().activeSession===null&&location.hash==='#tests');
       assert.equal(await page.evaluate(()=>window.QB.getState().tests.length),testsBeforeAbandon,'abandon must not save a test result');
       assert.equal(await page.locator('.nk-timed-resume.is-tests').count(),0,'abandoned test must not remain resumable');
-      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS',timedGridAbandon:'PASS',cbtRetakeComparison:'PASS'});
+      report.push({device:label,size,density,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight})),nativeBackConfirmation:'PASS',forceStopResume:'PASS',practiceReviewFsrs:'PASS',pyqCbtReview:'PASS',timedGridAbandon:'PASS',nativeAbandonDialog:'PASS',cbtRetakeComparison:'PASS'});
       console.log('ANDROID_INTERACTION_VIEWPORT_OK '+JSON.stringify(report.at(-1)));
     }
     fs.writeFileSync(`${output}/report.json`,JSON.stringify(report,null,2));

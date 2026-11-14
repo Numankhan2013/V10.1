@@ -163,13 +163,15 @@ def main():
                 page.locator('button.nk-home-focus-action').click()
                 page.wait_for_function('id=>window.QB.getState().activeSession?.id===id', arg=original['id'])
                 settle(page)
-                # Browser/PWA Back must ask before leaving the live question.
-                with page.expect_event('dialog') as warning:
-                    page.evaluate('history.back()')
-                assert 'Do you want to exit?' in warning.value.message
-                warning.value.dismiss()
+                # Browser/PWA Back asks to abandon the live session (session_abandon.js guard entry), never confirm().
+                page.evaluate('history.back()')
+                back_alert = page.get_by_role('alertdialog', name='Abandon this session?')
+                back_alert.wait_for()
+                back_alert.get_by_role('button', name='Cancel', exact=True).click()
                 page.wait_for_timeout(100)
+                assert page.locator('#nk-abandon-confirm').count() == 0
                 assert page.evaluate('location.hash') == '#practice'
+                assert page.evaluate('history.state && history.state.nkSessionGuard') == original['id'], 'Cancel keeps the Back guard'
                 assert session(page)['id'] == original['id']
                 page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
                 page.wait_for_function("document.querySelectorAll('button.nk-bank-card').length===2")
@@ -179,10 +181,17 @@ def main():
                 page.wait_for_url('**/#dashboard')
                 page.locator('button.nk-home-focus-action').click()
                 settle(page)
-                with page.expect_event('dialog') as warning:
-                    page.evaluate('history.back()')
-                warning.value.accept()
+                # Back while the abandon dialog is open cancels it; the session stays.
+                page.evaluate('history.back()')
+                page.get_by_role('alertdialog', name='Abandon this session?').wait_for()
+                page.evaluate('history.back()')
+                page.wait_for_function("!document.getElementById('nk-abandon-confirm')")
+                assert page.evaluate('location.hash') == '#practice'
+                assert session(page)['id'] == original['id']
+                # Leaving through the app pops the guard first: one Back from Home leaves Home, not a stale #practice.
+                page.evaluate("window.QB.nav('dashboard')")
                 page.wait_for_url('**/#dashboard')
+                assert page.evaluate('history.state && history.state.nkSessionGuard') in (None, False)
                 assert page.locator('#nk-session-review,#qb-question-navigator').count() == 0
                 page.locator('button.nk-home-focus-action').click()
                 settle(page)
@@ -217,20 +226,22 @@ def main():
                 assert page.locator('#qb-question-navigator .qb-nav-q.is-marked').count() == 1
                 assert page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').count() == 1
                 assert page.locator('.nk-v114-session.is-exam').get_by_role('button', name='Abandon test').count() == 0
-                abandon_messages = []
-                page.once('dialog', lambda dialog: (abandon_messages.append(dialog.message), dialog.dismiss()))
+                # Abandon asks in an in-app alert dialog (session_abandon.js), never a browser confirm().
                 page.locator('#qb-question-navigator').get_by_role('button', name='Abandon test').click()
-                assert abandon_messages and 'no test result will be saved' in abandon_messages[0]
+                alert = page.get_by_role('alertdialog', name='Abandon this test?')
+                assert alert.count() == 1 and "won’t be saved or counted" in alert.inner_text()
+                alert.get_by_role('button', name='Cancel', exact=True).click()
+                assert page.locator('#nk-abandon-confirm').count() == 0
                 assert session(page)['id'] == cbt['id'], 'canceling Abandon must keep the timed test'
                 page.evaluate('window.QB.closeQuestionNavigator()')
                 page.evaluate('window.QB.openSessionReview()')
                 assert page.locator('#nk-session-review .nk-session-review-q.is-marked').count() == 1
                 assert page.locator('#nk-session-review').get_by_role('button', name='Abandon test').count() == 1
                 page.evaluate('window.QB.__sessionReviewClose()')
-                with page.expect_event('dialog') as warning:
-                    page.evaluate('history.back()')
-                assert 'timed test will keep running' in warning.value.message
-                warning.value.dismiss()
+                page.evaluate('history.back()')
+                exam_alert = page.get_by_role('alertdialog', name='Abandon this test?')
+                exam_alert.wait_for()
+                exam_alert.get_by_role('button', name='Cancel', exact=True).click()
                 page.wait_for_timeout(100)
                 assert page.evaluate('location.hash') == '#exam'
                 assert session(page)['id'] == cbt['id']
@@ -319,10 +330,11 @@ def main():
                 abandon_page.locator('#modal').get_by_role('button', name='Start Exam', exact=True).click()
                 abandon_page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 abandon_page.evaluate('window.QB.openSessionReview()')
-                abandon_page.once('dialog', lambda dialog: dialog.accept())
                 abandon_page.locator('#nk-session-review').get_by_role('button', name='Abandon test').click()
+                abandon_page.get_by_role('alertdialog', name='Abandon this test?').get_by_role('button', name='Abandon', exact=True).click()
                 abandon_page.wait_for_function("!window.QB.getState().activeSession && location.hash==='#tests'")
                 assert abandon_page.evaluate('window.QB.getState().tests.length') == 0, 'abandoned test created a result'
+                assert abandon_page.evaluate('window.QB.getState().abandonedSessions.length') == 1, 'abandoned test is recorded once in history'
                 assert abandon_page.evaluate('Object.values(window.QB.getState().attempts).flat().length') == 0, 'abandoned test recorded attempts'
                 assert abandon_page.locator('.nk-timed-resume.is-tests').count() == 0, 'abandoned test remains resumable'
                 abandon_context.close()

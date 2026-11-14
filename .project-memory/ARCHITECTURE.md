@@ -271,10 +271,16 @@ closed. Raw question bundles and audit metadata remain unchanged.
   restores the question history entry before hashchange renders another route;
   accepted exit keeps the existing history and persistence path. `qbank.local`
   uses the native Android dialog, so the two warnings do not stack.
-- `tools/apply_timed_abandon_grid_v1.py` installs confirmed timed-test Abandon
-  inside the question navigator and final review grid after the exam review
-  flags transform. It clears `activeSession` only after the learner confirms;
-  failed persistence rolls state back. It creates no result or attempts.
+- `app/src/main/modules/session_abandon.js` (`NK_SESSION_ABANDON_V1`, after
+  `not_studied_flags.js`; replaced `timed_abandon_grid.js`) abandons any
+  session: undo events for its attempts, `nkFsrsActiveAttempts` excludes
+  abandoned session ids, terminal checkpoint, sync kind `abandoned`. System Back:
+  a `history.state.nkSessionGuard` entry while a session is live (web/PWA only);
+  base `navigate()` calls `nkBackGuardHold` and replays via `nkNavigateBase`
+  after the guard pops; the Android shell asks `window.QB.nkSessionBack()`
+  (`NATIVE_BACK_ABANDON_V1`) and confirms with `QBankShell.confirmAction`.
+  `question_interaction.js` exposes `nkSessionBackOverlay()`; its popstate
+  `confirm()` remains for scheduled mocks. Rules: `docs/SESSION_ABANDON.md`.
 - PrepLadder source-PDF explanation tone is adjusted only at display time:
   `apply_session_experience_v2.py` owns the final shared CSS filter on inline
   source page images/canvases and fullscreen source zoom. Earlier question

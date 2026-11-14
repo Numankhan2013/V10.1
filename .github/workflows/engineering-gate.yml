@@ -67,6 +67,10 @@ jobs:
         run: python3 tools/test_question_highlights_v1.py
       - name: Test not-studied flags (FSRS/stats exclusion, topic grid, sync)
         run: python3 tools/test_not_studied_flags_v1.py
+      - name: Test Abandon session (no trace in FSRS/stats/sync, history entry)
+        run: python3 tools/test_session_abandon_v1.py
+      - name: Test system Back asks to abandon (PWA guard entry, Android shell)
+        run: python3 tools/test_session_back_guard_v1.py
       - name: Test verified PWA update identity and dismissal
         run: python3 tools/test_pwa_update_v2.py
       - name: Test FSRS scheduler and queue contracts

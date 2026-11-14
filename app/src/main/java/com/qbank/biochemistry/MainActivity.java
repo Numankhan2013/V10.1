@@ -234,6 +234,45 @@ public class MainActivity extends Activity {
             if (message == null || message.isEmpty()) return;
             runOnUiThread(() -> Toast.makeText(MainActivity.this, message, message.length() > 60 ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show());
         }
+        // NATIVE_CONFIRM_ACTION_V1: a destructive confirmation (Abandon session) as a native
+        // dialog in the app's theme. The answer goes back to the page through
+        // window.QB.nkAbandonAnswer(requestId, confirmed); returns false when it cannot show.
+        @JavascriptInterface public boolean confirmAction(String requestId, String title, String message, String confirmLabel, String cancelLabel) {
+            if (!onAppOrigin()) return false;
+            final String id = requestId == null ? "" : requestId.replaceAll("[^A-Za-z0-9_-]", "");
+            if (id.isEmpty()) return false;
+            runOnUiThread(() -> showConfirmAction(id, title, message, confirmLabel, cancelLabel));
+            return true;
+        }
+    }
+
+    private AlertDialog confirmDialog;
+
+    private void showConfirmAction(String id, String title, String message, String confirmLabel, String cancelLabel) {
+        if (isFinishing() || webView == null) { answerConfirmAction(id, false); return; }
+        if (confirmDialog != null && confirmDialog.isShowing()) confirmDialog.dismiss();
+        final boolean[] answered = {false};
+        int theme = Boolean.TRUE.equals(dark) ? android.R.style.Theme_DeviceDefault_Dialog_Alert : android.R.style.Theme_DeviceDefault_Light_Dialog_Alert;
+        AlertDialog dialog = new AlertDialog.Builder(this, theme)
+            .setTitle(title == null || title.isEmpty() ? "Are you sure?" : title)
+            .setMessage(message == null ? "" : message)
+            .setNegativeButton(cancelLabel == null || cancelLabel.isEmpty() ? "Cancel" : cancelLabel, (d, which) -> { answered[0] = true; answerConfirmAction(id, false); })
+            .setPositiveButton(confirmLabel == null || confirmLabel.isEmpty() ? "OK" : confirmLabel, (d, which) -> { answered[0] = true; answerConfirmAction(id, true); })
+            .create();
+        dialog.setOnShowListener(d -> {
+            Button go = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            if (go != null) go.setTextColor(Boolean.TRUE.equals(dark) ? Color.rgb(255, 97, 102) : Color.rgb(201, 37, 44));
+            webView.performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK);
+        });
+        // Back, an outside tap or the activity going away all mean Cancel.
+        dialog.setOnDismissListener(d -> { if (!answered[0]) { answered[0] = true; answerConfirmAction(id, false); } if (confirmDialog == dialog) confirmDialog = null; });
+        confirmDialog = dialog;
+        dialog.show();
+    }
+
+    private void answerConfirmAction(String id, boolean confirmed) {
+        if (webView == null) return;
+        webView.evaluateJavascript("(function(){try{window.QB&&window.QB.nkAbandonAnswer&&window.QB.nkAbandonAnswer('" + id + "'," + confirmed + ");}catch(e){}})()", null);
     }
 
     // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
@@ -256,6 +295,10 @@ public class MainActivity extends Activity {
     }
 
     // NATIVE_BACK_SESSION_GUARD_V1: inspect the live route before system Back leaves a question.
+    // NATIVE_BACK_ABANDON_V1: a live session the learner can abandon answers Back in the page
+    // (window.QB.nkSessionBack: closes an open sheet, else opens the native "Abandon this
+    // session/test?" dialog through confirmAction) and reports "handled". Scheduled mocks,
+    // and pages without nkSessionBack, keep the exit warning below.
     private boolean backCheckPending;
     private AlertDialog backDialog;
 
@@ -269,7 +312,9 @@ public class MainActivity extends Activity {
         if (backCheckPending || (backDialog != null && backDialog.isShowing())) return;
         backCheckPending = true;
         webView.evaluateJavascript(
-            "(function(){try{var q=window.QB;var s=q&&q.getState&&q.getState().activeSession;" +
+            "(function(){try{var q=window.QB;" +
+            "if(q&&typeof q.nkSessionBack==='function'){var r=q.nkSessionBack();return r==='handled'||r==='exam'||r==='practice'?r:'';}" +
+            "var s=q&&q.getState&&q.getState().activeSession;" +
             "var page=location.hash.split('/')[0];" +
             "if(s&&page==='#practice'&&s.mode==='practice'&&s.lifecycle!=='paused')return 'practice';" +
             "if(s&&page==='#exam'&&s.mode==='exam')return 'exam';" +
@@ -277,6 +322,7 @@ public class MainActivity extends Activity {
             value -> {
                 backCheckPending = false;
                 if (isFinishing()) return;
+                if ("\"handled\"".equals(value)) return;
                 boolean exam = "\"exam\"".equals(value);
                 if (!exam && !"\"practice\"".equals(value)) { continueBackNavigation(); return; }
                 backDialog = new AlertDialog.Builder(this)
@@ -368,6 +414,7 @@ public class MainActivity extends Activity {
 
     @Override protected void onDestroy() {
         ui.removeCallbacksAndMessages(null);
+        if (confirmDialog != null) { confirmDialog.setOnDismissListener(null); confirmDialog.dismiss(); confirmDialog = null; }
         if (noteFileCallback != null) { noteFileCallback.onReceiveValue(null); noteFileCallback = null; }
         if (webView != null) { webView.setWebChromeClient(null); webView.destroy(); webView = null; }
         super.onDestroy();

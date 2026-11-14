@@ -18,6 +18,8 @@
   NK_SYNC_KINDS.push('noteVoice');
   // "Not studied yet" flags (not_studied_flags.js): one document per question per device, newest edit wins.
   NK_SYNC_KINDS.push('notStudied');
+  // Abandoned sessions (session_abandon.js): one document per session, never deleted, so every device drops its answers.
+  NK_SYNC_KINDS.push('abandoned');
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -223,6 +225,7 @@
     Object.entries(state.questionHighlights||{}).forEach(([qid,entry])=>{const items=Object.values(entry?.items||{}).filter(item=>item&&item.id).sort((a,b)=>String(a.id).localeCompare(String(b.id)));if(items.length)nkQueueEnvelope(nkEnvelope('highlights',qid,{items},Math.max(0,...items.map(item=>Number(item.updatedAt)||0))));});
     // Not-studied flags travel per question; a cleared flag is a tombstone so the merge can honour it.
     if(typeof nkNsClean==='function')Object.entries(state.notStudied||{}).forEach(([qid,entry])=>{const item=nkNsClean(entry);if(item)nkQueueEnvelope(nkEnvelope('notStudied',qid,item,item.updatedAt));});
+    if(typeof nkAbClean==='function')(state.abandonedSessions||[]).forEach(raw=>{const entry=nkAbClean(raw);if(entry)nkQueueEnvelope(nkEnvelope('abandoned',entry.sessionId,entry,entry.updatedAt));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
     (state.savedMocks||[]).forEach(mock=>{if(!mock?.id)return;current.savedMocks.add(String(mock.id));nkQueueEnvelope(nkEnvelope('savedMocks',mock.id,mock,nkEntityTimestamp(mock)));});
@@ -497,6 +500,7 @@
       state.questionHighlights[id]={items:nkHlMergeItems(prior?.items,payload.items)};
     }
     else if(winner.kind==='notStudied'&&payload&&typeof nkNsMergeEntry==='function')nkNsMergeEntry(id,payload);
+    else if(winner.kind==='abandoned'&&payload&&typeof nkAbMergeEntry==='function')nkAbMergeEntry(payload);
     else if(winner.kind==='sessions'){
       const legacy=nkCheckpointFromLegacyCloudSession(payload,winner.updatedAt);
       if(legacy)nkMergePracticeCheckpoint(legacy);

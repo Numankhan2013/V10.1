@@ -69,12 +69,15 @@ Prefer building over narrating.
   frictionless; unfinished-session recovery works.
 - **Practice:** immediate feedback, source explanations, free navigation,
   bookmarks, Wrong/Due queues feed revision.
-- **Android Back during a question:** show a native "Do you want to exit?"
-  warning for active Practice and timed tests. Stay keeps the same question and
-  session; Exit follows the saved-session navigation. Timed tests disclose that
-  their timer keeps running after exit.
-- **Browser/PWA Back during a question:** show the same warning in the web
-  preview. Stay keeps the live question; Exit follows browser history.
+- **System Back during a session (2026-11-14, owner request):** in a live
+  Practice session or timed test, Back (Android shell, mobile browser, installed
+  PWA) asks "Abandon this session?" / "Abandon this test?" (Abandon / Cancel);
+  an open sheet or viewer closes first. Cancel keeps the question; Abandon is
+  the abandon flow. The web app keeps a history guard entry while a session is
+  live and removes it before Submit, Pause, Abandon or any in-app navigation, so
+  Back is never doubled. Scheduled mocks and paused sessions keep the earlier
+  "Do you want to exit?" warning (Stay / Exit; timed tests say the timer keeps
+  running). Details: `docs/SESSION_ABANDON.md`.
 - **Not studied yet flag (2026-11-12):** Practice and timed tests carry a
   header flag beside the bookmark. Flagged questions never enter FSRS, attempts,
   skip marks, saved results or any statistic; unflagged skips are unchanged.
@@ -101,8 +104,10 @@ Prefer building over narrating.
   Timed tests let learners mark uncertain questions for review without changing
   their answer. Marks survive reload, appear in both question grids, and the
   saved result offers Practice on the marked IDs, including correct guesses.
-  Both timed-test grids offer a confirmed Abandon action; the question page does
-  not. Abandon clears the active test without saving a result or attempts.
+  Abandon (2026-11-13, every session type, not scheduled mocks) sits at the
+  foot of the review sheet and the question navigator, never on the question
+  page; confirmed abandon leaves no result, attempts or stats, only an
+  "Abandoned" history row. Rules: `docs/SESSION_ABANDON.md`.
 - **Analysis / Review Solutions:** score + distribution + timing + completion;
   canonical Review Solutions entry (`data-v102-review-cta`, `__QB_OPEN_REVIEW`),
   question-first surface, fixed Previous/Next footer, grid/navigator + End

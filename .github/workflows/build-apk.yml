@@ -303,8 +303,10 @@ jobs:
         run: python3 tools/test_cbt_result_analysis_v1.py
       - name: Test timed-test review marks
         run: python3 tools/test_exam_review_flags_v1.py
-      - name: Test timed-test grid abandonment
-        run: python3 tools/test_timed_abandon_grid_v1.py
+      - name: Test Abandon session (no trace in FSRS/stats/sync, history entry)
+        run: python3 tools/test_session_abandon_v1.py
+      - name: Test system Back asks to abandon (PWA guard entry, Android shell)
+        run: python3 tools/test_session_back_guard_v1.py
       - name: Test timed-test recovery card
         run: python3 tools/test_timed_resume_card_v1.py
       - name: Test all-bank QBank coverage tracker
@@ -480,6 +482,7 @@ jobs:
           tools/verify_recall_dock_browser.py
           tools/verify_question_highlights_browser.py
           tools/verify_not_studied_browser.py
+          tools/verify_session_abandon_browser.py
           tools/verify_marrow_bank_browser_v2.py
           tools/verify_phys_final_images_browser.py
           tools/verify_marrow_anatomy_ch06_q002_browser.py
@@ -562,6 +565,7 @@ jobs:
             build/ui-checks/*.png
             build/ui-checks/question-completeness/
             build/ui-checks/explanation-refinement/
+            build/ui-checks/session-abandon/
             build/ui-checks/bc4-interaction-report.json
             build/study-flow-checks/
             build/return-flow-checks/

@@ -434,7 +434,7 @@ def test_install_contract() -> None:
     module = MODULE.read_text(encoding="utf-8")
     assert page.count("NK_NOT_STUDIED_V1_START") == 1, "module must be assembled once"
     start = page.index("NK_NOT_STUDIED_V1_START")
-    for owner in ("NK_FSRS_V6_START", "NK_CONTINUE_PRACTICE_RESUME_V1_START", "NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START", "NK_EXAM_REVIEW_FLAGS_V1_START", "NK_TIMED_ABANDON_GRID_V1_START", "NK_QUESTION_HIGHLIGHTS_V1_START"):
+    for owner in ("NK_FSRS_V6_START", "NK_CONTINUE_PRACTICE_RESUME_V1_START", "NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START", "NK_EXAM_REVIEW_FLAGS_V1_START", "NK_QUESTION_HIGHLIGHTS_V1_START"):
         assert page.index(owner) < start, f"flags must wrap after {owner}"
     assert page.index("function nkResultStrip") < start, "result strip is wrapped after refined analysis defines it"
     assert start < page.index("window.QB={nkToggleNotStudied,nkPracticeNotStudied,"), "actions are exported"
