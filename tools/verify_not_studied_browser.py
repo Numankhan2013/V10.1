@@ -143,7 +143,7 @@ def main():
                 assert glyph and inside(glyph, ns_cell.bounding_box()), "flag glyph sits inside its cell"
                 assert pg.evaluate("getComputedStyle(document.querySelector('.nk-rs-strip > button.is-ns .nk-ns-flag')).fill") not in ("none", ""), "flag is filled"
                 note = " ".join(pg.locator(".nk-rs-ns-note").inner_text().split())
-                assert note == "1 not studied · left out of the score", note
+                assert note == "1 not studied · left out of the score · 33% counting them", note  # timed result also shows the raw score (fix 4)
                 assert inside(box(pg, ".nk-rs-ns-note"), box(pg, ".nk-rs-strip-card")), "note stays in the card"
                 if shots:
                     pg.wait_for_timeout(1200)
