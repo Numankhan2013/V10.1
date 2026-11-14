@@ -67,8 +67,19 @@ def main() -> None:
             note.wait_for(state="visible")
             assert "My recall cue: compare the two fibres." in note.inner_text(), "Note was lost after reload"
             note.get_by_role("button", name="Open my notes").click()
-            sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click()
-            page.locator(".nk-nb-menu").get_by_role("menuitem", name="Edit", exact=True).click()
+            # The block menu opens with a short morph; a tap mid-morph can miss Edit, so retry
+            # until the editor opens (as the media and voice checks do).
+            for attempt in range(3):
+                if not page.locator(".nk-nb-menu:not(.is-ghost)").get_by_role("menuitem", name="Edit", exact=True).is_visible():
+                    sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click()
+                try:
+                    page.locator(".nk-nb-menu:not(.is-ghost)").get_by_role("menuitem", name="Edit", exact=True).click(timeout=4000)
+                    sheet.locator("textarea").wait_for(state="visible", timeout=4000)
+                    break
+                except Exception:
+                    if attempt == 2:
+                        raise
+                    page.wait_for_timeout(300)
             sheet.locator("textarea").fill("Unsaved change")
             sheet.get_by_role("button", name="Cancel").click()
             assert sheet.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Cancel changed the saved note"
