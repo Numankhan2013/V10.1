@@ -108,8 +108,8 @@
     let changed=false;
     Object.entries(s?.abandonFlags||{}).forEach(([id,prior])=>{
       const now=state.notStudied?.[id];if(now?.on===true||!prior||prior.on!==true)return;
-      const stamp=Math.max(Date.now(),Number(now?.updatedAt||0)+1);
-      state.notStudied=state.notStudied||{};state.notStudied[id]={...prior,updatedAt:stamp};changed=true;
+      const stamp=Math.max(Date.now(),Number(now?.updatedAt||state.notStudiedCleared?.[id]||0)+1);
+      state.notStudied=state.notStudied||{};state.notStudied[id]={...prior,updatedAt:stamp};if(state.notStudiedCleared)delete state.notStudiedCleared[id];changed=true;
     });
     return changed;
   }

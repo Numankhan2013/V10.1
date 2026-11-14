@@ -224,6 +224,8 @@
     // One document per question per device; removed highlights stay as tombstones so the merge can honour them.
     Object.entries(state.questionHighlights||{}).forEach(([qid,entry])=>{const items=Object.values(entry?.items||{}).filter(item=>item&&item.id).sort((a,b)=>String(a.id).localeCompare(String(b.id)));if(items.length)nkQueueEnvelope(nkEnvelope('highlights',qid,{items},Math.max(0,...items.map(item=>Number(item.updatedAt)||0))));});
     // Not-studied flags travel per question; a cleared flag is a tombstone so the merge can honour it.
+    // Tombstones already synced move out of the walk (not_studied_flags.js keeps their time for the merge).
+    if(typeof nkNsPruneSynced==='function')nkNsPruneSynced(nkSyncMeta);
     if(typeof nkNsClean==='function')Object.entries(state.notStudied||{}).forEach(([qid,entry])=>{const item=nkNsClean(entry);if(item)nkQueueEnvelope(nkEnvelope('notStudied',qid,item,item.updatedAt));});
     if(typeof nkAbClean==='function')(state.abandonedSessions||[]).forEach(raw=>{const entry=nkAbClean(raw);if(entry)nkQueueEnvelope(nkEnvelope('abandoned',entry.sessionId,entry,entry.updatedAt));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});

@@ -33,10 +33,32 @@
   function nkNsEntry(qid){return state.notStudied?.[String(qid)]||null;}
   function nkNsIsFlagged(qid){return nkNsEntry(qid)?.on===true;}
   function nkNsStamp(prev){return Math.max(Date.now(),Number(prev?.updatedAt||0)+1);}
+  // A cleared flag that has synced leaves state.notStudied (so sync capture stops
+  // walking it) and keeps only its time here, local only: the merge still refuses
+  // anything not newer, exactly as the tombstone did.
+  function nkNsClearedMap(){if(!state.notStudiedCleared||typeof state.notStudiedCleared!=='object'||Array.isArray(state.notStudiedCleared))state.notStudiedCleared={};return state.notStudiedCleared;}
+  function nkNsKnown(qid){
+    const id=String(qid),entry=nkNsClean(state.notStudied?.[id]);if(entry)return entry;
+    const at=Math.trunc(Number(state.notStudiedCleared?.[id])||0);return at>0?{on:false,updatedAt:at}:null;
+  }
   function nkNsSet(qid,on,session){
-    const map=nkNsMap(),id=String(qid),prev=map[id];if(Boolean(prev?.on)===Boolean(on))return false;
+    const map=nkNsMap(),id=String(qid),prev=map[id]||nkNsKnown(id);if(Boolean(prev?.on)===Boolean(on))return false;
     const at=nkNsStamp(prev);
-    map[id]=on?{on:true,at,updatedAt:at,...(session&&NK_NS_SESSION_ID.test(String(session))?{session:String(session)}:{})}:{on:false,updatedAt:at};return true;
+    map[id]=on?{on:true,at,updatedAt:at,...(session&&NK_NS_SESSION_ID.test(String(session))?{session:String(session)}:{})}:{on:false,updatedAt:at};
+    if(state.notStudiedCleared)delete state.notStudiedCleared[id];return true;
+  }
+  // Called by cross_device_sync.js before each capture: a tombstone whose exact
+  // payload this device already holds as synced (hash recorded, nothing waiting in
+  // the outbox) moves to the compact cleared map.
+  function nkNsPruneSynced(meta){
+    if(!meta||typeof nkHash!=='function'||!state.notStudied)return 0;let pruned=0;
+    Object.entries(state.notStudied).forEach(([id,raw])=>{
+      const item=nkNsClean(raw);if(!item||item.on)return;
+      const key=`notStudied/${id}`;
+      if(meta.outbox?.[key]||meta.localHashes?.[key]!==nkHash({deleted:false,payload:JSON.stringify(item)}))return;
+      nkNsClearedMap()[id]=item.updatedAt;delete state.notStudied[id];pruned++;
+    });
+    return pruned;
   }
   function nkNsFlaggedIds(ids){return (ids||[]).map(String).filter(nkNsIsFlagged);}
   function nkNsNewer(a,b){
@@ -64,15 +86,15 @@
   // The card as it would be with the hidden answers counted.
   function nkNsFullReview(qid){
     const id=String(qid),held=nkNsHeldMap()[id];
-    if(held&&held.sig===nkNsSignature(id))return nkNsClone(held.review);
+    if(held&&held.sig===nkNsSignature(id)&&(held.review||!nkNsAllActive(id).length))return nkNsClone(held.review);
     const visible=nkNsClone(state.reviews[id]);nkNsBypass=true;
     try{nkNsReplay(id);return nkNsClone(state.reviews[id]);}finally{nkNsBypass=false;nkNsSetReview(id,visible);}
   }
   function nkNsMergeEntry(qid,incoming){
     const item=nkNsClean(incoming),id=String(qid||'');if(!item||!id)return false;
-    const map=nkNsMap(),local=nkNsClean(map[id]);
+    const map=nkNsMap(),local=nkNsKnown(id);
     if(!nkNsNewer(item,local))return false;
-    const before=nkNsHiddenSession(id);map[id]=item;
+    const before=nkNsHiddenSession(id);map[id]=item;if(state.notStudiedCleared)delete state.notStudiedCleared[id];
     if(before!==nkNsHiddenSession(id)&&nkNsAllActive(id).some(a=>a?.sessionId))nkNsReplay(id);
     return true;
   }
@@ -110,7 +132,9 @@
   // Unflag in the same session: exactly what was put aside comes back.
   function nkNsRelease(s,qid){
     const id=String(qid),map=nkNsHeldMap(),held=map[id];delete map[id];
-    if(held&&String(held.session)===String(s.id)&&held.sig===nkNsSignature(id))nkNsSetReview(id,held.review);
+    // A missing card cache (review null while answers exist) is rebuilt from the
+    // answers, never written back as "no card".
+    if(held&&String(held.session)===String(s.id)&&held.sig===nkNsSignature(id)&&(held.review||!nkFsrsActiveAttempts(id).length))nkNsSetReview(id,held.review);
     else nkNsReplay(id);
   }
   function nkNsIcon(size=20){return `<svg class="nk-ns-icon" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 21V3.5"/><path class="nk-ns-flag" d="M5.5 4h11.2l-2.4 4.2 2.4 4.3H5.5"/></svg>`;}
@@ -124,10 +148,19 @@
     const on=nkNsIsFlagged(qid);button.classList.toggle('is-on',on);button.setAttribute('aria-pressed',String(on));
     button.setAttribute('aria-label',on?'Not studied yet (flagged). Tap to remove the flag':'Flag as not studied yet');button.title=on?'Flagged: not studied yet':'Not studied yet';
   }
+  // Time is up (per-question timer spent or expired, or the test clock ran out):
+  // flagging then would only lift the score, so it is refused. Unflagging stays.
+  function nkNsTimeUp(s,id){
+    if(s?.mode!=='exam')return false;
+    if(s.strictExpired?.[id])return true;
+    if(s.timerMode==='per-question'&&typeof nkStrictSpent==='function'&&nkStrictSpent(s,id)>=60000)return true;
+    return typeof nkTimedSessionExpired==='function'&&nkTimedSessionExpired(s);
+  }
   function nkToggleNotStudied(questionId,sessionId){
     const s=state.activeSession,id=String(questionId||'');
     if(!s||!['practice','exam'].includes(s.mode)||String(s.id)!==String(sessionId)||String(s.questionIds?.[s.index])!==id)return false;
     const on=!nkNsIsFlagged(id);
+    if(on&&nkNsTimeUp(s,id)){showToast('Time is up for this question, so it can’t be flagged.','bad');return false;}
     const apply=()=>{
       if(on){
         if(s.mode==='practice')nkNsHold(s,id);
@@ -170,23 +203,28 @@
   nkFsrsRatingMarkup=function(qid){return nkNsIsFlagged(qid)?'':nkNsOriginalRatingMarkup.apply(this,arguments);};
   const nkNsOriginalRate=nkRateCurrent;
   nkRateCurrent=function(rating,questionId){const s=state.activeSession,id=String(questionId??s?.questionIds?.[s?.index]??'');return id&&nkNsIsFlagged(id)?false:nkNsOriginalRate.apply(this,arguments);};
+  // Clearing an earlier flag writes undo events, drops what was kept aside and
+  // writes the tombstone before the guarded submit runs; if the submit is refused
+  // (invalid option, already submitted, save failed) all three are put back.
   const nkNsOriginalSubmitPractice=submitPractice;
   submitPractice=function(){
     const s=state.activeSession,id=String(s?.questionIds?.[s?.index]??'');
     const live=Boolean(s?.mode==='practice'&&id&&!s.submitted?.[id]&&s.answers?.[id]);
-    const prior=live&&nkNsPredates(s,id)?nkNsClone(nkNsEntry(id)):null,cleared=Boolean(prior&&nkNsClearEarlier(id));
+    const prior=live&&nkNsPredates(s,id)?{flag:nkNsClone(nkNsEntry(id)),attempts:Array.isArray(state.attempts?.[id])?nkNsClone(state.attempts[id]):undefined,held:Object.prototype.hasOwnProperty.call(nkNsHeldMap(),id)?nkNsClone(nkNsHeldMap()[id]):undefined}:null;
+    const cleared=Boolean(prior&&nkNsClearEarlier(id));
     const result=nkNsOriginalSubmitPractice.apply(this,arguments);
     const after=state.activeSession;
-    if(cleared&&!(after?.submitted?.[id])){nkNsMap()[id]=prior;return result;}
+    if(cleared&&!(after?.submitted?.[id])){
+      nkNsMap()[id]=prior.flag;
+      if(prior.attempts===undefined){if(state.attempts)delete state.attempts[id];}else state.attempts[id]=prior.attempts;
+      if(prior.held===undefined)delete nkNsHeldMap()[id];else nkNsHeldMap()[id]=prior.held;
+      return result;
+    }
     if(cleared){saveState();nkNsPatchButton(id);}
     return result;
   };
-  const nkNsOriginalSelectExam=selectExam;
-  selectExam=function(){
-    const result=nkNsOriginalSelectExam.apply(this,arguments),s=state.activeSession,id=String(s?.questionIds?.[s?.index]??'');
-    if(s?.mode==='exam'&&id&&s.answers?.[id]&&nkNsPredates(s,id)&&nkNsClearEarlier(id)){saveState();nkNsPatchButton(id);}
-    return result;
-  };
+  // Timed-test answers are provisional until submit, so choosing an option never
+  // clears an earlier flag; the record wrapper above clears it at submission.
   // Flagged questions never become submitted-as-skipped FSRS cards.
   const nkNsOriginalMarkSkipped=nkMarkSkippedFromSession;
   nkMarkSkippedFromSession=function(s){
@@ -196,18 +234,61 @@
     ids.forEach(id=>{if(!state.fsrsReviewEligible)return;if(prior[id]===undefined)delete state.fsrsReviewEligible[id];else state.fsrsReviewEligible[id]=prior[id];});
     return result;
   };
+  // A flagged question with no visible answer is not in Today's Review, its counts
+  // or forecast, even if an earlier session left a skip mark. The mark itself is
+  // kept, so unflagging puts the question back exactly as it was. A flagged
+  // question with earlier answers keeps its card and stays due (R4).
+  if(typeof nkFsrsEligibility==='function'){
+    const nkNsOriginalEligibility=nkFsrsEligibility;
+    nkFsrsEligibility=function(q){
+      const id=String(q?.id||'');
+      if(id&&nkNsIsFlagged(id)&&!nkFsrsActiveAttempts(id).length)return '';
+      return nkNsOriginalEligibility.apply(this,arguments);
+    };
+  }
 
   // A just-saved result drops its flagged questions, so every analysis that reads
   // saved tests (score, accuracy, timing, CBT/topic analysis, Insights) skips them.
   // notStudiedIds marks a result as handled; older results are never rewritten.
-  function nkNsSanitizeTest(t){
+  // It runs when the result is created (the first save of the ending session),
+  // so no unclean copy is ever saved or queued for sync.
+  function nkNsTestSession(t){
+    if(t?.sessionId!=null&&String(t.sessionId))return String(t.sessionId);
+    const m=/^(?:exam|practice)_(.+)$/.exec(String(t?.id||''));return m?m[1]:'';
+  }
+  function nkNsFromSession(id,sid){return Boolean(sid)&&nkNsAllActive(id).some(a=>String(a?.sessionId||'')===sid);}
+  // This session's answers to it were withdrawn by a later session's flag clearing (R3).
+  function nkNsWithdrawn(id,sid){
+    if(!sid)return false;const list=Array.isArray(state.attempts?.[id])?state.attempts[id]:[];
+    const undone=new Set(list.filter(a=>a?.isUndo&&a.reason==='not-studied'&&a.undoOf).map(a=>String(a.undoOf)));
+    return list.some(a=>a&&!a.isUndo&&String(a.sessionId||'')===sid&&undone.has(String(a.id)))&&!nkNsFromSession(id,sid);
+  }
+  // Left out of this result: flagged by this session, or flagged elsewhere with no
+  // counted answer from this session; or answered here and withdrawn later.
+  function nkNsDropFromResult(id,sid){
+    const e=nkNsEntry(id);
+    if(e?.on===true)return !sid||String(e.session||'')===sid||!nkNsFromSession(id,sid);
+    return nkNsWithdrawn(id,sid);
+  }
+  const NK_NS_SHELL_KEYS=['id','title','kind','sessionId','createdAt','autoSubmitted','originRoute','scheduledMockId','makeupFor'];
+  function nkNsSanitizeTest(t,session){
     if(!t||!Array.isArray(t.questionIds)||Array.isArray(t.notStudiedIds))return false;
-    const flagged=new Set(nkNsFlaggedIds(t.questionIds));t.notStudiedIds=[...flagged];
+    const sid=String(session?.id||nkNsTestSession(t)||'');
+    const flagged=new Set(t.questionIds.map(String).filter(id=>nkNsDropFromResult(id,sid)));t.notStudiedIds=[...flagged];
     if(!flagged.size)return true;
     // The full order is kept so result grids and Review Solutions can show the
     // flagged questions in place, marked "Not studied" and outside the score.
     t.allQuestionIds=t.questionIds.map(String);t.updatedAt=Math.max(Date.now(),Number(t.createdAt||0)+1);
     const keep=id=>!flagged.has(String(id));
+    if(!t.questionIds.some(keep)){
+      // Every question flagged: no result, but a hidden shell stays (never deleted),
+      // so a copy queued earlier can never come back through sync (the shell is
+      // newer and wins) and a scheduled mock or make-up still reads as taken.
+      const shell={},all=t.allQuestionIds,updatedAt=t.updatedAt;NK_NS_SHELL_KEYS.forEach(key=>{if(t[key]!==undefined)shell[key]=t[key];});
+      Object.keys(t).forEach(key=>delete t[key]);
+      Object.assign(t,shell,{noResult:true,notStudiedIds:[...flagged],allQuestionIds:all,questionIds:[],answers:{},questionTimes:{},correct:0,incorrect:0,attempted:0,unattempted:0,total:0,totalTimeMs:0,updatedAt});
+      return true;
+    }
     t.questionIds=t.questionIds.filter(keep);
     ['answers','questionTimes','markedForReview','expired'].forEach(key=>{if(t[key]&&typeof t[key]==='object')t[key]=Object.fromEntries(Object.entries(t[key]).filter(([id])=>keep(id)));});
     let correct=0,incorrect=0,attempted=0;
@@ -215,6 +296,22 @@
     Object.assign(t,{correct,incorrect,attempted,total:t.questionIds.length,unattempted:Math.max(0,t.questionIds.length-attempted)});
     if(t.kind==='practice'||t.timerMode==='per-question')t.totalTimeMs=Object.values(t.questionTimes||{}).reduce((sum,v)=>sum+Number(v||0),0);
     return true;
+  }
+  function nkNsFresh(t){return Boolean(t)&&!Array.isArray(t.notStudiedIds)&&Date.now()-Number(t.createdAt||0)<NK_NS_RESULT_WINDOW;}
+  // The session being submitted or finished; its result is cleaned on its first save.
+  let nkNsEnding=null;
+  function nkNsCleanEnding(){
+    const s=nkNsEnding,sid=String(s?.id||'');if(!sid||!Array.isArray(state.tests))return false;
+    let changed=false;
+    state.tests.forEach(t=>{if(nkNsFresh(t)&&(String(t.sessionId||'')===sid||String(t.id)===`exam_${sid}`||String(t.id)===`practice_${sid}`)&&nkNsSanitizeTest(t,s))changed=true;});
+    return changed;
+  }
+  function nkNsEndingCall(session,fn,self,args){const prev=nkNsEnding;nkNsEnding=session||prev;try{return fn.apply(self,args);}finally{nkNsEnding=prev;}}
+  const nkNsOriginalSave=saveState;
+  saveState=function(){if(nkNsEnding)nkNsCleanEnding();return nkNsOriginalSave.apply(this,arguments);};
+  if(typeof submitExam==='function'){
+    const nkNsOriginalSubmitExam=submitExam;
+    submitExam=function(){const s=state.activeSession;return nkNsEndingCall(s?.mode==='exam'?s:null,nkNsOriginalSubmitExam,this,arguments);};
   }
   // Practice ends: answers still hidden by a flag from this session are withdrawn
   // for good (undo events), so app versions that predate the flag never count them
@@ -232,23 +329,61 @@
     });
     return changed;
   }
+  // What was kept aside for an unflag only matters while its session can still
+  // run here (the live session or a paused/active checkpoint); drop the rest.
+  function nkNsPruneHeld(){
+    const held=nkNsHeldMap(),ids=Object.keys(held);if(!ids.length||typeof nkPracticeCheckpoints!=='function')return false;
+    const live=new Set(nkPracticeCheckpoints(false).map(cp=>String(cp.sessionId)));
+    const s=state.activeSession;if(s?.id&&!(typeof nkPracticeTerminal==='function'&&nkPracticeTerminal(s)))live.add(String(s.id));
+    let changed=false;ids.forEach(id=>{if(!live.has(String(held[id]?.session||''))){delete held[id];changed=true;}});
+    return changed;
+  }
+  // Settles only once the finish really ended the session: a failed save restores
+  // the state (a copy of the session, same id), so the session is compared by id.
   const nkNsOriginalFinishPractice=finishPracticeSession;
   finishPracticeSession=function(){
-    const s=state.activeSession,result=nkNsOriginalFinishPractice.apply(this,arguments);
-    if(s?.mode==='practice'&&state.activeSession!==s&&nkNsSettleSession(s))saveState();
+    const s=state.activeSession,result=nkNsEndingCall(s?.mode==='practice'?s:null,nkNsOriginalFinishPractice,this,arguments);
+    if(s?.mode==='practice'&&result!==false&&String(state.activeSession?.id??'')!==String(s.id)){
+      const settled=nkNsSettleSession(s),pruned=nkNsPruneHeld();if(settled||pruned)saveState();
+    }
     return result;
   };
+  // Discarding a paused Practice settles it like a finish: its hidden answers are
+  // withdrawn for good and nothing stays kept aside.
+  if(typeof nkDiscardNormalPractice==='function'){
+    const nkNsOriginalDiscard=nkDiscardNormalPractice;
+    nkDiscardNormalPractice=function(){
+      const open=typeof nkPracticeCheckpoints==='function'?nkPracticeCheckpoints(false):[],result=nkNsOriginalDiscard.apply(this,arguments);
+      if(result===false||typeof nkPracticeFindCheckpoint!=='function')return result;
+      let changed=false;
+      open.forEach(cp=>{if(String(nkPracticeFindCheckpoint(cp.sessionId)?.lifecycle||'')==='discarded'&&nkNsSettleSession({id:String(cp.sessionId),sessionQuestionIds:cp.sessionQuestionIds||[]}))changed=true;});
+      if(nkNsPruneHeld())changed=true;
+      if(changed)saveState();
+      return result;
+    };
+  }
+  // A Practice that cannot be paused (Today's Review, wrong answers, bookmarks) is
+  // abandoned when another session replaces it: settle it the same way.
+  if(typeof startSession==='function'){
+    const nkNsOriginalStartSession=startSession;
+    startSession=function(){
+      const prev=state.activeSession,result=nkNsOriginalStartSession.apply(this,arguments),now=state.activeSession;
+      const abandoned=result!==false&&prev?.mode==='practice'&&!prev.studyModuleId&&now!==prev&&String(now?.id??'')!==String(prev.id)&&
+        typeof nkPracticeResumeEligible==='function'&&!nkPracticeResumeEligible(prev)&&!(typeof nkPracticeTerminal==='function'&&nkPracticeTerminal(prev));
+      if(abandoned){const settled=nkNsSettleSession(prev),pruned=nkNsPruneHeld();if(settled||pruned)saveState();}
+      return result;
+    };
+  }
+  // Opening a result: one that is still unclean is cleaned now (paths that save a
+  // result outside submit/finish); a hidden shell has nothing to show.
   const nkNsOriginalNavigate=navigate;
   navigate=function(page,id){
     if(page==='result'&&id!=null){
       const tests=Array.isArray(state.tests)?state.tests:[],t=tests.find(x=>String(x.id)===String(id));
-      if(t&&!Array.isArray(t.notStudiedIds)&&Date.now()-Number(t.createdAt||0)<NK_NS_RESULT_WINDOW&&nkNsSanitizeTest(t)){
-        if(!t.questionIds.length){
-          state.tests=tests.filter(x=>x!==t);saveState();
-          showToast('Every question was flagged as not studied, so no result was saved.');
-          return nkNsOriginalNavigate.call(this,t.originRoute||(t.kind==='practice'?'topics':'tests'));
-        }
-        saveState();
+      if(nkNsFresh(t)&&nkNsSanitizeTest(t))saveState();
+      if(t?.noResult){
+        showToast('Every question was flagged as not studied, so no result was saved.');
+        return nkNsOriginalNavigate.call(this,t.originRoute||(t.kind==='practice'?'topics':'tests'));
       }
     }
     return nkNsOriginalNavigate.apply(this,arguments);
@@ -328,13 +463,18 @@
       let out=nkNsOriginalStrip.call(this,{...t,questionIds:order});
       out=out.replace(/<button type="button" class="is-[a-z]+"( style="[^"]*") aria-label="Question (\d+): [^"]*"/g,(all,style,n)=>flagged.has(order[Number(n)-1])?`<button type="button" class="is-ns"${style} aria-label="Question ${n}: Not studied, not scored"`:all);
       out=out.replace(/(<button type="button" class="is-ns"[^>]*>)(<\/button>)/g,`$1${nkNsIcon(10)}$2`);
-      return out.replace(/(<div class="nk-rs-strip[^"]*">[\s\S]*<\/div>)(<\/section>)$/,`$1<p class="nk-rs-ns-note">${nkNsIcon(12)}<span>${fmtNum(flagged.size)} not studied · left out of the score</span></p>$2`);
+      // A timed test or mock also shows the score with them counted, so leaving
+      // questions out never hides what the raw score was.
+      const raw=t.kind!=='practice'&&order.length?` · ${Math.round(Number(t.correct||0)/order.length*100)}% counting them`:'';
+      return out.replace(/(<div class="nk-rs-strip[^"]*">[\s\S]*<\/div>)(<\/section>)$/,`$1<p class="nk-rs-ns-note">${nkNsIcon(12)}<span>${fmtNum(flagged.size)} not studied · left out of the score${raw}</span></p>$2`);
     };
   }
   if(typeof resultPage==='function'){
     const nkNsOriginalResultPage=resultPage;
     resultPage=function(testId){
-      const out=nkNsOriginalResultPage.apply(this,arguments),t=(state.tests||[]).find(x=>String(x.id)===String(testId)),order=nkNsResultOrder(t);
+      const t=(state.tests||[]).find(x=>String(x.id)===String(testId));
+      if(t?.noResult&&typeof testsPage==='function')return testsPage();
+      const out=nkNsOriginalResultPage.apply(this,arguments),order=nkNsResultOrder(t);
       if(!order)return out;
       const flagged=new Set(t.notStudiedIds.map(String));
       const rows=order.map((id,i)=>{

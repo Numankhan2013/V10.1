@@ -37,7 +37,7 @@
       histories.set(qid,rows);
     });
     events.sort((a,b)=>a.at-b.at||a.key.localeCompare(b.key));
-    const tests=[...new Map((state.tests||[]).filter(t=>t&&!t.isDeleted&&Number(t.createdAt)>0).map(t=>[String(t.id),t])).values()].sort((a,b)=>Number(a.createdAt)-Number(b.createdAt));
+    const tests=[...new Map((state.tests||[]).filter(t=>t&&!t.isDeleted&&!t.noResult&&Number(t.createdAt)>0).map(t=>[String(t.id),t])).values()].sort((a,b)=>Number(a.createdAt)-Number(b.createdAt));
     const timeEvents=[],skips=[],matched=new Set();
     // A saved session replaces its own answer timing, never adds a second copy.
     // Old results predate session IDs: match one latest retrieval per answered ID.

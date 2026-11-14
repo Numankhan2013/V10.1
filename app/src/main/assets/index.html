@@ -1091,7 +1091,7 @@ function dashboard(){
 
   function testsPage(){
     nkTestSetup.mode='exam';
-    const recent=(state.tests||[]).filter(t=>t.kind!=='practice').slice().sort((a,b)=>Number(b.createdAt||0)-Number(a.createdAt||0));
+    const recent=(state.tests||[]).filter(t=>t.kind!=='practice'&&!t.noResult).slice().sort((a,b)=>Number(b.createdAt||0)-Number(a.createdAt||0));
     const wrong=nkConfiguredQueueIds('wrong').length,bookmarks=nkConfiguredQueueIds('bookmarks').length;
     const pct=t=>t.total?Math.round(Number(t.correct||0)/Number(t.total)*100):0;
     // Saved mocks: a shelf of the newest five; "See all" turns it into a searchable list.

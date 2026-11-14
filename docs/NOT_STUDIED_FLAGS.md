@@ -1,6 +1,7 @@
 # "Not studied yet" flag
 
-Owner request, 2026-11-12; hardened 2026-11-13. Module
+Owner request, 2026-11-12; hardened 2026-11-13; bug-report fixes 2026-11-14
+(branch `fix/not-studied-flag-bugs`, see "Fixes 2026-11-14" below). Module
 `app/src/main/modules/not_studied_flags.js` (`NK_NOT_STUDIED_V1`), styles
 `/* ── nk-not-studied-v1 ── */` in `app.css`, just before the visual refinement
 layer (which must stay last).
@@ -38,7 +39,10 @@ review, no pending rating commits into a visible card, no accuracy, test or
 topic stats, Insights, coverage, weak areas, streak day, attempt count or
 Today plan entry. Every one of these reads `nkFsrsActiveAttempts`; the module
 wraps it so a flag set in session S hides S's attempts (the flag stores
-`session: S`). A flagged question is never submitted-as-skipped.
+`session: S`). A flagged question is never submitted-as-skipped, and a flagged
+question with no visible answer is not eligible for Today's Review, its counts
+or forecast even if an earlier session left a skip mark (the mark is kept, so
+unflagging restores it).
 
 **R2 — Flag/unflag in the same session is a no-op.** Unflagging in the
 session that set the flag gives back exactly what was there: the same
@@ -54,8 +58,8 @@ on commits the default Good like any unrated answer.
 **R3 — Flags from elsewhere clear on answering.** A flag set outside the
 current session (an earlier session, another device's session, or a legacy
 flag without a session that predates this session's start) clears the moment
-the question is answered (Practice: submit; timed test: choosing an option and
-at submission). The answers that flag withheld are withdrawn for good with
+the question is answered (Practice: submit; timed test: at submission only,
+because timed answers are provisional until then). The answers that flag withheld are withdrawn for good with
 FSRS undo events (`isUndo`, `reason:'not-studied'`) — the visible card does
 not change — and the new answer counts once, normally. Unflagging such a flag
 by hand does the same.
@@ -65,10 +69,13 @@ from earlier sessions keeps that card and its history exactly as it was before
 this session; only this session's answers are withheld (in a due-review
 session the question stays due).
 
-**R5 — Ending a session settles it.** When a Practice session is submitted,
-answers still hidden by its flags get undo events (so app versions that predate
-the flag never count them either) and what was kept aside is dropped. Timed
-tests never record a flagged question's answer at all.
+**R5 — Ending a session settles it.** When a Practice session is submitted
+(and the submission actually saved), discarded from Paused Practice, or
+abandoned (a Practice that cannot be paused, such as Today's Review, replaced by
+a new session), answers still hidden by its flags get undo events (so app
+versions that predate the flag never count them either) and what was kept aside
+is dropped. Kept-aside entries whose session is neither live nor paused are
+pruned. Timed tests never record a flagged question's answer at all.
 
 **R6 — Results.** A result saved now drops the flagged questions from
 `questionIds`, `answers`, `questionTimes`, `markedForReview`, `expired` and
@@ -76,9 +83,24 @@ recomputes correct/incorrect/attempted/unattempted/total (and practice time),
 so score, accuracy, test stats, CBT/topic analysis and mock insights skip them.
 It keeps `notStudiedIds` (also the "already handled" marker),
 `allQuestionIds` (full order, for the grids and Review Solutions) and a newer
-`updatedAt` so the cleaned copy wins sync. Results older than 10 minutes or
-already marked are never rewritten. A session whose every question is flagged
-saves no result and returns to its origin page.
+`updatedAt` so the cleaned copy wins sync. Cleaning happens when the result is
+created (the first save of the submitting/finishing session), so no unclean
+copy is ever saved or queued for sync; opening a result still cleans one saved
+by another path. A question is left out when its flag belongs to this session,
+or when it is flagged elsewhere and this session has no counted answer to it, or
+when this session's answer was later withdrawn (undo `reason:'not-studied'`).
+Results older than 10 minutes or already marked are never rewritten. A session
+whose every question is flagged keeps no result: the record becomes a hidden
+shell (`noResult:true`, `questionIds:[]`, zero counts, `notStudiedIds`,
+`allQuestionIds`, newer `updatedAt`, plus `scheduledMockId`/`makeupFor`) that is
+never deleted, so no older copy can come back through sync and a scheduled mock
+or make-up still reads as taken; the Tests list, Insights and the mock ticket
+skip it, and opening it returns to its origin page. A timed result with flagged
+questions also shows "N% counting them" beside "left out of the score".
+
+**R8 — Time is up.** In a timed test a question whose per-question time is
+spent, or any question once the test clock has run out, cannot be flagged
+(unflagging is still allowed).
 
 **R7 — Pause/resume.** Flags, hidden answers and what was kept aside survive
 Pause, reload and Continue Practice; the resume checkpoint is the normal one.
@@ -94,7 +116,10 @@ tombstone `{on:false, updatedAt}`. `cross_device_sync.js` syncs kind
 `notStudied`, one document per question per device
 (`users/{uid}/notStudied/{device}--{qid}`, owner-only rule), merged per
 question: newest `updatedAt` wins, a tie resolves to cleared, an unsafe
-session id is dropped. A flag arriving from another device hides that
+session id is dropped. A tombstone that has synced (its payload hash recorded,
+nothing in the outbox) moves out of `state.notStudied` into the local-only
+`state.notStudiedCleared[qid] = updatedAt`, which the merge and new flags still
+honour, so sync capture no longer walks it. A flag arriving from another device hides that
 session's answers there too, and an unflag shows them again (the card is
 replayed when the hiding changes). `state.notStudiedHeld` stays local.
 Account reset tombstones the kind like every other synced kind.
@@ -131,12 +156,22 @@ resume checkpoints and the sync payloads of attempts, flags and results.
 23. Timed test: flag answered + unanswered, submit: nothing recorded, no skip card, counts recomputed.
 24. Timed test: flag→unflag = never flagged.
 25. Timed test: change answer after flagging: excluded.
-26. Timed test: earlier flag clears on answering; changed answer counts once.
+26. Timed test: earlier flag clears at submission; changed answer counts once.
 27. Timed test: earlier card untouched by a flagged answer.
 28. Timed test: all flagged saves no result.
 29. Result grid / Every answer / Review Solutions show flagged questions in place as Not studied.
 30. Older results never rewritten; cleaned result is newer.
 31. Topic list badge, topic grid, Practice flagged, header button rules.
+Fixes 2026-11-14 (one case each): all-flagged result is a shell from its
+first save (timed and Practice, mock/make-up link kept) and a partly flagged
+result is clean at its first save; a failed finish does not settle; flagged
+skip-marked question leaves Today's Review; no flag after time is up, raw
+score line; a remotely synced flag keeps this session's counted answer; a
+resumed session leaves out an answer a later session withdrew; discard and
+abandon settle, stale kept-aside entries pruned; timed option choice keeps an
+earlier flag until submit; a refused submit restores undo events, kept-aside
+card and flag; unflag rebuilds a missing card cache. Sync: synced tombstones
+pruned to `notStudiedCleared` with merge unchanged; the shell beats a stale copy.
 Sync: one envelope per question, session travels, nothing kept aside is
 uploaded, tombstone payload, merge order and ties, unsafe ids, remote flag
 hides/unhides that session's answers on another device, 20 cross-device
