@@ -77,10 +77,28 @@ def add_voice(page, sheet) -> None:
     add_from_menu(sheet, "Voice")
 
 
+def open_recorder(page, sheet, where: str) -> None:
+    # The add menu fans out with a spring; under a loaded runner a tap can land mid-morph
+    # and miss Voice (as block_menu notes), so retry until the recorder opens. If it never
+    # does, report what the page looked like so a real failure is not hidden.
+    for _ in range(3):
+        add_voice(page, sheet)
+        try:
+            sheet.locator(".nk-nb.is-recorder").wait_for(state="visible", timeout=5000)
+            return
+        except Exception:
+            page.wait_for_timeout(400)
+    raise SystemExit(where + ": the recorder never opened: " + json.dumps(page.evaluate(
+        "() => ({hash: location.hash, guard: history.state && history.state.nkSessionGuard || null,"
+        " session: window.QB.getState().activeSession && window.QB.getState().activeSession.mode || null,"
+        " sheet: document.querySelectorAll('.nk-note-page').length,"
+        " menu: !!document.querySelector('.nk-np-add-menu:not([hidden])'),"
+        " blocks: [...document.querySelectorAll('.nk-note-page .nk-nb')].map(b => b.className)})")))
+
+
 def record_clip(page, sheet, seconds: float, pause: bool = False) -> None:
-    add_voice(page, sheet)
+    open_recorder(page, sheet, "record clip")
     recorder = sheet.locator(".nk-nb.is-recorder")
-    recorder.wait_for(state="visible")
     recorder.get_by_role("button", name="Record", exact=True).click()
     sheet.locator(".nk-nr-stop:not([disabled])").wait_for(state="visible", timeout=10000)
     page.wait_for_function("() => /^0:0[1-9]/.test(document.querySelector('.nk-nr-time')?.textContent||'')", timeout=10000)
