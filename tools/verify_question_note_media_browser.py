@@ -275,9 +275,11 @@ def local_flow(browser, origin: str, screenshot: Path, pdf: Path, output: Path, 
     block_menu(page, sheet, 3, "Delete")
     page.wait_for_function("([id, removed]) => !window.QB.getState().questionNotes[id].blocks.some(b => b.asset?.id === removed)", arg=[QUESTION_ID, removed])
     wait_until(page, lambda: removed not in {m["id"] for m in idb_metas(page)}, 10, "removed image to leave device storage")
-    for _ in range(3):
+    for left in (2, 1, 0):
         block_menu(page, sheet, 0, "Delete")
-    assert sheet.locator(".nk-np-empty").is_visible()
+        # Each delete animates the block out; wait for it before tapping the next block's menu.
+        page.wait_for_function("([id, left]) => (window.QB.getState().questionNotes[id]?.blocks || []).length === left", arg=[QUESTION_ID, left], timeout=10000)
+    sheet.locator(".nk-np-empty").wait_for(state="visible", timeout=10000)
     assert page.evaluate("id => window.QB.getState().questionNotes[id].deleted", QUESTION_ID)
     wait_until(page, lambda: not idb_metas(page), 10, "a deleted signed-out note to remove its images")
     assert not errors, f"Browser errors: {errors!r}"
