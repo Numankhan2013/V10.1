@@ -228,7 +228,22 @@ def blocked_flow(browser, origin: str) -> None:
         page.wait_for_function("window.QB && window.QB.getState")
         open_question(page)
         sheet = open_notes(page)
-        add_voice(page, sheet)
+        # The add menu fans out with a spring; under a loaded runner a tap can land mid-morph
+        # and miss Voice (as block_menu notes), so retry until the recorder opens.
+        for _ in range(3):
+            add_voice(page, sheet)
+            try:
+                sheet.locator(".nk-nb.is-recorder").wait_for(state="visible", timeout=5000)
+                break
+            except Exception:
+                page.wait_for_timeout(400)
+        else:
+            raise SystemExit("blocked flow: the recorder never opened: " + json.dumps(page.evaluate(
+                "() => ({hash: location.hash, guard: history.state && history.state.nkSessionGuard || null,"
+                " session: window.QB.getState().activeSession && window.QB.getState().activeSession.mode || null,"
+                " sheet: document.querySelectorAll('.nk-note-page').length,"
+                " menu: !!document.querySelector('.nk-np-add-menu:not([hidden])'),"
+                " blocks: [...document.querySelectorAll('.nk-note-page .nk-nb')].map(b => b.className)})")))
         record = sheet.locator(".nk-nr-record")
         if record.is_enabled():
             record.click()
