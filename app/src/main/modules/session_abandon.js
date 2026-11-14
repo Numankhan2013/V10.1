@@ -369,11 +369,23 @@
         if(top)history.replaceState({nkSessionGuard:String(s.id)},'',location.href);
         else history.pushState({nkSessionGuard:String(s.id)},'',location.href);
         nkGuardTop=String(s.id);
-      }else if(top&&!(state.activeSession&&String(state.activeSession.id)===top)){
-        // The session ended without leaving its page (e.g. abandoned on another device): drop the guard quietly.
-        nkGuardSilent=true;history.back();
-      }
+      }else if(top&&!(state.activeSession&&String(state.activeSession.id)===top))nkGuardDropLater();
     }catch(_){}
+  }
+  // The session ended without leaving its page (e.g. abandoned on another device): drop
+  // the guard quietly. Checked a tick later, because a page that renders before it sets
+  // its URL (Review Solutions replaces the entry right after rendering) is moving on, and
+  // a guard it replaced is gone already.
+  let nkGuardDropTimer=0;
+  function nkGuardDropLater(){
+    clearTimeout(nkGuardDropTimer);
+    nkGuardDropTimer=setTimeout(()=>{
+      if(nkGuardHeld||nkGuardSilent)return;
+      const top=nkGuardState();if(!top||nkGuardWanted())return;
+      if(state.activeSession&&String(state.activeSession.id)===top)return;
+      if(!['practice','exam'].includes(parseHash().page))return;
+      try{nkGuardSilent=true;history.back();}catch(_){nkGuardSilent=false;}
+    },0);
   }
   // Called first thing by the page's navigate(): hold a navigation off the session page
   // until the guard entry is popped. Returns true when held.

@@ -149,6 +149,7 @@ def back_flow(page, width, theme, shots):
     """System Back (browser / installed PWA) asks to abandon; the guard never doubles Back."""
     page.evaluate("window.QB.nav('tests')")
     page.wait_for_url("**/#tests")
+    before_len = page.evaluate("history.length")
     page.evaluate("window.QB.startAllPractice()")
     page.wait_for_function("window.QB.getState().activeSession?.questionIds.length>5 && history.state?.nkSessionGuard")
     sid = state(page, "s.activeSession.id")
@@ -165,13 +166,19 @@ def back_flow(page, width, theme, shots):
     page.wait_for_timeout(150)
     assert page.evaluate("location.hash") == "#practice" and state(page, "s.activeSession?.id") == sid, "Cancel keeps the session"
     assert page.evaluate("history.state?.nkSessionGuard") == sid, "the guard is back after Cancel"
-    # Submit: the guard goes first, so Back from Results returns to where the session began, once.
+    # Submit: the guard goes first, so Results takes the session's place and one Back leaves it
+    # for the page before the session, never a stale #practice entry.
     page.evaluate("window.QB.openSessionReview()")
     page.locator("#nk-session-review").get_by_role("button", name="Submit", exact=True).click()
     page.wait_for_function("!window.QB.getState().activeSession && location.hash.startsWith('#result/')")
     assert not page.evaluate("history.state?.nkSessionGuard"), "no guard left after Submit"
+    assert page.evaluate("history.length") <= before_len + 2, "Submit added no entry beyond the unguarded app's"
     page.evaluate("history.back()")
-    page.wait_for_function("location.hash==='#tests'")
+    page.wait_for_function("!location.hash.startsWith('#result/')")
+    page.wait_for_timeout(150)
+    assert page.evaluate("location.hash") not in ("#practice", "#exam"), f"Back from Results landed on a stale session entry: {page.evaluate('location.hash')}"
+    page.evaluate("window.QB.nav('tests')")
+    page.wait_for_url("**/#tests")
     # Timed test: Back asks "Abandon this test?"; Abandon leaves nothing.
     page.evaluate("window.QB.openSessionBuilder(null,'exam')")
     page.locator("#modal").get_by_role("button", name="Start Exam", exact=True).click()

@@ -47,7 +47,8 @@ const dom={};
 const document={body:{insertAdjacentHTML(_,html){if(html.includes('id="nk-abandon-confirm"'))dom['nk-abandon-confirm']={html,remove(){delete dom['nk-abandon-confirm'];},addEventListener(){},querySelector(){return {focus(){}};},querySelectorAll(){return [];}};}},
   getElementById:id=>dom[id]||null,querySelector:()=>null,querySelectorAll:()=>[],activeElement:null,contains:()=>false};
 const window={history,location,addEventListener(type,fn){(listeners[type]||(listeners[type]=[])).push(fn);},QBankShell:OPTS.shell||undefined};
-const setTimeout=(fn,ms)=>{timers.push(fn);return timers.length;},clearTimeout=()=>{};
+const setTimeout=(fn,ms)=>{timers.push(fn);return timers.length;},clearTimeout=id=>{if(id)timers[id-1]=()=>{};};
+function tick(){const run=timers.splice(0);run.forEach(fn=>fn());}
 function requestAnimationFrame(){} function resetScrollPosition(){}
 let nkForwardNav=false,nkSessionEntry=null,nkResultBackable=null;
 let route={page:'topics',id:null};
@@ -80,7 +81,8 @@ function back(){history.back();flush();}
 function answer(confirmed){return nkAbandonAnswer(nkAbPending.requestId,confirmed);}
 globalThis.api={get state(){return state;},set state(v){state=v;},entries,get at(){return at;},urls,flush,start,back,answer,navigate,dom,toasts,prompts,
   render:()=>render(),nkSessionBack,setOverlay(v){overlayOpen=v;},get overlaysClosed(){return overlaysClosed;},get pending(){return nkAbPending;},
-  get route(){return route;},timers,dropTasks(){tasks.length=0;}};
+  get route(){return route;},timers,tick,dropTasks(){tasks.length=0;},
+  reviewTest(){state.activeSession={id:'r1',mode:'review',questionIds:['a']};route={page:'review-test',id:'t1'};render();history.replaceState(null,'','#review-test/t1');}};
 '''
 
 TESTS = r'''
@@ -147,7 +149,7 @@ check('two navigations while the guard is popping pop it once; the last one wins
 });
 check('a navigation whose popstate never arrives still runs',()=>{
   const w=world();w.start('practice');w.navigate('dashboard');
-  w.dropTasks();w.timers.forEach(fn=>fn());w.flush();assert.strictEqual(w.route.page,'dashboard');
+  w.dropTasks();w.tick();w.flush();assert.strictEqual(w.route.page,'dashboard');
 });
 check('Back closes an open sheet or viewer first',()=>{
   const w=world();w.start('practice');w.setOverlay(true);w.back();
@@ -164,8 +166,12 @@ check('paused session: no guard, Back is normal',()=>{
   assert.strictEqual(w.nkSessionBack(),'');
 });
 check('a session ended elsewhere drops its guard quietly; one Back then leaves',()=>{
-  const w=world();w.start('practice');w.state.activeSession=null;w.render();w.flush();
+  const w=world();w.start('practice');w.state.activeSession=null;w.render();w.tick();w.flush();
   same(w.urls(),['#topics','#practice']);w.back();same(w.urls(),['#topics']);same(w.prompts,[]);
+});
+check('Review Solutions opened during a session (render, then replaceState) is not undone',()=>{
+  const w=world();w.start('practice');w.reviewTest();w.tick();w.flush();
+  same(w.urls(),['#topics','#practice','#review-test/t1']);assert.strictEqual(w.state.activeSession.mode,'review');assert.strictEqual(w.route.page,'review-test');
 });
 check('Android shell: no guard; nkSessionBack opens the native Abandon dialog',()=>{
   const calls=[];const shell={platform:()=>'android',confirmAction:(...a)=>{calls.push(a);return true;}};
