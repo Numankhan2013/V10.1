@@ -73,13 +73,13 @@
       :status==='open'?`Doors close ${nkSchedWhen(doors,false)} · ${nkSchedIn(doors-now)} to start`
       :status==='live'?`In progress · ends ${nkSchedWhen(closes,false)}`
       :status==='taken'?`Taken ${nkSchedWhen(m.at)}${test?.total?` · ${Math.round(Number(test.correct||0)/Number(test.total)*100)}%`:''}`
-      :makeup?`Missed · scored 0 · made up ${makeup.total?Math.round(Number(makeup.correct||0)/Number(makeup.total)*100):0}%`:`Missed ${nkSchedWhen(m.at)} · scored 0`;
+      :makeup?`Missed · scored 0 · made up${makeup.noResult?' · not studied':` ${makeup.total?Math.round(Number(makeup.correct||0)/Number(makeup.total)*100):0}%`}`:`Missed ${nkSchedWhen(m.at)} · scored 0`;
     const arg=esc(JSON.stringify(String(m.id)));
     const action=status==='open'?`<button type="button" class="nk-sched-go" data-sched-id="${esc(m.id)}" onclick="window.QB.nkSchedStart(this.getAttribute('data-sched-id'))">Start ${navIcon('chevron',16)}</button>`
       :status==='live'?`<button type="button" class="nk-sched-go" onclick="window.QB.nav('exam')">Resume ${navIcon('chevron',16)}</button>`
-      :status==='taken'&&test?`<button type="button" class="nk-sched-link" data-test-id="${esc(test.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
+      :status==='taken'&&test&&!test.noResult?`<button type="button" class="nk-sched-link" data-test-id="${esc(test.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
       :status==='missed'&&!makeup?`<button type="button" class="nk-sched-go is-makeup" onclick="window.QB.nkSchedMakeupStart(${arg})">Make up ${navIcon('chevron',16)}</button>`
-      :status==='missed'&&makeup?`<button type="button" class="nk-sched-link" data-test-id="${esc(makeup.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
+      :status==='missed'&&makeup&&!makeup.noResult?`<button type="button" class="nk-sched-link" data-test-id="${esc(makeup.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
       :status==='upcoming'?`<span class="nk-sched-lock">${navIcon('clock',15)} Locked</span>`:'';
     const saved=typeof nkMockList==='function'&&nkMockList().some(x=>x.questionIds.length===m.questionIds.length&&x.questionIds.every((id,i)=>String(id)===String(m.questionIds[i])));
     const save=place==='tests'&&status!=='live'?`<button type="button" class="nk-sched-save${saved?' is-saved':''}" ${saved?'disabled':''} onclick="window.QB.nkSchedSaveMock(${arg})">${navIcon(saved?'check':'bookmark',13)}${saved?'Saved as mock':'Save as mock'}</button>`:'';

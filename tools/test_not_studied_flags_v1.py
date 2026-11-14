@@ -51,8 +51,9 @@ let state={};
 let route={page:'practice'},routes=[],toasts=[],renders=0,started=null;
 let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"></div></div>',nextQ=()=>{},prevQ=()=>{},goIndex=()=>{},retryCurrent=()=>{},endSession=()=>{},navigate=(page,id)=>{routes.push([page,id]);route={page,id};},recordAttempt=()=>{},qAttempts=()=>[],nkRebuildReviews=()=>{};
 function nkQuestionPresentationFor(){return {valid:true};}
-const saveState=()=>{localStorage.setItem(LS_KEY,JSON.stringify(state));return true;},render=()=>{renders++;},showToast=m=>toasts.push(m),savePracticeElapsed=()=>{},saveExamElapsed=()=>{},haptic=()=>{},closeQuestionNavigator=()=>{},esc=x=>String(x).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'})[c]),shell=x=>x,fmtNum=n=>String(n),navIcon=n=>'<svg data-icon="'+n+'"></svg>';
+let saveState=()=>{localStorage.setItem(LS_KEY,JSON.stringify(state));return true;};const render=()=>{renders++;},showToast=m=>toasts.push(m),savePracticeElapsed=()=>{},saveExamElapsed=()=>{},haptic=()=>{},closeQuestionNavigator=()=>{},esc=x=>String(x).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'})[c]),shell=x=>x,fmtNum=n=>String(n),navIcon=n=>'<svg data-icon="'+n+'"></svg>';
 let startSession=(ids,mode,title)=>{started={ids,mode,title};return true;};
+let testsPage=()=>'<main class="tests-page"></main>';
 function nkCompleteStudyModule(){}
 function nkExamSecondsPer(){return 60;} function nkExamTotalSeconds(s){return s.questionIds.length*60;}
 const openBank=()=>{},openSubjectTopics=()=>{},nkOpenSubjectChapter=()=>{};
@@ -113,6 +114,13 @@ const run=fn=>{reset();fn();return {m:measures(),notStudied:JSON.parse(JSON.stri
 const cleared=(r,qid)=>{assert.strictEqual(r.notStudied[qid]?.on,false,qid+' ends as a tombstone');assert.strictEqual(r.sync.notStudied[qid],JSON.stringify({on:false,updatedAt:r.notStudied[qid].updatedAt}),'the tombstone is what syncs');assert(!r.held[qid],'nothing stays put aside');};
 const results=[];
 function scenario(name,fn){fn();results.push(name);}
+// An all-flagged session keeps no result, only a hidden shell (never a deleted record that sync could bring back).
+function assertShell(t,flagged){
+  assert(t.noResult===true,'the shell is marked noResult');same([t.questionIds,t.answers,t.questionTimes],[[],{},{}],'the shell holds no answers');
+  same([t.correct,t.incorrect,t.attempted,t.unattempted,t.total,t.totalTimeMs],[0,0,0,0,0,0],'the shell counts nothing');
+  same([...t.notStudiedIds].sort(),[...flagged].sort());same([...t.allQuestionIds].sort(),[...flagged].sort());assert(t.updatedAt>t.createdAt,'the shell is newer than any copy saved before cleaning');
+  assert(!('practiceContext' in t)&&!('correctionOf' in t)&&!('marking' in t),'nothing that other screens read is kept');
+}
 
 // ───────── Flag then unflag before answering: as if never flagged ─────────
 scenario('flag→unflag before answering, then skip = normal skip',()=>{
@@ -235,7 +243,7 @@ scenario('unflag an earlier session\'s flag during a later session: counts norma
 });
 scenario('"Practice flagged (N)" session: answers clear their flags and count; unanswered stay flagged',()=>{
   reset();practice('s1',['q1','q2','q3'],0);flag('q1',100);flag('q2',200);flag('q3',300);finish(1000);
-  assert.strictEqual(state.tests.length,0,'all questions flagged: no result saved');assert(toasts.at(-1).includes('no result was saved'));
+  assert.strictEqual(state.tests.length,1,'all questions flagged: only a hidden shell is kept');assertShell(state.tests[0],['q1','q2','q3']);assert(toasts.at(-1).includes('no result was saved'));
   let captured=null;const keep=startSession;startSession=(ids,mode,title)=>{captured={ids,mode,title};return true;};
   nkPracticeNotStudied('c1');startSession=keep;same(captured.ids,['q1','q2','q3']);assert.strictEqual(captured.mode,'practice');assert(/Not studied/.test(captured.title));
   practice('s2',captured.ids,86400000);ans('q1',2,86400000+1000);ans('q2',1,86400000+1100);next('q2',86400000+1200);finish(86400000+2000);
@@ -299,7 +307,7 @@ scenario('timed test: question with an earlier card flagged: card untouched',()=
   assert.strictEqual(JSON.stringify(state.reviews.q1),card);assert.strictEqual(nkFsrsActiveAttempts('q1').length,1);
 });
 scenario('timed test: every question flagged saves no result',()=>{
-  reset();exam('e1',['q6'],0);flag('q6',100);submit(1000);assert.strictEqual(state.tests.length,0);assert.strictEqual(routes.at(-1)[0],'tests');
+  reset();exam('e1',['q6'],0);flag('q6',100);submit(1000);assert.strictEqual(state.tests.length,1);assertShell(state.tests[0],['q6']);assert.strictEqual(routes.at(-1)[0],'tests');
 });
 
 // ───────── Results, analysis grid and Review Solutions ─────────
@@ -341,6 +349,102 @@ scenario('topic list badge, topic grid corner flag, Practice flagged action, hea
   assert(nkSessionHeader({id:'q2'},{id:'s9',mode:'practice'},'practice').includes('nk-ns-toggle is-on" aria-pressed="true"'));
   assert(!nkSessionHeader({id:'q2'},{id:'r',mode:'review'},'review').includes('nk-ns-toggle'),'Review Solutions has no flag');
   practice('s1',['q1','q2'],0);assert.strictEqual(nkToggleNotStudied('q2',S().id),false,'only the current question can be flagged');assert.strictEqual(nkToggleNotStudied('q1','other'),false,'a stale session cannot flag');
+});
+
+// ───────── Fixes (2026-11-14 bug report): one case per fix ─────────
+// Every write of the state, as storage receives it (sync captures after each write).
+function writes(fn){const seen=[],set=localStorage.setItem;localStorage.setItem=(k,v)=>{if(k===LS_KEY)seen.push(JSON.parse(v));return set(k,v);};try{fn();}finally{localStorage.setItem=set;}return seen;}
+scenario('fix 1/12: an all-flagged timed test is a hidden shell from its first save, never deleted; mock and make-up links survive',()=>{
+  reset();let saves=writes(()=>{const s=exam('e1',['q1','q2'],0);s.scheduledMockId='m1';s.marking={correct:4,wrong:-1,blank:0};pick('q1',1,100);flag('q1',200);flag('q2',300);submit(1000);});
+  const id='exam_e1',copies=saves.map(st=>(st.tests||[]).find(t=>t.id===id)).filter(Boolean);
+  assert(copies.length>0,'the result was saved');assert(copies.every(t=>t.noResult===true&&t.questionIds.length===0&&!Object.keys(t.answers).length),'no write ever held the unclean result, so sync never queued one');
+  assert.strictEqual(state.tests.length,1);const shell=state.tests[0];assertShell(shell,['q1','q2']);
+  assert.strictEqual(shell.scheduledMockId,'m1','a scheduled mock still finds its sitting (taken, not missed)');same(shell.allQuestionIds,['q1','q2']);
+  assert.strictEqual(nkFsrsActiveAttempts('q1').length,0,'the flagged answers count nowhere');assert(toasts.at(-1).includes('no result was saved'));assert.strictEqual(routes.at(-1)[0],'tests');
+  routes=[];navigate('result',id);assert.strictEqual(routes.at(-1)[0],'tests','opening the shell later goes back to its origin');
+  assert.strictEqual(resultPage(id),testsPage(),'a direct link to the shell shows the tests page');
+  // A practice make-up / revision finish keeps the same shell.
+  reset();saves=writes(()=>{practice('s1',['q1','q2'],0,{makeupFor:'m2'});ans('q1',2,1000);flag('q1',1100);flag('q2',1200);finish(2000);});
+  assert(saves.map(st=>(st.tests||[]).find(t=>t.id==='practice_s1')).filter(Boolean).every(t=>t.noResult),'Practice: clean from the first write too');
+  assertShell(state.tests[0],['q1','q2']);
+  // A partly flagged result is clean at its first write as well.
+  reset();saves=writes(()=>{exam('e2',['q1','q2','q3'],0);pick('q1',1,100);flag('q2',200);pick('q3',2,300);submit(1000);});
+  assert(saves.map(st=>(st.tests||[]).find(t=>t.id==='exam_e2')).filter(Boolean).every(t=>Array.isArray(t.notStudiedIds)&&!t.questionIds.includes('q2')),'never saved with the flagged question in the score');
+});
+scenario('fix 2: a Practice finish whose save fails does not settle; unflag still restores',()=>{
+  const base=run(()=>{practice('s1',['q1','q2'],0);ans('q1',2,1000);});
+  reset();practice('s1',['q1','q2'],0);ans('q1',2,1000);flag('q1',1100);
+  const set=localStorage.setItem;localStorage.setItem=()=>{throw new Error('quota');};let out;try{out=finish(1500);}finally{localStorage.setItem=set;}
+  assert.strictEqual(out,false,'the finish failed');assert.strictEqual(S().id,'s1','the session is still active (restored copy)');
+  assert(!state.attempts.q1.some(a=>a.isUndo),'no undo event was written');assert(state.notStudiedHeld.q1,'what was kept aside is still there');
+  flag('q1',1600);same(measures(),base.m,'unflag gives the answer back exactly');
+});
+scenario('fix 3: a flagged question with only a skip mark leaves Today\'s Review and its counts; unflag brings it back',()=>{
+  reset();practice('s1',['q1','q2'],0);look('q1',500,30000);ans('q2',1,1000);next('q2',1100);finish(2000);
+  assert.strictEqual(state.fsrsReviewEligible.q1.reason,'skipped');
+  practice('s2',['q1'],86400000);flag('q1',86400000+100);
+  at(86400000*4);assert(!nkFsrsQueue({}).cards.some(q=>q.id==='q1'),'not in Today\'s Review three days later');assert.strictEqual(nkFsrsEligibility(questions[0]),'');
+  const flaggedCounts=nkFsrsCounts();assert.strictEqual(state.fsrsReviewEligible.q1.reason,'skipped','the skip mark itself is kept');
+  flag('q1',86400000*4+100);assert.strictEqual(nkFsrsEligibility(questions[0]),'skipped','unflagged: eligible again');assert(nkFsrsQueue({}).cards.some(q=>q.id==='q1'));assert.strictEqual(nkFsrsCounts().eligible,flaggedCounts.eligible+1);
+  reset();practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);practice('s2',['q1'],86400000*3);flag('q1',86400000*3+100);
+  at(86400000*3+200);assert(nkFsrsQueue({}).due.some(q=>q.id==='q1'),'with earlier answers it keeps its card and stays due');
+});
+scenario('fix 4: no flag once a timed question\'s time is up; the timed result shows the score counting flags',()=>{
+  reset();const s=exam('e1',['q1','q2'],0);s.timerMode='per-question';s.strictExpired={q1:true};
+  assert.strictEqual(flag('q1',100),false,'expired per-question item: refused');assert(!nkNsIsFlagged('q1'));assert(/Time is up/.test(toasts.at(-1)));
+  reset();exam('e2',['q1','q2'],0);flag('q1',100);assert(nkNsIsFlagged('q1'));
+  assert.strictEqual(flag('q2',200000),false,'test clock ran out: refused');assert(!nkNsIsFlagged('q2'));
+  assert.strictEqual(flag('q1',200100),true,'unflagging is still allowed');assert(!nkNsIsFlagged('q1'));
+  reset();exam('e3',['q1','q2','q3','q4'],0);pick('q1',1,100);pick('q2',1,150);flag('q2',200);pick('q3',2,300);submit(1000);
+  const strip=nkResultStrip(state.tests.at(-1));assert(strip.includes('1 not studied · left out of the score · 25% counting them'),'raw score with the flagged question counted');
+  reset();practice('s1',['q1','q2'],0);ans('q1',1,1000);next('q1',1100);flag('q2',1200);finish(2000);assert(!nkResultStrip(state.tests.at(-1)).includes('counting them'),'Practice keeps its line');
+});
+scenario('fix 5: a flag synced from another session keeps an answer this session counted',()=>{
+  const r=run(()=>{practice('s1',['q1','q2','q3'],0);ans('q1',2,1000);nkNsMergeEntry('q1',{on:true,at:500,updatedAt:500,session:'sB'});nkNsMergeEntry('q3',{on:true,at:600,updatedAt:600,session:'sB'});ans('q2',1,1500);next('q2',1600);finish(2000);});
+  const t=r.m.tests.at(-1);same(t.questionIds,['q1','q2'],'q1 stays in the result: its answer counts in FSRS');same(t.notStudiedIds,['q3'],'an unanswered question flagged elsewhere is still left out');
+  assert(t.total===2&&t.incorrect===1&&t.correct===1);assert.strictEqual(nkFsrsActiveAttempts('q1').length,1);assert(r.m.reviews.q1,'its card is there');assert.strictEqual(r.notStudied.q1.on,true);
+});
+scenario('fix 6: a resumed session does not score an answer a later session withdrew',()=>{
+  const r=run(()=>{practice('s1',['q1','q2'],0);ans('q1',2,1000);flag('q1',1100);ans('q2',1,1200);next('q2',1300);pause(1500);
+    exam('t1',['q1','q3'],2000);pick('q1',1,2100);pick('q3',1,2200);submit(3000);
+    resume('s1',4000);finish(5000);});
+  const t=r.m.tests.find(x=>x.id==='practice_s1');same(t.questionIds,['q2'],'q1 is left out of s1');same(t.notStudiedIds,['q1']);same(t.allQuestionIds,['q1','q2']);assert(t.total===1&&t.correct===1);
+  const active=nkFsrsActiveAttempts('q1');assert.strictEqual(active.length,1);assert.strictEqual(active[0].sessionId,'t1','FSRS has only the later answer');
+  same(r.m.tests.find(x=>x.id==='exam_t1').questionIds,['q1','q3'],'the later test counts it normally');
+});
+scenario('fix 7: discarding or abandoning a Practice settles its flagged answers; stale kept-aside entries are pruned',()=>{
+  reset();practice('s1',['q1','q2'],0);ans('q1',2,1000);flag('q1',1100);pause(1500);
+  assert(state.notStudiedHeld.q1);at(2000);nkDiscardNormalPractice('s1');
+  assert(!state.notStudiedHeld.q1,'nothing stays kept aside');const a1=state.attempts.q1.find(a=>!a.isUndo);
+  assert(state.attempts.q1.some(a=>a.isUndo&&a.undoOf===a1.id&&a.reason==='not-studied'),'the hidden answer is withdrawn for good (older versions never count it)');
+  assert.strictEqual(nkFsrsActiveAttempts('q1').length,0);
+  reset();practice('r1',['q1','q2'],0,{context:'spaced-review',originRoute:'fsrs'});ans('q1',2,1000);flag('q1',1100);assert(state.notStudiedHeld.q1);
+  at(2000);startSession(['q3','q4'],'practice','Upper limb');assert.notStrictEqual(S().id,'r1');
+  assert(!state.notStudiedHeld.q1,'abandoned session: nothing kept aside');assert(state.attempts.q1.some(a=>a.isUndo&&a.reason==='not-studied'),'abandoned session settled');
+  reset();state.notStudiedHeld={q5:{session:'gone',review:null,sig:'[]'}};practice('s2',['q1'],0);ans('q1',2,1000);next('q1',1100);finish(2000);
+  assert(!state.notStudiedHeld.q5,'an entry whose session can no longer run is dropped');
+  reset();practice('s3',['q1','q2'],0);ans('q1',2,1000);flag('q1',1100);pause(1500);practice('s4',['q3'],1600);ans('q3',1,1700);next('q3',1800);finish(2000);
+  assert(state.notStudiedHeld.q1,'a paused session keeps its entry');
+});
+scenario('fix 8: choosing an option in a timed test leaves an earlier flag until submit',()=>{
+  const r=run(()=>{practice('s0',['q1'],0);flag('q1',100);state.activeSession=null;exam('e1',['q1','q2'],86400000);pick('q1',2,86400000+100);
+    assert.strictEqual(nkNsIsFlagged('q1'),true,'answers are provisional: the flag is still there');pick('q1',1,86400000+200);submit(86400000+1000);});
+  assert.strictEqual(r.notStudied.q1.on,false,'cleared at submit');assert.strictEqual(nkFsrsActiveAttempts('q1').length,1);same(r.m.tests.at(-1).questionIds,['q1','q2']);
+});
+scenario('fix 9: a refused Practice submit puts back the undo events, the kept-aside card and the flag',()=>{
+  reset();practice('s0',['q1'],0);ans('q1',2,1000);flag('q1',1100);state.activeSession=null;
+  practice('s2',['q1','q2'],86400000);go('q1');S().answers.q1=1;
+  const before=JSON.stringify({attempts:state.attempts.q1,held:state.notStudiedHeld.q1,flag:state.notStudied.q1});
+  const byId=BY_ID,all=nkAllBankQuestions;BY_ID={};nkAllBankQuestions=()=>[];at(86400000+1000);
+  try{submitPractice();}finally{BY_ID=byId;nkAllBankQuestions=all;}
+  assert(!S().submitted.q1,'the submit was refused');same(JSON.parse(before),{attempts:state.attempts.q1,held:state.notStudiedHeld.q1,flag:state.notStudied.q1},'everything is back as it was');
+  ans('q1',1,86400000+2000);assert.strictEqual(state.notStudied.q1.on,false,'a real submit then clears it');assert.strictEqual(state.attempts.q1.filter(a=>a.isUndo).length,1,'the earlier answer is withdrawn once');
+});
+scenario('fix 10: unflag rebuilds a card whose cache was missing instead of deleting it',()=>{
+  const base=run(()=>{practice('s1',['q1','q2'],0);ans('q1',2,1000);});
+  reset();practice('s1',['q1','q2'],0);ans('q1',2,1000);delete state.reviews.q1;flag('q1',1100);assert.strictEqual(state.notStudiedHeld.q1.review,null);
+  flag('q1',1200);assert(state.reviews.q1,'the card is rebuilt from the answers');
+  const strip=r=>{const x=JSON.parse(JSON.stringify(r));delete x.migratedAt;return sortObj(x);};same(strip(state.reviews.q1),strip(base.m.reviews.q1),'the same card the answers build');
 });
 console.log('NOT_STUDIED_SCENARIOS_OK '+results.length);
 results.forEach(name=>console.log('  ok · '+name));
@@ -405,6 +509,27 @@ for(let i=0;i<20;i++)nkApplyCloudEnvelope(doc(i%2?'web':'phone',i%2?{on:true,at:
 assert.strictEqual(state.notStudied.q9.on,true,'the newest of many toggles wins');
 nkSyncMeta.outbox={};nkCaptureCloudChanges();nkSyncMeta.outbox={};nkCaptureCloudChanges();
 assert(!nkSyncMeta.outbox['notStudied/q9'],'merged state settles without repeated uploads');
+// Fix 11: a cleared flag that has synced leaves state.notStudied (and the capture walk); its time still wins the merge.
+nkSyncMeta.outbox={};nkSyncMeta.localHashes={};state={...defaultState(),notStudied:{}};
+nkNsSet('qp',true,'s1');nkCaptureCloudChanges();nkNsSet('qp',false);nkCaptureCloudChanges();
+assert(state.notStudied.qp&&nkSyncMeta.outbox['notStudied/qp'],'a tombstone still waiting to upload stays');
+const clearedAt=state.notStudied.qp.updatedAt;nkCaptureCloudChanges();assert('qp' in state.notStudied,'still waiting: kept');
+nkSyncMeta.outbox={};nkCaptureCloudChanges();
+assert(!('qp' in state.notStudied),'once synced it leaves the walk');assert.strictEqual(state.notStudiedCleared.qp,clearedAt);assert(!nkSyncMeta.outbox['notStudied/qp'],'and is not uploaded again');
+assert(!nkNsMergeEntry('qp',{on:true,at:clearedAt-1,updatedAt:clearedAt-1,session:'s9'})&&!nkNsIsFlagged('qp'),'an older remote flag is still refused');
+assert(!nkNsMergeEntry('qp',{on:true,at:clearedAt,updatedAt:clearedAt})&&!nkNsIsFlagged('qp'),'a tie still resolves to cleared');
+nkNsSet('qp',true,'s2');assert(state.notStudied.qp.updatedAt>clearedAt&&!('qp' in state.notStudiedCleared),'a new flag is stamped after the cleared one');
+nkNsSet('qp',false);nkCaptureCloudChanges();nkSyncMeta.outbox={};nkCaptureCloudChanges();const again=state.notStudiedCleared.qp;
+assert(nkNsMergeEntry('qp',{on:true,at:again+5,updatedAt:again+5,session:'s3'})&&nkNsIsFlagged('qp')&&!('qp' in state.notStudiedCleared),'a newer remote flag is accepted');
+// Fix 1: the hidden shell of an all-flagged result is newer than any copy saved before it, so a stale copy never comes back.
+state={...defaultState()};nkSyncMeta.outbox={};nkSyncMeta.winners={};nkSyncMeta.localHashes={};
+const staleTest={id:'exam_e1',questionIds:['q9'],answers:{q9:1},correct:1,incorrect:0,attempted:1,unattempted:0,total:1,createdAt:1000};
+const shellTest={id:'exam_e1',noResult:true,questionIds:[],answers:{},questionTimes:{},notStudiedIds:['q9'],allQuestionIds:['q9'],correct:0,incorrect:0,attempted:0,unattempted:0,total:0,totalTimeMs:0,createdAt:1000,updatedAt:1001};
+const tdoc=(payload,at,device)=>({kind:'tests',entityId:'exam_e1',ownerDevice:device,updatedAt:at,deleted:false,payload:JSON.stringify(payload),schemaVersion:1});
+nkApplyCloudEnvelope(tdoc(staleTest,1000,'phone'));assert.strictEqual(state.tests[0].total,1);
+nkApplyCloudEnvelope(tdoc(shellTest,1001,'web'));assert(state.tests[0].noResult&&state.tests.length===1,'the shell replaces a stale copy a device already had');
+nkApplyCloudEnvelope(tdoc(staleTest,1000,'phone'));assert(state.tests[0].noResult,'the stale copy never comes back');
+nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkCaptureCloudChanges();assert(JSON.parse(nkSyncMeta.outbox['tests/exam_e1'].payload).noResult,'what uploads is the shell');
 console.log('NOT_STUDIED_SYNC_OK');
 '''
 
@@ -442,6 +567,13 @@ def test_install_contract() -> None:
         assert hook in module, hook
     sync = SYNC.read_text(encoding="utf-8")
     assert "NK_SYNC_KINDS.push('notStudied')" in sync and "nkEnvelope('notStudied'" in sync and "nkNsMergeEntry(id,payload)" in sync
+    assert "nkNsPruneSynced(nkSyncMeta)" in sync and sync.index("nkNsPruneSynced(nkSyncMeta)") < sync.index("nkEnvelope('notStudied'"), "synced tombstones are pruned before the walk"
+    html = HTML.read_text(encoding="utf-8")
+    assert "t.kind!=='practice'&&!t.noResult" in html, "the Tests list skips a hidden shell"
+    assert "!t.isDeleted&&!t.noResult" in (ROOT / "app/src/main/modules/learning_insights.js").read_text(encoding="utf-8"), "Insights skip a hidden shell"
+    sched = (ROOT / "app/src/main/modules/scheduled_mocks.js").read_text(encoding="utf-8")
+    assert "status==='taken'&&test&&!test.noResult" in sched and "makeup&&!makeup.noResult" in sched, "a mock ticket never links to a shell"
+    assert "selectExam=function" not in module, "choosing a timed-test option never clears a flag"
     css = app_css()
     assert css.count("/* ── nk-not-studied-v1") == 1
     assert css.index("/* ── nk-not-studied-v1") < css.index("/* ── nk-visual-refinement-v1"), "flag CSS sits before the visual refinement layer"
