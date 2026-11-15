@@ -1,26 +1,31 @@
   /* NK_REVIEW_LEARNING_QUEUE_V1_START
    * Due-review sessions only (revisionQueueKind 'due', revision_session.js).
    *
-   * 1. In-session learning queue, Anki style. A rating that leaves the card in
-   *    learning or relearning (FSRS state 1/3: Again from a wrong answer, Hard on a
-   *    learning card) puts the question in session.learningQueue with the card's
-   *    FSRS due time. The question list never changes (questionIds and
-   *    sessionQuestionIds keep their membership, so the checkpoint membershipHash,
-   *    the abandon/Back guard and sync stay as they were): the card reopens in its
-   *    own row as a new round. The previous round's answer/submitted/time moves to
-   *    session.roundHistory[qid] and the live answer clears, so it is answered
-   *    again; the header and the session grid show "Round N". Every round records
-   *    a normal FSRS attempt (source fsrs-review; round 2+ carries learningRound).
-   *    Setting fsrsPreferences.learningInSession: 'due' (default) shows a queued
-   *    card on the next Next once it is due; 'end' after the rest of the set;
-   *    'off' keeps one pass. At the end of the set, cards due within the 20 min
-   *    learn-ahead show at once; later ones get a "due in N min" choice.
+   * 1. Learning rounds, Anki style. A rating that leaves the card in learning or
+   *    relearning (FSRS state 1/3: Again from a wrong answer, Hard on a learning
+   *    card) puts the question in session.learningQueue with the card's FSRS due
+   *    time. Round 1 is the whole set. When the last card of a round is done (every
+   *    card in it answered or flagged), the queued cards due within the 20 min
+   *    learn-ahead become the next round, session.roundPass = {round, ids}: only
+   *    those cards, in due order, fresh and unanswered (the previous answer, time
+   *    and rating move to session.roundHistory[qid]). The header counter, progress
+   *    bar and the session sheet count only that round ("1 / 4", "Round 2"), and
+   *    Next / Previous / the sheet move only inside it. A card that comes due again
+   *    in round N goes to round N+1; when none is left the session sheet opens and
+   *    Finish ends the session. Cards due later than the learn-ahead are never
+   *    pulled in by themselves: a "due in N min" line offers Study now or Finish.
+   *    The question list never changes (questionIds and sessionQuestionIds keep their
+   *    membership, so the checkpoint membershipHash, the abandon/Back guard and sync
+   *    stay as they were). Every round records a normal FSRS attempt (source
+   *    fsrs-review; round 2+ carries learningRound). Setting
+   *    fsrsPreferences.learningInSession: 'end' (default; the older 'due' value
+   *    means the same) or 'off' (one pass).
    * 2. Advance after rating (fsrsPreferences.advanceAfterRating, default on): the
    *    first Hard/Good/Easy on an answer saves it, holds the pressed state for
-   *    ~250 ms, then goes Next (a due learning card first; the end-of-session sheet
-   *    after the last card). Wrong answers never move on; changing a saved rating
+   *    ~250 ms, then goes Next. Wrong answers never move on; changing a saved rating
    *    only saves. The timer fires only for the same session, question and round.
-   * The saved result counts each question once, by its latest answered round.
+   * The saved result counts each question once, by its round 1 answer (later
+   * rounds are relearning, kept in FSRS history); its time is every round's time.
    * Rules: docs/FSRS.md § "Learning cards in a due review".
    */
   const NK_RLQ_PRESS_MS=250;
@@ -28,13 +33,25 @@
   function nkRlqDueSession(s=state.activeSession){
     return Boolean(s)&&s.mode==='practice'&&typeof nkRevisionSessionKind==='function'&&nkRevisionSessionKind(s)==='due'&&!(typeof nkPracticeTerminal==='function'&&nkPracticeTerminal(s));
   }
-  function nkRlqMode(){const v=nkFsrsPreferences().learningInSession;return ['due','end','off'].includes(v)?v:'due';}
+  function nkRlqMode(){return nkFsrsPreferences().learningInSession==='off'?'off':'end';}
   function nkRlqAdvanceOn(){return nkFsrsPreferences().advanceAfterRating!==false;}
   function nkRlqRounds(s,qid){return Array.isArray(s?.roundHistory?.[String(qid)])?s.roundHistory[String(qid)]:[];}
   function nkRlqRound(s,qid){return nkRlqRounds(s,qid).length+1;}
   function nkRlqFlagged(qid){return typeof nkNsIsFlagged==='function'&&nkNsIsFlagged(String(qid));}
   function nkRlqQueue(s){if(!s.learningQueue||typeof s.learningQueue!=='object'||Array.isArray(s.learningQueue))s.learningQueue={};return s.learningQueue;}
   function nkRlqMember(s,qid){return (s?.questionIds||[]).map(String).includes(String(qid));}
+  // The live round 2+ (null in round 1). Only member ids count; a damaged pass is dropped.
+  function nkRlqPass(s=state.activeSession){
+    const p=s?.roundPass;if(!p||typeof p!=='object'||!Array.isArray(p.ids))return null;
+    const ids=p.ids.map(String).filter(id=>nkRlqMember(s,id));
+    if(!ids.length||!(Number(p.round)>=2)){delete s.roundPass;return null;}
+    if(ids.length!==p.ids.length)p.ids=ids;
+    return p;
+  }
+  function nkRlqPassRound(s){return nkRlqPass(s)?Math.trunc(Number(s.roundPass.round)):1;}
+  // The cards of the live round: the pass, or the whole set in round 1.
+  function nkRlqRoundIds(s){const p=nkRlqPass(s);return p?p.ids.map(String):(s?.questionIds||[]).map(String);}
+  function nkRlqRow(s,qid){return (s?.questionIds||[]).map(String).indexOf(String(qid));}
   // The queue entry follows the card: present while this round is answered (its
   // rating saved) and the card is learning/relearning; gone otherwise (graduated,
   // flagged, rating not saved yet, mode Off, or the round reopened).
@@ -47,54 +64,75 @@
     else delete queue[id];
     return before!==JSON.stringify(queue[id]||null);
   }
-  // The earliest queued card due by `limit` (flagged or foreign entries are dropped).
-  function nkRlqNextLearning(s,limit){
-    let best=null;const queue=nkRlqQueue(s);
+  // Queued cards due by `limit`, earliest first (ties in set order); flagged, foreign or
+  // reopened-and-unanswered entries are dropped.
+  function nkRlqQueued(s,limit=Infinity){
+    const queue=nkRlqQueue(s),rows=[];
     Object.keys(queue).forEach(id=>{
       if(nkRlqFlagged(id)||!nkRlqMember(s,id)||!s.submitted?.[id]){delete queue[id];return;}
-      const due=Number(queue[id]?.due||0);
-      if(due<=limit&&(!best||due<best.due||(due===best.due&&id<best.id)))best={id,due};
+      const due=Number(queue[id]?.due||0);if(due<=limit)rows.push({id,due,row:nkRlqRow(s,id)});
     });
-    return best;
+    return rows.sort((a,b)=>a.due-b.due||a.row-b.row);
   }
-  function nkRlqWaiting(s){return Object.keys(nkRlqQueue(s)).filter(id=>!nkRlqFlagged(id)&&nkRlqMember(s,id)&&s.submitted?.[id]);}
+  // A card still to do in the live round (not answered and not flagged).
+  function nkRlqOpenCards(s){return nkRlqRoundIds(s).filter(id=>!s.submitted?.[id]&&!nkRlqFlagged(id));}
   // This session's saved attempt for the live round (answer, outcome and rating to archive).
   function nkRlqRoundAttempt(s,id){
     const since=Number(nkRlqRounds(s,id).at(-1)?.reopenedAt||0);
     return nkFsrsActiveAttempts(id).filter(a=>String(a.sessionId||'')===String(s.id)&&Number(a.reviewedAt||a.at||0)>=since).at(-1)||null;
   }
-  // Reopen a queued card as its next round in its own row.
-  function nkRlqOpenRound(s,id){
-    const index=s.questionIds.map(String).indexOf(String(id));if(index<0)return false;
+  // Archive the card's live round and clear it, so it is answered fresh.
+  function nkRlqArchive(s,id){
     const attempt=nkRlqRoundAttempt(s,id),history=s.roundHistory&&typeof s.roundHistory==='object'&&!Array.isArray(s.roundHistory)?s.roundHistory:(s.roundHistory={}),list=Array.isArray(history[id])?history[id]:(history[id]=[]);
     list.push({round:list.length+1,answer:s.answers?.[id]==null?null:Number(s.answers[id]),submitted:Boolean(s.submitted?.[id]),timeMs:Number(s.questionTimes?.[id]||0),correct:attempt?Boolean(attempt.correct):null,rating:attempt?nkFsrsRating(attempt):null,attemptId:attempt?String(attempt.id):null,reopenedAt:Date.now()});
     if(s.answers)delete s.answers[id];if(s.submitted)delete s.submitted[id];if(s.questionTimes)delete s.questionTimes[id];if(s.pendingRating)delete s.pendingRating[id];
     delete nkRlqQueue(s)[id];
-    s.index=index;s.questionEnteredAt=Date.now();return true;
+  }
+  // Open the next round with exactly these cards (due order), on its first card.
+  function nkRlqStartRound(s,ids){
+    if(!ids.length)return false;
+    if(typeof savePracticeElapsed==='function')savePracticeElapsed();
+    const round=nkRlqPassRound(s)+1;
+    ids.forEach(id=>nkRlqArchive(s,id));
+    s.roundPass={round,ids:[...ids]};delete s.learningReturnIndex;
+    s.index=nkRlqRow(s,ids[0]);s.questionEnteredAt=Date.now();
+    saveState();render();
+    showToast(`Round ${round} · ${fmtNum(ids.length)} card${ids.length===1?'':'s'} to relearn`);
+    return true;
   }
   function nkRlqCancelAdvance(){if(nkRlqAdvance){try{clearTimeout(nkRlqAdvance.timer);}catch(_){}nkRlqAdvance=null;}}
   function nkRlqCloseWait(){document.getElementById('nk-rlq-wait')?.remove();}
   function nkRlqMinutes(ms){return Math.max(1,Math.ceil(ms/60000));}
-  function nkRlqWaitCopy(s){
-    const waiting=nkRlqWaiting(s),next=nkRlqNextLearning(s,Infinity);if(!next)return '';
-    return `${fmtNum(waiting.length)} learning card${waiting.length===1?'':'s'} due in ${nkRlqMinutes(next.due-Date.now())} min`;
+  function nkRlqCards(n){return `${fmtNum(n)} card${n===1?'':'s'}`;}
+  // What waits after this round: cards ready now (next round) or only later ones.
+  function nkRlqWaitInfo(s){
+    const all=nkRlqQueued(s);if(!all.length)return null;
+    const ready=all.filter(r=>r.due<=Date.now()+NK_FSRS_LEARN_AHEAD),next=nkRlqPassRound(s)+1;
+    if(ready.length)return {ready:true,count:all.length,copy:`${nkRlqCards(all.length)} to relearn`,action:`Start Round ${next}`};
+    return {ready:false,count:all.length,copy:`${fmtNum(all.length)} learning card${all.length===1?'':'s'} due in ${nkRlqMinutes(all[0].due-Date.now())} min`,action:'Study now'};
   }
-  // The set is done and only cards due later than the learn-ahead remain.
+  // The round is done and only cards due later than the learn-ahead remain.
   function nkRlqShowWait(s){
-    nkRlqCloseWait();const copy=nkRlqWaitCopy(s);if(!copy)return false;
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-rlq-wait" id="nk-rlq-wait"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-rlq-wait-title"><h2 id="nk-rlq-wait-title">${esc(copy)}</h2><p>You have reached the end of this review. A card you are relearning comes back when its step is due.</p><div class="nk-rlq-wait-actions"><button type="button" class="primary-btn" onclick="window.QB.nkRlqStudyNow()">Study now</button><button type="button" class="ghost-btn" onclick="window.QB.nkRlqFinish()">Finish</button></div></section></div>`);
+    nkRlqCloseWait();const info=nkRlqWaitInfo(s);if(!info)return false;
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-rlq-wait" id="nk-rlq-wait"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-rlq-wait-title"><h2 id="nk-rlq-wait-title">${esc(info.copy)}</h2><p>You have reached the end of this review. A card you are relearning comes back when its step is due; Finish leaves it for a later review.</p><div class="nk-rlq-wait-actions"><button type="button" class="primary-btn" onclick="window.QB.nkRlqStudyNow()">${esc(info.action)}</button><button type="button" class="ghost-btn" onclick="window.QB.nkRlqFinish()">Finish</button></div></section></div>`);
     document.querySelector?.('#nk-rlq-wait button')?.focus?.();return true;
   }
-  function nkRlqGoLearning(s,id){
+  // End of a round: the next round, the wait line, or the session sheet.
+  function nkRlqEndRound(s){
     if(typeof savePracticeElapsed==='function')savePracticeElapsed();
-    if(!Number.isInteger(s.learningReturnIndex))s.learningReturnIndex=Number(s.index)||0;
-    nkRlqOpenRound(s,id);saveState();render();return true;
+    if(nkRlqMode()!=='off'&&!nkRlqOpenCards(s).length){
+      const ready=nkRlqQueued(s,Date.now()+NK_FSRS_LEARN_AHEAD);
+      if(ready.length)return nkRlqStartRound(s,ready.map(r=>r.id));
+      if(nkRlqQueued(s).length){saveState();return nkRlqShowWait(s);}
+    }
+    saveState();openSessionReview();return true;
   }
+  // Study now / Start Round N: every waiting card, ready or not, as the next round.
   function nkRlqStudyNow(){
     nkRlqCloseWait();const s=state.activeSession;if(!nkRlqDueSession(s))return false;
-    const next=nkRlqNextLearning(s,Infinity);if(!next)return false;
-    if(typeof nkQuestionTransaction==='function')return nkQuestionTransaction(()=>nkRlqGoLearning(s,next.id));
-    return nkRlqGoLearning(s,next.id);
+    const ids=nkRlqQueued(s).map(r=>r.id);if(!ids.length)return false;
+    const run=()=>{document.getElementById('nk-session-review')?.remove();return nkRlqStartRound(s,ids);};
+    return typeof nkQuestionTransaction==='function'?nkQuestionTransaction(run):run();
   }
   // "Finish" on the wait line opens the existing end-of-session sheet (Pause / Finish session).
   function nkRlqFinish(){nkRlqCloseWait();if(!nkRlqDueSession())return false;openSessionReview();return true;}
@@ -144,34 +182,45 @@
     nkRlqAdvance=token;return token;
   }
 
-  // Navigation: Next shows a due learning card ahead of the rest of the set.
-  const nkRlqOriginalNext=nextQ;
+  // Navigation. Round 1 is the ordinary set; its last Next ends the round. In round 2+
+  // Next / Previous / jumps stay inside the round's cards.
+  const nkRlqOriginalNext=nextQ,nkRlqOriginalPrev=prevQ,nkRlqOriginalGo=goIndex;
   function nkRlqNext(){
     const s=state.activeSession;
     if(!nkRlqDueSession(s))return nkRlqOriginalNext.apply(this,arguments);
     const qid=s.questionIds?.[s.index];
     if(qid!=null){if(s.pendingRating?.[qid])nkFsrsCommitPending(qid,3);nkRlqRefresh(qid,s);}
-    const mode=nkRlqMode(),last=s.questionIds.length-1;
-    if(mode==='off'){delete s.learningReturnIndex;return nkRlqOriginalNext.apply(this,arguments);}
-    const base=Number.isInteger(s.learningReturnIndex)?Math.min(last,s.learningReturnIndex):Number(s.index)||0,now=Date.now();
-    const atEnd=base>=last,limit=atEnd?now+NK_FSRS_LEARN_AHEAD:mode==='due'?now:-Infinity;
-    const due=nkRlqNextLearning(s,limit);
-    if(due){if(!Number.isInteger(s.learningReturnIndex))s.learningReturnIndex=base;return nkRlqGoLearning(s,due.id);}
-    if(!atEnd){
-      if(base!==s.index){if(typeof savePracticeElapsed==='function')savePracticeElapsed();s.index=base;s.questionEnteredAt=Date.now();}
-      delete s.learningReturnIndex;return nkRlqOriginalNext.apply(this,arguments);
-    }
-    if(nkRlqNextLearning(s,Infinity)){if(typeof savePracticeElapsed==='function')savePracticeElapsed();saveState();return nkRlqShowWait(s);}
     delete s.learningReturnIndex;
-    if(s.index!==last){if(typeof savePracticeElapsed==='function')savePracticeElapsed();saveState();openSessionReview();return true;}
-    return nkRlqOriginalNext.apply(this,arguments);
+    const pass=nkRlqPass(s);
+    if(pass){
+      const p=pass.ids.indexOf(String(qid));
+      if(p<0)return nkRlqOriginalGo.call(this,nkRlqRow(s,pass.ids[0]));
+      if(p<pass.ids.length-1)return nkRlqOriginalGo.call(this,nkRlqRow(s,pass.ids[p+1]));
+      return nkRlqEndRound(s);
+    }
+    if(Number(s.index)<s.questionIds.length-1)return nkRlqOriginalNext.apply(this,arguments);
+    return nkRlqEndRound(s);
   }
   nextQ=function(){nkRlqCancelAdvance();nkRlqCloseWait();return typeof nkQuestionTransaction==='function'?nkQuestionTransaction(()=>nkRlqNext.apply(this,arguments)):nkRlqNext.apply(this,arguments);};
-  // Moving by hand leaves any learning interlude: Next then continues from where you are.
-  const nkRlqOriginalPrev=prevQ;
-  prevQ=function(){nkRlqCancelAdvance();const s=state.activeSession;if(nkRlqDueSession(s))delete s.learningReturnIndex;return nkRlqOriginalPrev.apply(this,arguments);};
-  const nkRlqOriginalGo=goIndex;
-  goIndex=function(){nkRlqCancelAdvance();const s=state.activeSession;if(nkRlqDueSession(s))delete s.learningReturnIndex;return nkRlqOriginalGo.apply(this,arguments);};
+  prevQ=function(){
+    nkRlqCancelAdvance();const s=state.activeSession,pass=nkRlqDueSession(s)?nkRlqPass(s):null;
+    if(!pass)return nkRlqOriginalPrev.apply(this,arguments);
+    const p=pass.ids.indexOf(String(s.questionIds?.[s.index]));
+    return p>0?nkRlqOriginalGo.call(this,nkRlqRow(s,pass.ids[p-1])):false;
+  };
+  // A jump (the session sheet, the navigator) can only reach a card of the live round.
+  goIndex=function(i){
+    nkRlqCancelAdvance();const s=state.activeSession,pass=nkRlqDueSession(s)?nkRlqPass(s):null;
+    if(pass&&!pass.ids.includes(String(s.questionIds?.[Number(i)])))return false;
+    return nkRlqOriginalGo.apply(this,arguments);
+  };
+  // Previous is disabled on the first card of a round.
+  const nkRlqOriginalActionBar=practiceActionBar;
+  practiceActionBar=function(){
+    const out=nkRlqOriginalActionBar.apply(this,arguments),s=state.activeSession,pass=nkRlqDueSession(s)?nkRlqPass(s):null;
+    if(!pass)return out;const first=pass.ids.indexOf(String(s.questionIds?.[s.index]))<=0;
+    return out.replace(/(<button class="ghost-btn" onclick="window\.QB\.prevQ\(\)")\s*(?:disabled)?/,`$1${first?' disabled':''}`);
+  };
   if(typeof nkToggleNotStudied==='function'){
     const nkRlqOriginalToggle=nkToggleNotStudied;
     nkToggleNotStudied=function(questionId){
@@ -184,51 +233,71 @@
   nkPausePractice=function(){nkRlqCancelAdvance();nkRlqCloseWait();return nkRlqOriginalPause.apply(this,arguments);};
   if(typeof nkAbandonSession==='function'){const nkRlqOriginalAbandon=nkAbandonSession;nkAbandonSession=function(){nkRlqCancelAdvance();nkRlqCloseWait();return nkRlqOriginalAbandon.apply(this,arguments);};}
 
-  // Finish: each question counts once, by its latest answered round. A round
-  // reopened but left unanswered gives way to the round before it; the time of
-  // every round is the question's time in the result.
+  // Finish: each question counts once, by its round 1 answer (round 2+ are relearning
+  // repeats, kept in FSRS history); the question's time is every round's time.
   function nkRlqSettleRounds(s){
     if(!s?.roundHistory||typeof s.roundHistory!=='object')return;
     s.answers=s.answers||{};s.submitted=s.submitted||{};s.questionTimes=s.questionTimes||{};
     Object.keys(s.roundHistory).forEach(id=>{
       const list=nkRlqRounds(s,id);if(!list.length)return;
-      if(!s.submitted[id]){
-        const back=[...list].reverse().find(r=>r.submitted&&r.answer!=null);
-        if(back){s.answers[id]=back.answer;s.submitted[id]=true;}
-      }
+      const first=list[0];
+      if(first.submitted&&first.answer!=null){s.answers[id]=first.answer;s.submitted[id]=true;}
       s.questionTimes[id]=Number(s.questionTimes[id]||0)+list.reduce((sum,r)=>sum+Number(r.timeMs||0),0);
     });
-    s.learningQueue={};delete s.learningReturnIndex;
+    s.learningQueue={};delete s.learningReturnIndex;delete s.roundPass;
   }
   const nkRlqOriginalFinish=finishPracticeSession;
   finishPracticeSession=function(){
     nkRlqCancelAdvance();nkRlqCloseWait();const s=state.activeSession;
     if(!nkRlqDueSession(s)||!s.roundHistory)return nkRlqOriginalFinish.apply(this,arguments);
-    const run=()=>{if(typeof savePracticeElapsed==='function')savePracticeElapsed();nkRlqSettleRounds(s);return nkRlqOriginalFinish.apply(this,arguments);};
+    // The live round's pending rating is saved first, from its own answer.
+    const run=()=>{if(typeof savePracticeElapsed==='function')savePracticeElapsed();if(typeof nkFsrsRecoverPending==='function')nkFsrsRecoverPending();nkRlqSettleRounds(s);return nkRlqOriginalFinish.apply(this,arguments);};
     return typeof nkQuestionTransaction==='function'?nkQuestionTransaction(run):run();
   };
   nkFinishRevisionSession=function(){return finishPracticeSession();};
 
-  // Round badge in the question header and the session grid; the sheet says what is still waiting.
-  function nkRlqBadge(round){return `<span class="nk-rlq-round" aria-label="Round ${round}">Round ${round}</span>`;}
+  // Header: round 2+ counts only its own cards; a small "Round N" badge sits inside the
+  // counter, so the back button, flag, bookmark and grid keep their places.
+  function nkRlqBadge(round){return `<span class="nk-rlq-round">Round ${round}</span>`;}
   const nkRlqOriginalHeader=nkSessionHeader;
-  nkSessionHeader=function(q,s){
+  nkSessionHeader=function(q,s,mode){
     const out=nkRlqOriginalHeader.apply(this,arguments);
-    if(!q||!nkRlqDueSession(s))return out;const round=nkRlqRound(s,q.id);if(round<2)return out;
-    return out.replace(/(<div class="nk-session-count">[\s\S]*?<\/div>)/,`$1${nkRlqBadge(round)}`);
+    if(!q||mode!=='practice'||!nkRlqDueSession(s))return out;const pass=nkRlqPass(s);if(!pass)return out;
+    const p=pass.ids.indexOf(String(q.id));if(p<0)return out;
+    const total=pass.ids.length,position=p+1,progress=Math.max(0,Math.min(100,Math.round(position/total*100)));
+    return out.replace(/<div class="nk-session-count">[\s\S]*?<\/div>/,`<div class="nk-session-count has-round" aria-label="Round ${pass.round}, question ${position} of ${total}"><strong>${position}</strong> / ${total}${nkRlqBadge(pass.round)}</div>`)
+      .replace(/aria-valuenow="\d+"><i style="width:\d+%"><\/i><span>\d+%<\/span>/,`aria-valuenow="${progress}"><i style="width:${progress}%"></i><span>${progress}%</span>`);
   };
+  // The session sheet (also the grid button): in round 2+ only the round's cards, numbered
+  // in round order; the line above the actions says what waits after this round.
   const nkRlqOriginalReview=openSessionReview;
   openSessionReview=function(){
     const s=state.activeSession,result=nkRlqOriginalReview.apply(this,arguments);
     if(!nkRlqDueSession(s))return result;
     const box=document.getElementById('nk-session-review');if(!box)return result;
-    (box.querySelectorAll?.('.nk-session-review-q')||[]).forEach((cell,i)=>{
-      const id=s.questionIds[i];if(id==null)return;const round=nkRlqRound(s,id);if(round<2)return;
-      cell.classList?.add('has-round');cell.insertAdjacentHTML?.('beforeend',`<em class="nk-rlq-round-dot" aria-hidden="true">R${round}</em>`);
-      cell.setAttribute?.('aria-label',`${cell.getAttribute?.('aria-label')||`Question ${i+1}`}, round ${round}`);
-    });
-    const copy=nkRlqMode()!=='off'?nkRlqWaitCopy(s):'',actions=box.querySelector?.('.nk-session-review-actions');
-    if(copy&&actions)actions.insertAdjacentHTML?.('afterbegin',`<p class="nk-rlq-waiting">${esc(copy)} <button type="button" class="nk-text-link" onclick="window.QB.nkRlqStudyNow()">Study now</button></p>`);
+    const pass=nkRlqPass(s),grid=box.querySelector?.('.nk-session-review-grid');
+    if(pass&&grid){
+      const cells=[...(grid.querySelectorAll?.('.nk-session-review-q')||[])],byId=new Map();
+      cells.forEach((cell,i)=>{const id=s.questionIds[i];if(id!=null)byId.set(String(id),cell);cell.remove();});
+      pass.ids.forEach((id,k)=>{
+        const cell=byId.get(id);if(!cell)return;
+        const number=cell.querySelector?.('span');if(number)number.textContent=String(k+1);
+        cell.setAttribute?.('aria-label',String(cell.getAttribute?.('aria-label')||`Question ${k+1}`).replace(/^Question \d+/,`Question ${k+1}`));
+        grid.appendChild(cell);
+      });
+      // Legend entries only for outcomes still on the grid (round 1 outcomes are not shown).
+      const legend=box.querySelector?.('.nk-session-review-legend');
+      [['correct','is-correct'],['wrong','is-wrong'],['skipped','is-skipped']].forEach(([dot,cls])=>{const item=legend?.querySelector?.(`.nk-review-dot.${dot}`)?.parentElement;if(item&&!grid.querySelector?.(`.nk-session-review-q.${cls}`))item.remove();});
+      if(!grid.querySelector?.('.nk-session-review-q.is-ns'))legend?.querySelector?.('.nk-ns-legend')?.remove();
+      const answered=pass.ids.filter(id=>s.submitted?.[id]).length,left=pass.ids.length-answered;
+      const strong=box.querySelector?.('.nk-session-review-summary strong'),span=box.querySelector?.('.nk-session-review-summary span');
+      if(strong)strong.textContent=left?`${fmtNum(answered)} answered · ${fmtNum(left)} unanswered`:`${fmtNum(answered)} answered · all cards covered`;
+      if(span)span.textContent=`Round ${pass.round} · ${nkRlqCards(pass.ids.length)}`;
+      const sub=box.querySelector?.('.nk-session-review-head p');if(sub)sub.textContent=`Round ${pass.round} holds only the cards you are relearning. Tap one to return to it, or finish: your round 1 answers are already saved.`;
+    }
+    // The next round starts only once this one is done; before that the line just says what waits.
+    const info=nkRlqMode()!=='off'?nkRlqWaitInfo(s):null,actions=box.querySelector?.('.nk-session-review-actions'),open=nkRlqOpenCards(s).length;
+    if(info&&actions)actions.insertAdjacentHTML?.('afterbegin',open?`<p class="nk-rlq-waiting">${esc(info.copy)} after this round</p>`:`<p class="nk-rlq-waiting">${esc(info.copy)} <button type="button" class="nk-text-link" onclick="window.QB.nkRlqStudyNow()">${esc(info.action)}</button></p>`);
     return result;
   };
   /* NK_REVIEW_LEARNING_QUEUE_V1_END */

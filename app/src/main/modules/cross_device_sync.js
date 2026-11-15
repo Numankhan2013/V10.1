@@ -429,14 +429,19 @@
     });
     const localTerminal=nkSyncTerminalLifecycle(local.lifecycle),remoteTerminal=nkSyncTerminalLifecycle(remote.lifecycle),latest=Number(remote.updatedAt||0)>Number(local.updatedAt||0)?remote:local;
     const lifecycle=localTerminal&&!remoteTerminal?local.lifecycle:remoteTerminal&&!localTerminal?remote.lifecycle:latest.lifecycle;
-    const learning={...(Object.keys(learningQueue).length?{learningQueue}:{}),...(Object.keys(roundHistory).length?{roundHistory}:{})};
+    // The live round 2+ (roundPass): the copy further along (higher round) owns it; equal rounds keep the newer copy's.
+    const passRound=cp=>Number(cp.roundPass?.round)>=2&&Array.isArray(cp.roundPass?.ids)?Number(cp.roundPass.round):1;
+    const passOwner=passRound(remote)!==passRound(local)?(passRound(remote)>passRound(local)?remote:local):latest;
+    const pass=passRound(passOwner)>=2?{round:passRound(passOwner),ids:passOwner.roundPass.ids.map(String).filter(id=>ids.includes(id))}:null;
+    const learning={...(Object.keys(learningQueue).length?{learningQueue}:{}),...(Object.keys(roundHistory).length?{roundHistory}:{}),...(pass&&pass.ids.length?{roundPass:pass}:{})};
     const merged={...latest,sessionQuestionIds:ids,membershipHash:nkSyncMembership(local),answers,submitted,questionTimes,pendingFsrsRatings,questionUpdates,lifecycle,terminalAt:Math.max(Number(local.terminalAt||0),Number(remote.terminalAt||0))||null,updatedAt:Math.max(Number(local.updatedAt||0),Number(remote.updatedAt||0))};
-    delete merged.learningQueue;delete merged.roundHistory;Object.assign(merged,learning);
+    delete merged.learningQueue;delete merged.roundHistory;delete merged.roundPass;Object.assign(merged,learning);
     const index=checkpoints.findIndex(item=>String(item.sessionId)===String(merged.sessionId));if(index<0)checkpoints.push(merged);else checkpoints[index]=merged;
     state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):merged;
     if(state.activeSession&&typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession)&&String(state.activeSession.id)===String(merged.sessionId)){
       if(nkSyncTerminalLifecycle(merged.lifecycle))state.activeSession=null;
       else state.activeSession={...state.activeSession,questionIds:[...ids],sessionQuestionIds:[...ids],answers:{...answers},submitted:{...submitted},questionTimes:{...questionTimes},pendingRating:{...pendingFsrsRatings},index:Math.max(0,Math.min(ids.length-1,Number(merged.position?.index)||0)),lifecycle:merged.lifecycle,learningQueue:JSON.parse(JSON.stringify(learning.learningQueue||{})),roundHistory:JSON.parse(JSON.stringify(learning.roundHistory||{}))};
+      if(learning.roundPass)state.activeSession.roundPass=JSON.parse(JSON.stringify(learning.roundPass));else delete state.activeSession.roundPass;
     }
     delete state.normalPracticeConflict;return merged;
   }

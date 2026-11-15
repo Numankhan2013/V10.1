@@ -7327,14 +7327,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-test-row.is-abandoned .nk-test-
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-abandoned-badge{justify-self:end;display:inline-flex;align-items:center;height:22px;padding:0 8px;border:1px solid var(--nkg-border-strong);border-radius:999px;background:var(--nkg-surface-2);color:var(--nkg-fg-3);font:500 11px/1 var(--nkg-font-sans);letter-spacing:.01em;white-space:nowrap}
 
 /* ── nk-review-learning-queue-v1 ── */
-/* Due-review learning rounds and advance-after-rating (review_learning_queue.js): a quiet
-   "Round N" chip beside the question count, a small R2 mark in the session grid, the
-   wait line when only later learning cards remain, and the pressed beat before Next. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rlq-round{display:inline-flex;align-items:center;margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--nkg-blue-bg,#eef4ff);color:var(--nkg-blue,#1d4ed8);box-shadow:inset 0 0 0 1px var(--nkg-blue-border,#c7d7fe);font:600 11px/16px var(--nkg-font-sans,system-ui,sans-serif);font-variant-numeric:tabular-nums;white-space:nowrap}
-.nk-rlq-round{display:inline-flex;align-items:center;margin-left:8px;padding:2px 8px;border-radius:999px;background:#eef4ff;color:#1d4ed8;font-size:11px;font-weight:600;line-height:16px;white-space:nowrap}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.has-round{position:relative}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rlq-round-dot{position:absolute;top:2px;left:2px;padding:0 3px;border-radius:4px;background:var(--nkg-blue-bg,#eef4ff);color:var(--nkg-blue,#1d4ed8);font:600 9px/13px var(--nkg-font-sans,system-ui,sans-serif);font-style:normal;pointer-events:none}
-.nk-rlq-round-dot{font-style:normal}
+/* Due-review learning rounds and advance-after-rating (review_learning_queue.js): in round
+   2+ a quiet "Round N" badge sits inside the question counter (never a fourth header item,
+   so the back button, flag, bookmark and grid keep their places at every width), the wait
+   line when only later learning cards remain, and the pressed beat before Next. */
+.nk-session-count.has-round{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .nk-session-count.has-round{display:inline-flex!important;align-items:center;gap:6px;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rlq-round{display:inline-flex;align-items:center;flex:none;padding:0 7px;border-radius:999px;background:var(--nkg-blue-bg,#eef4ff);color:var(--nkg-blue,#1d4ed8);box-shadow:inset 0 0 0 1px var(--nkg-blue-border,#c7d7fe);font:600 11px/18px var(--nkg-font-sans,system-ui,sans-serif)!important;font-variant-numeric:tabular-nums;letter-spacing:0;white-space:nowrap}
+.nk-rlq-round{display:inline-flex;align-items:center;flex:none;padding:0 7px;border-radius:999px;background:#eef4ff;color:#1d4ed8;font-size:11px;font-weight:600;line-height:18px;white-space:nowrap}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rlq-waiting{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;flex-basis:100%;margin:0 0 8px;color:var(--nkg-fg-2,#404040);font:500 var(--nkg-t-sm,13px)/1.4 var(--nkg-font-sans,system-ui,sans-serif)}
 .nk-rlq-wait-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .nk-rlq-wait-actions>button{flex:1 1 140px;min-height:44px}

@@ -31,6 +31,10 @@
     if(nkStateObject(raw?.roundHistory))Object.entries(raw.roundHistory).forEach(([id,list])=>{if(!member.has(String(id))||!Array.isArray(list))return;const clean=list.filter(nkStateObject).slice(0,50).map((r,i)=>({round:i+1,answer:r.answer==null?null:Number(r.answer),submitted:Boolean(r.submitted),timeMs:Math.max(0,Number(r.timeMs)||0),correct:typeof r.correct==='boolean'?r.correct:null,rating:[1,2,3,4].includes(Number(r.rating))?Number(r.rating):null,attemptId:r.attemptId==null?null:String(r.attemptId),reopenedAt:Math.max(0,Number(r.reopenedAt)||0)}));if(clean.length)rounds[String(id)]=clean;});
     if(Object.keys(queue).length)out.learningQueue=queue;
     if(Object.keys(rounds).length)out.roundHistory=rounds;
+    // The live round 2+: its round number and only its cards (member ids, no repeats).
+    const pass=nkStateObject(raw?.roundPass)?raw.roundPass:null,passRound=Math.trunc(Number(pass?.round));
+    const passIds=pass&&Array.isArray(pass.ids)?[...new Set(pass.ids.map(String))].filter(id=>member.has(id)):[];
+    if(passRound>=2&&passRound<=99&&passIds.length)out.roundPass={round:passRound,ids:passIds};
     const back=Number(raw?.learningReturnIndex);if(Number.isInteger(back)&&back>=0&&back<ids.length)out.learningReturnIndex=back;
     return out;
   }
@@ -40,7 +44,7 @@
     const ids=[...new Set((Array.isArray(raw.sessionQuestionIds)?raw.sessionQuestionIds:[]).map(String).filter(Boolean))];
     if(!ids.length||!NK_PRACTICE_LIFECYCLES.has(String(raw.lifecycle||'')))return null;
     const position=nkStateObject(raw.position)?raw.position:{};
-    const base={...raw};delete base.learningQueue;delete base.roundHistory;delete base.learningReturnIndex;
+    const base={...raw};delete base.learningQueue;delete base.roundHistory;delete base.learningReturnIndex;delete base.roundPass;
     return {...base,...nkCheckpointLearning(raw,ids),version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(raw.sessionId),sessionQuestionIds:ids,
       membershipHash:nkCheckpointMembership(ids),context:nkStateObject(raw.context)?raw.context:{},
       position:{index:Math.max(0,Math.min(ids.length-1,Number(position.index)||0)),currentQuestionId:String(position.currentQuestionId||ids[Math.max(0,Number(position.index)||0)]||'')},

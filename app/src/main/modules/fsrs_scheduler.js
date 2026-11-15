@@ -2,8 +2,9 @@
   const NK_FSRS_BACKUP_KEY='qbank_pre_fsrs_backup_v1';
   const NK_FSRS_VERSION='fsrs6';
   const NK_FSRS_DAY=86400000;
-  const NK_FSRS_DEFAULTS={desiredRetention:.90,dailyCap:150,maximumInterval:365,learningInSession:'due',advanceAfterRating:true};
-  const NK_FSRS_LEARNING_MODES=['due','end','off'];
+  const NK_FSRS_DEFAULTS={desiredRetention:.90,dailyCap:150,maximumInterval:365,learningInSession:'end',advanceAfterRating:true};
+  // 'due' is the value older builds saved (cards interleaved as they came due); it now means 'end'.
+  const NK_FSRS_LEARNING_MODES=['end','off','due'];
   // Anki-style availability: learning/relearning steps may be studied up to 20
   // minutes early; review cards (day-scale intervals) are due for their whole
   // local calendar day instead of trickling in minute by minute.
@@ -32,9 +33,9 @@
       desiredRetention:Math.min(.97,Math.max(.80,Number(raw.desiredRetention||NK_FSRS_DEFAULTS.desiredRetention))),
       dailyCap:Math.min(300,Math.max(20,Math.round(Number(raw.dailyCap||NK_FSRS_DEFAULTS.dailyCap)))),
       maximumInterval:Math.min(3650,Math.max(30,Math.round(Number(raw.maximumInterval||NK_FSRS_DEFAULTS.maximumInterval)))),
-      // Due-review sessions only (review_learning_queue.js): when a card a rating left in
-      // learning/relearning comes back in the same session, and whether Hard/Good/Easy moves on.
-      learningInSession:NK_FSRS_LEARNING_MODES.includes(raw.learningInSession)?raw.learningInSession:NK_FSRS_DEFAULTS.learningInSession,
+      // Due-review sessions only (review_learning_queue.js): whether a card a rating left in
+      // learning/relearning comes back as Round 2, 3… of the same session, and whether Hard/Good/Easy moves on.
+      learningInSession:raw.learningInSession==='off'?'off':NK_FSRS_DEFAULTS.learningInSession,
       advanceAfterRating:raw.advanceAfterRating==null?NK_FSRS_DEFAULTS.advanceAfterRating:raw.advanceAfterRating!==false&&raw.advanceAfterRating!=='0'
     };
   }
@@ -221,10 +222,10 @@
   const nkFsrsFields=[['desiredRetention','Desired retention','%',80,97,'How often you aim to remember a card. Higher retention means more reviews.'],['dailyCap','Daily review limit','cards',20,300,'Limits due review work. Excess due questions roll forward.'],['maximumInterval','Longest review interval','days',30,3650,'The maximum gap before a question returns for review.']];
   function nkFsrsReadSettings(){const p=nkFsrsPreferences();return {desiredRetention:String(Math.round(p.desiredRetention*100)),dailyCap:String(p.dailyCap),maximumInterval:String(p.maximumInterval),learningInSession:p.learningInSession,advanceAfterRating:p.advanceAfterRating?'1':'0'};}
   // Review-session choices (not numbers): stamped per field like the others so sync merges each one.
-  const nkFsrsSessionFields=[['learningInSession','Learning cards in a review session',[['due','Show when due'],['end','Show at the end'],['off','Off']],'A card you miss (Again), or rate Hard while it is still learning, comes back in the same due review: as soon as its step is due, or after the rest of the set. Off keeps one pass.'],['advanceAfterRating','Advance after rating',null,'In a due review, tapping Hard, Good or Easy saves the rating and moves to the next card. A wrong answer always waits for Next.']];
+  const nkFsrsSessionFields=[['learningInSession','Learning cards in a review session',[['end','Round 2 at the end'],['off','Off']],'A card you miss (Again), or rate Hard while it is still learning, comes back after the rest of the set as Round 2: only those cards, answered fresh. Any that come due again make Round 3. Off keeps one pass.'],['advanceAfterRating','Advance after rating',null,'In a due review, tapping Hard, Good or Easy saves the rating and moves to the next card. A wrong answer always waits for Next.']];
   function nkFsrsSetSessionPreference(name,value){
     const p=nkFsrsPreferences();
-    if(name==='learningInSession'){if(!NK_FSRS_LEARNING_MODES.includes(String(value)))return false;p.learningInSession=String(value);}
+    if(name==='learningInSession'){if(!NK_FSRS_LEARNING_MODES.includes(String(value)))return false;p.learningInSession=String(value)==='off'?'off':'end';}
     else if(name==='advanceAfterRating')p.advanceAfterRating=value===true||value==='1'||value==='true';
     else return false;
     state.fsrsPreferencesAt={...(state.fsrsPreferencesAt||{}),[name]:Date.now()};return true;

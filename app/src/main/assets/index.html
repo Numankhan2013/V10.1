@@ -458,7 +458,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     // Completion counts only questions that accept an answer; accuracy counts
     // only active answers (undo events and undone answers are not misses).
     const qs = chapterQuestions(cid).filter(q=>typeof nkFsrsAnswerable!=='function'||nkFsrsAnswerable(q));
-    const at = qs.flatMap(q=>qAttempts(q.id)||[]).filter(a=>a&&!a.isUndo&&!a.isRatingRevision&&typeof a.correct==='boolean');
+    // A due-review learning repeat (round 2+) is relearning, not another answer for accuracy.
+    const at = qs.flatMap(q=>qAttempts(q.id)||[]).filter(a=>a&&!a.isUndo&&!a.isRatingRevision&&!a.learningRound&&typeof a.correct==='boolean');
     const attempted = qs.filter(q=>qAttempts(q.id).length).length;
     const correct = at.filter(a=>a.correct).length;
     const incorrect = at.filter(a=>!a.correct).length;
@@ -877,14 +878,15 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
 
   function nkHomeRangeStart(range){const d=new Date();d.setHours(0,0,0,0);if(range==='today')return d.getTime();if(range==='week'){d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime();}if(range==='month'){d.setDate(1);return d.getTime();}d.setMonth(0,1);return d.getTime();}
   function nkHomeProgressStats(range=nkHomeProgressRange){
-    const start=nkHomeRangeStart(range),end=Date.now(),attempts=[],qids=new Set();
+    const start=nkHomeRangeStart(range),end=Date.now(),attempts=[],repeats=[],qids=new Set();
     for(const [qid,items] of Object.entries(state.attempts||{}))for(const a of (typeof qAttempts==='function'?qAttempts(qid):items)||[]){
       const at=Number(a?.reviewedAt||a?.at||0);
       if(!a||a.isUndo||a.isRatingRevision||at<start||at>end||typeof a.correct!=='boolean')continue;
-      attempts.push(a);qids.add(String(qid));
+      // A due-review learning repeat (round 2+, review_learning_queue.js) adds study time, not another answer.
+      if(a.learningRound)repeats.push(a);else attempts.push(a);qids.add(String(qid));
     }
     const correct=attempts.filter(a=>a.correct).length;
-    const practiceMs=attempts.filter(a=>a.source!=='exam').reduce((n,a)=>n+Math.max(0,Number(a.timeSpent)||0),0);
+    const practiceMs=[...attempts,...repeats].filter(a=>a.source!=='exam').reduce((n,a)=>n+Math.max(0,Number(a.timeSpent)||0),0);
     const testMs=(state.tests||[]).filter(t=>t.kind!=='practice').reduce((n,t)=>{
       const completed=Number(t?.createdAt||0),duration=Math.max(0,Number(t?.totalTimeMs)||0);
       return n+(completed>0?Math.max(0,Math.min(completed,end)-Math.max(completed-duration,start)):0);

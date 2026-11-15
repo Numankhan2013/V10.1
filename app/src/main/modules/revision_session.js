@@ -36,7 +36,7 @@
     const saved=nkPracticeCheckpoints(false).filter(cp=>['wrong','bookmarks','due'].includes(String(cp.context?.revisionQueueKind)));
     if(!saved.length)return '';
     return '<section class="nk-revision-paused" aria-label="Paused revision"><h2>Pick up where you paused</h2>'+saved.map(cp=>{
-      const kind=cp.context.revisionQueueKind,label=kind==='wrong'?'mistakes':kind==='due'?'due review':'bookmarks',done=cp.sessionQuestionIds.filter(id=>cp.submitted?.[id]).length;
+      const kind=cp.context.revisionQueueKind,label=kind==='wrong'?'mistakes':kind==='due'?'due review':'bookmarks',done=cp.sessionQuestionIds.filter(id=>cp.submitted?.[id]||(Array.isArray(cp.roundHistory?.[id])&&cp.roundHistory[id].some(r=>r?.submitted))).length;
       const scope=cp.context.revisionScope||{},record=scope.subject&&scope.bank&&typeof nkBankRecord==='function'?nkBankRecord(scope.subject,scope.bank):null,topic=record?.topics?.find(t=>String(t.id)===String(scope.topic));
       const focus=[scope.subject||'All subjects',scope.bank||'All banks',topic?.title||topic?.name].filter(Boolean).join(' · ');
       return '<div class="nk-revision-paused-row"><span><strong>'+esc(cp.context.title||'Revision')+'</strong><small>'+esc(focus)+'</small><small>'+fmtNum(done)+' of '+fmtNum(cp.sessionQuestionIds.length)+' answered · saved position '+fmtNum(Number(cp.position?.index||0)+1)+'</small></span><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById('+esc(JSON.stringify(String(cp.sessionId)))+')">Resume '+label+'</button></div>';
