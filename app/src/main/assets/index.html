@@ -1171,7 +1171,7 @@ function dashboard(){
     const skippedIds=state.fsrsReviewEligible||{};
     const rows=qs.map(q=>{const a=latestAttempt(q.id);return {q,st:a?(a.correct?'c':'w'):skippedIds[q.id]?.reason==='skipped'?'k':'u',b:Boolean(state.bookmarks&&state.bookmarks[q.id])};});
     const correct=rows.filter(r=>r.st==='c').length,wrong=rows.filter(r=>r.st==='w').length,skipped=rows.filter(r=>r.st==='k').length,left=Math.max(0,total-s.attempted),fresh=Math.max(0,left-skipped),marked=rows.filter(r=>r.b).length,mistakes=rows.filter(r=>nkIsMistake(r.q.id)).length;
-    const due=qs.filter(q=>{const r=state.reviews&&state.reviews[q.id];return r&&r.nextReviewAt&&r.nextReviewAt<=now;}).length;
+    const due=qs.filter(q=>{const r=state.reviews&&state.reviews[q.id];return r&&r.nextReviewAt&&r.nextReviewAt<=now&&!(typeof nkNsIsFlagged==='function'&&nkNsIsFlagged(q.id));}).length;
     const cont=typeof nkTopicPracticeContinuation==='function'?nkTopicPracticeContinuation(activeSubject,activeBank):null,resume=cont&&cont.sessionId&&cont.total>1&&String(cont.topicId)===String(c.id)?cont:null;
     const phase=resume?'paused':!s.attempted?'new':s.attempted>=total?'done':'progress';
     const pages=qs.map(q=>Number(q.sourcePage)).filter(Boolean),pageSpan=pages.length?(Math.min(...pages)===Math.max(...pages)?`PDF p.${Math.min(...pages)}`:`PDF p.${Math.min(...pages)}–${Math.max(...pages)}`):'';

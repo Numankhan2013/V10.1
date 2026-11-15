@@ -100,17 +100,21 @@
   }
   // A flag set in an earlier session is being cleared: the answers it withheld are
   // withdrawn for good (FSRS undo events, synced like any attempt) so they never
-  // come back, then the tombstone is written. The visible card does not change.
-  function nkNsClearEarlier(qid){
+  // come back, then the tombstone is written. Cleared by hand (`fresh` false) the
+  // card comes back exactly as it was before the flag. Cleared by answering
+  // (`fresh` true, R4) every earlier answer is withdrawn the same way, so the new
+  // answer starts a fresh card and the guessed history no longer shapes it.
+  function nkNsClearEarlier(qid,fresh=false){
     const id=String(qid),e=nkNsEntry(id);if(e?.on!==true)return false;
-    const hidden=nkNsHiddenAttempts(id,e.session);
+    const hidden=fresh?nkNsAllActive(id):nkNsHiddenAttempts(id,e.session);
     if(hidden.length){
       state.attempts[id]=Array.isArray(state.attempts[id])?state.attempts[id]:[];
       let now=Date.now();
       hidden.forEach(a=>{now=Math.max(now+1,Number(a.at||0)+1);state.attempts[id].push({id:`undo_${now}_${Math.random().toString(16).slice(2)}`,isUndo:true,undoOf:a.id,at:now,reason:'not-studied',...(typeof NK_FSRS_VERSION!=='undefined'?{schedulerVersion:NK_FSRS_VERSION}:{})});});
     }
     const held=nkNsHeldMap();if(held[id]&&String(held[id].session)===String(e.session||''))delete held[id];
-    return nkNsSet(id,false);
+    const done=nkNsSet(id,false);if(fresh&&hidden.length)nkNsReplay(id);
+    return done;
   }
   // Flags made outside the current session (an earlier session, another device's
   // session, or with no session) clear when the question is answered.
@@ -187,7 +191,7 @@
     const id=String(qid),e=nkNsEntry(id);
     if(e?.on!==true)return nkNsOriginalRecord.apply(this,arguments);
     const s=state.activeSession;
-    if(s&&nkNsPredates(s,id)){nkNsClearEarlier(id);return nkNsOriginalRecord.apply(this,arguments);}
+    if(s&&nkNsPredates(s,id)){nkNsClearEarlier(id,true);return nkNsOriginalRecord.apply(this,arguments);}
     if(s?.mode!=='practice'||String(e.session||'')!==String(s.id))return nkNsIsCorrect(id,arguments[1]);
     const visible=nkNsClone(state.reviews[id]),full=nkNsFullReview(id),held=nkNsHeldMap();
     nkNsBypass=true;let result;
@@ -210,14 +214,15 @@
   submitPractice=function(){
     const s=state.activeSession,id=String(s?.questionIds?.[s?.index]??'');
     const live=Boolean(s?.mode==='practice'&&id&&!s.submitted?.[id]&&s.answers?.[id]);
-    const prior=live&&nkNsPredates(s,id)?{flag:nkNsClone(nkNsEntry(id)),attempts:Array.isArray(state.attempts?.[id])?nkNsClone(state.attempts[id]):undefined,held:Object.prototype.hasOwnProperty.call(nkNsHeldMap(),id)?nkNsClone(nkNsHeldMap()[id]):undefined}:null;
-    const cleared=Boolean(prior&&nkNsClearEarlier(id));
+    const prior=live&&nkNsPredates(s,id)?{flag:nkNsClone(nkNsEntry(id)),attempts:Array.isArray(state.attempts?.[id])?nkNsClone(state.attempts[id]):undefined,held:Object.prototype.hasOwnProperty.call(nkNsHeldMap(),id)?nkNsClone(nkNsHeldMap()[id]):undefined,review:nkNsClone(state.reviews?.[id])}:null;
+    const cleared=Boolean(prior&&nkNsClearEarlier(id,true));
     const result=nkNsOriginalSubmitPractice.apply(this,arguments);
     const after=state.activeSession;
     if(cleared&&!(after?.submitted?.[id])){
       nkNsMap()[id]=prior.flag;
       if(prior.attempts===undefined){if(state.attempts)delete state.attempts[id];}else state.attempts[id]=prior.attempts;
       if(prior.held===undefined)delete nkNsHeldMap()[id];else nkNsHeldMap()[id]=prior.held;
+      nkNsSetReview(id,prior.review);
       return result;
     }
     if(cleared){saveState();nkNsPatchButton(id);}
@@ -234,15 +239,16 @@
     ids.forEach(id=>{if(!state.fsrsReviewEligible)return;if(prior[id]===undefined)delete state.fsrsReviewEligible[id];else state.fsrsReviewEligible[id]=prior[id];});
     return result;
   };
-  // A flagged question with no visible answer is not in Today's Review, its counts
-  // or forecast, even if an earlier session left a skip mark. The mark itself is
-  // kept, so unflagging puts the question back exactly as it was. A flagged
-  // question with earlier answers keeps its card and stays due (R4).
+  // A flagged question leaves FSRS entirely (R4): not in Today's Review or the due
+  // queue, its counts, forecast, memory stages or a review session's learning
+  // queue, whatever its earlier history or skip mark. Nothing is deleted while it
+  // is flagged (attempts, card and skip mark stay), so unflagging without
+  // answering puts the question back exactly as it was.
   if(typeof nkFsrsEligibility==='function'){
     const nkNsOriginalEligibility=nkFsrsEligibility;
     nkFsrsEligibility=function(q){
       const id=String(q?.id||'');
-      if(id&&nkNsIsFlagged(id)&&!nkFsrsActiveAttempts(id).length)return '';
+      if(id&&nkNsIsFlagged(id))return '';
       return nkNsOriginalEligibility.apply(this,arguments);
     };
   }
