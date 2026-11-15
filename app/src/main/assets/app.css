@@ -7385,6 +7385,28 @@ html[data-nk-theme="dark"] .nk-review-done{--rd-bg:#0f1f16;--rd-line:#1f3d2b;--r
 @keyframes nk-review-done-tick{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.nk-review-done,.nk-review-done-mark svg{animation:none}}
 
+/* ── nk-submit-attempted-v1 ── */
+/* Grid language (owner, 2026-11-15): correct = solid green, wrong = solid red,
+   skipped = hollow yellow outline, not attempted = hollow neutral outline. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k.is-k,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-skipped.is-skipped { background: transparent !important; border: 2px solid var(--nkg-warning, #d98b16) !important; color: var(--nkg-amber, #a35200) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-skipped.is-skipped span { color: var(--nkg-amber, #a35200) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.skipped.skipped { background: transparent !important; border: 2px solid var(--nkg-warning, #d98b16) !important; box-sizing: border-box; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-legend li.is-k::before { background: transparent !important; box-shadow: inset 0 0 0 2px var(--nkg-warning, #d98b16) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-u.is-u,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.unanswered:not(.is-correct):not(.is-wrong):not(.is-skipped):not(.active) { background: transparent !important; border: 1.5px solid var(--nkg-border-strong, #8f8f8f) !important; }
+.nk-topic-cell.is-k{background:transparent;border:2px solid #d98b16;color:#9a5d08}
+.nk-session-review-q.is-skipped{background:transparent!important;border:2px solid #d98b16!important}
+/* Submit attempted: a full-width quiet action under Pause / Submit. */
+#nk-session-review .nk-session-review-actions .nk-practice-submit-attempted { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; width: 100%; min-height: 52px; padding: 8px 14px; border-radius: 12px; border: 1.5px solid var(--nkg-border-strong, #c9ccd6); background: transparent; color: var(--nkg-fg, #161616); font: inherit; cursor: pointer; }
+#nk-session-review .nk-practice-submit-attempted span { font-weight: 600; font-size: 15px; line-height: 1.15; }
+#nk-session-review .nk-practice-submit-attempted small { font-size: 12px; line-height: 1.2; color: var(--nkg-fg-3, #6b6b6b); font-variant-numeric: tabular-nums; }
+@media (hover: hover) and (pointer: fine) { #nk-session-review .nk-practice-submit-attempted:hover { background: var(--nkg-hover, rgba(0,0,0,.04)); } }
+#nk-session-review .nk-practice-submit-attempted:focus-visible { outline: 2px solid var(--nkg-focus, #5153e8); outline-offset: 2px; }
+.nk-sa-result-note { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 0 0 14px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--nkg-border, #e4e4e7); background: var(--nkg-surface, #fff); font-size: 13px; line-height: 1.35; }
+.nk-sa-result-note strong { font-weight: 600; color: var(--nkg-fg, #161616); font-variant-numeric: tabular-nums; }
+.nk-sa-result-note span { color: var(--nkg-fg-3, #6b6b6b); font-variant-numeric: tabular-nums; }
+
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

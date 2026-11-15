@@ -401,6 +401,8 @@
       if(!test){test={id:testId,title:s.title,kind:'practice',questionIds:[...allIds],answers,questionTimes:qt,correct,incorrect,unattempted:Math.max(0,allIds.length-attempted),total:allIds.length,attempted,totalTimeMs:Object.values(qt).reduce((sum,value)=>sum+Number(value||0),0),createdAt:now,autoSubmitted:false};state.tests.push(test);state.tests=state.tests.slice(-100);}
       if(identity)test.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...allIds],completed:complete};
       const correctionOf=nkPracticeCorrectionParent(s);if(correctionOf)test.correctionOf=correctionOf;
+      // Submit attempted (practice_submit_attempted.js): the set was cut at the last answer.
+      if(s.partialSubmit){const p=s.partialSubmit,rest=(p.remainingIds||[]).map(String);test.partial=true;test.sessionTotal=Number(p.total)||allIds.length+rest.length;test.skipped=(p.skippedIds||[]).length;if(test.practiceContext)test.practiceContext={...test.practiceContext,completed:false,remainingIds:rest};}
       const checkpoint=nkPracticeBuildCheckpoint(s,'submitted');checkpoint.terminalAt=now;
       nkPracticeStoreCheckpoint(checkpoint);state.activeSession=null;
       if(saveState()===false){state=before;return false;}
