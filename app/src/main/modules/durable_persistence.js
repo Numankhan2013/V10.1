@@ -21,12 +21,27 @@
     const origin=[s.originRoute,s.context,s.title].filter(Boolean).join(' ').toLowerCase();
     return !/(fsrs|spaced|review|wrong|bookmark)/.test(origin);
   }
+  // Due-review learning rounds (review_learning_queue.js): the queue of cards waiting
+  // for another round and each question's earlier rounds. Optional, keyed by
+  // question ID inside the session's own membership; a checkpoint without them
+  // is an ordinary one, so older payloads load unchanged.
+  function nkCheckpointLearning(raw,ids){
+    const member=new Set(ids),out={},queue={},rounds={};
+    if(nkStateObject(raw?.learningQueue))Object.entries(raw.learningQueue).forEach(([id,entry])=>{const due=Number(entry?.due);if(member.has(String(id))&&Number.isFinite(due)&&due>0)queue[String(id)]={due,round:Math.max(1,Math.trunc(Number(entry.round)||1))};});
+    if(nkStateObject(raw?.roundHistory))Object.entries(raw.roundHistory).forEach(([id,list])=>{if(!member.has(String(id))||!Array.isArray(list))return;const clean=list.filter(nkStateObject).slice(0,50).map((r,i)=>({round:i+1,answer:r.answer==null?null:Number(r.answer),submitted:Boolean(r.submitted),timeMs:Math.max(0,Number(r.timeMs)||0),correct:typeof r.correct==='boolean'?r.correct:null,rating:[1,2,3,4].includes(Number(r.rating))?Number(r.rating):null,attemptId:r.attemptId==null?null:String(r.attemptId),reopenedAt:Math.max(0,Number(r.reopenedAt)||0)}));if(clean.length)rounds[String(id)]=clean;});
+    if(Object.keys(queue).length)out.learningQueue=queue;
+    if(Object.keys(rounds).length)out.roundHistory=rounds;
+    const back=Number(raw?.learningReturnIndex);if(Number.isInteger(back)&&back>=0&&back<ids.length)out.learningReturnIndex=back;
+    return out;
+  }
+  function nkCheckpointRounds(roundHistory,id){return Array.isArray(roundHistory?.[id])?roundHistory[id].length:0;}
   function nkNormalizeCheckpoint(raw){
     if(!nkStateObject(raw)||Number(raw.version)!==NK_PRACTICE_CHECKPOINT_VERSION||!raw.sessionId)return null;
     const ids=[...new Set((Array.isArray(raw.sessionQuestionIds)?raw.sessionQuestionIds:[]).map(String).filter(Boolean))];
     if(!ids.length||!NK_PRACTICE_LIFECYCLES.has(String(raw.lifecycle||'')))return null;
     const position=nkStateObject(raw.position)?raw.position:{};
-    return {...raw,version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(raw.sessionId),sessionQuestionIds:ids,
+    const base={...raw};delete base.learningQueue;delete base.roundHistory;delete base.learningReturnIndex;
+    return {...base,...nkCheckpointLearning(raw,ids),version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(raw.sessionId),sessionQuestionIds:ids,
       membershipHash:nkCheckpointMembership(ids),context:nkStateObject(raw.context)?raw.context:{},
       position:{index:Math.max(0,Math.min(ids.length-1,Number(position.index)||0)),currentQuestionId:String(position.currentQuestionId||ids[Math.max(0,Number(position.index)||0)]||'')},
       answers:nkStateObject(raw.answers)?raw.answers:{},submitted:nkStateObject(raw.submitted)?raw.submitted:{},
@@ -99,20 +114,23 @@
   }
   function nkStorageClearError(){nkStorageLastError='';try{document.getElementById('nk-storage-error')?.remove();}catch(_){}}
   function nkCheckpointQuestionUpdate(previous,id,next,now){
-    const before=previous?.questionUpdates?.[id]||{},signature=JSON.stringify([next.answers[id]??null,Boolean(next.submitted[id]),Number(next.questionTimes[id]||0),next.pendingFsrsRatings[id]||null]);
+    const rounds=nkCheckpointRounds(next.roundHistory,id),fields=[next.answers[id]??null,Boolean(next.submitted[id]),Number(next.questionTimes[id]||0),next.pendingFsrsRatings[id]||null];
+    // A reopened learning round is a new edit of that question (older signatures stay as they were).
+    const before=previous?.questionUpdates?.[id]||{},signature=JSON.stringify(rounds?[...fields,rounds]:fields);
     return before.signature===signature?before:{revision:Math.max(1,Number(before.revision||0)+1),updatedAt:now,signature};
   }
   function nkCheckpointFromSession(s,previous,lifecycle){
     const prior=previous&&String(previous.sessionId)===String(s.id)?previous:null;
     const ids=prior?.sessionQuestionIds?.length?[...prior.sessionQuestionIds]:[...new Set((s.sessionQuestionIds?.length?s.sessionQuestionIds:s.questionIds||[]).map(String))];
     const current=String(s.questionIds?.[Number(s.index)||0]||ids[Math.max(0,Number(s.pausedIndex)||0)]||'');
-    const now=Date.now(),next={answers:{...(s.answers||{})},submitted:{...(s.submitted||{})},questionTimes:{...(s.questionTimes||{})},pendingFsrsRatings:{...(s.pendingRating||{})}};
+    const learning=nkCheckpointLearning(s,ids);
+    const now=Date.now(),next={answers:{...(s.answers||{})},submitted:{...(s.submitted||{})},questionTimes:{...(s.questionTimes||{})},pendingFsrsRatings:{...(s.pendingRating||{})},roundHistory:learning.roundHistory};
     const questionUpdates={};ids.forEach(id=>questionUpdates[id]=nkCheckpointQuestionUpdate(prior,id,next,now));
     return {version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(s.id),sessionQuestionIds:ids,membershipHash:nkCheckpointMembership(ids),
       context:{...(s.practiceContext||{}),...(s.originRoute&&s.originRoute!=='topics'?{originRoute:String(s.originRoute)}:{}),subject:String(s.practiceContext?.subject||''),bank:String(s.practiceContext?.bank||''),topicId:String(s.practiceContext?.topicId||''),title:String(s.practiceContext?.title||s.title||'Practice')},
       position:{index:Math.max(0,Math.min(ids.length-1,Number(s.index)||0)),currentQuestionId:current},answers:next.answers,submitted:next.submitted,
       startedAt:Number(s.startedAt||now),lastTick:Number(s.lastTick||now),elapsedMs:Number(s.elapsedMs||0),questionEnteredAt:Number(s.questionEnteredAt||now),
-      questionTimes:next.questionTimes,pendingFsrsRatings:next.pendingFsrsRatings,questionUpdates,lifecycle:lifecycle||String(s.lifecycle||'active'),
+      questionTimes:next.questionTimes,pendingFsrsRatings:next.pendingFsrsRatings,questionUpdates,...learning,lifecycle:lifecycle||String(s.lifecycle||'active'),
       createdAt:Number(prior?.createdAt||s.startedAt||now),updatedAt:now,terminalAt:NK_PRACTICE_TERMINAL.has(lifecycle)?now:(prior?.terminalAt||null)};
   }
   function nkMirrorNormalPracticeCheckpoint(target){

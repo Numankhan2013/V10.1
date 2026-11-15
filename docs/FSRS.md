@@ -32,3 +32,81 @@ approved brain medallion, Rate recall / Default: Good label, text-only pills,
 purple Good default, and a static lilac glow. It is absent before answering and
 in CBT/review modes. Incorrect answers retain automatic Again; Next still commits
 an unanswered recall prompt as Good. Scheduler semantics are unchanged.
+
+## Learning cards in a due review (2026-11-15, `feature/review-learning-queue`)
+
+Module `app/src/main/modules/review_learning_queue.js` (`NK_REVIEW_LEARNING_QUEUE_V1`),
+styles `/* ── nk-review-learning-queue-v1 ── */` in `app.css`. **Due-review sessions
+only** (`revisionQueueKind:'due'`, started by Revision → Review due): normal
+Practice, Today's Review (`spaced-review`), mistakes, bookmarks, modules and
+timed tests are unchanged.
+
+**In-session learning queue (Anki style).** A rating that leaves the card in
+learning or relearning (FSRS state 1/3: Again from a wrong answer, or Hard on a
+card still in a step) puts the question in `session.learningQueue[qid] =
+{due, round}` with the card's FSRS due time. The queue entry follows the card:
+revising Hard→Good on a revisit (graduated) removes it; a pending rating does
+not enter until it commits. The card is never duplicated: `questionIds` and
+`sessionQuestionIds` keep their membership, so the checkpoint `membershipHash`,
+the abandon/Back guard and sync stay stable. It reopens **in its own row as a
+new round**: the previous round's answer, submitted flag, time, outcome, rating
+and attempt id move to `session.roundHistory[qid]`, the live answer clears, and
+the header and the session grid show "Round N". `nkFsrsSessionRating` only sees
+the live round's attempt (attempts at or after the round's `reopenedAt`).
+
+- **Show when due** (default): on every Next (and after an auto-advance) a
+  queued card that is due now comes before the rest of the set; Next from it
+  continues after the card it interrupted (`learningReturnIndex`).
+- **Show at the end**: queued cards wait until the set is done.
+- **Off**: one pass, exactly as before (no queue, no rounds).
+- At the end of the set (both modes) a card due within the 20-minute
+  learn-ahead (`NK_FSRS_LEARN_AHEAD`) shows at once; if only later ones remain,
+  a dialog says "1 learning card due in 14 min" with **Study now** (opens it
+  now) and **Finish** (the existing end-of-session sheet, which also repeats
+  the line with Study now).
+- Every round records a normal FSRS attempt (`source:'fsrs-review'`; round 2+
+  also carries `learningRound:N`), so the scheduling history is the full Anki
+  log. The daily cap keeps exempting same-day learning repeats (`repeatIds` in
+  `nkFsrsQueue`).
+- **Results count each question once, by its latest answered round.** A round
+  reopened but left unanswered gives way to the round before it; the result's
+  time for the question is the sum of its rounds. Insights
+  (`nkLearningCollect`) skip `learningRound` attempts, so a relearning repeat is
+  not a second answered question; FSRS history and memory views keep every round.
+- Persistence: `learningQueue`, `roundHistory` and `learningReturnIndex` ride in
+  the practice checkpoint (`nkCheckpointFromSession`, `nkNormalizeCheckpoint`
+  keeps only entries inside the session's membership), durable persistence and
+  the sync merge (`nkMergePracticeCheckpoint`: per question, the copy with more
+  rounds owns the live answer, its time and the queue entry; equal rounds keep
+  the old rule). A reopened round adds the round count to that question's
+  update signature (older signatures are unchanged). Payloads without these
+  fields load and merge as before; Pause/resume restores them.
+- A not-studied-flagged question never enters or stays in the queue (flagging
+  removes it; unflagging in the session puts it back if the card is still learning).
+
+**Advance after rating** (default on). In a due review, the first Hard/Good/Easy
+on an answer (committing its pending rating) saves it, keeps the pressed state
+for ~250 ms (`.nk-fsrs-rating.is-advancing`), then runs Next: a due learning
+card first, the end-of-session sheet after the last card. Wrong answers never
+advance (the explanation waits for Next). Changing an already saved rating only
+saves. A tap while the advance waits is ignored; the timer fires only if the
+same session, question and round are current, the session is not paused, the
+question is not flagged and no sheet or dialog is open; Next/Previous/grid
+jumps, flag toggles, Pause and Abandon cancel it.
+
+**Settings** (FSRS customization → 04 Review sessions): "Learning cards in a
+review session" (Show when due / Show at the end / Off) and "Advance after
+rating" (switch). Stored in `state.fsrsPreferences.learningInSession` /
+`advanceAfterRating`, stamped per field in `fsrsPreferencesAt` and merged per
+field by sync like the scheduling values; older clients that drop the fields
+leave them alone. Attempts record only the three scheduling values as
+`schedulerPreferences`.
+
+Tests: `tools/test_review_learning_queue_v1.py` (requeue timing, Hard/Good,
+learn-ahead and the wait line, all three modes, result counted once, pause /
+reload / resume, older and damaged checkpoints, auto-advance on first rating
+only / not on wrong / no jump on revision / stale timers / end sheet, flags,
+untouched other sessions, daily cap, checkpoint sync merge, preference merge);
+`tools/verify_review_learning_queue_browser.py` (real app, 390 px and 820 px:
+Again → Round 2 returns in the session → Good auto-advances → end sheet →
+counted once). Not device-verified.

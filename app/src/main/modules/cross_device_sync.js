@@ -392,7 +392,7 @@
     const base={...(state.fsrsPreferences||{})};
     if(!at||typeof at!=='object'){state.fsrsPreferences={...base,...incoming};return;}
     const stamps={...(state.fsrsPreferencesAt||{})};
-    ['desiredRetention','dailyCap','maximumInterval'].forEach(field=>{if(!(field in incoming))return;const remoteAt=Number(at[field]||0),localAt=Number(stamps[field]||0);if(remoteAt>=localAt){base[field]=incoming[field];if(remoteAt>0)stamps[field]=remoteAt;}});
+    ['desiredRetention','dailyCap','maximumInterval','learningInSession','advanceAfterRating'].forEach(field=>{if(!(field in incoming))return;const remoteAt=Number(at[field]||0),localAt=Number(stamps[field]||0);if(remoteAt>=localAt){base[field]=incoming[field];if(remoteAt>0)stamps[field]=remoteAt;}});
     state.fsrsPreferences=base;state.fsrsPreferencesAt=stamps;
   }
   function nkSyncPracticeCheckpoint(value){
@@ -409,25 +409,34 @@
     const local=nkSyncPracticeCheckpoint(checkpoints.find(item=>String(item.sessionId)===String(remote.sessionId)));
     if(!local){checkpoints.push(remote);state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):remote;return remote;}
     if(local.sessionQuestionIds.length!==remote.sessionQuestionIds.length||local.sessionQuestionIds.some((id,index)=>id!==remote.sessionQuestionIds[index])){nkPracticeConflict(local,remote,'membership-mismatch');return local;}
-    const ids=[...local.sessionQuestionIds],answers={},submitted={},questionTimes={},pendingFsrsRatings={},questionUpdates={};
+    const ids=[...local.sessionQuestionIds],answers={},submitted={},questionTimes={},pendingFsrsRatings={},questionUpdates={},learningQueue={},roundHistory={};
+    const rounds=(cp,id)=>Array.isArray(cp.roundHistory?.[id])?cp.roundHistory[id].length:0;
     ids.forEach(id=>{
-      const lu=local.questionUpdates?.[id]||{},ru=remote.questionUpdates?.[id]||{},remoteNewer=Number(ru.revision||0)>Number(lu.revision||0)||(Number(ru.revision||0)===Number(lu.revision||0)&&Number(ru.updatedAt||0)>Number(lu.updatedAt||0));
+      const lu=local.questionUpdates?.[id]||{},ru=remote.questionUpdates?.[id]||{},lr=rounds(local,id),rr=rounds(remote,id);
+      // A due-review learning card reopened for another round: the copy with more rounds
+      // is the newer one and owns the live answer; an older round's answer never merges in.
+      const remoteNewer=rr!==lr?rr>lr:Number(ru.revision||0)>Number(lu.revision||0)||(Number(ru.revision||0)===Number(lu.revision||0)&&Number(ru.updatedAt||0)>Number(lu.updatedAt||0));
       const preferred=remoteNewer?remote:local,fallback=remoteNewer?local:remote;
-      if(preferred.answers?.[id]!=null)answers[id]=preferred.answers[id];else if(fallback.answers?.[id]!=null)answers[id]=fallback.answers[id];
-      if(local.submitted?.[id]||remote.submitted?.[id])submitted[id]=true;
-      questionTimes[id]=Math.max(Number(local.questionTimes?.[id]||0),Number(remote.questionTimes?.[id]||0));
+      if(preferred.answers?.[id]!=null)answers[id]=preferred.answers[id];else if(lr===rr&&fallback.answers?.[id]!=null)answers[id]=fallback.answers[id];
+      if(lr!==rr?preferred.submitted?.[id]:(local.submitted?.[id]||remote.submitted?.[id]))submitted[id]=true;
+      questionTimes[id]=lr!==rr?Number(preferred.questionTimes?.[id]||0):Math.max(Number(local.questionTimes?.[id]||0),Number(remote.questionTimes?.[id]||0));
+      if(Math.max(lr,rr))roundHistory[id]=JSON.parse(JSON.stringify(preferred.roundHistory?.[id]||fallback.roundHistory?.[id]));
+      const queued=preferred.learningQueue?.[id]||(lr===rr?fallback.learningQueue?.[id]:null);
+      if(queued&&submitted[id])learningQueue[id]={...queued};
       const pending=preferred.pendingFsrsRatings?.[id]||(Number(lu.revision||0)===0&&Number(ru.revision||0)===0?fallback.pendingFsrsRatings?.[id]:null);
       if(pending&&!(state.attempts?.[id]||[]).some(a=>!a.isUndo&&!a.isRatingRevision&&String(a.id)===String(pending.id)))pendingFsrsRatings[id]=pending;
       questionUpdates[id]=remoteNewer?ru:lu;
     });
     const localTerminal=nkSyncTerminalLifecycle(local.lifecycle),remoteTerminal=nkSyncTerminalLifecycle(remote.lifecycle),latest=Number(remote.updatedAt||0)>Number(local.updatedAt||0)?remote:local;
     const lifecycle=localTerminal&&!remoteTerminal?local.lifecycle:remoteTerminal&&!localTerminal?remote.lifecycle:latest.lifecycle;
+    const learning={...(Object.keys(learningQueue).length?{learningQueue}:{}),...(Object.keys(roundHistory).length?{roundHistory}:{})};
     const merged={...latest,sessionQuestionIds:ids,membershipHash:nkSyncMembership(local),answers,submitted,questionTimes,pendingFsrsRatings,questionUpdates,lifecycle,terminalAt:Math.max(Number(local.terminalAt||0),Number(remote.terminalAt||0))||null,updatedAt:Math.max(Number(local.updatedAt||0),Number(remote.updatedAt||0))};
+    delete merged.learningQueue;delete merged.roundHistory;Object.assign(merged,learning);
     const index=checkpoints.findIndex(item=>String(item.sessionId)===String(merged.sessionId));if(index<0)checkpoints.push(merged);else checkpoints[index]=merged;
     state.normalPracticeCheckpoints=checkpoints;state.normalPracticeCheckpoint=typeof nkLatestPracticeCheckpoint==='function'?nkLatestPracticeCheckpoint(checkpoints):merged;
     if(state.activeSession&&typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession)&&String(state.activeSession.id)===String(merged.sessionId)){
       if(nkSyncTerminalLifecycle(merged.lifecycle))state.activeSession=null;
-      else state.activeSession={...state.activeSession,questionIds:[...ids],sessionQuestionIds:[...ids],answers:{...answers},submitted:{...submitted},questionTimes:{...questionTimes},pendingRating:{...pendingFsrsRatings},index:Math.max(0,Math.min(ids.length-1,Number(merged.position?.index)||0)),lifecycle:merged.lifecycle};
+      else state.activeSession={...state.activeSession,questionIds:[...ids],sessionQuestionIds:[...ids],answers:{...answers},submitted:{...submitted},questionTimes:{...questionTimes},pendingRating:{...pendingFsrsRatings},index:Math.max(0,Math.min(ids.length-1,Number(merged.position?.index)||0)),lifecycle:merged.lifecycle,learningQueue:JSON.parse(JSON.stringify(learning.learningQueue||{})),roundHistory:JSON.parse(JSON.stringify(learning.roundHistory||{}))};
     }
     delete state.normalPracticeConflict;return merged;
   }

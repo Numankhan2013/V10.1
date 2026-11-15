@@ -2,7 +2,8 @@
   const NK_FSRS_BACKUP_KEY='qbank_pre_fsrs_backup_v1';
   const NK_FSRS_VERSION='fsrs6';
   const NK_FSRS_DAY=86400000;
-  const NK_FSRS_DEFAULTS={desiredRetention:.90,dailyCap:150,maximumInterval:365};
+  const NK_FSRS_DEFAULTS={desiredRetention:.90,dailyCap:150,maximumInterval:365,learningInSession:'due',advanceAfterRating:true};
+  const NK_FSRS_LEARNING_MODES=['due','end','off'];
   // Anki-style availability: learning/relearning steps may be studied up to 20
   // minutes early; review cards (day-scale intervals) are due for their whole
   // local calendar day instead of trickling in minute by minute.
@@ -30,9 +31,16 @@
     return state.fsrsPreferences={
       desiredRetention:Math.min(.97,Math.max(.80,Number(raw.desiredRetention||NK_FSRS_DEFAULTS.desiredRetention))),
       dailyCap:Math.min(300,Math.max(20,Math.round(Number(raw.dailyCap||NK_FSRS_DEFAULTS.dailyCap)))),
-      maximumInterval:Math.min(3650,Math.max(30,Math.round(Number(raw.maximumInterval||NK_FSRS_DEFAULTS.maximumInterval))))
+      maximumInterval:Math.min(3650,Math.max(30,Math.round(Number(raw.maximumInterval||NK_FSRS_DEFAULTS.maximumInterval)))),
+      // Due-review sessions only (review_learning_queue.js): when a card a rating left in
+      // learning/relearning comes back in the same session, and whether Hard/Good/Easy moves on.
+      learningInSession:NK_FSRS_LEARNING_MODES.includes(raw.learningInSession)?raw.learningInSession:NK_FSRS_DEFAULTS.learningInSession,
+      advanceAfterRating:raw.advanceAfterRating==null?NK_FSRS_DEFAULTS.advanceAfterRating:raw.advanceAfterRating!==false&&raw.advanceAfterRating!=='0'
     };
   }
+  // What an attempt records as the preferences it was scheduled with: only the
+  // three scheduling values (session behaviour settings never change a card).
+  function nkFsrsSchedulingPreferences(){const p=nkFsrsPreferences();return {desiredRetention:p.desiredRetention,dailyCap:p.dailyCap,maximumInterval:p.maximumInterval};}
   function nkFsrsEngine(preferences){
     const p=preferences||nkFsrsPreferences();
     if(!window.FSRS?.fsrs)throw new Error('The offline FSRS scheduler is unavailable.');
@@ -121,7 +129,9 @@
     // stored attempts so this rating extends the true chain, not an empty card.
     if(!state.reviews[qid]&&nkFsrsActiveAttempts(qid).length)nkFsrsReplay(qid,false);
     const before=nkFsrsCardFromReview(state.reviews[qid],now),out=nkFsrsEngine().next(before,new Date(now),grade),after=nkFsrsCardSnapshot(out.card);
-    const entry={id:attemptId||`${now}_${Math.random().toString(16).slice(2)}`,sessionId:state.activeSession?.id||null,selected:Number(selected),correct,timeSpent:Math.max(0,Number(timeSpent||0)),at:now,reviewedAt:now,source,rating:grade,ratingLabel:['','Again','Hard','Good','Easy'][grade],schedulerVersion:NK_FSRS_VERSION,schedulerPreferences:{...nkFsrsPreferences()},schedulerBefore:nkFsrsCardSnapshot(before),schedulerAfter:after};
+    const entry={id:attemptId||`${now}_${Math.random().toString(16).slice(2)}`,sessionId:state.activeSession?.id||null,selected:Number(selected),correct,timeSpent:Math.max(0,Number(timeSpent||0)),at:now,reviewedAt:now,source,rating:grade,ratingLabel:['','Again','Hard','Good','Easy'][grade],schedulerVersion:NK_FSRS_VERSION,schedulerPreferences:nkFsrsSchedulingPreferences(),schedulerBefore:nkFsrsCardSnapshot(before),schedulerAfter:after};
+    // A repeat of a learning card inside the same due-review session (round 2+).
+    const round=Array.isArray(state.activeSession?.roundHistory?.[qid])?state.activeSession.roundHistory[qid].length+1:1;if(round>1)entry.learningRound=round;
     if(!state.attempts[qid])state.attempts[qid]=[];state.attempts[qid].push(entry);
     state.reviews[qid]={...after,migratedAt:Number(state.reviews[qid]?.migratedAt||state.fsrsMigratedAt||now),legacyDueOverride:null,needsAttention:after.lapses>=6};saveState();return correct;
   }
@@ -135,7 +145,9 @@
   }
   function nkFsrsSessionRating(qid){
     const s=state.activeSession;if(s?.mode!=='practice'||!s.submitted?.[qid])return null;
-    return nkFsrsActiveAttempts(qid).filter(a=>a.correct&&Number(a.selected)===Number(s.answers?.[qid])&&(a.sessionId?String(a.sessionId)===String(s.id):Number(a.reviewedAt||a.at||0)>=Number(s.startedAt||Infinity))).at(-1)||null;
+    // A learning card reopened as a new round (review_learning_queue.js) has only that round's answer.
+    const since=Number(s.roundHistory?.[qid]?.at?.(-1)?.reopenedAt||0);
+    return nkFsrsActiveAttempts(qid).filter(a=>a.correct&&Number(a.selected)===Number(s.answers?.[qid])&&Number(a.reviewedAt||a.at||0)>=since&&(a.sessionId?String(a.sessionId)===String(s.id):Number(a.reviewedAt||a.at||0)>=Number(s.startedAt||Infinity))).at(-1)||null;
   }
   function nkFsrsReviseRating(qid,attempt,rating){
     if(nkFsrsRating(attempt)===Number(rating))return true;
@@ -207,13 +219,22 @@
   function nkFsrsSetPreference(name,value){const p=nkFsrsPreferences(),n=Number(value),bounds={desiredRetention:[80,97],dailyCap:[20,300],maximumInterval:[30,3650]},b=bounds[name];if(!b)return;p[name]=name==='desiredRetention'?Math.min(b[1],Math.max(b[0],n))/100:Math.round(Math.min(b[1],Math.max(b[0],n)));state.fsrsPreferencesAt={...(state.fsrsPreferencesAt||{}),[name]:Date.now()};}
   let nkFsrsDraft=null,nkFsrsPendingRoute=null;
   const nkFsrsFields=[['desiredRetention','Desired retention','%',80,97,'How often you aim to remember a card. Higher retention means more reviews.'],['dailyCap','Daily review limit','cards',20,300,'Limits due review work. Excess due questions roll forward.'],['maximumInterval','Longest review interval','days',30,3650,'The maximum gap before a question returns for review.']];
-  function nkFsrsReadSettings(){const p=nkFsrsPreferences();return {desiredRetention:String(Math.round(p.desiredRetention*100)),dailyCap:String(p.dailyCap),maximumInterval:String(p.maximumInterval)};}
+  function nkFsrsReadSettings(){const p=nkFsrsPreferences();return {desiredRetention:String(Math.round(p.desiredRetention*100)),dailyCap:String(p.dailyCap),maximumInterval:String(p.maximumInterval),learningInSession:p.learningInSession,advanceAfterRating:p.advanceAfterRating?'1':'0'};}
+  // Review-session choices (not numbers): stamped per field like the others so sync merges each one.
+  const nkFsrsSessionFields=[['learningInSession','Learning cards in a review session',[['due','Show when due'],['end','Show at the end'],['off','Off']],'A card you miss (Again), or rate Hard while it is still learning, comes back in the same due review: as soon as its step is due, or after the rest of the set. Off keeps one pass.'],['advanceAfterRating','Advance after rating',null,'In a due review, tapping Hard, Good or Easy saves the rating and moves to the next card. A wrong answer always waits for Next.']];
+  function nkFsrsSetSessionPreference(name,value){
+    const p=nkFsrsPreferences();
+    if(name==='learningInSession'){if(!NK_FSRS_LEARNING_MODES.includes(String(value)))return false;p.learningInSession=String(value);}
+    else if(name==='advanceAfterRating')p.advanceAfterRating=value===true||value==='1'||value==='true';
+    else return false;
+    state.fsrsPreferencesAt={...(state.fsrsPreferencesAt||{}),[name]:Date.now()};return true;
+  }
   function nkFsrsDirty(){return nkFsrsDraft&&JSON.stringify(nkFsrsDraft)!==JSON.stringify(nkFsrsReadSettings());}
   function nkFsrsEditSetting(key,value){if(!nkFsrsDraft)nkFsrsDraft=nkFsrsReadSettings();nkFsrsDraft[key]=value;const status=document.getElementById('nk-fsrs-save-status');if(status)status.textContent=nkFsrsDirty()?'Unsaved changes':'All changes saved';const warning=document.getElementById('nk-fsrs-high-retention');if(warning)warning.hidden=Number(nkFsrsDraft.desiredRetention)<=95;}
   function nkFsrsSaveSettings(){
     if(!nkFsrsDraft)return true;
     if(nkFsrsFields.some(([key,label,unit,min,max])=>!String(nkFsrsDraft[key]).trim()||!Number.isInteger(Number(nkFsrsDraft[key]))||Number(nkFsrsDraft[key])<min||Number(nkFsrsDraft[key])>max)){showToast('Enter a whole number within each displayed range.','bad');document.querySelector('.nk-fsrs-settings input:invalid')?.reportValidity();return false;}
-    nkFsrsFields.forEach(([key])=>nkFsrsSetPreference(key,nkFsrsDraft[key]));saveState();nkFsrsDraft=nkFsrsReadSettings();showToast('Review settings saved.','good');render();return true;
+    const saved=nkFsrsReadSettings();nkFsrsFields.forEach(([key])=>nkFsrsSetPreference(key,nkFsrsDraft[key]));nkFsrsSessionFields.forEach(([key])=>{if(String(nkFsrsDraft[key])!==saved[key])nkFsrsSetSessionPreference(key,nkFsrsDraft[key]);});saveState();nkFsrsDraft=nkFsrsReadSettings();showToast('Review settings saved.','good');render();return true;
   }
   function nkFsrsCancelSettings(){nkFsrsDraft=null;navigate('more');}
   function nkFsrsLeaveSettings(choice){
@@ -232,10 +253,15 @@
       nkFsrsDraft=null;
     }return false;
   }
+  function nkFsrsSessionSettingsMarkup(){
+    const [mode,advance]=nkFsrsSessionFields,value=nkFsrsDraft.learningInSession;
+    return `<label class="nk-fsrs-field" for="fsrs-${mode[0]}"><span><strong>${mode[1]}</strong><small id="fsrs-${mode[0]}-help">${mode[3]}</small></span><span class="nk-fsrs-value"><select id="fsrs-${mode[0]}" aria-describedby="fsrs-${mode[0]}-help" onchange="window.QB.nkFsrsEditSetting('${mode[0]}',this.value)">${mode[2].map(([v,label])=>`<option value="${v}" ${v===value?'selected':''}>${label}</option>`).join('')}</select></span></label>`
+      +`<label class="nk-fsrs-field nk-fsrs-toggle" for="fsrs-${advance[0]}"><span><strong>${advance[1]}</strong><small id="fsrs-${advance[0]}-help">${advance[3]}</small></span><span class="nk-fsrs-value"><input id="fsrs-${advance[0]}" aria-describedby="fsrs-${advance[0]}-help" type="checkbox" role="switch" ${nkFsrsDraft.advanceAfterRating==='1'?'checked':''} onchange="window.QB.nkFsrsEditSetting('${advance[0]}',this.checked?'1':'0')"></span></label>`;
+  }
   function nkFsrsSettingsMarkup(){
     if(!nkFsrsDraft)nkFsrsDraft=nkFsrsReadSettings();
     const field=([key,label,unit,min,max,help])=>`<label class="nk-fsrs-field" for="fsrs-${key}"><span><strong>${label}</strong><small id="fsrs-${key}-help">${help}</small><em>${min}–${max} ${unit}</em></span><span class="nk-fsrs-value"><input id="fsrs-${key}" aria-describedby="fsrs-${key}-help" type="number" inputmode="numeric" required step="1" min="${min}" max="${max}" value="${esc(nkFsrsDraft[key])}" oninput="window.QB.nkFsrsEditSetting('${key}',this.value)"><b>${unit}</b></span></label>`;
-    return shell(`<div class="nk-app-v114 nk-fsrs-customization nk-fsrs-settings"><button class="nk-back-link" onclick="window.QB.nav('more')">${navIcon('back',18)} More</button><header class="nk-fsrs-settings-hero"><span class="nk-fsrs-settings-mark">${navIcon('clock',28)}</span><div class="nk-kicker">Make it yours</div><h1>Your review rhythm</h1><p>Build lasting recall at a pace that works for you.</p></header><section class="nk-fsrs-settings-section"><header><span>01</span><div><h2>Memory goal</h2><p>Balance confidence and workload</p></div></header>${field(nkFsrsFields[0])}<p id="nk-fsrs-high-retention" class="nk-fsrs-warning" ${Number(nkFsrsDraft.desiredRetention)<=95?'hidden':''}>Above 95% can increase your review workload sharply.</p></section><section class="nk-fsrs-settings-section"><header><span>02</span><div><h2>Daily pace</h2><p>Keep review work bounded</p></div></header>${field(nkFsrsFields[1])}</section><section class="nk-fsrs-settings-section"><header><span>03</span><div><h2>Long-term recall</h2><p>Keep knowledge within reach</p></div></header>${field(nkFsrsFields[2])}</section><p class="nk-fsrs-settings-note">FSRS schedules every answered question. When you finish a session, an unanswered question enters review if you moved past it (it comes before your last answered question) or spent real time on it; questions you never opened are never added, and pausing adds nothing.</p><button class="nk-text-link" onclick="window.QB.nkFsrsUndo()">Undo most recent rating</button><footer class="nk-fsrs-settings-save"><small id="nk-fsrs-save-status" role="status">${nkFsrsDirty()?'Unsaved changes':'All changes saved'}</small><div><button class="ghost-btn" onclick="window.QB.nkFsrsCancelSettings()">Cancel</button><button class="primary-btn" onclick="window.QB.nkFsrsSaveSettings()">Save changes</button></div></footer></div>`,'more');
+    return shell(`<div class="nk-app-v114 nk-fsrs-customization nk-fsrs-settings"><button class="nk-back-link" onclick="window.QB.nav('more')">${navIcon('back',18)} More</button><header class="nk-fsrs-settings-hero"><span class="nk-fsrs-settings-mark">${navIcon('clock',28)}</span><div class="nk-kicker">Make it yours</div><h1>Your review rhythm</h1><p>Build lasting recall at a pace that works for you.</p></header><section class="nk-fsrs-settings-section"><header><span>01</span><div><h2>Memory goal</h2><p>Balance confidence and workload</p></div></header>${field(nkFsrsFields[0])}<p id="nk-fsrs-high-retention" class="nk-fsrs-warning" ${Number(nkFsrsDraft.desiredRetention)<=95?'hidden':''}>Above 95% can increase your review workload sharply.</p></section><section class="nk-fsrs-settings-section"><header><span>02</span><div><h2>Daily pace</h2><p>Keep review work bounded</p></div></header>${field(nkFsrsFields[1])}</section><section class="nk-fsrs-settings-section"><header><span>03</span><div><h2>Long-term recall</h2><p>Keep knowledge within reach</p></div></header>${field(nkFsrsFields[2])}</section><section class="nk-fsrs-settings-section nk-fsrs-session-settings"><header><span>04</span><div><h2>Review sessions</h2><p>How a due review flows</p></div></header>${nkFsrsSessionSettingsMarkup()}</section><p class="nk-fsrs-settings-note">FSRS schedules every answered question. When you finish a session, an unanswered question enters review if you moved past it (it comes before your last answered question) or spent real time on it; questions you never opened are never added, and pausing adds nothing.</p><button class="nk-text-link" onclick="window.QB.nkFsrsUndo()">Undo most recent rating</button><footer class="nk-fsrs-settings-save"><small id="nk-fsrs-save-status" role="status">${nkFsrsDirty()?'Unsaved changes':'All changes saved'}</small><div><button class="ghost-btn" onclick="window.QB.nkFsrsCancelSettings()">Cancel</button><button class="primary-btn" onclick="window.QB.nkFsrsSaveSettings()">Save changes</button></div></footer></div>`,'more');
   }
   const nkFsrsOriginalMore=morePage;morePage=function(){return nkFsrsOriginalMore().replace('</main>',`<button class="nk-fsrs-settings-entry" onclick="window.QB.nav('fsrs-settings')"><span class="nk-fsrs-settings-mark">${navIcon('clock',24)}</span><span><strong>FSRS customization</strong><small>Your memory goal, daily review cap and review intervals</small></span>${navIcon('chevron',20)}</button></main>`);};
   const nkFsrsOriginalActionBar=practiceActionBar;

@@ -31,7 +31,9 @@
   function nkLearningCollect(){
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),events=[],histories=new Map(),seen=new Set();
     questions.forEach((q,qid)=>{
-      const history=nkFsrsActiveAttempts(qid).filter(a=>typeof a.correct==='boolean'&&!a.isUndo&&!a.isRatingRevision);
+      // A learning card's repeat inside the same due review (round 2+, review_learning_queue.js) is
+      // FSRS history, not another answered question: Insights count each question once per session.
+      const history=nkFsrsActiveAttempts(qid).filter(a=>typeof a.correct==='boolean'&&!a.isUndo&&!a.isRatingRevision&&!a.learningRound);
       const rows=[];
       history.forEach((a,index)=>{const at=Number(a.reviewedAt||a.at||0),key=`${qid}:${a.id||`${at}:${index}`}`;if(!Number.isFinite(at)||at<=0||seen.has(key))return;seen.add(key);const row={...a,qid,q,at,timeSpent:nkLearningNumber(a.timeSpent),key};events.push(row);rows.push(row);});
       histories.set(qid,rows);
