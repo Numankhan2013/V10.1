@@ -107,9 +107,39 @@
       +nkRevisionCard('unseen','Unseen','Questions you have not attempted yet.',data.unseen.length,'Practice '+fmtNum(Math.min(20,data.unseen.length))+' unseen',!data.unseen.length,data.unseen.length>20?'20 questions per session · sampled from this focus':'')
       +nkRevisionCard('due','Due review',data.due.length&&!data.dueCards.length?'Today\'s review limit is done. The rest roll to tomorrow.':data.rolledOver?fmtNum(data.dueCards.length)+' left today under your daily limit.':'Questions scheduled by spaced repetition.',data.due.length,'Review due',!data.dueCards.length,(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'Daily review limit applies.'));
   }
+
+  // "Review done": the quiet end of a due review. One calm note on Revision (no score, nothing
+  // saved): how many cards were reviewed, then whether more are due now or when the next one is.
+  // It lives in memory only, fades after ten minutes, and goes when dismissed or a session starts.
+  let nkReviewDoneNote=null;
+  function nkReviewDoneSet(count){nkReviewDoneNote={count:Math.max(0,Number(count)||0),at:Date.now()};}
+  function nkReviewDoneDismiss(){nkReviewDoneNote=null;const el=document.querySelector('.nk-review-done');if(el)el.remove();}
+  function nkReviewNextDueAt(){
+    const pool=typeof nkReviewPool==='function'?nkReviewPool(nkRevisionScope.subject).filter(q=>nkRevisionScopeMatches(q)):[],now=Date.now();let next=0;
+    for(const q of pool){const r=state.reviews?.[q.id],at=Number(r?.nextReviewAt||r?.due||0);if(at>now&&(!next||at<next))next=at;}
+    return next;
+  }
+  function nkReviewWhen(at){
+    const now=Date.now(),mins=Math.round((at-now)/60000);
+    if(mins<60)return 'in '+Math.max(1,mins)+' min';
+    const day=new Date(at),today=new Date();today.setHours(0,0,0,0);const diff=Math.round((new Date(day).setHours(0,0,0,0)-today.getTime())/86400000);
+    const time=day.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});
+    if(diff===0)return 'today at '+time;if(diff===1)return 'tomorrow';if(diff<7)return 'on '+day.toLocaleDateString(undefined,{weekday:'long'});
+    return 'on '+day.toLocaleDateString(undefined,{day:'numeric',month:'short'});
+  }
+  function nkReviewDoneMarkup(data){
+    const note=nkReviewDoneNote;if(!note)return '';
+    if(state.activeSession||Date.now()-note.at>600000){nkReviewDoneNote=null;return '';}
+    const left=data.dueCards.length,capped=!left&&data.due.length,next=!left&&!capped?nkReviewNextDueAt():0;
+    const title=left?'Review done':'All caught up';
+    const lead=note.count?fmtNum(note.count)+(note.count===1?' card':' cards')+' reviewed. ':'';
+    const line=left?fmtNum(left)+' more '+(left===1?'is':'are')+' due now.':capped?'Today\'s limit is done. The rest roll to tomorrow.':next?'Next review '+nkReviewWhen(next)+'.':'Nothing else is scheduled yet.';
+    const action=left?'<button type="button" class="nk-review-done-go" onclick="window.QB.nkStartRevisionQueue(\'due\')">Keep going '+navIcon('chevron',16)+'</button>':'';
+    return '<section class="nk-review-done'+(left?' has-more':'')+'" role="status" aria-live="polite"><span class="nk-review-done-mark" aria-hidden="true">'+navIcon('check',20)+'</span><div class="nk-review-done-copy"><strong>'+title+'</strong><p>'+esc(lead+line)+'</p>'+action+'</div><button type="button" class="nk-review-done-close" aria-label="Dismiss" onclick="window.QB.nkReviewDoneDismiss()">'+navIcon('close',16)+'</button></section>';
+  }
   function nkRevisionDeskPage(){
     const data=nkRevisionDeskData();
-    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">Revision</div><h1>Revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header>'+(typeof nkRevisionPausedMarkup==='function'?nkRevisionPausedMarkup():'')+'<div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
+    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">Revision</div><h1>Revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header>'+nkReviewDoneMarkup(data)+(typeof nkRevisionPausedMarkup==='function'?nkRevisionPausedMarkup():'')+'<div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
       +nkRevisionCards(data)+'</section>'+nkRevisionForecastMarkup()+'</main>','quick-revision');
   }
 

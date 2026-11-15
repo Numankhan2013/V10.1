@@ -203,16 +203,19 @@ scenario('flag before answering, answer, finish: withheld and settled',()=>{
 });
 
 // ───────── Earlier card and earlier sessions ─────────
-scenario('question with an earlier FSRS card: flag leaves the card exactly as before this session',()=>{
+scenario('question with an earlier FSRS card: flag takes it out of FSRS, keeps the card exactly as before this session (R4)',()=>{
   reset();practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);
   practice('s2',['q1'],86400000*3);const before=JSON.stringify(sortObj(state.reviews.q1)),eligibleBefore=nkFsrsEligibility(questions[0]);
+  assert.strictEqual(eligibleBefore,'wrong');
   ans('q1',1,86400000*3+1000);rate('q1',3,86400000*3+1100);assert.notStrictEqual(JSON.stringify(sortObj(state.reviews.q1)),before);
   flag('q1',86400000*3+1200);
-  assert.strictEqual(JSON.stringify(sortObj(state.reviews.q1)),before,'the earlier card is back byte for byte, not deleted');
-  assert.strictEqual(nkFsrsActiveAttempts('q1').length,1,'the earlier answer still counts once');
-  assert.strictEqual(nkFsrsEligibility(questions[0]),eligibleBefore);
+  assert.strictEqual(JSON.stringify(sortObj(state.reviews.q1)),before,'the earlier card is kept byte for byte, not deleted');
+  assert.strictEqual(nkFsrsActiveAttempts('q1').length,1,'the earlier answer is kept (only hidden from FSRS by eligibility)');
+  assert.strictEqual(nkFsrsEligibility(questions[0]),'','flagged: not eligible, whatever its earlier history');
+  at(86400000*30);assert(!nkFsrsQueue({}).due.some(q=>q.id==='q1'),'never due while flagged');at(86400000*3+1300);
   finish(86400000*3+2000);
   assert.strictEqual(JSON.stringify(sortObj(state.reviews.q1)),before,'and stays so after the session');
+  assert.strictEqual(nkFsrsEligibility(questions[0]),'','still out of FSRS after the session');
   const base=run(()=>{practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);practice('s2',['q1'],86400000*3);ans('q1',1,86400000*3+1000);rate('q1',3,86400000*3+1100);finish(86400000*3+2000);});
   const toggled=run(()=>{practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);practice('s2',['q1'],86400000*3);ans('q1',1,86400000*3+1000);rate('q1',3,86400000*3+1100);flag('q1',86400000*3+1200);flag('q1',86400000*3+1300);finish(86400000*3+2000);});
   same(toggled.m,base.m,'with an earlier card, flag/unflag is byte-identical too');
@@ -270,13 +273,17 @@ scenario('flag kept through pause: excluded from the result',()=>{
 });
 
 // ───────── Due review session ─────────
-scenario('flagged question in a due-review session: earlier card unchanged and still due; unflag = baseline',()=>{
+scenario('flagged question in a due-review session: leaves the due queue, counts and forecast; card kept; unflag = baseline',()=>{
   const pre=()=>{practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);};
   reset();pre();const card=JSON.stringify(sortObj(state.reviews.q1));
+  at(86400000*5);const countsBefore=nkFsrsCounts();
   practice('r1',['q1'],86400000*5,{context:'fsrs',originRoute:'fsrs'});ans('q1',1,86400000*5+1000);rate('q1',3,86400000*5+1050);
   assert.strictEqual(nkFsrsActiveAttempts('q1').at(-1).source,'fsrs-review');flag('q1',86400000*5+1100);
-  assert.strictEqual(JSON.stringify(sortObj(state.reviews.q1)),card,'the card is exactly what it was before the review');
-  at(86400000*5+1200);assert(nkFsrsQueue({}).due.some(q=>q.id==='q1'),'it is still due: the earlier card is kept, only today\'s answer is withheld');
+  assert.strictEqual(JSON.stringify(sortObj(state.reviews.q1)),card,'the card is exactly what it was before the review (kept for an unflag)');
+  at(86400000*5+1200);assert(!nkFsrsQueue({}).due.some(q=>q.id==='q1'),'it is no longer due: a flagged question is out of FSRS entirely (R4)');
+  const counts=nkFsrsCounts();assert.strictEqual(counts.eligible,countsBefore.eligible-1);assert.strictEqual(counts.due,countsBefore.due-1);
+  assert.strictEqual(nkFsrsEligibility(questions[0]),'','not eligible, so the forecast and memory stages (both filter on eligibility) skip it');
+  flag('q1',86400000*5+1300);assert.strictEqual(nkFsrsEligibility(questions[0]),'wrong','unflagged in the session: back in FSRS');flag('q1',86400000*5+1400);
   const base=run(()=>{pre();practice('r1',['q1'],86400000*5,{context:'fsrs',originRoute:'fsrs'});ans('q1',1,86400000*5+1000);next('q1',86400000*5+1500);finish(86400000*5+2000);});
   const toggled=run(()=>{pre();practice('r1',['q1'],86400000*5,{context:'fsrs',originRoute:'fsrs'});ans('q1',1,86400000*5+1000);flag('q1',86400000*5+1100);flag('q1',86400000*5+1200);next('q1',86400000*5+1500);finish(86400000*5+2000);});
   same(toggled.m,base.m);
@@ -387,7 +394,40 @@ scenario('fix 3: a flagged question with only a skip mark leaves Today\'s Review
   const flaggedCounts=nkFsrsCounts();assert.strictEqual(state.fsrsReviewEligible.q1.reason,'skipped','the skip mark itself is kept');
   flag('q1',86400000*4+100);assert.strictEqual(nkFsrsEligibility(questions[0]),'skipped','unflagged: eligible again');assert(nkFsrsQueue({}).cards.some(q=>q.id==='q1'));assert.strictEqual(nkFsrsCounts().eligible,flaggedCounts.eligible+1);
   reset();practice('s1',['q1'],0);ans('q1',2,1000);finish(2000);practice('s2',['q1'],86400000*3);flag('q1',86400000*3+100);
-  at(86400000*3+200);assert(nkFsrsQueue({}).due.some(q=>q.id==='q1'),'with earlier answers it keeps its card and stays due');
+  at(86400000*3+200);assert(!nkFsrsQueue({}).due.some(q=>q.id==='q1'),'with earlier answers it also leaves the due queue (R4)');assert(state.reviews.q1,'its card is kept');
+});
+// ───────── R4 (2026-11-15): a flag takes the question out of FSRS; answering again starts it fresh ─────────
+scenario('R4: earlier guessed answer, flagged later (no answer), unflagged by hand = card exactly as before',()=>{
+  const steps=toggle=>()=>{practice('s1',['q1','q2'],0);ans('q1',1,1000);rate('q1',4,1100);ans('q2',2,1200);finish(2000);
+    practice('s2',['q1','q3'],86400000);if(toggle)flag('q1',86400000+100);ans('q3',1,86400000+200);next('q3',86400000+300);finish(86400000+1000);
+    if(toggle){at(86400000*40);assert(!nkFsrsQueue({}).due.some(q=>q.id==='q1'),'out of the due queue while flagged');assert.strictEqual(nkFsrsEligibility(questions[0]),'');
+      const c=nkFsrsCounts();assert.strictEqual(c.eligible,2,'counts skip it');}
+    practice('s3',['q1','q4'],86400000*2);if(toggle)flag('q1',86400000*2+100);look('q4',86400000*2+200,1000);};
+  const base=run(steps(false)),toggled=run(steps(true));
+  same(toggled.m.reviews,base.m.reviews,'unflag restores the card byte for byte');same(toggled.m.due,base.m.due);same(toggled.m.counts,base.m.counts);
+  same(toggled.m.stats,base.m.stats,'eligibility and statistics are back');
+  assert(!toggled.m.attempts.q1.some(a=>a.isUndo),'nothing was withdrawn: the earlier history is kept while flagged');cleared(toggled,'q1');
+});
+scenario('R4: flagged question answered later starts FRESH: earlier answers withdrawn (undo, reason not-studied), card = the new answer alone',()=>{
+  const r=run(()=>{practice('s1',['q1','q2'],0);ans('q1',2,1000);ans('q2',1,1100);next('q2',1200);finish(2000);
+    practice('r1',['q1'],86400000*3,{context:'fsrs',originRoute:'fsrs'});flag('q1',86400000*3+100);finish(86400000*3+500);
+    practice('s3',['q1','q3'],86400000*10);ans('q1',1,86400000*10+1000);rate('q1',3,86400000*10+1100);finish(86400000*10+2000);});
+  const base=run(()=>{practice('s3',['q1','q3'],86400000*10);ans('q1',1,86400000*10+1000);rate('q1',3,86400000*10+1100);finish(86400000*10+2000);});
+  assert.strictEqual(r.notStudied.q1.on,false,'answering clears the flag');
+  const active=nkFsrsActiveAttempts('q1');
+  const undos=r.m.attempts.q1.filter(a=>a.isUndo);assert.strictEqual(undos.length,1,'the earlier guess is withdrawn once');assert.strictEqual(undos[0].reason,'not-studied');
+  same(r.m.reviews.q1,base.m.reviews.q1,'the card is what the new answer alone builds');
+  same(r.m.stats[0].slice(1),base.m.stats[0].slice(1),'eligibility/attempts/mistake as a first answer');
+  assert.strictEqual(r.m.tests[0].questionIds.includes('q1'),true,'the past saved result is not rewritten');assert.strictEqual(r.m.tests[0].correct,1);assert.strictEqual(r.m.tests[0].incorrect,1);
+  same(r.m.tests.at(-1),base.m.tests.at(-1),'the new result is normal');cleared(r,'q1');
+});
+scenario('R4: a refused submit on a flagged question with earlier history puts the card back too',()=>{
+  reset();practice('s0',['q1'],0);ans('q1',2,1000);finish(1500);practice('s1',['q1'],86400000);flag('q1',86400000+100);state.activeSession=null;
+  practice('s2',['q1','q2'],86400000*2);go('q1');S().answers.q1=1;
+  const before=JSON.stringify({attempts:state.attempts.q1,flag:state.notStudied.q1,review:sortObj(state.reviews.q1)});
+  const byId=BY_ID,all=nkAllBankQuestions;BY_ID={};nkAllBankQuestions=()=>[];at(86400000*2+1000);
+  try{submitPractice();}finally{BY_ID=byId;nkAllBankQuestions=all;}
+  assert(!S().submitted.q1,'refused');same(JSON.parse(before),{attempts:state.attempts.q1,flag:state.notStudied.q1,review:sortObj(state.reviews.q1)},'attempts, flag and card are back');
 });
 scenario('fix 4: no flag once a timed question\'s time is up; the timed result shows the score counting flags',()=>{
   reset();const s=exam('e1',['q1','q2'],0);s.timerMode='per-question';s.strictExpired={q1:true};

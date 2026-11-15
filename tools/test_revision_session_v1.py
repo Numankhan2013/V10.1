@@ -34,7 +34,8 @@ for(const kind of ['wrong','bookmarks','due']){
  const restored=call('nkPracticeSessionFromCheckpoint(cp)');assert.equal(restored.revisionQueueKind,kind);assert.equal(restored.originRoute,'quick-revision');assert.equal(restored.context,s.context);
  call('nkPracticePrepareSession(state.activeSession)');assert.equal(s.practiceContext.revisionQueueKind,kind);
  assert(call('nkFinishRevisionSession()'));assert.equal(context.state.activeSession,null);
- assert.deepEqual(Array.from(context.state.tests[0].questionIds),['q0']);assert.equal(context.state.tests[0].total,1);assert.equal(context.state.tests[0].unattempted,0);assert.equal(context.state.tests[0].correct,1);
+ if(kind==='due'){assert.equal(context.state.tests.length,0,'a due review saves no result');assert.deepEqual(Array.from(context.destination),['quick-revision'],'and returns to Revision');}
+ else {assert.deepEqual(Array.from(context.state.tests[0].questionIds),['q0']);assert.equal(context.state.tests[0].total,1);assert.equal(context.state.tests[0].unattempted,0);assert.equal(context.state.tests[0].correct,1);assert.equal(context.destination[0],'result');}
  assert.equal(context.checkpoint.lifecycle,'submitted');assert.equal(context.checkpoint.sessionQuestionIds.length,27,'terminal checkpoint retains original membership');
  assert.equal(context.legacyFinished,undefined);assert.equal(call('nkFinishRevisionSession()'),false,'repeat finish cannot save a second result');
 }
@@ -44,7 +45,7 @@ assert.equal(call('nkRevisionSessionKind({mode:"exam",revisionQueueKind:"wrong"}
 assert.equal(call('nkRevisionSessionKind({mode:"practice",studyModuleId:"m",revisionQueueKind:"wrong"})'),'');
 context.cp={sessionId:'legacy',context:{}};assert.equal(call('nkPracticeSessionFromCheckpoint(cp).context'),'normal');
 context.cp={sessionId:'unsupported',context:{revisionQueueKind:'unknown'}};assert.equal(call('nkPracticeSessionFromCheckpoint(cp)'),null);
-console.log('REVISION_SESSION_SOURCE_OK fullSnapshot=true taggedOnly=true restoredKind=true answeredOnly=true');
+console.log('REVISION_SESSION_SOURCE_OK fullSnapshot=true taggedOnly=true restoredKind=true answeredOnly=true dueQuietFinish=true');
 '''.replace('SOURCE',repr(source),1)
     subprocess.run(['node','-e',script],check=True,cwd=ROOT)
 if __name__=='__main__':main()

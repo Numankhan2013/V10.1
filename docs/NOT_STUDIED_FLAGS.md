@@ -40,9 +40,9 @@ topic stats, Insights, coverage, weak areas, streak day, attempt count or
 Today plan entry. Every one of these reads `nkFsrsActiveAttempts`; the module
 wraps it so a flag set in session S hides S's attempts (the flag stores
 `session: S`). A flagged question is never submitted-as-skipped, and a flagged
-question with no visible answer is not eligible for Today's Review, its counts
-or forecast even if an earlier session left a skip mark (the mark is kept, so
-unflagging restores it).
+question is not eligible for Today's Review, its counts or forecast, even if an
+earlier session left a skip mark or earlier answers (R4; the mark and the
+answers are kept, so unflagging restores them).
 
 **R2 — Flag/unflag in the same session is a no-op.** Unflagging in the
 session that set the flag gives back exactly what was there: the same
@@ -64,10 +64,28 @@ FSRS undo events (`isUndo`, `reason:'not-studied'`) — the visible card does
 not change — and the new answer counts once, normally. Unflagging such a flag
 by hand does the same.
 
-**R4 — Earlier history is left alone.** A question that already had a card
-from earlier sessions keeps that card and its history exactly as it was before
-this session; only this session's answers are withheld (in a due-review
-session the question stays due).
+**R4 — A flag takes the question out of FSRS entirely (rewritten 2026-11-15,
+`feature/review-learning-queue`).** While a question is flagged it is not
+review-eligible (`nkFsrsEligibility` returns `''`) whatever its earlier
+history: it leaves Today's Review and the due queue, FSRS counts, the forecast,
+memory stages and a due review's learning queue (all of them filter on
+eligibility; the topic page's due count skips flagged questions too). This
+applies whether it was flagged in a due review or any Practice session.
+Nothing is deleted while it is flagged: earlier attempts, the card and any skip
+mark stay, so **unflagging without answering restores the card exactly as
+before** (the flagging session's own answers follow R2/R3 as before). When a
+flagged question is **answered again** and its flag clears (R3), the question
+starts **fresh** from that answer: every earlier answer, not only the ones the
+flag withheld, is withdrawn with the existing undo events (`isUndo`,
+`reason:'not-studied'`, synced like any attempt), the card is rebuilt, and the
+new answer is the first on an empty card, so a guessed history no longer shapes
+scheduling. A refused submit puts the attempts, flag and card back. Unflagging
+by hand is not an answer and withdraws only what the flag withheld.
+**Saved results are not rewritten**: past practice/test results keep their
+scores and accuracy (R6's 10-minute window still applies to the ending
+session only); FSRS-derived views, and attempt-based statistics that read
+`nkFsrsActiveAttempts` (Insights, coverage, mistakes), no longer count the
+withdrawn earlier answers once the question is answered fresh.
 
 **R5 — Ending a session settles it.** When a Practice session is submitted
 (and the submission actually saved), discarded from Paused Practice, or
@@ -144,7 +162,7 @@ resume checkpoints and the sync payloads of attempts, flags and results.
 10. Flag, answer while flagged (hidden), unflag = baseline.
 11. Flag, correct answer while flagged, unflag, move on = baseline.
 12. Flag, answer, finish: withheld, settled with an undo, result/checkpoint clean.
-13. Earlier FSRS card, answered and flagged now: card byte-identical to before the session; flag/unflag = baseline.
+13. Earlier FSRS card, answered and flagged now: the card is kept byte for byte, but the question is out of FSRS (not eligible, never due) while flagged, also after the session; flag/unflag = baseline.
 14–15. Flag from an earlier session (finished or abandoned), answered later: flag clears (tombstone syncs), earlier answer withdrawn once, card = a single later answer.
 16. Re-flagged in that later practice: stays flagged, both answers excluded.
 17. Unflag an earlier session's flag during a later session, then answer: counts normally, old answer stays out.
@@ -152,7 +170,7 @@ resume checkpoints and the sync payloads of attempts, flags and results.
 19. Answer, flag, pause, reload, resume, unflag, rate = baseline.
 20. Flag before pause, answer after resume while flagged, unflag = baseline.
 21. Flag kept through pause: excluded from the result.
-22. Due-review session: earlier card unchanged and still due; flag/unflag = baseline.
+22. Due-review session: flag takes the question out of the due queue and FSRS counts (card kept); unflag in the session puts it back; flag/unflag = baseline.
 23. Timed test: flag answered + unanswered, submit: nothing recorded, no skip card, counts recomputed.
 24. Timed test: flag→unflag = never flagged.
 25. Timed test: change answer after flagging: excluded.
@@ -162,6 +180,13 @@ resume checkpoints and the sync payloads of attempts, flags and results.
 29. Result grid / Every answer / Review Solutions show flagged questions in place as Not studied.
 30. Older results never rewritten; cleaned result is newer.
 31. Topic list badge, topic grid, Practice flagged, header button rules.
+R4 2026-11-15 (one case each): earlier guessed answer, flagged later without
+answering, unflagged by hand = card, due queue, counts and statistics exactly
+as never flagged, nothing withdrawn; flagged question answered later starts
+fresh (earlier answers withdrawn once with `reason:'not-studied'`, card = the
+new answer alone, the past saved result unchanged); a refused submit puts the
+card back too; a skip-marked flagged question with earlier answers also leaves
+the due queue.
 Fixes 2026-11-14 (one case each): all-flagged result is a shell from its
 first save (timed and Practice, mock/make-up link kept) and a partly flagged
 result is clean at its first save; a failed finish does not settle; flagged

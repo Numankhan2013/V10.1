@@ -137,7 +137,7 @@
     return touched;
   }
   function nkAbHistoryEntry(s,now){
-    const ids=nkAbSessionIds(s),answered=ids.filter(id=>s.answers?.[id]).length,first=nkAbQuestion(ids[0]);
+    const ids=nkAbSessionIds(s),answered=ids.filter(id=>s.answers?.[id]||(Array.isArray(s.roundHistory?.[id])&&s.roundHistory[id].some(r=>r?.submitted))).length,first=nkAbQuestion(ids[0]);
     return nkAbClean({sessionId:String(s.id),title:s.practiceContext?.title||s.title||(s.mode==='exam'?'Timed test':'Practice'),mode:s.mode,kind:nkAbSessionKind(s),
       subject:first?.bank==='UWorld'?'My UWorld':String(first?.subject||''),total:ids.length,answered,startedAt:Number(s.startedAt||0),abandonedAt:now,updatedAt:now});
   }
@@ -189,7 +189,7 @@
   // shells). Everywhere else (PWA, browsers, older shells): an in-app alert sheet.
   function nkAbHaptic(kind){try{window.NKFeel?.haptics?.(kind);}catch(_){}}
   function nkAbCopy(s){
-    const exam=s.mode==='exam',ids=nkAbSessionIds(s),answered=ids.filter(id=>s.answers?.[id]).length;
+    const exam=s.mode==='exam',ids=nkAbSessionIds(s),answered=ids.filter(id=>s.answers?.[id]||(Array.isArray(s.roundHistory?.[id])&&s.roundHistory[id].some(r=>r?.submitted))).length;
     return {title:exam?'Abandon this test?':'Abandon this session?',
       body:`Your answers won’t be saved or counted. Nothing from this ${exam?'test':'session'} reaches your reviews, mistakes or stats.`,
       meta:`${answered} of ${ids.length} answered`,confirm:'Abandon',cancel:'Cancel'};

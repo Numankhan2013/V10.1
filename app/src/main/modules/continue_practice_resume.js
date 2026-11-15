@@ -35,7 +35,7 @@
     const previous=nkPracticeFindCheckpoint(session.id);
     if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(session,previous,lifecycle);
     const ids=nkPracticeSessionIds(session),index=Math.max(0,Math.min(ids.length-1,Number(session.index)||0)),now=Date.now();
-    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),...(session.originRoute&&session.originRoute!=='topics'?{originRoute:String(session.originRoute)}:{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
+    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),...(session.originRoute&&session.originRoute!=='topics'?{originRoute:String(session.originRoute)}:{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},...(session.learningQueue&&Object.keys(session.learningQueue).length?{learningQueue:JSON.parse(JSON.stringify(session.learningQueue))}:{}),...(session.roundHistory&&Object.keys(session.roundHistory).length?{roundHistory:JSON.parse(JSON.stringify(session.roundHistory))}:{}),...(Number.isInteger(session.learningReturnIndex)?{learningReturnIndex:session.learningReturnIndex}:{}),...(session.roundPass&&Array.isArray(session.roundPass.ids)?{roundPass:JSON.parse(JSON.stringify(session.roundPass))}:{}),startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
   }
   function nkPracticeCheckpoint(sessionId){
     if(sessionId)return nkPracticeFindCheckpoint(sessionId);
@@ -54,7 +54,13 @@
     return {id:String(checkpoint.sessionId),mode:'practice',title:String(checkpoint.context?.title||'Practice'),questionIds:[...ids],sessionQuestionIds:[...ids],index,
       answers:{...(checkpoint.answers||{})},submitted:{...(checkpoint.submitted||{})},startedAt:Number(checkpoint.startedAt||Date.now()),lastTick:Number(checkpoint.lastTick||Date.now()),
       elapsedMs:Number(checkpoint.elapsedMs||0),questionEnteredAt:Date.now(),questionTimes:{...(checkpoint.questionTimes||{})},pendingRating:{...(checkpoint.pendingFsrsRatings||{})},
-      context:'normal',originRoute,practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
+      context:'normal',originRoute,practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},
+      // Due-review learning rounds come back with the session (absent in older checkpoints).
+      ...(checkpoint.learningQueue&&typeof checkpoint.learningQueue==='object'?{learningQueue:JSON.parse(JSON.stringify(checkpoint.learningQueue))}:{}),
+      ...(checkpoint.roundHistory&&typeof checkpoint.roundHistory==='object'?{roundHistory:JSON.parse(JSON.stringify(checkpoint.roundHistory))}:{}),
+      ...(Number.isInteger(checkpoint.learningReturnIndex)&&checkpoint.learningReturnIndex>=0&&checkpoint.learningReturnIndex<ids.length?{learningReturnIndex:checkpoint.learningReturnIndex}:{}),
+      ...(checkpoint.roundPass&&Array.isArray(checkpoint.roundPass.ids)&&checkpoint.roundPass.ids.length?{roundPass:JSON.parse(JSON.stringify(checkpoint.roundPass))}:{}),
+      lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
   }
   function nkPracticeIdentity(s){
     const ids=nkPracticeSessionIds(s),questions=ids.map(nkPracticeResumeQuestion).filter(Boolean);
@@ -395,6 +401,8 @@
       if(!test){test={id:testId,title:s.title,kind:'practice',questionIds:[...allIds],answers,questionTimes:qt,correct,incorrect,unattempted:Math.max(0,allIds.length-attempted),total:allIds.length,attempted,totalTimeMs:Object.values(qt).reduce((sum,value)=>sum+Number(value||0),0),createdAt:now,autoSubmitted:false};state.tests.push(test);state.tests=state.tests.slice(-100);}
       if(identity)test.practiceContext={subject:identity.subject,bank:identity.bank,topicId:identity.topicId,title:identity.title,questionIds:[...allIds],completed:complete};
       const correctionOf=nkPracticeCorrectionParent(s);if(correctionOf)test.correctionOf=correctionOf;
+      // Submit attempted (practice_submit_attempted.js): the set was cut at the last answer.
+      if(s.partialSubmit){const p=s.partialSubmit,rest=(p.remainingIds||[]).map(String);test.partial=true;test.sessionTotal=Number(p.total)||allIds.length+rest.length;test.skipped=(p.skippedIds||[]).length;if(test.practiceContext)test.practiceContext={...test.practiceContext,completed:false,remainingIds:rest};}
       const checkpoint=nkPracticeBuildCheckpoint(s,'submitted');checkpoint.terminalAt=now;
       nkPracticeStoreCheckpoint(checkpoint);state.activeSession=null;
       if(saveState()===false){state=before;return false;}

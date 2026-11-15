@@ -36,7 +36,7 @@
     const saved=nkPracticeCheckpoints(false).filter(cp=>['wrong','bookmarks','due'].includes(String(cp.context?.revisionQueueKind)));
     if(!saved.length)return '';
     return '<section class="nk-revision-paused" aria-label="Paused revision"><h2>Pick up where you paused</h2>'+saved.map(cp=>{
-      const kind=cp.context.revisionQueueKind,label=kind==='wrong'?'mistakes':kind==='due'?'due review':'bookmarks',done=cp.sessionQuestionIds.filter(id=>cp.submitted?.[id]).length;
+      const kind=cp.context.revisionQueueKind,label=kind==='wrong'?'mistakes':kind==='due'?'due review':'bookmarks',done=cp.sessionQuestionIds.filter(id=>cp.submitted?.[id]||(Array.isArray(cp.roundHistory?.[id])&&cp.roundHistory[id].some(r=>r?.submitted))).length;
       const scope=cp.context.revisionScope||{},record=scope.subject&&scope.bank&&typeof nkBankRecord==='function'?nkBankRecord(scope.subject,scope.bank):null,topic=record?.topics?.find(t=>String(t.id)===String(scope.topic));
       const focus=[scope.subject||'All subjects',scope.bank||'All banks',topic?.title||topic?.name].filter(Boolean).join(' · ');
       return '<div class="nk-revision-paused-row"><span><strong>'+esc(cp.context.title||'Revision')+'</strong><small>'+esc(focus)+'</small><small>'+fmtNum(done)+' of '+fmtNum(cp.sessionQuestionIds.length)+' answered · saved position '+fmtNum(Number(cp.position?.index||0)+1)+'</small></span><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById('+esc(JSON.stringify(String(cp.sessionId)))+')">Resume '+label+'</button></div>';
@@ -59,9 +59,15 @@
     const all=nkPracticeSessionIds(s),ids=all.filter(id=>s.submitted?.[id]&&nkValidQuestionOption(nkPracticeResumeQuestion(id),s.answers?.[id])),now=Date.now();
     const answers=Object.fromEntries(ids.map(id=>[id,s.answers[id]])),times=Object.fromEntries(ids.map(id=>[id,Number(s.questionTimes?.[id]||0)])),correct=ids.filter(id=>Number(nkPracticeResumeQuestion(id)?.correctOption)===Number(answers[id])).length;
     s.lifecycle='submitted';s.submittedAt=now;const cp=nkPracticeBuildCheckpoint(s,'submitted');cp.terminalAt=now;nkPracticeStoreCheckpoint(cp);
-    const resultId='practice_'+String(s.id);
+    const resultId='practice_'+String(s.id),kind=nkRevisionSessionKind(s);
+    // A due review ends like Anki: no score, no Tests entry, straight back to Revision.
+    // Its FSRS attempts (every round) already carry the reviews, accuracy and time Insights use.
+    if(kind==='due'){
+      nkFsrsSessionOrigin=null;state.activeSession=null;if(saveState()===false)return false;
+      nkPracticeCloseOverlays();if(typeof nkReviewDoneSet==='function')nkReviewDoneSet(ids.length);navigate('quick-revision');return true;
+    }
     if(ids.length&&!state.tests.some(t=>String(t.id)===resultId)){
-      state.tests.push({id:resultId,sessionId:String(s.id),title:s.title,kind:'practice',questionIds:ids,answers,questionTimes:times,correct,incorrect:ids.length-correct,unattempted:0,total:ids.length,attempted:ids.length,totalTimeMs:Object.values(times).reduce((a,b)=>a+b,0),createdAt:now,autoSubmitted:false,originRoute:'quick-revision',revisionQueueKind:nkRevisionSessionKind(s)});
+      state.tests.push({id:resultId,sessionId:String(s.id),title:s.title,kind:'practice',questionIds:ids,answers,questionTimes:times,correct,incorrect:ids.length-correct,unattempted:0,total:ids.length,attempted:ids.length,totalTimeMs:Object.values(times).reduce((a,b)=>a+b,0),createdAt:now,autoSubmitted:false,originRoute:'quick-revision',revisionQueueKind:kind});
       state.tests=state.tests.slice(-100);
     }
     // Ending a revision pass never records skipped attempts, and never touches questions after the last one answered.
