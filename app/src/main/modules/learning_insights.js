@@ -29,7 +29,7 @@
   function nkLearningPct(value){return value===null?'—':`${Math.round(value)}%`;}
   function nkLearningDelta(current,previous,points=false){if(current===null||previous===null)return '<span class="nk-li-delta is-neutral">No comparison yet</span>';if(!previous&&!points)return `<span class="nk-li-delta is-neutral">${current?'New activity':'No change'}</span>`;const diff=points?current-previous:(current-previous)/previous*100;return `<span class="nk-li-delta ${diff>0?'is-up':diff<0?'is-down':'is-neutral'}">${diff>0?'↑ ':diff<0?'↓ ':''}${Math.abs(diff)<.05?'No change':`${Math.abs(diff).toFixed(points?1:0)}${points?' pp':'%'}`}</span>`;}
   function nkLearningCollect(){
-    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),events=[],histories=new Map(),seen=new Set();
+    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),events=[],histories=new Map(),seen=new Set(),repeats=[];
     questions.forEach((q,qid)=>{
       // A learning card's repeat inside the same due review (round 2+, review_learning_queue.js) is
       // FSRS history, not another answered question: Insights count each question once per session.
@@ -37,6 +37,7 @@
       const rows=[];
       history.forEach((a,index)=>{const at=Number(a.reviewedAt||a.at||0),key=`${qid}:${a.id||`${at}:${index}`}`;if(!Number.isFinite(at)||at<=0||seen.has(key))return;seen.add(key);const row={...a,qid,q,at,timeSpent:nkLearningNumber(a.timeSpent),key};events.push(row);rows.push(row);});
       histories.set(qid,rows);
+      nkFsrsActiveAttempts(qid).forEach(a=>{if(a.learningRound&&!a.isUndo&&!a.isRatingRevision&&typeof a.correct==='boolean'){const at=Number(a.reviewedAt||a.at||0);if(Number.isFinite(at)&&at>0)repeats.push({...a,qid,q,at,timeSpent:nkLearningNumber(a.timeSpent)});}});
     });
     events.sort((a,b)=>a.at-b.at||a.key.localeCompare(b.key));
     const tests=[...new Map((state.tests||[]).filter(t=>t&&!t.isDeleted&&!t.noResult&&Number(t.createdAt)>0).map(t=>[String(t.id),t])).values()].sort((a,b)=>Number(a.createdAt)-Number(b.createdAt));
@@ -57,6 +58,10 @@
       known.forEach((id,i)=>timeEvents.push({qid:id,q:questions.get(id),at,ms:total*(weightTotal?weights[i]/weightTotal:1/known.length),source:t.kind==='practice'?'practice':'exam',session:String(t.id)}));
     });
     events.filter(a=>!matched.has(a.key)).forEach(a=>timeEvents.push({qid:a.qid,q:a.q,at:a.at,ms:a.timeSpent,source:a.source,session:a.sessionId||''}));
+    // Due reviews save no result now: their relearning rounds add study time from the attempts.
+    // An older due review with a saved result already holds every round's time in it.
+    const saved=new Set(tests.map(t=>String(t.sessionId||'')).filter(Boolean));
+    repeats.filter(a=>!saved.has(String(a.sessionId||''))).forEach(a=>timeEvents.push({qid:a.qid,q:a.q,at:a.at,ms:a.timeSpent,source:a.source,session:a.sessionId||''}));
     return {questions,events,histories,tests,timeEvents,skips};
   }
   function nkLearningMatches(q){return (!nkLearningSubject||q.subject===nkLearningSubject)&&(!nkLearningBank||q.bank===nkLearningBank);}

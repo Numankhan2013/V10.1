@@ -81,7 +81,7 @@ scenario('settings: Round 2 at the end (default) or Off; the older "due" value m
   state.fsrsPreferences.learningInSession='bogus';assert.strictEqual(nkFsrsPreferences().learningInSession,'end','a damaged value falls back to the default');
   history(['q1']);const a=state.attempts.q1[0];same(Object.keys(a.schedulerPreferences).sort(),['dailyCap','desiredRetention','maximumInterval'],'attempts record only scheduling values');
   nkFsrsDraft=null;const html=nkFsrsSettingsMarkup();
-  assert(html.includes('Learning cards in a review session')&&html.includes('<option value="end"')&&html.includes('Round 2 at the end')&&html.includes('>Off</option>')&&!html.includes('value="due"'),'mode select');
+  assert(html.includes('Learning cards')&&html.includes('role="radiogroup"')&&html.includes('value="end" checked')&&html.includes('Round 2 at the end')&&html.includes('<span>Off</span>')&&!html.includes('value="due"'),'mode segmented control');
   assert(html.includes('Advance after rating')&&html.includes('type="checkbox"')&&html.includes('role="switch"'),'advance switch');
   nkFsrsEditSetting('learningInSession','off');nkFsrsEditSetting('advanceAfterRating','1');at(900);assert(nkFsrsSaveSettings());
   assert.strictEqual(nkFsrsPreferences().learningInSession,'off');assert.strictEqual(nkFsrsPreferences().advanceAfterRating,true);assert.strictEqual(state.fsrsPreferencesAt.learningInSession,T0+900);
@@ -118,16 +118,15 @@ scenario('Round 2 holds only the cards that came due again: fresh, counted alone
   here(2,D5+5*MIN);assert(S().learningQueue.q3,'missed again');
   next(D5+6*MIN);same(S().roundPass,{round:3,ids:['q3']},'Round 3 is the one card still relearning');assert.strictEqual(counter(),'1 / 1');assert(header().includes('Round 3'));
   same(S().roundHistory.q3.map(r=>r.answer),[2,2],'both earlier rounds archived');
-  here(1,D5+7*MIN);rate('q3',3,D5+7*MIN+100);next(D5+8*MIN);
-  assert.strictEqual(reviewSheets,1,'nothing left: the session sheet');assert.strictEqual(S().roundPass.round,3,'no round 4');assert(!Object.keys(S().learningQueue).length);
-  nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(S(),'active'));assert.strictEqual(nkPracticeFindCheckpoint('b2').membershipHash,hash,'membershipHash unchanged');
+  here(1,D5+7*MIN);rate('q3',3,D5+7*MIN+100);
+  nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(S(),'active'));assert.strictEqual(nkPracticeFindCheckpoint('b2').membershipHash,hash,'membershipHash unchanged through Round 3');
+  // Nothing left after the last card: the review ends by itself (no sheet, no result, no Tests entry) and Revision opens.
+  next(D5+8*MIN);
+  assert.strictEqual(reviewSheets,0,'no session sheet');assert.strictEqual(S(),null,'the session ended');assert.strictEqual(routes.at(-1)[0],'quick-revision','back to Revision');
+  assert.strictEqual(state.tests.length,0,'a due review saves no result');
   const cached=JSON.stringify(state.reviews.q3);nkFsrsReplay('q3');assert.strictEqual(JSON.stringify(state.reviews.q3),cached,'cache equals a replay of every round');
-  // Finish: round 1 answers are the result; every round is in FSRS history; time adds up.
-  at(D5+9*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);
-  same(t.questionIds,SIX,'each question once');same([t.correct,t.incorrect,t.total],[4,2,6],'counted by round 1 (two misses)');
-  same([t.answers.q1,t.answers.q3],[2,2],'round 1 answers intact');same([t.questionTimes.q1,t.questionTimes.q3],[40000,60000],'every round\'s time');
   same(state.attempts.q1.filter(a=>a.sessionId==='b2').map(a=>a.learningRound||1),[1,2]);same(state.attempts.q3.filter(a=>a.sessionId==='b2').map(a=>a.learningRound||1),[1,2,3]);
-  assert.strictEqual(S(),null,'the session ended');same(nkFsrsQueue({}).due.map(q=>q.id).filter(id=>SIX.includes(id)),[],'nothing from the session is due again today: every relearning card graduated');assert(!('roundPass' in t)&&!('roundHistory' in t),'the result carries no round state');
+  same(nkFsrsQueue({}).due.map(q=>q.id).filter(id=>SIX.includes(id)),[],'nothing from the session is due again today: every relearning card graduated');
   // Stats: accuracy counts one answer per question per session; study time keeps every round.
   const cs=chapterStats('c1'),expect=SIX.flatMap(id=>state.attempts[id]).filter(a=>!a.isUndo&&typeof a.correct==='boolean'&&!a.learningRound);
   same([cs.correct+cs.incorrect,cs.correct],[expect.length,expect.filter(a=>a.correct).length],'chapter accuracy skips the repeats');
@@ -153,7 +152,7 @@ scenario('Hard on a relearning card keeps it for the next round; revising Hard t
   here(1,D5+2*MIN);rate('q1',2,D5+2*MIN+100);assert.strictEqual(state.reviews.q1.state,3,'Hard on a relearning step stays relearning');assert(S().learningQueue.q1,'so it waits for round 3');
   const idx=S().index;at(D5+2*MIN+200);assert(nkRateCurrent(3,'q1',S().id));assert.strictEqual(S().index,idx,'no jump');assert.strictEqual(TIMERS.length,0,'no advance for a revision');
   assert.strictEqual(state.reviews.q1.state,2);assert(!S().learningQueue.q1,'graduated: out of the queue');
-  next(D5+3*MIN);assert.strictEqual(reviewSheets,1,'no Round 3');assert.strictEqual(S().roundPass.round,2);
+  assert.strictEqual(S().roundPass.round,2);next(D5+3*MIN);assert.strictEqual(reviewSheets,0);assert.strictEqual(S(),null,'no Round 3: the review ends');
 });
 
 scenario('cards due later than the learn-ahead are never pulled in: a wait line offers Study now / Finish; Finish leaves them out',()=>{
@@ -161,8 +160,7 @@ scenario('cards due later than the learn-ahead are never pulled in: a wait line 
   ans('q1',2,D5+1000);S().learningQueue.q1.due=T0+D5+36*MIN;ans('q2',1,D5+MIN);rate('q2',3,D5+MIN+100);
   next(D5+2*MIN);assert.strictEqual(cur(),'q2','stays put');assert(!S().roundPass,'not pulled in');assert.strictEqual(reviewSheets,0);assert(S().submitted.q1,'q1 keeps round 1');
   assert(dialogs.at(-1).includes('1 learning card due in 34 min')&&dialogs.at(-1).includes('Study now')&&dialogs.at(-1).includes('Finish'),'the wait line');
-  nkRlqFinish();assert.strictEqual(reviewSheets,1,'Finish opens the end-of-session sheet');
-  at(D5+3*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);same([t.correct,t.incorrect],[1,1]);
+  at(D5+3*MIN);nkRlqFinish();assert.strictEqual(reviewSheets,0,'Finish ends the review: no sheet');assert.strictEqual(S(),null);assert.strictEqual(routes.at(-1)[0],'quick-revision');assert.strictEqual(state.tests.length,0,'no result');
   assert.strictEqual(state.attempts.q1.filter(a=>a.sessionId==='w1').length,1,'no extra FSRS review for the later card');
   // Study now pulls it in on request, as Round 2.
   reset();history(['q1','q2']);setPrefs({advanceAfterRating:false});dueSession('w2',['q1','q2'],D5);
@@ -170,10 +168,10 @@ scenario('cards due later than the learn-ahead are never pulled in: a wait line 
   at(D5+3*MIN);nkRlqStudyNow();same(S().roundPass,{round:2,ids:['q1']});assert.strictEqual(cur(),'q1');
 });
 
-scenario('Off: one pass as before (no queue, no rounds, last Next opens the sheet)',()=>{
+scenario('Off: one pass (no queue, no rounds); after the last card the review ends quietly',()=>{
   reset();history();setPrefs({learningInSession:'off',advanceAfterRating:false});dueSession('o1',['q1','q2'],D5);
   ans('q1',2,D5+1000);assert.deepStrictEqual(S().learningQueue||{},{});ans('q2',1,D5+12*MIN);rate('q2',3,D5+12*MIN+1);
-  go('q2');next(D5+30*MIN);assert.strictEqual(reviewSheets,1);assert(!S().roundHistory&&!S().roundPass,'no rounds');
+  assert(!S().roundHistory&&!S().roundPass,'no rounds');go('q2');next(D5+30*MIN);assert.strictEqual(reviewSheets,0);assert.strictEqual(S(),null,'ended');assert.strictEqual(routes.at(-1)[0],'quick-revision');assert.strictEqual(state.tests.length,0);
 });
 
 scenario('pause / reload / resume in Round 2 keeps the round, its cards and the position; older or damaged checkpoints load safely',()=>{
@@ -218,11 +216,11 @@ scenario('advance: stale timers never fire (moved, flagged, paused, session repl
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);nkToggleNotStudied('q1',S().id);flushTimers();assert.strictEqual(cur(),'q1','flag toggled: no advance');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);const timer=TIMERS[0];at(D5+1200);nkPausePractice();assert.strictEqual(TIMERS.length,0,'pause clears it');timer.fn();assert.strictEqual(S().index,0,'a paused session never moves');assert.strictEqual(S().lifecycle,'paused');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);const t2=TIMERS[0];state.activeSession={...S(),id:'other'};t2.fn();assert.strictEqual(S().index,0,'another session: nothing');
-  start();['q1','q2'].forEach((q,i)=>{ans(q,1,D5+1000+i*100);rate(q,3,D5+1050+i*100);flushTimers();});go('q3');ans('q3',1,D5+2000);rate('q3',3,D5+2100);flushTimers();assert.strictEqual(reviewSheets,1,'last card, nothing queued: the sheet');
+  start();['q1','q2'].forEach((q,i)=>{ans(q,1,D5+1000+i*100);rate(q,3,D5+1050+i*100);flushTimers();});go('q3');ans('q3',1,D5+2000);rate('q3',3,D5+2100);flushTimers();assert.strictEqual(reviewSheets,0,'last card, nothing queued: no sheet');assert.strictEqual(S(),null,'the review ended');assert.strictEqual(routes.at(-1)[0],'quick-revision');
   // A miss earlier in the set: the advance from the last card opens Round 2.
   start();ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);flushTimers();ans('q3',1,D5+3000);rate('q3',3,D5+3100);flushTimers();
   same(S().roundPass,{round:2,ids:['q1']},'Round 2 after the last rating');assert.strictEqual(cur(),'q1');
-  here(1,D5+4000);rate('q1',3,D5+4100);flushTimers();assert.strictEqual(reviewSheets,1,'the last card of Round 2 advances to the sheet');
+  here(1,D5+4000);rate('q1',3,D5+4100);flushTimers();assert.strictEqual(reviewSheets,0);assert.strictEqual(S(),null,'the last card of Round 2 ends the review');assert.strictEqual(routes.at(-1)[0],'quick-revision');
 });
 
 scenario('not-studied flag: never queued; a card flagged in Round 2 leaves it without blocking the end; bookmarks work in Round 2',()=>{
@@ -232,9 +230,7 @@ scenario('not-studied flag: never queued; a card flagged in Round 2 leaves it wi
   at(D5+MIN+100);go('q1');assert.strictEqual(S().index,0);
   // Back in Round 2 (q3): flag it, then the round ends with nothing open.
   go('q3');at(D5+2*MIN);nkToggleNotStudied('q3',S().id);assert(header().includes('nk-ns-toggle is-on'),'the flag shows in the Round 2 header');
-  next(D5+3*MIN);assert.strictEqual(reviewSheets,1,'a flagged card counts as done for the round');
-  at(D5+4*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);
-  assert(!t.questionIds.includes('q3')&&!t.questionIds.includes('q1'),'flagged questions are not scored');
+  next(D5+3*MIN);assert.strictEqual(reviewSheets,0);assert.strictEqual(S(),null,'a flagged card counts as done for the round: the review ends');assert.strictEqual(state.tests.length,0);
   assert(!nkFsrsActiveAttempts('q3').some(a=>a.sessionId==='f1'),'and none of their rounds reach FSRS');
 });
 

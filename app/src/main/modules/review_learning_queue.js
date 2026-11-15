@@ -11,8 +11,8 @@
    *    and rating move to session.roundHistory[qid]). The header counter, progress
    *    bar and the session sheet count only that round ("1 / 4", "Round 2"), and
    *    Next / Previous / the sheet move only inside it. A card that comes due again
-   *    in round N goes to round N+1; when none is left the session sheet opens and
-   *    Finish ends the session. Cards due later than the learn-ahead are never
+   *    in round N goes to round N+1; when none is left the review ends by itself and
+   *    Revision opens (no result page; Finish early does the same). Cards due later than the learn-ahead are never
    *    pulled in by themselves: a "due in N min" line offers Study now or Finish.
    *    The question list never changes (questionIds and sessionQuestionIds keep their
    *    membership, so the checkpoint membershipHash, the abandon/Back guard and sync
@@ -24,8 +24,8 @@
    *    first Hard/Good/Easy on an answer saves it, holds the pressed state for
    *    ~250 ms, then goes Next. Wrong answers never move on; changing a saved rating
    *    only saves. The timer fires only for the same session, question and round.
-   * The saved result counts each question once, by its round 1 answer (later
-   * rounds are relearning, kept in FSRS history); its time is every round's time.
+   * Finishing a due review saves no result (revision_session.js): every round is an
+   * FSRS attempt, round 2+ tagged learningRound, and Insights read those.
    * Rules: docs/FSRS.md § "Learning cards in a due review".
    */
   const NK_RLQ_PRESS_MS=250;
@@ -114,16 +114,20 @@
   // The round is done and only cards due later than the learn-ahead remain.
   function nkRlqShowWait(s){
     nkRlqCloseWait();const info=nkRlqWaitInfo(s);if(!info)return false;
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-rlq-wait" id="nk-rlq-wait"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-rlq-wait-title"><h2 id="nk-rlq-wait-title">${esc(info.copy)}</h2><p>You have reached the end of this review. A card you are relearning comes back when its step is due; Finish leaves it for a later review.</p><div class="nk-rlq-wait-actions"><button type="button" class="primary-btn" onclick="window.QB.nkRlqStudyNow()">${esc(info.action)}</button><button type="button" class="ghost-btn" onclick="window.QB.nkRlqFinish()">Finish</button></div></section></div>`);
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-rlq-wait" id="nk-rlq-wait"><section class="modal card" role="dialog" aria-modal="true" aria-labelledby="nk-rlq-wait-title"><h2 id="nk-rlq-wait-title">${esc(info.copy)}</h2><p>You have reached the end of this review. A card you are relearning comes back when its step is due; Finish ends the review and leaves it in Revision.</p><div class="nk-rlq-wait-actions"><button type="button" class="primary-btn" onclick="window.QB.nkRlqStudyNow()">${esc(info.action)}</button><button type="button" class="ghost-btn" onclick="window.QB.nkRlqFinish()">Finish</button></div></section></div>`);
     document.querySelector?.('#nk-rlq-wait button')?.focus?.();return true;
   }
-  // End of a round: the next round, the wait line, or the session sheet.
+  // End of a round: the next round, the wait line, or (nothing left) the review ends and
+  // Revision opens, like Anki. A round with an unanswered card opens the session sheet.
   function nkRlqEndRound(s){
     if(typeof savePracticeElapsed==='function')savePracticeElapsed();
-    if(nkRlqMode()!=='off'&&!nkRlqOpenCards(s).length){
-      const ready=nkRlqQueued(s,Date.now()+NK_FSRS_LEARN_AHEAD);
-      if(ready.length)return nkRlqStartRound(s,ready.map(r=>r.id));
-      if(nkRlqQueued(s).length){saveState();return nkRlqShowWait(s);}
+    if(!nkRlqOpenCards(s).length){
+      if(nkRlqMode()!=='off'){
+        const ready=nkRlqQueued(s,Date.now()+NK_FSRS_LEARN_AHEAD);
+        if(ready.length)return nkRlqStartRound(s,ready.map(r=>r.id));
+        if(nkRlqQueued(s).length){saveState();return nkRlqShowWait(s);}
+      }
+      return finishPracticeSession();
     }
     saveState();openSessionReview();return true;
   }
@@ -134,8 +138,8 @@
     const run=()=>{document.getElementById('nk-session-review')?.remove();return nkRlqStartRound(s,ids);};
     return typeof nkQuestionTransaction==='function'?nkQuestionTransaction(run):run();
   }
-  // "Finish" on the wait line opens the existing end-of-session sheet (Pause / Finish session).
-  function nkRlqFinish(){nkRlqCloseWait();if(!nkRlqDueSession())return false;openSessionReview();return true;}
+  // "Finish" on the wait line ends the review (the later cards keep their FSRS due time).
+  function nkRlqFinish(){nkRlqCloseWait();if(!nkRlqDueSession())return false;return finishPracticeSession();}
 
   // Ratings: the queue follows every committed or revised rating.
   const nkRlqOriginalCommit=nkFsrsCommitPending;
@@ -293,7 +297,7 @@
       const strong=box.querySelector?.('.nk-session-review-summary strong'),span=box.querySelector?.('.nk-session-review-summary span');
       if(strong)strong.textContent=left?`${fmtNum(answered)} answered · ${fmtNum(left)} unanswered`:`${fmtNum(answered)} answered · all cards covered`;
       if(span)span.textContent=`Round ${pass.round} · ${nkRlqCards(pass.ids.length)}`;
-      const sub=box.querySelector?.('.nk-session-review-head p');if(sub)sub.textContent=`Round ${pass.round} holds only the cards you are relearning. Tap one to return to it, or finish: your round 1 answers are already saved.`;
+      const sub=box.querySelector?.('.nk-session-review-head p');if(sub)sub.textContent=`Round ${pass.round} holds only the cards you are relearning. Tap one to return to it, or finish: every answer is already saved to FSRS.`;
     }
     // The next round starts only once this one is done; before that the line just says what waits.
     const info=nkRlqMode()!=='off'?nkRlqWaitInfo(s):null,actions=box.querySelector?.('.nk-session-review-actions'),open=nkRlqOpenCards(s).length;

@@ -59,9 +59,9 @@ def main():
                         assert page.locator('.nk-li-card').count()==4
                         assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0
                     if route=='fsrs-settings':
-                        # Three numeric scheduling values, plus the review-session choices (mode select, advance switch).
+                        # Three numeric scheduling values, plus the review-session choices (learning-cards segmented control, advance switch).
                         assert page.locator('.nk-fsrs-field input[type="number"]').count()==3
-                        assert page.locator('.nk-fsrs-session-settings select').count()==1 and page.locator('.nk-fsrs-session-settings input[type="checkbox"]').count()==1
+                        assert page.locator('.nk-fsrs-session-settings input[type="radio"]').count()==2 and page.locator('.nk-fsrs-session-settings input[type="checkbox"]').count()==1
                         expect(page.get_by_role('button',name='Save changes',exact=True)).to_be_visible()
                         assert page.locator('.nk-clarity-help').count()==1
                     page.screenshot(path=str(output/f'clarity-{route}-{width}.png'),full_page=True)

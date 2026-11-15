@@ -7,8 +7,8 @@ card, Round 2 opens with only the missed card, fresh: the counter reads 1 / 1 wi
 "Round 2" badge inside it, and the back button, flag, bookmark and grid stay on the
 header row (checked by layout at 360, 390, 430 px and the run width, light and dark).
 The session sheet lists only the Round 2 card. Bookmark and flag work in Round 2; a
-reload keeps the round. Rating Round 2 Good opens the sheet; Finish saves each
-question once, by its round 1 answer, and FSRS keeps both rounds.
+reload keeps the round. Rating Round 2 Good ends the review quietly: Revision opens
+with the "Review done" note (no score page, no Tests entry), and FSRS keeps both rounds.
 Runs at 390 px and 1280 px, light and dark; screenshots go to build/ui-checks.
 """
 from functools import partial
@@ -147,24 +147,28 @@ def main():
                     page.wait_for_selector('.nk-session-head .nk-rlq-round')
                     assert page.evaluate(LAYOUT)['ok']
 
-                    # 6. Answer Round 2 and rate Good: nothing left, so the sheet opens; Finish.
+                    # 6. Answer Round 2 and rate Good: nothing left, so the review ends quietly:
+                    #    Revision opens with the "Review done" note; no score page, no Tests entry.
                     q = by_id[first]; page.locator('.option').nth(q['correctOption']-1).click()
                     dock = page.locator('.nk-fsrs-rating'); dock.wait_for()
                     dock.get_by_role('button', name='Good', exact=True).click()
-                    sheet = page.locator('#nk-session-review'); sheet.wait_for(timeout=5000)
-                    assert sheet.locator('.nk-session-review-q').count() == 1
+                    page.wait_for_function("location.hash.startsWith('#quick-revision')", timeout=5000)
+                    assert page.evaluate('QB.getState().activeSession') is None, 'the review ended'
+                    assert page.evaluate('QB.getState().tests.length') == 0, 'a due review saves no result'
                     rounds = page.evaluate('id=>QB.getState().attempts[id].filter(a=>a.source==="fsrs-review").length', first)
                     assert rounds == 2, 'each round is an FSRS attempt'
-                    sheet.get_by_role('button', name='Finish session', exact=True).click()
-                    page.wait_for_function("location.hash.startsWith('#result')")
-                    t = page.evaluate('QB.getState().tests.at(-1)')
-                    assert sorted(t['questionIds']) == sorted(session['questionIds']) and t['total'] == 3 and t['correct'] == 2, t
+                    note = page.locator('.nk-review-done'); note.wait_for()
+                    text = note.inner_text()
+                    assert 'All caught up' in text and '3 cards reviewed.' in text, text
+                    box = note.bounding_box(); assert box['x'] >= 0 and box['x'] + box['width'] <= width + 1, box
+                    page.wait_for_timeout(500); page.screenshot(path=str(out/f'review-done-{tag}.png'))
+                    note.get_by_role('button', name='Dismiss').click(); note.wait_for(state='detached')
                     assert not errors, errors
                     context.close()
             browser.close()
     finally:
         server.shutdown()
-    print('REVIEW_LEARNING_QUEUE_BROWSER_OK round2_only_due=true counter=1/1 header_row=true sheet=round_only bookmark_flag=true reload=true counted_by_round1=true widths=360,390,430,1280 themes=light,dark')
+    print('REVIEW_LEARNING_QUEUE_BROWSER_OK round2_only_due=true counter=1/1 header_row=true sheet=round_only bookmark_flag=true reload=true quiet_finish=true review_done=true widths=360,390,430,1280 themes=light,dark')
 
 
 if __name__ == '__main__':

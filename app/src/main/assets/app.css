@@ -7340,8 +7340,32 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rlq-waiting{display:flex;flex-w
 .nk-rlq-wait-actions>button{flex:1 1 140px;min-height:44px}
 html[data-nk-ui="geist"] .nk-session-footer .nk-fsrs-rating.is-advancing .nk-fsrs-pill.is-pressed{transform:scale(.97);transition:transform 120ms ease-out}
 @media (prefers-reduced-motion:reduce){html[data-nk-ui="geist"] .nk-session-footer .nk-fsrs-rating.is-advancing .nk-fsrs-pill.is-pressed{transform:none}}
-html[data-nk-ui="geist"] .nk-fsrs-value select{min-height:44px;padding:0 12px;font:600 var(--nkg-t-sm,14px)/1 var(--nkg-font-sans,system-ui,sans-serif);color:var(--nkg-fg);background-color:var(--nkg-bg-subtle);border:1px solid var(--nkg-border);border-radius:12px}
-.nk-fsrs-toggle input[type="checkbox"]{width:44px;height:26px;accent-color:var(--nkg-fg,#171717)}
+/* Review settings, "During a review": one settings group with a segmented control for learning
+   cards and a switch for advance-after-rating. Scoped tightly so the numeric-field rules
+   (.nk-fsrs-settings input / label) never reach these controls. */
+.nk-fsrs-settings .nk-fsrs-session-settings{--nk-sw-on:#493394;--nk-sw-off:#d9d6e2;--nk-seg-bg:#f2f0f6;--nk-seg-on:#fff;--nk-seg-fg:#29263f;--nk-seg-mute:#696579;--nk-seg-line:#e5e1eb;padding:4px 16px!important}
+html[data-nk-ui="geist"] .nk-fsrs-settings .nk-fsrs-session-settings{--nk-sw-on:var(--nkg-fg,#171717);--nk-sw-off:var(--nkg-border-strong,var(--nkg-border,#d4d4d4));--nk-seg-bg:var(--nkg-bg-subtle,#f5f5f5);--nk-seg-on:var(--nkg-surface,#fff);--nk-seg-fg:var(--nkg-fg,#171717);--nk-seg-mute:var(--nkg-fg-3,#737373);--nk-seg-line:var(--nkg-border,#e5e5e5)}
+html[data-nk-theme="dark"] .nk-fsrs-settings .nk-fsrs-session-settings{--nk-seg-on:#2e2e2e;--nk-seg-bg:var(--nkg-bg,#0a0a0a)}
+.nk-fsrs-settings .nk-fsrs-group-title{margin:12px 0 0!important;font-size:12px!important;font-weight:600!important;letter-spacing:.02em;text-transform:uppercase;color:var(--nk-seg-mute)!important}
+.nk-fsrs-settings .nk-fsrs-choice{display:grid!important;grid-template-columns:minmax(0,1fr);gap:12px;align-items:center;padding:14px 0!important;margin:0;border:0!important;font-weight:400!important}
+.nk-fsrs-settings .nk-fsrs-choice+.nk-fsrs-choice{border-top:1px solid var(--nk-seg-line)!important}
+.nk-fsrs-settings .nk-fsrs-choice.nk-fsrs-toggle{grid-template-columns:minmax(0,1fr) auto;gap:16px;cursor:pointer}
+.nk-fsrs-choice-copy{display:block;min-width:0}
+.nk-fsrs-choice-copy strong{display:block;font-size:15px;line-height:1.35;font-weight:600;color:var(--nk-seg-fg)}
+.nk-fsrs-choice-copy small{display:block;margin-top:4px;font-size:12.5px;line-height:1.5;color:var(--nk-seg-mute)}
+.nk-fsrs-settings .nk-fsrs-segment{display:grid;width:100%;max-width:420px;grid-template-columns:1.55fr 1fr;gap:3px;padding:3px;border-radius:12px;background:var(--nk-seg-bg);box-shadow:inset 0 0 0 1px var(--nk-seg-line)}
+.nk-fsrs-settings label.nk-fsrs-segment-option{display:block!important;position:relative;margin:0;padding:0;font-weight:500!important;cursor:pointer}
+.nk-fsrs-settings .nk-fsrs-segment-option input{position:absolute;inset:0;width:100%!important;height:100%!important;min-height:0!important;margin:0;padding:0;border:0!important;opacity:0;cursor:pointer;appearance:none;-webkit-appearance:none}
+.nk-fsrs-segment-option span{display:flex;align-items:center;justify-content:center;min-height:40px;padding:0 10px;border-radius:9px;font-size:13.5px;line-height:1.2;text-align:center;white-space:nowrap;color:var(--nk-seg-mute);transition:background-color 160ms ease,color 160ms ease,box-shadow 160ms ease}
+.nk-fsrs-segment-option input:checked+span{background:var(--nk-seg-on);color:var(--nk-seg-fg);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08),0 0 0 1px var(--nk-seg-line)}
+.nk-fsrs-segment-option input:focus-visible+span{outline:2px solid var(--nk-sw-on);outline-offset:1px}
+.nk-fsrs-settings input.nk-fsrs-switch{appearance:none;-webkit-appearance:none;position:relative;flex:none;width:48px!important;height:28px!important;min-height:0!important;margin:0;padding:0;border:0!important;border-radius:999px!important;background:var(--nk-sw-off)!important;cursor:pointer;transition:background-color 180ms ease}
+.nk-fsrs-settings input.nk-fsrs-switch::before{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform 180ms ease}
+.nk-fsrs-settings input.nk-fsrs-switch:checked{background:var(--nk-sw-on)!important}
+.nk-fsrs-settings input.nk-fsrs-switch:checked::before{transform:translateX(20px)}
+html[data-nk-ui="geist"] .nk-fsrs-settings input.nk-fsrs-switch:checked::before{background:var(--nkg-bg,#fff)}
+.nk-fsrs-settings input.nk-fsrs-switch:focus-visible{outline:2px solid var(--nk-sw-on);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.nk-fsrs-segment-option span,.nk-fsrs-settings input.nk-fsrs-switch,.nk-fsrs-settings input.nk-fsrs-switch::before{transition:none}}
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{
@@ -7931,3 +7955,21 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nk-
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nkg-subj-head { min-width: 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root):has(.modal-backdrop) .nk-fsrs-settings-save { z-index: 1 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-pwa { padding: 10px 12px !important; }
+/* ── nk-review-done-v1 ── */
+/* The quiet end of a due review on Revision (revision_desk.js nkReviewDoneMarkup): a calm
+   check, the count reviewed, and what is next. No score. */
+.nk-review-done{--rd-bg:#f3faf6;--rd-line:#cfe9da;--rd-mark:#15803d;--rd-mark-bg:#dcf3e5;--rd-fg:#1f2a24;--rd-mute:#4b5a52;position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 32px;gap:12px;align-items:start;margin:0 0 16px;padding:16px 12px 16px 16px;border:1px solid var(--rd-line);border-radius:16px;background:var(--rd-bg);color:var(--rd-fg);animation:nk-review-done-in 360ms cubic-bezier(.2,.8,.2,1) both}
+html[data-nk-ui="geist"] .nk-review-done{--rd-bg:var(--nkg-green-bg,#f0fdf4);--rd-line:var(--nkg-green-border,#bbf7d0);--rd-mark:var(--nkg-green,#15803d);--rd-mark-bg:var(--nkg-surface,#fff);--rd-fg:var(--nkg-fg,#171717);--rd-mute:var(--nkg-fg-2,#404040)}
+html[data-nk-theme="dark"] .nk-review-done{--rd-bg:#0f1f16;--rd-line:#1f3d2b;--rd-mark:#4ade80;--rd-mark-bg:#14301f;--rd-fg:#ededed;--rd-mute:#a3b3a9}
+.nk-review-done-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--rd-mark-bg);color:var(--rd-mark);box-shadow:inset 0 0 0 1px var(--rd-line)}
+.nk-review-done-mark svg{stroke-width:2.4;animation:nk-review-done-tick 420ms 120ms cubic-bezier(.2,.8,.2,1) both}
+.nk-review-done-copy{min-width:0;padding-top:1px}
+.nk-review-done-copy strong{display:block;font-size:16px;line-height:1.3;font-weight:650;letter-spacing:-.01em;color:var(--rd-fg)}
+.nk-review-done-copy p{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:var(--rd-mute)}
+.nk-review-done .nk-review-done-go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;min-height:40px;padding:0 14px;border:0;border-radius:10px;background:var(--rd-fg);color:var(--rd-bg);font-size:13.5px;font-weight:600;cursor:pointer}
+.nk-review-done .nk-review-done-close{display:grid;place-items:center;width:32px;height:32px;margin:-4px 0 0;padding:0;border:0;border-radius:8px;background:transparent;color:var(--rd-mute);cursor:pointer}
+.nk-review-done .nk-review-done-close:hover{background:color-mix(in srgb,var(--rd-mark) 10%,transparent)}
+.nk-review-done :is(button):focus-visible{outline:2px solid var(--rd-mark);outline-offset:2px}
+@keyframes nk-review-done-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes nk-review-done-tick{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.nk-review-done,.nk-review-done-mark svg{animation:none}}

@@ -65,11 +65,11 @@ not-studied flag removes it (unflag puts it back if the card is still learning).
   keep their places at every width (it was a fourth header grid item and pushed
   the actions onto a second row).
 - A card that comes due again in round N makes round N+1; when nothing is
-  queued the session sheet opens and Finish ends the session.
+  queued **the review ends by itself** (no sheet): see "Quiet finish" below.
 - Cards due **later** than the learn-ahead are never pulled in by themselves: a
   dialog says "1 learning card due in 34 min" with **Study now** (opens them now
-  as the next round) and **Finish** (the session sheet); Finish leaves them for a
-  later due review with their FSRS due time.
+  as the next round) and **Finish** (ends the review quietly); Finish leaves them
+  for a later due review with their FSRS due time.
 - The card is never duplicated: `questionIds` / `sessionQuestionIds` keep their
   membership, so the checkpoint `membershipHash`, the abandon/Back guard and sync
   stay stable. `nkFsrsSessionRating` only sees the live round's attempt
@@ -77,7 +77,23 @@ not-studied flag removes it (unflag puts it back if the card is still learning).
 - Every round records a normal FSRS attempt (`source:'fsrs-review'`; round 2+
   also carries `learningRound:N`), so scheduling history is the full Anki log.
   The daily cap keeps exempting same-day learning repeats.
-- **Results count each question once, by its round 1 answer** (later rounds are
+- **Quiet finish (2026-11-15, `feature/review-quiet-finish`, owner request).** A
+  due review has no score: finishing it (after the last card, Finish on the wait
+  line, or Finish early from the session sheet) saves **no `state.tests` entry**
+  and opens **no result page**; `nkRevisionFinish` clears the session and goes to
+  Revision (`quick-revision`). Revision shows a calm **"Review done"** note
+  (`nkReviewDoneMarkup`, `revision_desk.js`, styles `nk-review-done-v1`): "N
+  cards reviewed." then "M more are due now" with **Keep going**, "Today's limit
+  is done", or **"All caught up"** with "Next review in 12 min / today at 6:40 pm
+  / tomorrow / on Tuesday". It is memory only (never saved or synced), fades
+  after ten minutes, and goes when dismissed or a session starts. Insights read
+  the FSRS attempts, so reviews done, questions practiced and study time are
+  unchanged (`learning_insights.js` counts round 2+ time when no test record
+  exists; older saved due-review tests are not double counted). Side effect:
+  due reviews no longer appear in Insights "recent sessions" (it reads
+  `state.tests`). Wrong/bookmark/unseen practice, Today's Review and tests keep
+  their result page.
+- **Older saved due-review results count each question once, by its round 1 answer** (later rounds are
   relearning, kept in FSRS history); the question's time is the sum of its
   rounds. Insights (`nkLearningCollect`), chapter accuracy (`chapterStats`) and
   Home accuracy (`nkHomeProgressStats`) skip `learningRound` attempts (Home study
@@ -92,7 +108,7 @@ not-studied flag removes it (unflag puts it back if the card is still learning).
   read from old payloads and dropped on the next Next. The abandon dialog and
   the paused-revision row count a reopened card as answered.
 
-**Setting** "Learning cards in a review session": **Round 2 at the end**
+**Setting** "Learning cards": **Round 2 at the end**
 (`learningInSession:'end'`, default) or **Off** (one pass). The value `'due'`
 saved by the first build (cards interleaved as soon as due) now reads as
 `'end'`: interleaving cannot give a round its own counter.
@@ -100,14 +116,15 @@ saved by the first build (cards interleaved as soon as due) now reads as
 **Advance after rating** (default on). In a due review, the first Hard/Good/Easy
 on an answer (committing its pending rating) saves it, keeps the pressed state
 for ~250 ms (`.nk-fsrs-rating.is-advancing`), then runs Next (the next card, the
-next round after the last card, or the session sheet). Wrong answers never
+next round after the last card, the end of the review, or the session sheet
+when a card is still unanswered). Wrong answers never
 advance. Changing an already saved rating only saves. A tap while the advance
 waits is ignored; the timer fires only if the same session, question and round
 are current, the session is not paused, the question is not flagged and no
 sheet or dialog is open; Next/Previous/grid jumps, flag toggles, Pause and
 Abandon cancel it.
 
-Both settings live in FSRS customization → 04 Review sessions, stored in
+Both settings live in Review settings → "During a review" (a two-option segmented control and a switch; `nkFsrsSessionSettingsMarkup`, styles at the end of `nk-review-learning-queue-v1`), stored in
 `state.fsrsPreferences.learningInSession` / `advanceAfterRating`, stamped per
 field in `fsrsPreferencesAt` and merged per field by sync. Attempts record only
 the three scheduling values as `schedulerPreferences`.
