@@ -76,8 +76,9 @@ def practice_flow(page, width, theme, shots):
     trigger = box(page, "#nk-session-review .nk-abandon-trigger")
     inside(trigger, sheet, "the Abandon row sits inside the sheet")
     assert trigger["height"] >= 43.5, f"44 px target, got {trigger['height']}"
-    actions = page.locator("#nk-session-review .nk-session-review-actions button")
-    assert actions.count() == 2 and actions.nth(0).inner_text().strip() == "Pause" and actions.nth(1).inner_text().strip() == "Submit", "Pause + Submit stay the only actions"
+    # Pause + Submit stay as they were; normal Practice may add "Submit attempted" (practice_submit_attempted.js).
+    actions = page.locator("#nk-session-review .nk-session-review-actions button:not(.nk-practice-submit-attempted)")
+    assert actions.count() == 2 and actions.nth(0).inner_text().strip() == "Pause" and actions.nth(1).inner_text().strip() == "Submit", "Pause + Submit stay the main actions"
     assert trigger["y"] >= box(page, "#nk-session-review .nk-session-review-actions")["y"] + box(page, "#nk-session-review .nk-session-review-actions")["height"], "Abandon sits below Pause / Submit"
     assert page.locator("#nk-session-review .nk-abandon-trigger").inner_text().strip() == "Abandon session"
     if shots:
