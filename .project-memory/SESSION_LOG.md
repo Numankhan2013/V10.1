@@ -2966,3 +2966,8 @@ Moved from STATE.md at the pause:
   green; full `verify_local.py` needs data absent from the sparse clone.
   CI: see the branch runs. Not device-verified.
 
+## 2026-11-15 (later) — Learning rounds fix pass (`feature/review-learning-queue`, Hark)
+
+- Owner report (Android Chrome, 390 px, dark): the Round 2 pill pushed the flag/bookmark/grid out of the header over "Question 1 of 29"; Round 2 replayed all 29 questions (answered ones read-only) instead of only the 3–4 cards due again.
+- Fix: rounds are now a pass over only the due-again cards (`roundPass`), counted alone, confined navigation, badge inside the counter; Round 3+ until none is left; an unanswered card blocks the next round; the result counts round 1 answers (owner: round 1 answers stay intact); chapter/Home accuracy skip repeats; `roundPass` in checkpoint/resume/sync; abandon dialog and paused-revision row count reopened cards; settings drop "Show when due" (interleaving cannot give a round its own counter; old value reads as end).
+- Local: `test_review_learning_queue_v1.py` and related suites green; browser verifiers run against the branch preview's assets with the patched page (review learning queue, revision session, session abandon, not studied, continue practice, review dues, app clarity). Not device-verified.

@@ -34,7 +34,10 @@ let TIMERS=[],TIMER_ID=0;global.setTimeout=(fn,ms)=>{const id=++TIMER_ID;TIMERS.
 function flushTimers(){const run=TIMERS;TIMERS=[];run.forEach(t=>t.fn());}
 let reviewSheets=0,dialogs=[];
 openSessionReview=()=>{reviewSheets++;};
-nkSessionHeader=(q,s,mode)=>`<header><div class="nk-session-count"><strong>${s.index+1}</strong> / ${s.questionIds.length}</div><div class="q-actions"><button class="icon-btn bookmark-toggle"></button></div></header>`;
+// The page's own header (nkSessionHeader below) with a bookmark stub; the action bar keeps the page's Previous button.
+function bookmarkButton(qid){return `<button class="icon-btn bookmark-toggle" aria-pressed="${Boolean(state.bookmarks?.[qid])}"></button>`;}
+practiceActionBar=s=>`<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button class="ghost-btn" onclick="window.QB.prevQ()" ${s.index===0?'disabled':''}>Previous</button><button class="primary-btn" onclick="window.QB.nextQ()">Next</button></div></div>`;
+qAttempts=id=>Array.isArray(state.attempts?.[id])?state.attempts[id]:[];
 document.body.insertAdjacentHTML=(where,html)=>{dialogs.push(html);};
 let nkStartRevisionQueue=()=>{},nkRevisionScope={subject:'',bank:'',topic:''};
 function nkQuestionAction(fn){return fn;}
@@ -45,7 +48,7 @@ function defaultState(){return {attempts:{},reviews:{},tests:[],bookmarks:{},que
 SCENARIOS = r'''
 nkFsrsInit();
 const MIN=60000,DAY=86400000;
-const IDS=['q1','q2','q3','q4'];
+const IDS=['q1','q2','q3','q4'],SIX=['q1','q2','q3','q4','q5','q6'];
 const S=()=>state.activeSession,pos=qid=>S().questionIds.indexOf(qid),go=qid=>{S().index=pos(qid);};
 function reset(prefs){state={attempts:{},reviews:{},tests:[],fsrsPreferences:prefs||null,fsrsReviewEligible:{},activeSession:null,bookmarks:{},fsrsMigratedAt:1};routes=[];toasts=[];TIMERS=[];reviewSheets=0;dialogs=[];route={page:'practice'};at(0);}
 // Earlier study: every question answered correctly once on day 0, so all are review cards due on day 5.
@@ -55,6 +58,8 @@ function history(ids=IDS){at(0);state.activeSession={id:'s0',mode:'practice',tit
 function dueSession(id,ids,t){at(t);state.activeSession={id,mode:'practice',title:'Quick Revision · Due Review',questionIds:[...ids],index:0,answers:{},submitted:{},startedAt:NOW,lastTick:NOW,elapsedMs:0,questionEnteredAt:NOW,questionTimes:{},context:'fsrs'};
   assert(nkRevisionTagSession('due',null,ids),'tagged as a due review');return S();}
 function ans(qid,choice,t,ms=20000){at(t);go(qid);S().questionTimes[qid]=ms;S().answers[qid]=choice;submitPractice();}
+// Answer the card on screen (round 2+ moves by Next/Previous, never by row).
+function here(choice,t,ms=20000){at(t);const qid=cur();S().questionTimes[qid]=ms;S().answers[qid]=choice;submitPractice();return qid;}
 function rate(qid,r,t){at(t);return nkRateCurrent(r,qid,S().id);}
 function next(t){at(t);return nextQ();}
 const cur=()=>S().questionIds[S().index];
@@ -63,116 +68,137 @@ const same=(a,b,msg)=>assert.strictEqual(JSON.stringify(a),JSON.stringify(b),msg
 const results=[];function scenario(name,fn){fn();results.push(name);}
 const D5=5*DAY;
 function setPrefs(p){Object.entries(p).forEach(([k,v])=>assert(nkFsrsSetSessionPreference(k,v),k));}
+const header=()=>nkSessionHeader(BY_ID[cur()],S(),'practice');
+const counter=()=>{const m=header().match(/<div class="nk-session-count[^"]*"[^>]*><strong>(\d+)<\/strong> \/ (\d+)/);return m?`${m[1]} / ${m[2]}`:null;};
 
-scenario('settings: defaults are Show when due + advance on; per-field stamps; schedulers ignore them',()=>{
-  reset();const p=nkFsrsPreferences();assert.strictEqual(p.learningInSession,'due');assert.strictEqual(p.advanceAfterRating,true);
-  at(500);setPrefs({learningInSession:'end'});at(600);setPrefs({advanceAfterRating:'0'});
-  assert.strictEqual(nkFsrsPreferences().learningInSession,'end');assert.strictEqual(nkFsrsPreferences().advanceAfterRating,false);
+scenario('settings: Round 2 at the end (default) or Off; the older "due" value means the end; per-field stamps; schedulers ignore them',()=>{
+  reset();const p=nkFsrsPreferences();assert.strictEqual(p.learningInSession,'end');assert.strictEqual(p.advanceAfterRating,true);
+  state.fsrsPreferences.learningInSession='due';assert.strictEqual(nkFsrsPreferences().learningInSession,'end','a value saved by an older build reads as the end');
+  at(500);setPrefs({learningInSession:'off'});at(600);setPrefs({advanceAfterRating:'0'});
+  assert.strictEqual(nkFsrsPreferences().learningInSession,'off');assert.strictEqual(nkFsrsPreferences().advanceAfterRating,false);
   same([state.fsrsPreferencesAt.learningInSession,state.fsrsPreferencesAt.advanceAfterRating],[T0+500,T0+600],'each field has its own stamp for sync');
   assert(!nkFsrsSetSessionPreference('learningInSession','sometimes'),'unknown modes are refused');
-  state.fsrsPreferences.learningInSession='bogus';assert.strictEqual(nkFsrsPreferences().learningInSession,'due','a damaged value falls back to the default');
+  state.fsrsPreferences.learningInSession='bogus';assert.strictEqual(nkFsrsPreferences().learningInSession,'end','a damaged value falls back to the default');
   history(['q1']);const a=state.attempts.q1[0];same(Object.keys(a.schedulerPreferences).sort(),['dailyCap','desiredRetention','maximumInterval'],'attempts record only scheduling values');
-  // Settings page: the section, the select and the switch, saved through the draft.
   nkFsrsDraft=null;const html=nkFsrsSettingsMarkup();
-  assert(html.includes('Learning cards in a review session')&&html.includes('<option value="due"')&&html.includes('Show at the end')&&html.includes('>Off</option>'),'mode select');
+  assert(html.includes('Learning cards in a review session')&&html.includes('<option value="end"')&&html.includes('Round 2 at the end')&&html.includes('>Off</option>')&&!html.includes('value="due"'),'mode select');
   assert(html.includes('Advance after rating')&&html.includes('type="checkbox"')&&html.includes('role="switch"'),'advance switch');
   nkFsrsEditSetting('learningInSession','off');nkFsrsEditSetting('advanceAfterRating','1');at(900);assert(nkFsrsSaveSettings());
   assert.strictEqual(nkFsrsPreferences().learningInSession,'off');assert.strictEqual(nkFsrsPreferences().advanceAfterRating,true);assert.strictEqual(state.fsrsPreferencesAt.learningInSession,T0+900);
 });
 
-scenario('Show when due: a missed card comes back in its own row as Round 2 once its step is due, ahead of the rest',()=>{
-  reset();history();setPrefs({advanceAfterRating:false});const s=dueSession('r1',IDS,D5);const hash=nkPracticeFindCheckpoint('r1').membershipHash;
-  ans('q1',2,D5+1000);
-  const card=state.reviews.q1;assert.strictEqual(card.state,3,'Again on a review card relearns');assert.strictEqual(card.due,T0+D5+1000+10*MIN,'10 minute relearning step');
-  same(S().learningQueue.q1,{due:T0+D5+1000+10*MIN,round:1},'queued with its FSRS due time');
-  assert.strictEqual(state.attempts.q1.at(-1).source,'fsrs-review');
-  next(D5+2000);assert.strictEqual(cur(),'q2','not due yet: the set continues');
-  ans('q2',1,D5+3000);next(D5+11*MIN);assert.strictEqual(cur(),'q1','due now: the learning card comes before q3');
-  assert.strictEqual(round('q1'),2);assert(!S().answers.q1&&!S().submitted.q1,'the live answer is cleared for a new round');
-  const r1=S().roundHistory.q1[0];same([r1.round,r1.answer,r1.submitted,r1.correct,r1.rating,r1.timeMs],[1,2,true,false,1,20000],'round 1 archived');
-  assert(!S().learningQueue.q1,'reopened: no longer waiting');
-  same(S().questionIds,IDS,'membership is unchanged (no duplicate ids)');same(S().sessionQuestionIds,IDS);
-  assert(nkSessionHeader(questions[0],S(),'practice').includes('Round 2'),'header badge');
-  ans('q1',1,D5+11*MIN+5000);assert(S().pendingRating.q1,'a correct round waits for its rating');assert.strictEqual(nkFsrsSessionRating('q1'),null,'round 1 is not this round\'s saved rating');
-  rate('q1',3,D5+11*MIN+6000);assert.strictEqual(state.reviews.q1.state,2,'Good graduates the card');assert(!S().learningQueue.q1);
-  const last=state.attempts.q1.at(-1);same([last.source,last.learningRound,last.rating],['fsrs-review',2,3],'every round is a normal FSRS attempt');
-  next(D5+12*MIN);assert.strictEqual(cur(),'q3','the set resumes after the card it interrupted');assert.strictEqual(S().learningReturnIndex,undefined);
-  nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(S(),'active'));assert.strictEqual(nkPracticeFindCheckpoint('r1').membershipHash,hash,'checkpoint membershipHash unchanged');
-  const cached=JSON.stringify(state.reviews.q1);nkFsrsReplay('q1');assert.strictEqual(JSON.stringify(state.reviews.q1),cached,'cache equals a replay of every round');
+scenario('Round 2 holds only the cards that came due again: fresh, counted alone (1 / 2), Next/Previous/jumps stay inside it; Round 3 follows; then the sheet',()=>{
+  reset();history(SIX);setPrefs({advanceAfterRating:false});dueSession('b2',SIX,D5);const hash=nkPracticeFindCheckpoint('b2').membershipHash;
+  ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);ans('q3',2,D5+3000);
+  ['q4','q5','q6'].forEach((q,i)=>{ans(q,1,D5+4000+i*1000);rate(q,3,D5+4100+i*1000);});
+  same(Object.keys(S().learningQueue).sort(),['q1','q3'],'the two misses wait for Round 2');
+  assert.strictEqual(counter(),'6 / 6','round 1 counts the whole set');assert(!header().includes('nk-rlq-round'),'no badge in round 1');
+  go('q2');next(D5+MIN);assert.strictEqual(cur(),'q3','round 1 goes on through the set');
+  go('q6');next(D5+2*MIN);
+  same(S().roundPass,{round:2,ids:['q1','q3']},'Round 2 is only the cards due again, earliest first');
+  assert.strictEqual(cur(),'q1');assert(!S().answers.q1&&!S().submitted.q1&&!S().answers.q3&&!S().submitted.q3,'fresh and unanswered');
+  ['q2','q4','q5','q6'].forEach(q=>assert(S().submitted[q]&&S().answers[q]===1,q+' keeps its round 1 answer and is not in Round 2'));
+  same([S().roundHistory.q1[0].answer,S().roundHistory.q1[0].submitted,S().roundHistory.q1[0].correct],[2,true,false],'round 1 archived');
+  same(S().questionIds,SIX,'membership is unchanged (no duplicate ids)');same(S().sessionQuestionIds,SIX);
+  assert.strictEqual(counter(),'1 / 2','the counter counts only Round 2');
+  const h=header();
+  assert(/<div class="nk-session-count has-round"[^>]*><strong>1<\/strong> \/ 2<span class="nk-rlq-round">Round 2<\/span><\/div><div class="q-actions">/.test(h),'the badge sits inside the counter, right before the header actions: '+h);
+  assert(h.includes('nk-ns-toggle')&&h.includes('bookmark-toggle')&&h.includes('nk-grid-trigger'),'flag, bookmark and grid stay in the header');
+  assert(/aria-valuenow="50"><i style="width:50%"><\/i>/.test(h),'progress is the round position');
+  assert(toasts.includes('Round 2 · 2 cards to relearn'));
+  assert.strictEqual(prevQ(),false,'Previous does nothing on the first card of a round');assert.strictEqual(cur(),'q1');
+  assert(/onclick="window\.QB\.prevQ\(\)" disabled/.test(practiceActionBar(S(),BY_ID.q1)),'and is disabled');
+  assert.strictEqual(goIndex(pos('q2')),false,'a jump to a card outside the round is refused');assert.strictEqual(cur(),'q1');
+  here(1,D5+3*MIN);assert(S().pendingRating.q1,'a correct round waits for its rating');assert.strictEqual(nkFsrsSessionRating('q1'),null,'round 1 is not this round\'s rating');
+  rate('q1',3,D5+3*MIN+100);assert.strictEqual(state.reviews.q1.state,2,'Good graduates');assert(!S().learningQueue.q1);
+  same([state.attempts.q1.at(-1).source,state.attempts.q1.at(-1).learningRound],['fsrs-review',2],'a normal FSRS attempt tagged as a repeat');
+  next(D5+4*MIN);assert.strictEqual(cur(),'q3');assert.strictEqual(counter(),'2 / 2');
+  assert(!/onclick="window\.QB\.prevQ\(\)" disabled/.test(practiceActionBar(S(),BY_ID.q3)),'Previous works after the first card');
+  prevQ();assert.strictEqual(cur(),'q1');next(D5+4*MIN+100);assert.strictEqual(cur(),'q3');
+  here(2,D5+5*MIN);assert(S().learningQueue.q3,'missed again');
+  next(D5+6*MIN);same(S().roundPass,{round:3,ids:['q3']},'Round 3 is the one card still relearning');assert.strictEqual(counter(),'1 / 1');assert(header().includes('Round 3'));
+  same(S().roundHistory.q3.map(r=>r.answer),[2,2],'both earlier rounds archived');
+  here(1,D5+7*MIN);rate('q3',3,D5+7*MIN+100);next(D5+8*MIN);
+  assert.strictEqual(reviewSheets,1,'nothing left: the session sheet');assert.strictEqual(S().roundPass.round,3,'no round 4');assert(!Object.keys(S().learningQueue).length);
+  nkPracticeStoreCheckpoint(nkPracticeBuildCheckpoint(S(),'active'));assert.strictEqual(nkPracticeFindCheckpoint('b2').membershipHash,hash,'membershipHash unchanged');
+  const cached=JSON.stringify(state.reviews.q3);nkFsrsReplay('q3');assert.strictEqual(JSON.stringify(state.reviews.q3),cached,'cache equals a replay of every round');
+  // Finish: round 1 answers are the result; every round is in FSRS history; time adds up.
+  at(D5+9*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);
+  same(t.questionIds,SIX,'each question once');same([t.correct,t.incorrect,t.total],[4,2,6],'counted by round 1 (two misses)');
+  same([t.answers.q1,t.answers.q3],[2,2],'round 1 answers intact');same([t.questionTimes.q1,t.questionTimes.q3],[40000,60000],'every round\'s time');
+  same(state.attempts.q1.filter(a=>a.sessionId==='b2').map(a=>a.learningRound||1),[1,2]);same(state.attempts.q3.filter(a=>a.sessionId==='b2').map(a=>a.learningRound||1),[1,2,3]);
+  assert.strictEqual(S(),null,'the session ended');same(nkFsrsQueue({}).due.map(q=>q.id).filter(id=>SIX.includes(id)),[],'nothing from the session is due again today: every relearning card graduated');assert(!('roundPass' in t)&&!('roundHistory' in t),'the result carries no round state');
+  // Stats: accuracy counts one answer per question per session; study time keeps every round.
+  const cs=chapterStats('c1'),expect=SIX.flatMap(id=>state.attempts[id]).filter(a=>!a.isUndo&&typeof a.correct==='boolean'&&!a.learningRound);
+  same([cs.correct+cs.incorrect,cs.correct],[expect.length,expect.filter(a=>a.correct).length],'chapter accuracy skips the repeats');
+  const hp=nkHomeProgressStats('year'),firsts=SIX.flatMap(id=>state.attempts[id]).filter(a=>typeof a.correct==='boolean'&&!a.learningRound);
+  assert.strictEqual(Math.round(hp.accuracy*100),Math.round(firsts.filter(a=>a.correct).length/firsts.length*10000),'Home accuracy skips the repeats');
+  assert.strictEqual(hp.studyMs,SIX.flatMap(id=>state.attempts[id]).reduce((n,a)=>n+Number(a.timeSpent||0),0),'Home study time keeps every round');
 });
-
 '''
 
 SCENARIOS_2 = r'''
-scenario('Hard on a relearning card keeps it queued; Good graduates it; revising a saved rating only saves',()=>{
-  reset();history();setPrefs({advanceAfterRating:false});dueSession('r2',['q1','q2','q3'],D5);
-  ans('q1',2,D5+1000);next(D5+2000);ans('q2',1,D5+3000);next(D5+11*MIN);assert.strictEqual(cur(),'q1');
-  ans('q1',1,D5+11*MIN+1000);rate('q1',2,D5+11*MIN+2000);
-  assert.strictEqual(state.reviews.q1.state,3,'Hard on a relearning step stays relearning');assert(S().learningQueue.q1,'so it waits for round 3');
-  assert.strictEqual(S().learningQueue.q1.round,2);
-  // Revisit by hand and change Hard to Good: saved, card graduates, leaves the queue, no jump.
-  at(D5+11*MIN+3000);const idx=S().index;assert(nkRateCurrent(3,'q1',S().id));assert.strictEqual(S().index,idx,'no jump');assert.strictEqual(TIMERS.length,0,'no advance for a revision');
-  assert.strictEqual(state.reviews.q1.state,2);assert(!S().learningQueue.q1,'graduated: out of the queue');
-  next(D5+12*MIN);assert.strictEqual(cur(),'q3','continues after the interrupted card');
+scenario('a round starts only when every card of the current one is answered (or flagged); an unanswered card opens the sheet instead',()=>{
+  reset();history();setPrefs({advanceAfterRating:false});dueSession('u1',IDS,D5);
+  ans('q1',2,D5+1000);ans('q3',1,D5+2000);rate('q3',3,D5+2100);ans('q4',1,D5+3000);rate('q4',3,D5+3100);
+  go('q4');next(D5+MIN);assert.strictEqual(reviewSheets,1,'q2 unanswered: the sheet');assert(!S().roundPass,'no Round 2 yet');assert(S().submitted.q1,'q1 keeps its answer');
+  ans('q2',1,D5+2*MIN);rate('q2',3,D5+2*MIN+100);go('q4');next(D5+3*MIN);same(S().roundPass,{round:2,ids:['q1']},'now Round 2');
+  // In round 2 an unanswered card at the end also opens the sheet (no Round 3 over it).
+  next(D5+4*MIN);assert.strictEqual(reviewSheets,2);assert.strictEqual(S().roundPass.round,2);
 });
 
-scenario('learn-ahead at the end: a card due within 20 min shows at once; a later one offers Study now / Finish',()=>{
-  reset();history(['q1']);setPrefs({advanceAfterRating:false});dueSession('r3',['q1'],D5);
-  ans('q1',2,D5+1000);next(D5+2000);assert.strictEqual(round('q1'),2,'10 min step is inside the 20 min learn-ahead: shown immediately');assert.strictEqual(reviewSheets,0);
-  ans('q1',1,D5+3000);rate('q1',3,D5+4000);next(D5+5000);assert.strictEqual(reviewSheets,1,'nothing left: the end-of-session sheet opens');
-  // A card due later than the learn-ahead (pushed out to 34 min) gets the wait line instead.
-  reset();history(['q1','q2']);setPrefs({advanceAfterRating:false});dueSession('r4',['q1','q2'],D5);
-  ans('q1',2,D5+1000);next(D5+2000);assert.strictEqual(cur(),'q2');S().learningQueue.q1.due=T0+D5+35*MIN;ans('q2',1,D5+MIN);rate('q2',3,D5+MIN+100);
-  next(D5+MIN+200);assert.strictEqual(cur(),'q2','stays put');assert.strictEqual(reviewSheets,0);
+scenario('Hard on a relearning card keeps it for the next round; revising Hard to Good graduates it and only saves',()=>{
+  reset();history(['q1','q2']);setPrefs({advanceAfterRating:false});dueSession('h1',['q1','q2'],D5);
+  ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);go('q2');next(D5+MIN);assert.strictEqual(cur(),'q1');
+  here(1,D5+2*MIN);rate('q1',2,D5+2*MIN+100);assert.strictEqual(state.reviews.q1.state,3,'Hard on a relearning step stays relearning');assert(S().learningQueue.q1,'so it waits for round 3');
+  const idx=S().index;at(D5+2*MIN+200);assert(nkRateCurrent(3,'q1',S().id));assert.strictEqual(S().index,idx,'no jump');assert.strictEqual(TIMERS.length,0,'no advance for a revision');
+  assert.strictEqual(state.reviews.q1.state,2);assert(!S().learningQueue.q1,'graduated: out of the queue');
+  next(D5+3*MIN);assert.strictEqual(reviewSheets,1,'no Round 3');assert.strictEqual(S().roundPass.round,2);
+});
+
+scenario('cards due later than the learn-ahead are never pulled in: a wait line offers Study now / Finish; Finish leaves them out',()=>{
+  reset();history(['q1','q2']);setPrefs({advanceAfterRating:false});dueSession('w1',['q1','q2'],D5);
+  ans('q1',2,D5+1000);S().learningQueue.q1.due=T0+D5+36*MIN;ans('q2',1,D5+MIN);rate('q2',3,D5+MIN+100);
+  next(D5+2*MIN);assert.strictEqual(cur(),'q2','stays put');assert(!S().roundPass,'not pulled in');assert.strictEqual(reviewSheets,0);assert(S().submitted.q1,'q1 keeps round 1');
   assert(dialogs.at(-1).includes('1 learning card due in 34 min')&&dialogs.at(-1).includes('Study now')&&dialogs.at(-1).includes('Finish'),'the wait line');
   nkRlqFinish();assert.strictEqual(reviewSheets,1,'Finish opens the end-of-session sheet');
-  at(D5+2*MIN);nkRlqStudyNow();assert.strictEqual(cur(),'q1');assert.strictEqual(round('q1'),2,'Study now opens the next round at once');
-});
-
-scenario('Show at the end: learning cards wait for the rest of the set, then follow the learn-ahead',()=>{
-  reset();history();setPrefs({learningInSession:'end',advanceAfterRating:false});dueSession('r5',IDS,D5);
-  ans('q1',2,D5+1000);next(D5+2000);ans('q2',1,D5+11*MIN);next(D5+11*MIN+100);assert.strictEqual(cur(),'q3','due, but held for the end');
-  ans('q3',1,D5+12*MIN);next(D5+12*MIN+100);assert.strictEqual(cur(),'q4');ans('q4',1,D5+13*MIN);next(D5+13*MIN+100);
-  assert.strictEqual(cur(),'q1');assert.strictEqual(round('q1'),2,'after the set it comes back');
+  at(D5+3*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);same([t.correct,t.incorrect],[1,1]);
+  assert.strictEqual(state.attempts.q1.filter(a=>a.sessionId==='w1').length,1,'no extra FSRS review for the later card');
+  // Study now pulls it in on request, as Round 2.
+  reset();history(['q1','q2']);setPrefs({advanceAfterRating:false});dueSession('w2',['q1','q2'],D5);
+  ans('q1',2,D5+1000);S().learningQueue.q1.due=T0+D5+36*MIN;ans('q2',1,D5+MIN);rate('q2',3,D5+MIN+100);next(D5+2*MIN);
+  at(D5+3*MIN);nkRlqStudyNow();same(S().roundPass,{round:2,ids:['q1']});assert.strictEqual(cur(),'q1');
 });
 
 scenario('Off: one pass as before (no queue, no rounds, last Next opens the sheet)',()=>{
-  reset();history();setPrefs({learningInSession:'off',advanceAfterRating:false});dueSession('r6',['q1','q2'],D5);
-  ans('q1',2,D5+1000);assert.deepStrictEqual(S().learningQueue||{},{});next(D5+11*MIN);assert.strictEqual(cur(),'q2');ans('q2',1,D5+12*MIN);rate('q2',3,D5+12*MIN+1);
-  next(D5+30*MIN);assert.strictEqual(reviewSheets,1);assert(!S().roundHistory,'no rounds');
+  reset();history();setPrefs({learningInSession:'off',advanceAfterRating:false});dueSession('o1',['q1','q2'],D5);
+  ans('q1',2,D5+1000);assert.deepStrictEqual(S().learningQueue||{},{});ans('q2',1,D5+12*MIN);rate('q2',3,D5+12*MIN+1);
+  go('q2');next(D5+30*MIN);assert.strictEqual(reviewSheets,1);assert(!S().roundHistory&&!S().roundPass,'no rounds');
 });
 
-scenario('the saved result counts each question once, by its latest round; times add up; attempts stay complete',()=>{
-  reset();history();setPrefs({advanceAfterRating:false});dueSession('r7',['q1','q2'],D5);
-  ans('q1',2,D5+1000,10000);next(D5+2000);ans('q2',1,D5+3000,5000);next(D5+11*MIN);ans('q1',1,D5+11*MIN+1000,7000);rate('q1',3,D5+11*MIN+2000);
-  at(D5+12*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);
-  same(t.questionIds,['q1','q2'],'each question once');same([t.correct,t.incorrect,t.total,t.attempted],[2,0,2,2],'q1 counts by its latest (correct) round');
-  same(t.answers,{q1:1,q2:1});assert.strictEqual(t.questionTimes.q1,17000,'both rounds\' time');
-  const rounds=state.attempts.q1.filter(a=>a.sessionId==='r7');assert.strictEqual(rounds.length,2,'FSRS history keeps both rounds');
-  assert.strictEqual(nkPracticeFindCheckpoint('r7').lifecycle,'submitted');
-  // A round reopened and left unanswered gives way to the round before it.
-  reset();history();setPrefs({advanceAfterRating:false});dueSession('r8',['q1','q2'],D5);
-  ans('q1',2,D5+1000,10000);next(D5+2000);ans('q2',1,D5+3000);next(D5+11*MIN);assert.strictEqual(round('q1'),2);
-  at(D5+12*MIN);assert(nkFinishRevisionSession());const u=state.tests.at(-1);
-  same(u.questionIds,['q1','q2']);same([u.correct,u.incorrect],[1,1],'the unanswered round 2 falls back to round 1 (wrong)');
-});
-
-scenario('pause / reload / resume keeps the queue, the rounds and the return point; checkpoint membership unchanged',()=>{
-  reset();history();setPrefs({advanceAfterRating:false});dueSession('r9',IDS,D5);const hash=nkPracticeFindCheckpoint('r9').membershipHash;
-  ans('q1',2,D5+1000);ans('q2',2,D5+2000);go('q2');next(D5+3000);ans('q3',1,D5+11*MIN);next(D5+11*MIN+100);assert.strictEqual(cur(),'q1');
-  at(D5+11*MIN+200);assert(nkPausePractice());const cp=nkPracticeFindCheckpoint('r9');
-  assert.strictEqual(cp.membershipHash,hash);same(cp.sessionQuestionIds,IDS);same(Object.keys(cp.learningQueue),['q2']);assert.strictEqual(cp.roundHistory.q1.length,1);assert.strictEqual(cp.learningReturnIndex,2);
-  assert(cp.questionUpdates.q1.signature.endsWith(',1]'),'a reopened round is a new edit of that question');
-  state=JSON.parse(JSON.stringify(state));state.activeSession=null;at(D5+20*MIN);assert(nkResumePracticeById('r9'));
-  const s=S();assert.strictEqual(s.revisionQueueKind,'due');assert.strictEqual(cur(),'q1');assert.strictEqual(round('q1'),2);same(Object.keys(s.learningQueue),['q2']);assert.strictEqual(s.learningReturnIndex,2);
-  ans('q1',1,D5+21*MIN);rate('q1',3,D5+21*MIN+100);next(D5+22*MIN);assert.strictEqual(cur(),'q2','the other queued card is due: shown next');assert.strictEqual(round('q2'),2);
-  // An older checkpoint (no learning fields) still normalises and resumes.
-  const old=JSON.parse(JSON.stringify(cp));delete old.learningQueue;delete old.roundHistory;delete old.learningReturnIndex;old.sessionId='old1';old.lifecycle='paused';
-  const norm=nkNormalizeCheckpoint(old);assert(norm&&!('learningQueue' in norm)&&!('roundHistory' in norm),'no learning keys invented');
-  const back=nkPracticeSessionFromCheckpoint(norm);assert(back&&!back.learningQueue&&!back.roundHistory,'resumes as an ordinary session');
-  // Damaged learning fields are dropped, not trusted.
-  const bad=nkNormalizeCheckpoint({...cp,learningQueue:{zz:{due:5},q3:{due:'x'}},roundHistory:{q9:[{answer:1}],q4:'x'},learningReturnIndex:99});
-  assert(!bad.learningQueue&&!bad.roundHistory&&!('learningReturnIndex' in bad),'foreign ids, bad times and out-of-range indexes are dropped');
+scenario('pause / reload / resume in Round 2 keeps the round, its cards and the position; older or damaged checkpoints load safely',()=>{
+  reset();history();setPrefs({advanceAfterRating:false});dueSession('p1',IDS,D5);const hash=nkPracticeFindCheckpoint('p1').membershipHash;
+  ans('q1',2,D5+1000);ans('q2',2,D5+2000);ans('q3',1,D5+3000);rate('q3',3,D5+3100);ans('q4',1,D5+4000);rate('q4',3,D5+4100);go('q4');next(D5+MIN);
+  same(S().roundPass,{round:2,ids:['q1','q2']});here(1,D5+2*MIN);rate('q1',3,D5+2*MIN+100);next(D5+3*MIN);assert.strictEqual(cur(),'q2');
+  at(D5+3*MIN+100);assert(nkPausePractice());const cp=nkPracticeFindCheckpoint('p1');
+  assert.strictEqual(cp.membershipHash,hash);same(cp.sessionQuestionIds,IDS);same(cp.roundPass,{round:2,ids:['q1','q2']});assert.strictEqual(cp.roundHistory.q1.length,1);
+  assert(cp.questionUpdates.q2.signature.endsWith(',1]'),'a reopened round is a new edit of that question');
+  state=JSON.parse(JSON.stringify(state));state.activeSession=null;at(D5+20*MIN);assert(nkResumePracticeById('p1'));
+  assert.strictEqual(S().revisionQueueKind,'due');assert.strictEqual(cur(),'q2');same(S().roundPass,{round:2,ids:['q1','q2']});assert.strictEqual(counter(),'2 / 2');
+  prevQ();assert.strictEqual(cur(),'q1','Previous stays in the round after resume');
+  // A reload without pausing keeps the live session as saved.
+  const raw=JSON.parse(localStorage.getItem(LS_KEY));same(raw.activeSession.roundPass,{round:2,ids:['q1','q2']},'saved with the session');
+  const old=JSON.parse(JSON.stringify(cp));delete old.learningQueue;delete old.roundHistory;delete old.roundPass;old.sessionId='old1';old.lifecycle='paused';
+  const norm=nkNormalizeCheckpoint(old);assert(norm&&!('learningQueue' in norm)&&!('roundHistory' in norm)&&!('roundPass' in norm),'no learning keys invented');
+  const back=nkPracticeSessionFromCheckpoint(norm);assert(back&&!back.learningQueue&&!back.roundHistory&&!back.roundPass,'resumes as an ordinary session');
+  const bad=nkNormalizeCheckpoint({...cp,learningQueue:{zz:{due:5},q3:{due:'x'}},roundHistory:{q9:[{answer:1}],q4:'x'},roundPass:{round:1,ids:['q1']},learningReturnIndex:99});
+  assert(!bad.learningQueue&&!bad.roundHistory&&!bad.roundPass&&!('learningReturnIndex' in bad),'foreign ids, bad times, round 1 passes and out-of-range indexes are dropped');
+  assert(!nkNormalizeCheckpoint({...cp,roundPass:{round:2,ids:['zz']}}).roundPass,'a pass of foreign cards is dropped');
+  same(nkNormalizeCheckpoint({...cp,roundPass:{round:3,ids:['q2','q2','zz','q1']}}).roundPass,{round:3,ids:['q2','q1']},'repeats and foreign ids are cleaned');
+  // A session saved by the earlier build (card reopened in its own row, return index) carries on.
+  reset();history();setPrefs({advanceAfterRating:false});dueSession('l1',IDS,D5);ans('q1',2,D5+1000);
+  S().roundHistory={q1:[{round:1,answer:2,submitted:true,timeMs:20000,reopenedAt:T0+D5+11*MIN}]};delete S().answers.q1;delete S().submitted.q1;delete S().learningQueue.q1;S().learningReturnIndex=1;go('q1');
+  next(D5+12*MIN);assert.strictEqual(cur(),'q2','continues through the set');assert(!('learningReturnIndex' in S()));
 });
 
 scenario('advance after rating: first Hard/Good/Easy moves on after the pressed beat; never after a wrong answer',()=>{
@@ -181,41 +207,45 @@ scenario('advance after rating: first Hard/Good/Easy moves on after the pressed 
   assert.strictEqual(rate('q1',4,D5+2100),false,'a double tap while the advance waits saves nothing');assert.strictEqual(nkFsrsSessionRating('q1').rating,3);
   at(D5+2250);flushTimers();assert.strictEqual(cur(),'q2','moved on');
   ans('q2',2,D5+3000);assert.strictEqual(TIMERS.length,0,'a wrong answer waits for Next');assert.strictEqual(cur(),'q2');
-  // Revisit q1 and change its saved rating: saves, no jump.
   at(D5+4000);goIndex(0);assert.strictEqual(cur(),'q1');assert(rate('q1',2,D5+4100));assert.strictEqual(TIMERS.length,0);assert.strictEqual(cur(),'q1');
-  // Setting off: no advance.
   setPrefs({advanceAfterRating:false});goIndex(2);ans('q3',1,D5+5000);rate('q3',3,D5+5100);assert.strictEqual(TIMERS.length,0);
 });
 
-scenario('advance: stale timers never fire (moved, flagged, paused, session replaced); last card opens the sheet; due card first',()=>{
+scenario('advance: stale timers never fire (moved, flagged, paused, session replaced); the last card ends the round',()=>{
   const start=()=>{reset();history();dueSession('a2',['q1','q2','q3'],D5);};
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);at(D5+1200);prevQ();goIndex(2);flushTimers();assert.strictEqual(cur(),'q3','moving by hand cancels the advance');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);const t=TIMERS[0];S().index=2;t.fn();assert.strictEqual(cur(),'q3','a timer that outlived its question does nothing');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);nkToggleNotStudied('q1',S().id);flushTimers();assert.strictEqual(cur(),'q1','flag toggled: no advance');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);const timer=TIMERS[0];at(D5+1200);nkPausePractice();assert.strictEqual(TIMERS.length,0,'pause clears it');timer.fn();assert.strictEqual(S().index,0,'a paused session never moves');assert.strictEqual(S().lifecycle,'paused');
   start();ans('q1',1,D5+1000);rate('q1',3,D5+1100);const t2=TIMERS[0];state.activeSession={...S(),id:'other'};t2.fn();assert.strictEqual(S().index,0,'another session: nothing');
-  // Last card, nothing queued: the end-of-session sheet.
-  start();go('q3');ans('q3',1,D5+1000);rate('q3',3,D5+1100);flushTimers();assert.strictEqual(reviewSheets,1);
-  // A due learning card comes before the next card.
-  start();ans('q1',2,D5+1000);next(D5+2000);ans('q2',1,D5+11*MIN);rate('q2',3,D5+11*MIN+100);flushTimers();assert.strictEqual(cur(),'q1','the advance shows the due learning card first');assert.strictEqual(round('q1'),2);
+  start();['q1','q2'].forEach((q,i)=>{ans(q,1,D5+1000+i*100);rate(q,3,D5+1050+i*100);flushTimers();});go('q3');ans('q3',1,D5+2000);rate('q3',3,D5+2100);flushTimers();assert.strictEqual(reviewSheets,1,'last card, nothing queued: the sheet');
+  // A miss earlier in the set: the advance from the last card opens Round 2.
+  start();ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);flushTimers();ans('q3',1,D5+3000);rate('q3',3,D5+3100);flushTimers();
+  same(S().roundPass,{round:2,ids:['q1']},'Round 2 after the last rating');assert.strictEqual(cur(),'q1');
+  here(1,D5+4000);rate('q1',3,D5+4100);flushTimers();assert.strictEqual(reviewSheets,1,'the last card of Round 2 advances to the sheet');
 });
 
-scenario('not-studied flag: a flagged question never enters or stays in the learning queue; unflag puts it back',()=>{
+scenario('not-studied flag: never queued; a card flagged in Round 2 leaves it without blocking the end; bookmarks work in Round 2',()=>{
   reset();history();setPrefs({advanceAfterRating:false});dueSession('f1',['q1','q2','q3'],D5);
-  ans('q1',2,D5+1000);assert(S().learningQueue.q1);at(D5+1100);nkToggleNotStudied('q1',S().id);assert(!S().learningQueue.q1,'flag removes it');
-  next(D5+2000);ans('q2',1,D5+11*MIN);next(D5+11*MIN+100);assert.strictEqual(cur(),'q3','the flagged card does not come back');
-  at(D5+11*MIN+200);go('q1');nkToggleNotStudied('q1',S().id);assert(S().learningQueue.q1,'unflag: back in the queue');
-  assert(!nkFsrsQueue({}).due.some(q=>q.id==='q2'),'answered today');
+  ans('q1',2,D5+1000);assert(S().learningQueue.q1);at(D5+1100);go('q1');nkToggleNotStudied('q1',S().id);assert(!S().learningQueue.q1,'flag removes it');
+  ans('q2',1,D5+2000);rate('q2',3,D5+2100);ans('q3',2,D5+3000);go('q3');next(D5+MIN);same(S().roundPass,{round:2,ids:['q3']},'the flagged card does not come back');
+  at(D5+MIN+100);go('q1');assert.strictEqual(S().index,0);
+  // Back in Round 2 (q3): flag it, then the round ends with nothing open.
+  go('q3');at(D5+2*MIN);nkToggleNotStudied('q3',S().id);assert(header().includes('nk-ns-toggle is-on'),'the flag shows in the Round 2 header');
+  next(D5+3*MIN);assert.strictEqual(reviewSheets,1,'a flagged card counts as done for the round');
+  at(D5+4*MIN);assert(nkFinishRevisionSession());const t=state.tests.at(-1);
+  assert(!t.questionIds.includes('q3')&&!t.questionIds.includes('q1'),'flagged questions are not scored');
+  assert(!nkFsrsActiveAttempts('q3').some(a=>a.sessionId==='f1'),'and none of their rounds reach FSRS');
 });
 
-scenario('normal Practice, mistakes and spaced review are untouched (no queue, no advance)',()=>{
+scenario('normal Practice, mistakes and spaced review are untouched (no queue, no rounds, no advance)',()=>{
   reset();history();
   state.activeSession={id:'p1',mode:'practice',title:'Upper limb',questionIds:['q1','q2'],sessionQuestionIds:['q1','q2'],index:0,answers:{},submitted:{},startedAt:NOW,questionTimes:{},context:'normal',originRoute:'topics',lifecycle:'active'};
-  ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);assert(!S().learningQueue,'no queue');assert.strictEqual(TIMERS.length,0,'no advance');
+  ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);assert(!S().learningQueue,'no queue');assert.strictEqual(TIMERS.length,0,'no advance');go('q2');next(D5+3000);assert(!S().roundPass);
   for(const kind of ['wrong','bookmarks']){reset();history();state.activeSession={id:'w'+kind,mode:'practice',title:'Revision',questionIds:['q1','q2'],index:0,answers:{},submitted:{},startedAt:NOW,questionTimes:{},context:kind==='wrong'?'wrong':'bookmarked'};nkRevisionTagSession(kind,null,['q1','q2']);
-    ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);assert(!S().learningQueue);assert.strictEqual(TIMERS.length,0);}
+    ans('q1',2,D5+1000);ans('q2',1,D5+2000);rate('q2',3,D5+2100);assert(!S().learningQueue);assert.strictEqual(TIMERS.length,0);go('q2');next(D5+3000);assert(!S().roundPass);}
   reset();history();state.activeSession={id:'tr',mode:'practice',title:"Today's Review",questionIds:['q1'],index:0,answers:{},submitted:{},startedAt:NOW,questionTimes:{},context:'spaced-review'};
-  ans('q1',2,D5+1000);assert(!S().learningQueue);
+  ans('q1',2,D5+1000);assert(!S().learningQueue);next(D5+2000);assert(!S().roundPass);
 });
 
 scenario('daily cap: in-session learning repeats stay exempt',()=>{
@@ -224,7 +254,6 @@ scenario('daily cap: in-session learning repeats stay exempt',()=>{
   questions.push(...extra);extra.forEach(q=>{BY_ID[q.id]=q;});
   try{
     history(['q1','q2',...extra.map(q=>q.id)]);setPrefs({advanceAfterRating:false});
-    // 19 other cards already reviewed today, then the due review: q1 missed (relearning).
     extra.slice(0,19).forEach((q,i)=>{at(D5+i);nkFsrsRecordAttempt(q.id,1,1000,'fsrs-review',3);});
     dueSession('c1',['q1','q2'],D5+100);ans('q1',2,D5+1000);
     at(D5+11*MIN);const queue=nkFsrsQueue({});
@@ -275,6 +304,19 @@ m=nkMergePracticeCheckpoint(phone2);same(m.learningQueue,{q1:{due:600000,round:1
 const legacy=JSON.parse(JSON.stringify(phone));delete legacy.learningQueue;
 const plain=nkNormalizeCheckpoint(legacy);assert(!('learningQueue' in plain)&&!('roundHistory' in plain)&&!('learningReturnIndex' in plain),'older payloads load as they are');
 state={normalPracticeCheckpoints:[plain],activeSession:null};m=nkMergePracticeCheckpoint(JSON.parse(JSON.stringify(plain)));assert(!('learningQueue' in m)&&!('roundHistory' in m),'and merge without inventing fields');
+// The live round 2+ (roundPass) travels with the checkpoint: the copy further along owns it.
+NOW=7000;const r2=nkCheckpointFromSession({...base,index:0,answers:{q2:1},submitted:{q2:true},questionTimes:{q2:4000},roundHistory:{q1:[{round:1,answer:2,submitted:true,timeMs:9000}]},roundPass:{round:2,ids:['q1','zz']}},phone,'paused');
+same(r2.roundPass,{round:2,ids:['q1']},'only member cards are kept');
+for(const [first,second,label] of [[phone,r2,'round 1 then round 2'],[r2,phone,'round 2 then round 1']]){
+  state={normalPracticeCheckpoints:[JSON.parse(JSON.stringify(first))],activeSession:{...base,index:0,answers:{},submitted:{},questionTimes:{}}};
+  m=nkMergePracticeCheckpoint(JSON.parse(JSON.stringify(second)));
+  same(m.roundPass,{round:2,ids:['q1']},label+': the round 2 copy owns the pass');same(state.activeSession.roundPass,{round:2,ids:['q1']},label+': the live session takes it');
+}
+NOW=8000;const r3=nkCheckpointFromSession({...base,index:0,answers:{q2:1},submitted:{q2:true},questionTimes:{q2:4000},roundHistory:{q1:[{round:1,answer:2,submitted:true},{round:2,answer:2,submitted:true}]},roundPass:{round:3,ids:['q1']}},r2,'paused');
+state={normalPracticeCheckpoints:[JSON.parse(JSON.stringify(r3))],activeSession:null};m=nkMergePracticeCheckpoint(JSON.parse(JSON.stringify(r2)));
+same(m.roundPass,{round:3,ids:['q1']},'a later round wins over an earlier one');assert.strictEqual(m.roundHistory.q1.length,2);
+state={normalPracticeCheckpoints:[JSON.parse(JSON.stringify(phone))],activeSession:{...base,roundPass:{round:2,ids:['q1']}}};m=nkMergePracticeCheckpoint(JSON.parse(JSON.stringify(phone)));
+assert(!('roundPass' in m)&&!('roundPass' in state.activeSession),'two round 1 copies have no pass, and a stale one leaves the live session');
 // FSRS preferences sync per field (fsrsPreferences + fsrsPreferencesAt).
 state={fsrsPreferences:{desiredRetention:.9,dailyCap:150,maximumInterval:365,learningInSession:'due',advanceAfterRating:true},fsrsPreferencesAt:{learningInSession:100,advanceAfterRating:300}};
 nkMergeFsrsPreferences({desiredRetention:.9,dailyCap:150,maximumInterval:365,learningInSession:'end',advanceAfterRating:false},{learningInSession:200,advanceAfterRating:250});
@@ -301,14 +343,18 @@ def test_install_contract() -> None:
         assert page.index(owner) < start, f"the learning queue wraps after {owner}"
     assert start < page.index("  window.QB={") and "nkRlqStudyNow,nkRlqFinish," in page[page.index("  window.QB={"):], "actions exported"
     module = MODULE.read_text(encoding="utf-8")
-    for hook in ("nextQ=function", "nkRateCurrent=function", "nkFsrsCommitPending=function", "submitPractice=function", "finishPracticeSession=function", "nkSessionHeader=function", "openSessionReview=function"):
+    for hook in ("nextQ=function", "prevQ=function", "goIndex=function", "practiceActionBar=function", "nkRateCurrent=function", "nkFsrsCommitPending=function", "submitPractice=function", "finishPracticeSession=function", "nkSessionHeader=function", "openSessionReview=function"):
         assert hook in module, hook
     assert "questionIds.push" not in module and "sessionQuestionIds=" not in module, "rounds never change session membership"
+    # The round badge lives inside the counter, never as a fourth header item (it pushed the actions out).
+    assert "<\\/div>)/,`$1${nkRlqBadge" not in module and "${nkRlqBadge(pass.round)}</div>" in module, "badge inside the counter"
     assert "!a.learningRound" in (MODULES / "learning_insights.js").read_text(encoding="utf-8"), "Insights count a relearning repeat once"
+    html = HTML.read_text(encoding="utf-8")
+    assert "!a.isRatingRevision&&!a.learningRound&&typeof a.correct" in html and "if(a.learningRound)repeats.push(a)" in html, "chapter and Home accuracy skip relearning repeats"
     css = app_css()
     assert css.count("/* ── nk-review-learning-queue-v1 ── */") == 1
     assert css.index("/* ── nk-review-learning-queue-v1 ── */") < css.index("/* ── nk-visual-refinement-v1"), "sits before the visual refinement layer"
-    for selector in (".nk-rlq-round", ".nk-rlq-round-dot", ".nk-rlq-wait-actions", ".nk-fsrs-rating.is-advancing"):
+    for selector in (".nk-rlq-round{", ".nk-session-count.has-round", ".nk-rlq-wait-actions", ".nk-fsrs-rating.is-advancing"):
         assert selector in css, selector
     print("REVIEW_LEARNING_QUEUE_INSTALL_OK")
 
@@ -325,8 +371,8 @@ def run(script: str) -> str:
 
 def page_functions() -> str:
     html = HTML.read_text(encoding="utf-8")
-    declared = ["nkMarkSkippedFromSession", "submitPractice", "selectExam", "submitExam", "finishPracticeSession", "buildReviewSession"]
-    assigned = ["nextQ", "prevQ", "goIndex"]
+    declared = ["nkMarkSkippedFromSession", "submitPractice", "selectExam", "submitExam", "finishPracticeSession", "buildReviewSession", "chapterStats", "nkHomeRangeStart", "nkHomeProgressStats"]
+    assigned = ["nextQ", "prevQ", "goIndex", "nkSessionHeader"]
     return ("\n".join("let " + n + "=" + extract_function(html, n).strip() + ";" for n in declared) + "\n"
             + "\n".join(n + "=" + extract_function(html, n).strip() + ";" for n in assigned))
 

@@ -41,72 +41,85 @@ only** (`revisionQueueKind:'due'`, started by Revision → Review due): normal
 Practice, Today's Review (`spaced-review`), mistakes, bookmarks, modules and
 timed tests are unchanged.
 
-**In-session learning queue (Anki style).** A rating that leaves the card in
-learning or relearning (FSRS state 1/3: Again from a wrong answer, or Hard on a
-card still in a step) puts the question in `session.learningQueue[qid] =
-{due, round}` with the card's FSRS due time. The queue entry follows the card:
-revising Hard→Good on a revisit (graduated) removes it; a pending rating does
-not enter until it commits. The card is never duplicated: `questionIds` and
-`sessionQuestionIds` keep their membership, so the checkpoint `membershipHash`,
-the abandon/Back guard and sync stay stable. It reopens **in its own row as a
-new round**: the previous round's answer, submitted flag, time, outcome, rating
-and attempt id move to `session.roundHistory[qid]`, the live answer clears, and
-the header and the session grid show "Round N". `nkFsrsSessionRating` only sees
-the live round's attempt (attempts at or after the round's `reopenedAt`).
+**Learning rounds (Anki style).** A rating that leaves the card in learning or
+relearning (FSRS state 1/3: Again from a wrong answer, or Hard on a card still in
+a step) puts the question in `session.learningQueue[qid] = {due, round}` with the
+card's FSRS due time. The queue entry follows the card: revising Hard→Good
+(graduated) removes it; a pending rating does not enter until it commits; a
+not-studied flag removes it (unflag puts it back if the card is still learning).
 
-- **Show when due** (default): on every Next (and after an auto-advance) a
-  queued card that is due now comes before the rest of the set; Next from it
-  continues after the card it interrupted (`learningReturnIndex`).
-- **Show at the end**: queued cards wait until the set is done.
-- **Off**: one pass, exactly as before (no queue, no rounds).
-- At the end of the set (both modes) a card due within the 20-minute
-  learn-ahead (`NK_FSRS_LEARN_AHEAD`) shows at once; if only later ones remain,
-  a dialog says "1 learning card due in 14 min" with **Study now** (opens it
-  now) and **Finish** (the existing end-of-session sheet, which also repeats
-  the line with Study now).
+- **Round 1** is the whole set, as before.
+- When the last card of a round is done **and every card of that round is
+  answered or flagged**, the queued cards due within the 20-minute learn-ahead
+  (`NK_FSRS_LEARN_AHEAD`) become the next round: `session.roundPass =
+  {round, ids}`, earliest due first. Only those cards; each starts **fresh and
+  unanswered** (its previous answer, submitted flag, time, outcome, rating and
+  attempt id move to `session.roundHistory[qid]`). A round with an unanswered
+  card opens the session sheet instead (the line above its actions says what
+  waits "after this round").
+- In round 2+ the **header counter, progress bar and the session sheet count
+  only the round's cards** ("1 / 4"); Next / Previous / sheet jumps stay inside
+  the round (Previous is disabled on its first card; a jump to another card is
+  refused). A small "Round N" badge sits **inside the counter**
+  (`.nk-session-count.has-round`), so the back button, flag, bookmark and grid
+  keep their places at every width (it was a fourth header grid item and pushed
+  the actions onto a second row).
+- A card that comes due again in round N makes round N+1; when nothing is
+  queued the session sheet opens and Finish ends the session.
+- Cards due **later** than the learn-ahead are never pulled in by themselves: a
+  dialog says "1 learning card due in 34 min" with **Study now** (opens them now
+  as the next round) and **Finish** (the session sheet); Finish leaves them for a
+  later due review with their FSRS due time.
+- The card is never duplicated: `questionIds` / `sessionQuestionIds` keep their
+  membership, so the checkpoint `membershipHash`, the abandon/Back guard and sync
+  stay stable. `nkFsrsSessionRating` only sees the live round's attempt
+  (attempts at or after the round's `reopenedAt`).
 - Every round records a normal FSRS attempt (`source:'fsrs-review'`; round 2+
-  also carries `learningRound:N`), so the scheduling history is the full Anki
-  log. The daily cap keeps exempting same-day learning repeats (`repeatIds` in
-  `nkFsrsQueue`).
-- **Results count each question once, by its latest answered round.** A round
-  reopened but left unanswered gives way to the round before it; the result's
-  time for the question is the sum of its rounds. Insights
-  (`nkLearningCollect`) skip `learningRound` attempts, so a relearning repeat is
-  not a second answered question; FSRS history and memory views keep every round.
-- Persistence: `learningQueue`, `roundHistory` and `learningReturnIndex` ride in
-  the practice checkpoint (`nkCheckpointFromSession`, `nkNormalizeCheckpoint`
-  keeps only entries inside the session's membership), durable persistence and
-  the sync merge (`nkMergePracticeCheckpoint`: per question, the copy with more
-  rounds owns the live answer, its time and the queue entry; equal rounds keep
-  the old rule). A reopened round adds the round count to that question's
-  update signature (older signatures are unchanged). Payloads without these
-  fields load and merge as before; Pause/resume restores them.
-- A not-studied-flagged question never enters or stays in the queue (flagging
-  removes it; unflagging in the session puts it back if the card is still learning).
+  also carries `learningRound:N`), so scheduling history is the full Anki log.
+  The daily cap keeps exempting same-day learning repeats.
+- **Results count each question once, by its round 1 answer** (later rounds are
+  relearning, kept in FSRS history); the question's time is the sum of its
+  rounds. Insights (`nkLearningCollect`), chapter accuracy (`chapterStats`) and
+  Home accuracy (`nkHomeProgressStats`) skip `learningRound` attempts (Home study
+  time keeps them); streaks count days, so repeats never inflate them.
+- Persistence: `learningQueue`, `roundHistory` and `roundPass` ride in the
+  practice checkpoint (`nkCheckpointFromSession`; `nkNormalizeCheckpoint` keeps
+  only member ids and drops a pass below round 2), Continue Practice
+  pause/resume, the live session (reload) and the sync merge
+  (`nkMergePracticeCheckpoint`: per question, the copy with more rounds owns the
+  live answer, its time and the queue entry; the copy with the higher round owns
+  `roundPass`). `learningReturnIndex` (the earlier interleaving build) is still
+  read from old payloads and dropped on the next Next. The abandon dialog and
+  the paused-revision row count a reopened card as answered.
+
+**Setting** "Learning cards in a review session": **Round 2 at the end**
+(`learningInSession:'end'`, default) or **Off** (one pass). The value `'due'`
+saved by the first build (cards interleaved as soon as due) now reads as
+`'end'`: interleaving cannot give a round its own counter.
 
 **Advance after rating** (default on). In a due review, the first Hard/Good/Easy
 on an answer (committing its pending rating) saves it, keeps the pressed state
-for ~250 ms (`.nk-fsrs-rating.is-advancing`), then runs Next: a due learning
-card first, the end-of-session sheet after the last card. Wrong answers never
-advance (the explanation waits for Next). Changing an already saved rating only
-saves. A tap while the advance waits is ignored; the timer fires only if the
-same session, question and round are current, the session is not paused, the
-question is not flagged and no sheet or dialog is open; Next/Previous/grid
-jumps, flag toggles, Pause and Abandon cancel it.
+for ~250 ms (`.nk-fsrs-rating.is-advancing`), then runs Next (the next card, the
+next round after the last card, or the session sheet). Wrong answers never
+advance. Changing an already saved rating only saves. A tap while the advance
+waits is ignored; the timer fires only if the same session, question and round
+are current, the session is not paused, the question is not flagged and no
+sheet or dialog is open; Next/Previous/grid jumps, flag toggles, Pause and
+Abandon cancel it.
 
-**Settings** (FSRS customization → 04 Review sessions): "Learning cards in a
-review session" (Show when due / Show at the end / Off) and "Advance after
-rating" (switch). Stored in `state.fsrsPreferences.learningInSession` /
-`advanceAfterRating`, stamped per field in `fsrsPreferencesAt` and merged per
-field by sync like the scheduling values; older clients that drop the fields
-leave them alone. Attempts record only the three scheduling values as
-`schedulerPreferences`.
+Both settings live in FSRS customization → 04 Review sessions, stored in
+`state.fsrsPreferences.learningInSession` / `advanceAfterRating`, stamped per
+field in `fsrsPreferencesAt` and merged per field by sync. Attempts record only
+the three scheduling values as `schedulerPreferences`.
 
-Tests: `tools/test_review_learning_queue_v1.py` (requeue timing, Hard/Good,
-learn-ahead and the wait line, all three modes, result counted once, pause /
-reload / resume, older and damaged checkpoints, auto-advance on first rating
-only / not on wrong / no jump on revision / stale timers / end sheet, flags,
-untouched other sessions, daily cap, checkpoint sync merge, preference merge);
-`tools/verify_review_learning_queue_browser.py` (real app, 390 px and 820 px:
-Again → Round 2 returns in the session → Good auto-advances → end sheet →
-counted once). Not device-verified.
+Tests: `tools/test_review_learning_queue_v1.py` (Round 2 = only the due-again
+cards, fresh, counted alone; header badge inside the counter before the actions;
+Previous/jumps confined; Round 3; loop ends; round 1 answers in the result;
+chapter/Home accuracy skip repeats; unanswered card blocks the next round;
+Hard/Good; later cards never pulled in; Off; pause/reload/resume in Round 2;
+older/damaged checkpoints; advance after rating; flags; other sessions
+untouched; daily cap; sync merge of rounds and `roundPass`);
+`tools/verify_review_learning_queue_browser.py` (real app, 390 and 1280 px,
+light and dark, header layout also at 360/430 px: Round 2 has only the missed
+card, 1 / 1 with the badge, header controls on one row, sheet lists only the
+round, bookmark/flag, reload, counted by round 1). Not device-verified.
