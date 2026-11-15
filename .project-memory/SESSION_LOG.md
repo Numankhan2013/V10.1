@@ -2946,3 +2946,23 @@ Moved from STATE.md at the pause:
 ## 2026-11-14 — Not-studied flag bug-report fixes
 - Branch `fix/not-studied-flag-bugs` off `main` `1189b69b`. Fixed all 12 report items (see STATE.md); owner-decision items chosen conservatively: #3 flagged no-history questions leave the FSRS pool (skip mark kept); #4 refuse flags after time-up and show the raw score beside the excluded one (denominator unchanged). Local: `test_not_studied_flags_v1.py` green; `verify_local.py` non-data checks green (data-dependent tests skipped locally: sparse checkout without `data/`). CI preview pending.
 - 2026-11-14 (cont.) Owner asked to ship abandon + flag fixes together: `integration/abandon-plus-ns-fixes` (merge `c1a4188f`; one tweak in `session_abandon.js`: a restored flag also clears its `notStudiedCleared` time). `main` fast-forwarded `1189b69b..c1a4188f` with owner approval; promote dispatch `43570418338` stopped at the browser stage on timing timeouts (voice recorder tap, note media, Submit redraw), so production did not change. The voice check now retries the add-menu tap (as `blocked_flow` already did) and prints page/guard state if the recorder never opens. Known, pre-existing: the Android emulator job (`build_apk=true`) fails on the bookmark toast (`QBankShell.toast` raises a Java exception; same on `1189b69b`, run `43569378915`), not caused by these branches; to investigate separately.
+
+## 2026-11-15 — Due-review learning queue, advance after rating, flag leaves FSRS (`feature/review-learning-queue`, Hark)
+
+- Branch off `main` `ac9bf744`; no merge, no promotion. New module
+  `review_learning_queue.js` (installed after `session_abandon.js`), edits to
+  `fsrs_scheduler.js` (two session settings, round-aware session rating,
+  `learningRound` tag, scheduling-only `schedulerPreferences`),
+  `durable_persistence.js` / `continue_practice_resume.js` /
+  `cross_device_sync.js` (checkpoint learning fields, per-field preference
+  sync), `learning_insights.js` (skip round repeats), `not_studied_flags.js`
+  (R4: flagged = not eligible; answering again starts fresh).
+- Decisions: rounds reopen in the same row (membership/hash/abandon guard
+  untouched); result = latest answered round, time = sum of rounds; Insights
+  count one answer per question per session; flag withdrawal on re-answer
+  covers every earlier answer, manual unflag only what the flag withheld;
+  saved results never rewritten.
+- Local: new suite and every FSRS/revision/flags/resume/sync/abandon suite
+  green; full `verify_local.py` needs data absent from the sparse clone.
+  CI: see the branch runs. Not device-verified.
+
