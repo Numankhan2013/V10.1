@@ -7366,6 +7366,25 @@ html[data-nk-theme="dark"] .nk-fsrs-settings .nk-fsrs-session-settings{--nk-seg-
 html[data-nk-ui="geist"] .nk-fsrs-settings input.nk-fsrs-switch:checked::before{background:var(--nkg-bg,#fff)}
 .nk-fsrs-settings input.nk-fsrs-switch:focus-visible{outline:2px solid var(--nk-sw-on);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.nk-fsrs-segment-option span,.nk-fsrs-settings input.nk-fsrs-switch,.nk-fsrs-settings input.nk-fsrs-switch::before{transition:none}}
+/* ── nk-review-done-v1 ── */
+/* The quiet end of a due review on Revision (revision_desk.js nkReviewDoneMarkup): a calm
+   check, the count reviewed, and what is next. No score. */
+.nk-review-done{--rd-bg:#f3faf6;--rd-line:#cfe9da;--rd-mark:#15803d;--rd-mark-bg:#dcf3e5;--rd-fg:#1f2a24;--rd-mute:#4b5a52;position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 32px;gap:12px;align-items:start;margin:0 0 16px;padding:16px 12px 16px 16px;border:1px solid var(--rd-line);border-radius:16px;background:var(--rd-bg);color:var(--rd-fg);animation:nk-review-done-in 360ms cubic-bezier(.2,.8,.2,1) both}
+html[data-nk-ui="geist"] .nk-review-done{--rd-bg:var(--nkg-green-bg,#f0fdf4);--rd-line:var(--nkg-green-border,#bbf7d0);--rd-mark:var(--nkg-green,#15803d);--rd-mark-bg:var(--nkg-surface,#fff);--rd-fg:var(--nkg-fg,#171717);--rd-mute:var(--nkg-fg-2,#404040)}
+html[data-nk-theme="dark"] .nk-review-done{--rd-bg:#0f1f16;--rd-line:#1f3d2b;--rd-mark:#4ade80;--rd-mark-bg:#14301f;--rd-fg:#ededed;--rd-mute:#a3b3a9}
+.nk-review-done-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--rd-mark-bg);color:var(--rd-mark);box-shadow:inset 0 0 0 1px var(--rd-line)}
+.nk-review-done-mark svg{stroke-width:2.4;animation:nk-review-done-tick 420ms 120ms cubic-bezier(.2,.8,.2,1) both}
+.nk-review-done-copy{min-width:0;padding-top:1px}
+.nk-review-done-copy strong{display:block;font-size:16px;line-height:1.3;font-weight:650;letter-spacing:-.01em;color:var(--rd-fg)}
+.nk-review-done-copy p{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:var(--rd-mute)}
+.nk-review-done .nk-review-done-go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;min-height:40px;padding:0 14px;border:0;border-radius:10px;background:var(--rd-fg);color:var(--rd-bg);font-size:13.5px;font-weight:600;cursor:pointer}
+.nk-review-done .nk-review-done-close{display:grid;place-items:center;width:32px;height:32px;margin:-4px 0 0;padding:0;border:0;border-radius:8px;background:transparent;color:var(--rd-mute);cursor:pointer}
+.nk-review-done .nk-review-done-close:hover{background:color-mix(in srgb,var(--rd-mark) 10%,transparent)}
+.nk-review-done :is(button):focus-visible{outline:2px solid var(--rd-mark);outline-offset:2px}
+@keyframes nk-review-done-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes nk-review-done-tick{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.nk-review-done,.nk-review-done-mark svg{animation:none}}
+
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{
@@ -7955,21 +7974,3 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nk-
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.nkg-banked .nkg-subj-head { min-width: 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root):has(.modal-backdrop) .nk-fsrs-settings-save { z-index: 1 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-pwa { padding: 10px 12px !important; }
-/* ── nk-review-done-v1 ── */
-/* The quiet end of a due review on Revision (revision_desk.js nkReviewDoneMarkup): a calm
-   check, the count reviewed, and what is next. No score. */
-.nk-review-done{--rd-bg:#f3faf6;--rd-line:#cfe9da;--rd-mark:#15803d;--rd-mark-bg:#dcf3e5;--rd-fg:#1f2a24;--rd-mute:#4b5a52;position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 32px;gap:12px;align-items:start;margin:0 0 16px;padding:16px 12px 16px 16px;border:1px solid var(--rd-line);border-radius:16px;background:var(--rd-bg);color:var(--rd-fg);animation:nk-review-done-in 360ms cubic-bezier(.2,.8,.2,1) both}
-html[data-nk-ui="geist"] .nk-review-done{--rd-bg:var(--nkg-green-bg,#f0fdf4);--rd-line:var(--nkg-green-border,#bbf7d0);--rd-mark:var(--nkg-green,#15803d);--rd-mark-bg:var(--nkg-surface,#fff);--rd-fg:var(--nkg-fg,#171717);--rd-mute:var(--nkg-fg-2,#404040)}
-html[data-nk-theme="dark"] .nk-review-done{--rd-bg:#0f1f16;--rd-line:#1f3d2b;--rd-mark:#4ade80;--rd-mark-bg:#14301f;--rd-fg:#ededed;--rd-mute:#a3b3a9}
-.nk-review-done-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--rd-mark-bg);color:var(--rd-mark);box-shadow:inset 0 0 0 1px var(--rd-line)}
-.nk-review-done-mark svg{stroke-width:2.4;animation:nk-review-done-tick 420ms 120ms cubic-bezier(.2,.8,.2,1) both}
-.nk-review-done-copy{min-width:0;padding-top:1px}
-.nk-review-done-copy strong{display:block;font-size:16px;line-height:1.3;font-weight:650;letter-spacing:-.01em;color:var(--rd-fg)}
-.nk-review-done-copy p{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:var(--rd-mute)}
-.nk-review-done .nk-review-done-go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;min-height:40px;padding:0 14px;border:0;border-radius:10px;background:var(--rd-fg);color:var(--rd-bg);font-size:13.5px;font-weight:600;cursor:pointer}
-.nk-review-done .nk-review-done-close{display:grid;place-items:center;width:32px;height:32px;margin:-4px 0 0;padding:0;border:0;border-radius:8px;background:transparent;color:var(--rd-mute);cursor:pointer}
-.nk-review-done .nk-review-done-close:hover{background:color-mix(in srgb,var(--rd-mark) 10%,transparent)}
-.nk-review-done :is(button):focus-visible{outline:2px solid var(--rd-mark);outline-offset:2px}
-@keyframes nk-review-done-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-@keyframes nk-review-done-tick{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.nk-review-done,.nk-review-done-mark svg{animation:none}}
