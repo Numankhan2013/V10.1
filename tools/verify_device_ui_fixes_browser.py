@@ -65,14 +65,21 @@ def main():
                     ctx.close()
                     print(f'ANDROID_HOME_OK width={width} dark={dark}')
 
-            ctx, page, errors = open_app(browser, origin, {'width': 1180, 'height': 820}, IPAD_UA, True)
+            # Safari's engine when CI could install it, else Chromium with an iPadOS user agent.
+            try:
+                ipad_browser = p.webkit.launch(proxy={'server': 'http://127.0.0.1:9', 'bypass': '127.0.0.1,localhost,<-loopback>'}); engine = 'webkit'
+            except Exception:
+                ipad_browser = browser; engine = 'chromium'
+            ctx, page, errors = open_app(ipad_browser, origin, {'width': 1180, 'height': 820}, IPAD_UA, True)
             assert page.evaluate("document.documentElement.classList.contains('nk-ios')"), 'iPad not marked nk-ios'
             page.evaluate('window.QB.startAllPractice()'); time.sleep(0.8)
             page.evaluate("()=>{const o=document.querySelector('.option');o&&o.click();}"); time.sleep(0.6)
+            first = page.evaluate("()=>{const h=document.querySelector('.nk-v114-session > .nk-session-head').getBoundingClientRect(),q=document.querySelector('.nk-v114-session .question-shell').getBoundingClientRect();return {hb:h.bottom,qt:q.top}}")
+            assert first['qt'] >= first['hb'], ('question starts under the fixed header', first)
             page.evaluate("()=>{const d=document.createElement('div');d.style.height='1800px';document.querySelector('.nk-v114-session').appendChild(d);}")
-            page.mouse.move(600, 400); page.mouse.wheel(0, 900); time.sleep(0.6)
+            page.evaluate('window.scrollTo(0, 900)'); time.sleep(0.6)
             head = page.evaluate("""()=>{const h=document.querySelector('.nk-v114-session > .nk-session-head'),cs=getComputedStyle(h),b=getComputedStyle(h,'::before'),r=h.getBoundingClientRect();return {top:Math.round(r.top),pos:cs.position,bg:cs.backgroundColor,before:b.content,bh:parseFloat(b.height),bbg:b.backgroundColor,scroll:window.scrollY};}""")
-            assert head['scroll'] > 300 and head['top'] == 0 and head['pos'] == 'sticky', head
+            assert head['scroll'] > 300 and head['top'] == 0 and head['pos'] == 'fixed', head
             assert head['before'] not in ('none', 'normal') and head['bh'] >= 200 and head['bbg'] == head['bg'], head
             assert not head['bg'].startswith('rgba') or head['bg'].endswith(', 1)'), ('session header must be solid on iPad', head)
             foot = page.evaluate("""()=>{const f=document.querySelector('.nk-session-footer'),a=getComputedStyle(f,'::after'),r=f.getBoundingClientRect();return {bottom:Math.round(r.bottom),h:innerHeight,after:a.content,ah:parseFloat(a.height),abg:a.backgroundColor,bg:getComputedStyle(f).backgroundColor};}""")
@@ -82,7 +89,8 @@ def main():
             assert page.evaluate("[...document.querySelectorAll('.nk-session-footer,.nk-session-head')].every(e=>!e.style.translate)"), 'nudge left a translate behind'
             assert not errors, errors
             ctx.close()
-            print('IPAD_SESSION_BARS_OK')
+            if ipad_browser is not browser: ipad_browser.close()
+            print(f'IPAD_SESSION_BARS_OK engine={engine}')
             browser.close()
     finally:
         server.shutdown()
