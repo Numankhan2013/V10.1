@@ -20,6 +20,8 @@
   NK_SYNC_KINDS.push('notStudied');
   // Abandoned sessions (session_abandon.js): one document per session, never deleted, so every device drops its answers.
   NK_SYNC_KINDS.push('abandoned');
+  // Scheduled mocks (scheduled_mocks.js): one document per booking per device; bookings and outcome stamps only ever add up.
+  NK_SYNC_KINDS.push('scheduledMocks');
 
   function nkJson(value,fallback){try{return JSON.parse(value);}catch(_){return fallback;}}
   function nkStable(value){
@@ -229,6 +231,7 @@
     if(typeof nkNsClean==='function')Object.entries(state.notStudied||{}).forEach(([qid,entry])=>{const item=nkNsClean(entry);if(item)nkQueueEnvelope(nkEnvelope('notStudied',qid,item,item.updatedAt));});
     if(typeof nkAbClean==='function')(state.abandonedSessions||[]).forEach(raw=>{const entry=nkAbClean(raw);if(entry)nkQueueEnvelope(nkEnvelope('abandoned',entry.sessionId,entry,entry.updatedAt));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
+    if(typeof nkSchedSyncEntries==='function')nkSchedSyncEntries().forEach(m=>nkQueueEnvelope(nkEnvelope('scheduledMocks',m.id,m,nkSchedEntryAt(m))));
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
     (state.savedMocks||[]).forEach(mock=>{if(!mock?.id)return;current.savedMocks.add(String(mock.id));nkQueueEnvelope(nkEnvelope('savedMocks',mock.id,mock,nkEntityTimestamp(mock)));});
     for(const kind of ['bookmarks','modules','savedMocks']){
@@ -465,7 +468,7 @@
   }
   function nkApplyCloudEnvelope(remote){
     // Highlights merge item by item across every device's copy (question_highlights.js), like attempts.
-    const winner=['attempts','practiceSessions','highlights','notStudied'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
+    const winner=['attempts','practiceSessions','highlights','notStudied','scheduledMocks'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
     if(NK_SYNC_UNSAFE.test(String(id??''))||!nkSyncIdsSafe(payload)){console.warn('Skipped unsafe synced record',winner.kind);return false;}
     if(winner.kind==='attempts'&&payload?.attempt?.id){
@@ -517,6 +520,7 @@
     }
     else if(winner.kind==='notStudied'&&payload&&typeof nkNsMergeEntry==='function')nkNsMergeEntry(id,payload);
     else if(winner.kind==='abandoned'&&payload&&typeof nkAbMergeEntry==='function')nkAbMergeEntry(payload);
+    else if(winner.kind==='scheduledMocks'&&payload&&typeof nkSchedMergeEntry==='function')nkSchedMergeEntry(payload);
     else if(winner.kind==='sessions'){
       const legacy=nkCheckpointFromLegacyCloudSession(payload,winner.updatedAt);
       if(legacy)nkMergePracticeCheckpoint(legacy);
