@@ -167,7 +167,9 @@ def main():
                 card = visible_card(ipad, '.nk-sched-makeup', width)
                 assert card.inner_text() == ref['makeup'], (card.inner_text(), ref['makeup'])
                 ticket = visible_card(ipad, '.nk-sched-home .nk-sched-ticket.is-upcoming', width)
-                assert ticket.inner_text() == ref['ticket'], (ticket.inner_text(), ref['ticket'])
+                # The live countdown ("in 19 h 59 min") can tick between the two reads; compare without it.
+                same = lambda t: re.sub(r' · in [^\n]*', '', t)
+                assert same(ticket.inner_text()) == same(ref['ticket']), (ticket.inner_text(), ref['ticket'])
                 assert phone_home(ipad)['order'] == ref['order']
                 expect(card.locator('button', has_text='Sit it')).to_be_visible()
                 ipad.evaluate("window.QB.nav('tests')")
