@@ -103,7 +103,13 @@ def open_app(browser, origin, viewport, ua, touch):
 def visible_card(page, selector, width):
     loc = page.locator(selector).first
     expect(loc).to_be_visible()
-    box = loc.bounding_box()
+    # Home re-renders on the live countdown tick; a box read mid-render comes back None. Re-read briefly.
+    box = None
+    for _ in range(10):
+        box = loc.bounding_box()
+        if box:
+            break
+        page.wait_for_timeout(200)
     assert box and box['width'] > 200 and box['height'] > 40 and box['x'] >= 0 and box['x'] + box['width'] <= width + 1, (selector, box, width)
     return loc
 
