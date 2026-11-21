@@ -34,6 +34,36 @@
     window.addEventListener('hashchange', function () { doc.setAttribute('data-nkg-route', r()); });
   })();
 
+  /* iPad / iPhone Safari (iPadOS reports a Mac with touch). Marks the page for the
+     Safari 26 bar rules in app.css (nk-device-ui-fixes-v1) and nudges pinned bars to
+     redraw once scrolling or a toolbar resize settles: Safari 26 can leave a fixed or
+     sticky bar painted where it was before its toolbar collapsed or grew back. */
+  (function () {
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!ios) return;
+    doc.classList.add('nk-ios');
+    var PINNED = '.nk-session-footer, .nk-v114-session > .nk-session-head, .nk-v114-session > .nk-session-progress, .nk-continue-learning, .nk-module-topic-actions, .nk-module-builder-actions, .nk-cbt-main-actions, .bottom-nav, .nkg-topbar';
+    var timer = 0;
+    function redraw() {
+      timer = 0;
+      var bars = document.querySelectorAll(PINNED);
+      var moved = [];
+      for (var i = 0; i < bars.length; i++) {
+        var bar = bars[i];
+        if (bar.__nkgDockPin || bar.style.translate || getComputedStyle(bar).translate !== 'none') continue;
+        bar.style.translate = '0 0.01px'; moved.push(bar);
+      }
+      if (moved.length) window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+        for (var j = 0; j < moved.length; j++) moved[j].style.removeProperty('translate');
+      }); });
+    }
+    function later() { if (timer) window.clearTimeout(timer); timer = window.setTimeout(redraw, 120); }
+    window.addEventListener('scroll', later, { passive: true });
+    window.addEventListener('orientationchange', later);
+    window.addEventListener('pageshow', later);
+    if (window.visualViewport) { window.visualViewport.addEventListener('resize', later); window.visualViewport.addEventListener('scroll', later); }
+  })();
+
   /* ------------------------------------------------------------------ theme */
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   function themePref() { var t = lsGet(THEME_KEY); return t === 'light' || t === 'dark' ? t : 'system'; }

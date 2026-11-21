@@ -1175,7 +1175,7 @@
      fixed bottom bar visibly pinned; the individual translate property composes
      with the bar's own transform centering, its clock is aligned to the page
      motion, and it is dropped the moment that motion ends. */
-  var DOCK_PIN_SELECTOR = '.nk-cbt-main-actions, .nk-module-topic-actions, .nk-module-builder-actions';
+  var DOCK_PIN_SELECTOR = '.nk-cbt-main-actions, .nk-module-topic-actions, .nk-module-builder-actions, .nk-continue-learning, .nk-session-footer';
   var ENTER_EASING = 'cubic-bezier(.16, 1, .3, 1)';
   function collectEnterDocks(node) {
     var bars = [];
