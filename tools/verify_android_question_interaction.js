@@ -187,7 +187,11 @@ async function main(){
         await page.evaluate(c=>window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id),chapter);
         // Geist starts chapter practice straight from the topic page.
         await page.locator('.nk-chapter-actions button.is-primary').click();
-        await page.waitForFunction(ids=>JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids),chapter.ids);
+        // The app's chapter can hold more than the base bank (supplementary PrepLadder questions such as
+        // physiology-q889461 in physiology-1), so the session is checked against the base ids in order
+        // and the app's own list becomes the expectation for the rest of this run.
+        await page.waitForFunction(ids=>{const got=(window.QB.getState().activeSession?.questionIds||[]).map(String);return got.length>=ids.length&&ids.every((id,i)=>got[i]===id);},chapter.ids);
+        chapter.ids=await page.evaluate(()=>window.QB.getState().activeSession.questionIds.map(String));
         const sessionId=await page.evaluate(()=>window.QB.getState().activeSession.id);
         await page.evaluate(({id,option})=>window.QB.selectPractice(id,option),{id:chapter.ids[0],option:chapter.first});
         await page.evaluate(()=>window.QB.goIndex(1));
