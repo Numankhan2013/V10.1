@@ -9,7 +9,8 @@
   // Doors: a mock can be started up to 15 minutes after its time (less for a shorter mock); then it is missed.
   const NK_SCHED_DOOR_MS=15*60000;
   function nkSchedDoorMs(m){return Math.min(NK_SCHED_DOOR_MS,nkSchedDurationMs(m));}
-  function nkSchedTest(m){return (state.tests||[]).find(t=>String(t.scheduledMockId||'')===String(m.id))||null;}
+  // A sitting beats a miss: another device may have recorded a zero before this booking's sitting synced in.
+  function nkSchedTest(m){const list=(state.tests||[]).filter(t=>String(t.scheduledMockId||'')===String(m.id));return (m.takenTestId&&list.find(t=>String(t.id)===String(m.takenTestId)))||list.find(t=>!t.missed)||list[0]||null;}
   function nkSchedMakeup(m){return (state.tests||[]).find(t=>String(t.makeupFor||'')===String(m.id))||null;}
   // The outcome is also stamped on the booking, because the test list keeps only the latest 100 results.
   function nkSchedNoteTaken(session,test){
@@ -17,11 +18,43 @@
     const m=nkSchedList().find(item=>String(item.id)===id);if(!m)return;
     if(session.scheduledMockId)m.takenTestId=String(test.id);else m.makeupTestId=String(test.id);
   }
+  // Bookings sync across devices (cross_device_sync.js kind `scheduledMocks`, one document per booking per device).
+  // A booking is frozen once made and never deleted, so a merge only adds bookings and outcome stamps; it never drops either.
+  function nkSchedClean(raw){
+    if(!raw||typeof raw!=='object'||Array.isArray(raw))return null;
+    const id=String(raw.id||''),at=Number(raw.at),ids=Array.isArray(raw.questionIds)?raw.questionIds.filter(q=>typeof q==='string'||typeof q==='number').map(String):[];
+    if(!id||!(at>0)||!ids.length)return null;
+    const mk=raw.marking&&typeof raw.marking==='object'?raw.marking:{},num=(v,d)=>Number.isFinite(Number(v))?Number(v):d;
+    const out={id,name:String(raw.name||'Scheduled mock').slice(0,80),questionIds:ids,at,createdAt:num(raw.createdAt,at),marking:{correct:num(mk.correct,1),wrong:num(mk.wrong,0),blank:num(mk.blank,0)},seconds:num(raw.seconds,60)||60};
+    if(raw.takenTestId)out.takenTestId=String(raw.takenTestId);
+    if(raw.makeupTestId)out.makeupTestId=String(raw.makeupTestId);
+    if(Number(raw.missedAt)>0)out.missedAt=Number(raw.missedAt);
+    return out;
+  }
+  function nkSchedSyncEntries(){return nkSchedList().map(nkSchedClean).filter(Boolean);}
+  function nkSchedEntryAt(m){return Math.max(Number(m.createdAt)||0,Number(m.missedAt)||0,1);}
+  function nkSchedMergeEntry(raw){
+    const incoming=nkSchedClean(raw);if(!incoming)return false;
+    const list=Array.isArray(state.scheduledMocks)?state.scheduledMocks:(state.scheduledMocks=[]),index=list.findIndex(m=>m&&String(m.id)===incoming.id);
+    if(index<0){list.push(incoming);return true;}
+    // Same booking id = same frozen paper: keep the local copy and add any outcome only the other device has seen.
+    const local=list[index];let changed=false;
+    for(const key of ['takenTestId','makeupTestId'])if(!local[key]&&incoming[key]){local[key]=incoming[key];changed=true;}
+    if(incoming.missedAt&&(!local.missedAt||incoming.missedAt<Number(local.missedAt))){local.missedAt=incoming.missedAt;changed=true;}
+    return changed;
+  }
+  // Booking sheet input ("YYYY-MM-DDTHH:MM") read as local time on every engine.
+  function nkSchedParseLocal(value){
+    const m=/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?$/.exec(String(value||'').trim());
+    if(!m)return NaN;
+    const d=new Date(Number(m[1]),Number(m[2])-1,Number(m[3]),Number(m[4]),Number(m[5]),Number(m[6]||0),0);
+    return d.getFullYear()===Number(m[1])&&d.getMonth()===Number(m[2])-1&&d.getDate()===Number(m[3])?d.getTime():NaN;
+  }
   function nkSchedStatus(m,now=Date.now()){
     if(m.takenTestId)return 'taken';
-    if(m.missedAt)return 'missed';
     const test=nkSchedTest(m);
-    if(test)return test.missed?'missed':'taken';
+    if(test&&!test.missed)return 'taken';
+    if(m.missedAt||test)return 'missed';
     if(String(state.activeSession?.scheduledMockId||'')===String(m.id))return 'live';
     if(now<Number(m.at)-NK_SCHED_EARLY_MS)return 'upcoming';
     if(now<Number(m.at)+nkSchedDoorMs(m))return 'open';
@@ -29,7 +62,10 @@
   }
   // A missed mock is written into your test history as a zero: it counts, like a skipped exam would.
   function nkSchedRecordMisses(){
-    const now=Date.now(),tests=Array.isArray(state.tests)?state.tests:[];let added=0;
+    const now=Date.now();let tests=Array.isArray(state.tests)?state.tests:[],added=0;
+    // A zero recorded on a device that had not yet heard of the sitting is withdrawn once the sitting syncs in.
+    const sat=new Set(nkSchedList().filter(m=>nkSchedStatus(m,now)==='taken').map(m=>`missed_${m.id}`)),kept=tests.filter(t=>!(t&&t.missed&&sat.has(String(t.id))));
+    if(kept.length!==tests.length){tests=kept;added++;}
     for(const m of nkSchedList()){
       if(m.takenTestId||m.missedAt||nkSchedTest(m)||nkSchedStatus(m,now)!=='missed')continue;
       m.missedAt=Number(m.at)+nkSchedDoorMs(m);
@@ -148,13 +184,13 @@
   function nkSchedPick(at){
     const input=document.getElementById('nk-sched-at');if(!input)return;
     if(at)input.value=nkSchedLocalValue(at);
-    const ms=new Date(input.value).getTime();
+    const ms=nkSchedParseLocal(input.value);
     document.querySelectorAll('.nk-sched-chips button').forEach(b=>{const on=Number(b.dataset.at)===ms;b.classList.toggle('is-selected',on);b.setAttribute('aria-checked',String(on));});
     const confirm=document.getElementById('nk-sched-confirm');
     if(confirm){const ok=Number.isFinite(ms)&&ms>Date.now()+60000;confirm.disabled=!ok;confirm.textContent=ok?`Lock in ${nkSchedWhen(ms)}`:'Pick a time in the future';}
   }
   function nkSchedConfirm(){
-    const input=document.getElementById('nk-sched-at'),at=new Date(input?.value||'').getTime();
+    const input=document.getElementById('nk-sched-at'),at=nkSchedParseLocal(input?.value||'');
     if(!Number.isFinite(at)||at<=Date.now()+60000){showToast('Pick a time in the future.','bad');return;}
     if(!nkSchedSource&&!nkCbtDraft){nkSchedClose();showToast('Build the test again to schedule it.','bad');return;}
     const ids=nkSchedSource?nkSchedSource.questionIds.map(String):typeof nkMockPick==='function'?nkMockPick():[];if(!ids.length){showToast('No questions in this selection can be scheduled.','bad');return;}

@@ -76,8 +76,13 @@
     // New questions always open the topic picker, even after the goal is met, so you can keep going.
     const action=isNew&&plan.unseen?`<button type="button" class="nk-today-go nk-today-learn${primary?' is-primary':''}" onclick="window.QB.nkLearnOpen()" aria-label="${esc(step.title)}: ${esc(finished?'goal met. Pick a subject to keep going':label)}">${finished?'More':primary?`Choose ${count}`:count}${navIcon('chevron',16)}</button>`
       :finished?'':`<button type="button" class="nk-today-go${primary?' is-primary':''}" onclick="window.QB.nkTodayGo('${step.kind}')" aria-label="${esc(step.title)}: ${esc(label)}">${primary?`Start ${count}`:count}${navIcon('chevron',16)}</button>`;
-    const goal=isNew?`<button type="button" class="nk-today-goal-edit" aria-expanded="false" aria-controls="nk-today-goal" onclick="window.QB.nkTodayGoalToggle(this)">Goal ${fmtNum(step.goal)}</button>`:'';
-    return `<li class="nk-today-step is-${stateName}${isNew?' is-new':''}" style="--nk-i:${i}">${nkTodayMarker(step,stateName)}<div class="nk-today-copy"><strong>${esc(step.title)}</strong><small>${esc(meta)}${goal?' · ':''}${goal}</small>${progress}</div>${action}${isNew?nkTodayGoalMarkup():''}</li>`;
+    // The goal control never sits on a line of its own (owner report 2026-11-21, Android):
+    // once the goal is met, "goal of N met" is itself the control; before that, "· Goal N" stays one unit.
+    const goalBtn=text=>`<button type="button" class="nk-today-goal-edit" aria-expanded="false" aria-controls="nk-today-goal" onclick="window.QB.nkTodayGoalToggle(this)">${text}</button>`;
+    const goalMet=isNew&&finished&&plan.unseen;
+    const small=goalMet?`${esc(`${fmtNum(step.done)} today`)} · ${goalBtn(`goal of ${fmtNum(step.goal)} met`)}`
+      :`${esc(meta)}${isNew?`<span class="nk-today-goal-tag"> · ${goalBtn(`Goal ${fmtNum(step.goal)}`)}</span>`:''}`;
+    return `<li class="nk-today-step is-${stateName}${isNew?' is-new':''}" style="--nk-i:${i}">${nkTodayMarker(step,stateName)}<div class="nk-today-copy"><strong>${esc(step.title)}</strong><small>${small}</small>${progress}</div>${action}${isNew?nkTodayGoalMarkup():''}</li>`;
   }
   // The focus band is the old Today's focus card, now the head of this card.
   const nkTodayFocusBand=nkHomeFocusSection;

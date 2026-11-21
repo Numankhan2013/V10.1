@@ -519,6 +519,12 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   `apply_cross_device_pwa_v1.py`: local-first outbox, Firebase email/password
   REST auth, normalized Firestore entity collections, per-device revisions,
   immutable attempt union, tombstones, and deterministic conflict handling.
+  Scheduled-mock bookings (`state.scheduledMocks`) sync as kind
+  `scheduledMocks` (2026-11-21; before that they never left the booking
+  device, so the iPad showed no ticket/make-up/streak): one document per
+  booking per device, every copy merged (`nkSchedMergeEntry`: add missing
+  bookings, add outcome stamps `takenTestId`/`makeupTestId`/`missedAt`, keep the
+  frozen paper, never delete).
 - PWA assets: manifest, service worker, responsive tablet shell, PDF.js browser
   source renderer, and `build_web_dist.py`. Pages excludes only the >25 MiB
   Anatomy PDF; its unchanged R2 URL is runtime configuration.
