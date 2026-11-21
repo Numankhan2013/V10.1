@@ -88,7 +88,14 @@ public class MainActivity extends Activity {
                 try { startActivity(new Intent(Intent.ACTION_VIEW, url)); } catch (Exception ignored) {}
                 return true;
             }
+            @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+                bridgePageUrl = url;
+            }
+            @Override public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
+                bridgePageUrl = url;
+            }
             @Override public void onPageCommitVisible(WebView view, String url) {
+                if (url != null) bridgePageUrl = url;
                 if (url != null && url.startsWith("http")) { offlineView.setVisibility(View.GONE); markPainted(); }
             }
             @Override public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
@@ -220,9 +227,12 @@ public class MainActivity extends Activity {
 
     // The bridges are injected into every document the WebView loads, so a call
     // is only honoured when the page in front of the learner is the app itself.
+    // The bridge methods run on the JavaBridge thread, where any WebView call (getUrl
+    // included) throws. The page URL is recorded on the UI thread by the WebViewClient
+    // callbacks below and read here.
+    private volatile String bridgePageUrl = null;
     private boolean onAppOrigin() {
-        if (webView == null) return false;
-        String current = webView.getUrl();
+        String current = bridgePageUrl;
         return current != null && appOrigin(Uri.parse(current));
     }
 
